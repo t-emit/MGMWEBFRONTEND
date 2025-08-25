@@ -380,7 +380,7 @@ const Header = () => {
             <img
               src="/images/mgm2.webp" // Assuming logo.png is in your public/images folder
               alt="MGM College of Engineering Logo"
-              className="h-10 md:h-14 w-auto transition-all duration-300 group-hover:scale-105"
+              className="h-10 md:h-14 w-auto transition-all duration-300 group-hover:scale-105 rounded-full"
             />
             <div className="flex flex-col text-white">
               <span className="text-lg md:text-xl font-bold group-hover:text-blue-200 transition-colors">
