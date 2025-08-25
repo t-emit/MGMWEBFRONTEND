@@ -1,0 +1,91 @@
+@import "tailwindcss";
+/* styles/index.css */
+/* Import statements must come first */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@400;500;700&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom styles */
+body {
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.6;
+  color: #000;
+  background-color: #f8f9fa;
+  overflow-x: hidden;
+}
+
+/* Custom animations */
+@keyframes slideShow {
+  0%, 100% {
+    opacity: 0;
+  }
+  10%, 30% {
+    opacity: 1;
+  }
+  40% {
+    opacity: 0;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slideShow {
+  animation: slideShow 24s infinite;
+}
+
+.animate-fadeIn {
+  animation: fadeIn 1s ease forwards;
+}
+
+/* Custom scrollbar for sidebar */
+#sidebar::-webkit-scrollbar {
+  width: 2px;
+  background: transparent;
+}
+
+/* Enhanced animations for header */
+.header-dropdown {
+  transform-origin: top center;
+  transition: all 0.3s ease;
+}
+
+/* Mobile menu transition */
+.mobile-menu-enter {
+  max-height: 0;
+  opacity: 0;
+}
+
+.mobile-menu-enter-active {
+  max-height: 500px;
+  opacity: 1;
+  transition: all 0.3s ease;
+}
+
+.mobile-menu-exit {
+  max-height: 500px;
+  opacity: 1;
+}
+
+.mobile-menu-exit-active {
+  max-height: 0;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+/* Sticky header effect */
+.sticky-header {
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+}
