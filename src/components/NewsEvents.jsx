@@ -6,8 +6,8 @@ const NewsEvents = () => {
             date: "April 15, 2025",
             title: "HackSpectra Hackathon 2025",
             excerpt: "MGM’s College of Engineering is hosting HackSpectra 2025, a national-level hackathon fostering innovation and problem-solving among students.",
-            image: "hackspectra.jpg",
-            link: "newsdetail5f62.html?newsid=121"
+            image: "/images/POSTER.png",
+            link: "https://hackspectra.netlify.app/"
 
         },
         {
@@ -15,7 +15,7 @@ const NewsEvents = () => {
             date: "June 10, 2024",
             title: "Admission for B Tech & M Tech DSE",
             excerpt: "Admissions open for B.Tech and M.Tech Direct Second Year Entry programs.",
-            image: "slide1.jpg",
+            image: "/images/Admission.webp",
             link: "newsdetail4e19.html?newsid=119"
         },
 
