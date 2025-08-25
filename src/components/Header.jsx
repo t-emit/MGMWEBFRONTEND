@@ -41,14 +41,14 @@ const rawMenuItems = [
       { name: "Service Rules", link: "service-rules.html", icon: "fa-file-contract" }
     ]
   },
-  {
-    name: "Campus",
-    link: "#",
-    icon: "fa-university",
-    children: [
-      { name: "Campus Info", link: "campus.html", icon: "fa-info" }
-    ]
-  },
+//   {
+//     name: "Campus",
+//     link: "#",
+//     icon: "fa-university",
+//     children: [
+//       { name: "Campus Info", link: "campus.html", icon: "fa-info" }
+//     ]
+//   },
   {
     name: "Academics",
     link: "#",
@@ -201,15 +201,15 @@ const rawMenuItems = [
       { name: "GDSC", link: "https://mgmcen.ac.in/pdf/GDSC_MRB_5Oct2024.pdf", icon: "fa-google", target: "_blank" },
     ]
   },
-  {
-    name: "Collaboration",
-    link: "#",
-    icon: "fa-handshake",
-    children: [
-      { name: "Academic", link: "academic-collaboration.html", icon: "fa-graduation-cap" },
-      { name: "Corporate & Industries", link: "corporate-industries.html", icon: "fa-industry" },
-    ]
-  },
+//   {
+//     name: "Collaboration",
+//     link: "#",
+//     icon: "fa-handshake",
+//     children: [
+//       { name: "Academic", link: "academic-collaboration.html", icon: "fa-graduation-cap" },
+//       { name: "Corporate & Industries", link: "corporate-industries.html", icon: "fa-industry" },
+//     ]
+//   },
   {
     name: "Download",
     link: "#",
@@ -378,7 +378,7 @@ const Header = () => {
         <div className="flex flex-col md:flex-row justify-between items-center gap-4">
           <a href="index.html" className="flex items-center gap-3 md:gap-4 group">
             <img
-              src="/images/logo.png" // Assuming logo.png is in your public/images folder
+              src="/images/mgm2.webp" // Assuming logo.png is in your public/images folder
               alt="MGM College of Engineering Logo"
               className="h-10 md:h-14 w-auto transition-all duration-300 group-hover:scale-105"
             />
@@ -428,7 +428,7 @@ const Header = () => {
 
       {/* Navigation section */}
       <div className="bg-white shadow-md">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-1">
           <div className="flex justify-between items-center h-14 lg:h-auto"> {/* Added height for mobile consistency */}
             <button
               className="lg:hidden text-indigo-900 p-4 focus:outline-none"

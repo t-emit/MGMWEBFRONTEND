@@ -30,7 +30,7 @@ const About = () => {
           </div>
           
           <div className="order-1 md:order-2 rounded-lg overflow-hidden shadow-lg">
-            <img src="slide4.jpg" alt="MGM College Campus" className="w-full h-auto transition-transform duration-500 hover:scale-105" />
+            <img src="/images/image.png" alt="MGM College Campus" className="w-full h-auto transition-transform duration-500 hover:scale-105" />
           </div>
         </div>
       </div>

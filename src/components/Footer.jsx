@@ -6,7 +6,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           <div>
             <div className="flex items-center gap-4 mb-6">
-              <img src="logo.png" alt="MGM College Logo" className="h-12 w-auto" />
+              <img src="/images/mgm2.webp" alt="MGM College Logo" className="h-12 w-auto" />
               <span className="text-xl font-bold">MGM's College of Engineering</span>
             </div>
             <p className="mb-6 leading-relaxed">
