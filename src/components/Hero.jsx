@@ -1,38 +1,38 @@
 // components/Hero.jsx
 const Hero = () => {
   return (
-    <section className="relative h-screen min-h-[600px] overflow-hidden mt-16">
+    <section className="relative h-screen min-h-[600px] overflow-hidden mt-16 font-sans">
       {/* Background Slideshow */}
       <div className="absolute w-full h-full">
         <div
-          className="absolute w-full h-full bg-cover bg-center opacity-0 animate-slideShow"
+          className="absolute w-full h-full bg-cover bg-center opacity-0 animate-slideShow scale-105"
           style={{ backgroundImage: "url('slide1.jpg')", animationDelay: "0s" }}
         ></div>
         <div
-          className="absolute w-full h-full bg-cover bg-center opacity-0 animate-slideShow"
+          className="absolute w-full h-full bg-cover bg-center opacity-0 animate-slideShow scale-105"
           style={{ backgroundImage: "url('slide2.jpg')", animationDelay: "8s" }}
         ></div>
         <div
-          className="absolute w-full h-full bg-cover bg-center opacity-0 animate-slideShow"
+          className="absolute w-full h-full bg-cover bg-center opacity-0 animate-slideShow scale-105"
           style={{ backgroundImage: "url('slide3.jpg')", animationDelay: "16s" }}
         ></div>
       </div>
 
-      {/* Dark overlay for readability */}
-      <div className="absolute w-full h-full bg-gradient-to-b from-blue-950/80 via-indigo-900/70 to-blue-950/80"></div>
+      {/* Stronger gradient overlay for focus */}
+      <div className="absolute w-full h-full bg-gradient-to-r from-blue-950/90 via-blue-900/80 to-indigo-900/85 backdrop-blur-[2px]"></div>
 
       {/* Content */}
       <div className="relative z-10 h-full flex flex-col justify-center items-center text-center text-white px-6 max-w-4xl mx-auto">
-        <h1 className="text-3xl md:text-5xl font-extrabold mb-6 leading-snug drop-shadow-lg animate-fadeIn">
+        <h1 className="text-4xl md:text-6xl font-extrabold mb-6 leading-tight tracking-wide drop-shadow-2xl animate-fadeIn">
           MGM's College of Engineering
         </h1>
-        <p className="text-lg md:text-2xl mb-10 max-w-2xl leading-relaxed opacity-90 animate-fadeIn">
-          Delivering excellence in engineering education with a multidisciplinary
-          approach to meet the evolving needs of industry and society.
+        <p className="text-lg md:text-2xl mb-10 max-w-3xl leading-relaxed text-gray-200 animate-fadeIn">
+          Nurturing innovation and academic excellence to shape future engineers
+          with a vision for sustainable growth and global impact.
         </p>
         <a
           href="about.html"
-          className="px-8 py-3 border-2 border-white text-white rounded-lg font-semibold tracking-wide hover:bg-white hover:text-indigo-900 transition-all duration-300 shadow-md animate-fadeIn"
+          className="px-10 py-4 bg-yellow-500 text-blue-950 rounded-lg font-semibold text-lg tracking-wide shadow-lg hover:bg-yellow-400 hover:scale-105 transition-transform duration-300 animate-fadeIn"
         >
           Learn More
         </a>
