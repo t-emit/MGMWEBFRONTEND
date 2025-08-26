@@ -41,14 +41,6 @@ const rawMenuItems = [
       { name: "Service Rules", link: "service-rules.html", icon: "fa-file-contract" }
     ]
   },
-//   {
-//     name: "Campus",
-//     link: "#",
-//     icon: "fa-university",
-//     children: [
-//       { name: "Campus Info", link: "campus.html", icon: "fa-info" }
-//     ]
-//   },
   {
     name: "Academics",
     link: "#",
@@ -61,14 +53,11 @@ const rawMenuItems = [
       { name: "Information Technology", link: "information-technology/profile.html", icon: "fa-server" },
       { name: "Mechanical Engineering", link: "mechanical-engineering/profile.html", icon: "fa-cogs" },
       { name: "Artificial Intelligence and Machine Learning", link: "/Artifitalintalligance/profile.html", icon: "fa-brain" },
-      { name: "Automation and Robotics", link: "Automation/profile.html", icon: "fa-robot" },
-      { name: "Courses in Human Values & Professional Ethics", link: "courses-humanvalues-professionalethics/profile.html", icon: "fa-hands-helping" },
-      { name: "Training and Placement Cell", link: "trainingandplacement/profile.html", icon: "fa-briefcase" },
-      { name: "Innovation & Entrepreneurship Development Cell", link: "Innovation-Entrepreneurship-Development-Cell/profile.html", icon: "fa-lightbulb" },
-      { name: "Research", link: "research/profile.html", icon: "fa-search" },
       { name: "Academic Calendar", link: "academic-calendar.html", icon: "fa-calendar-alt" },
     ]
   },
+  { name: "Research", link: "research/profile.html", icon: "fa-search" },
+
   {
     name: "Cells & Committees",
     link: "#",
@@ -129,7 +118,7 @@ const rawMenuItems = [
     ]
   },
   {
-    name: "Student Activities",
+    name: "Students Corner",
     link: "#",
     icon: "fa-running",
     children: [
@@ -201,15 +190,6 @@ const rawMenuItems = [
       { name: "GDSC", link: "https://mgmcen.ac.in/pdf/GDSC_MRB_5Oct2024.pdf", icon: "fa-google", target: "_blank" },
     ]
   },
-//   {
-//     name: "Collaboration",
-//     link: "#",
-//     icon: "fa-handshake",
-//     children: [
-//       { name: "Academic", link: "academic-collaboration.html", icon: "fa-graduation-cap" },
-//       { name: "Corporate & Industries", link: "corporate-industries.html", icon: "fa-industry" },
-//     ]
-//   },
   {
     name: "Download",
     link: "#",
@@ -230,64 +210,103 @@ const rawMenuItems = [
 const menuItemsWithIds = assignIds(rawMenuItems);
 
 // Recursive MenuItem Component
-const MenuItem = ({ item, level = 0, activeDropdownId, setActiveDropdownId, isMobile }) => {
+const MenuItem = ({ item, level = 0, activeDropdownPath, updateActiveDropdownPath, isMobile, setIsMenuOpen }) => {
   const hasChildren = item.children && item.children.length > 0;
-  const isOpen = activeDropdownId && activeDropdownId.startsWith(item.id);
-  const isDirectlyActive = activeDropdownId === item.id;
+  // A menu item is considered 'open' for desktop hover if its ID is in the active path
+  const isOpenOnDesktop = !isMobile && activeDropdownPath.includes(item.id);
+  // For mobile, an item is 'currently clicked' if it's the specific item at its level in the path
+  const isCurrentlyClickedOnMobile = isMobile && activeDropdownPath[level] === item.id;
 
   const handleMouseEnter = () => {
     if (!isMobile && hasChildren) {
-      setActiveDropdownId(item.id); // Open dropdown on hover
+      updateActiveDropdownPath(item.id, level, 'hover');
     }
   };
 
   const handleClick = (e) => {
     if (hasChildren) {
-      e.preventDefault(); // Prevent default link navigation for parent items
-      setActiveDropdownId(prevId => prevId === item.id ? null : item.id); // Toggle dropdown on click
+      e.preventDefault(); // Prevent default navigation for parent items
+      updateActiveDropdownPath(item.id, level, 'toggle'); // Toggle visibility on click (mobile)
+    }
+
+    if (!hasChildren) { // If a leaf item is clicked
+      // If it's on mobile, close the entire mobile menu
+      if (isMobile) {
+        setIsMenuOpen(false);
+      }
+      // Always clear active dropdown path for leaf nodes on any device after navigation
+      updateActiveDropdownPath(null, -1, 'clear');
+      // Let the default link navigation happen
     }
   };
 
+  // Determine chevron icon direction based on active state
+  const isDropdownActive = isCurrentlyClickedOnMobile || isOpenOnDesktop;
+  const chevronIcon = isDropdownActive ? 'fa-chevron-up' : 'fa-chevron-down';
+
   const linkContent = (
     <>
-      {item.icon && <i className={`fas ${item.icon} mr-2 text-sm w-4 text-center`}></i>}
-      <span className="flex-1">{item.name}</span>
+      {item.icon && <i className={`fas ${item.icon} mr-1 text-sm w-4 text-center`}></i>} {/* Reduced mr to mr-1 */}
+      <span className="flex-1 whitespace-nowrap">{item.name}</span> {/* Added whitespace-nowrap */}
       {hasChildren && (
         <i
-          className={`fas fa-chevron-${
-            isDirectlyActive && isOpen ? 'up' : 'down'
-          } text-xs ml-2 transition-transform duration-300 ${
-            isDirectlyActive && isOpen ? 'rotate-180' : ''
+          className={`fas ${chevronIcon} text-xs ml-2 transition-transform duration-300 ${
+            isDropdownActive ? 'rotate-180' : ''
           }`}
         ></i>
       )}
     </>
   );
 
-  const linkClasses = `
-    flex items-center w-full px-4 py-2 text-sm transition-all duration-300
-    ${level === 0
-      ? 'text-gray-800 font-semibold hover:text-blue-700'
-      : 'text-gray-700 hover:text-blue-600'
+  // Base classes for all links
+  const linkClasses = [
+    'flex items-center w-full py-2 text-sm transition-all duration-300',
+  ];
+
+  if (isMobile) {
+    linkClasses.push('px-4 border-b border-gray-100');
+    linkClasses.push('hover:bg-blue-50');
+    if (isCurrentlyClickedOnMobile) {
+      linkClasses.push('bg-blue-50 text-blue-600');
+    } else if (level === 0) {
+      linkClasses.push('text-gray-800 font-semibold');
+    } else {
+      linkClasses.push('text-gray-700');
     }
-    ${isMobile
-      ? 'hover:bg-blue-50 border-b border-gray-100'
-      : 'hover:bg-gray-100 rounded-md'
+  } else { // Desktop specific styling
+    linkClasses.push('px-2 rounded-md'); // Further reduced padding for desktop items to fit more
+    if (level === 0) { // Top-level desktop item
+      linkClasses.push('font-semibold');
+      // For top-level items on desktop, only text color changes on hover/active
+      if (isOpenOnDesktop) { // Active state (dropdown is open)
+        linkClasses.push('text-blue-700');
+      } else { // Not active
+        linkClasses.push('text-gray-800');
+      }
+      linkClasses.push('hover:text-blue-700'); // Top-level desktop item hover color
+    } else { // Sub-level desktop item
+      // For sub-level items, background and text color change on hover/active
+      if (isOpenOnDesktop) { // Active state (its dropdown is open)
+        linkClasses.push('bg-blue-50 text-blue-600');
+      } else { // Not active
+        linkClasses.push('text-gray-700');
+      }
+      linkClasses.push('hover:bg-gray-100 hover:text-blue-600'); // Sub-level desktop item hover styles
     }
-    ${isDirectlyActive ? 'text-blue-600 bg-blue-50' : ''}
-  `;
+  }
+
+  const finalLinkClasses = linkClasses.join(' ');
 
   return (
     <li
       className="relative"
       onMouseEnter={handleMouseEnter}
-      // onMouseLeave for the entire nav bar is handled by the parent UL
     >
       <a
         href={item.link}
         target={item.target}
         rel={item.target === '_blank' ? 'noopener noreferrer' : undefined}
-        className={linkClasses}
+        className={finalLinkClasses}
         onClick={handleClick}
       >
         {linkContent}
@@ -298,26 +317,27 @@ const MenuItem = ({ item, level = 0, activeDropdownId, setActiveDropdownId, isMo
           className={`
             ${isMobile
               ? `bg-white pl-6 overflow-hidden transition-all duration-500 ease-in-out ${
-                  isOpen ? 'max-h-[300px] opacity-100 overflow-y-auto' : 'max-h-0 opacity-0'
+                  isCurrentlyClickedOnMobile ? 'max-h-[300px] opacity-100 overflow-y-auto' : 'max-h-0 opacity-0'
                 }`
-              : `absolute mt-0 min-w-64 max-w-sm bg-white shadow-xl rounded-lg py-2 border border-gray-100 z-50 transition-all duration-300 origin-top-left
-                 ${isDirectlyActive
+              : `absolute mt-0 min-w-64 bg-white shadow-xl rounded-lg py-2 border border-gray-100 z-[51] transition-all duration-300 origin-top-left
+                 ${isOpenOnDesktop // Show desktop dropdown if this item is in the active path
                     ? 'opacity-100 visible translate-y-0 scale-100'
                     : 'opacity-0 invisible translate-y-2 scale-95 pointer-events-none'
                  }
                  ${level === 0 ? 'left-0' : 'left-full top-0'}` // Sub-sub menus open to the right
             }
           `}
-          style={isMobile && !isOpen ? { maxHeight: 0 } : {}} // Explicitly set max-height for mobile transition
+          style={isMobile && !isCurrentlyClickedOnMobile ? { maxHeight: 0 } : {}} // Explicitly set max-height for mobile transition
         >
           {item.children.map((child) => (
             <MenuItem
               key={child.id}
               item={child}
               level={level + 1}
-              activeDropdownId={activeDropdownId}
-              setActiveDropdownId={setActiveDropdownId}
+              activeDropdownPath={activeDropdownPath}
+              updateActiveDropdownPath={updateActiveDropdownPath}
               isMobile={isMobile}
+              setIsMenuOpen={setIsMenuOpen}
             />
           ))}
         </ul>
@@ -331,10 +351,33 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
-  const [activeDropdownId, setActiveDropdownId] = useState(null);
   const [isSearchFocused, setIsSearchFocused] = useState(false);
+  const [activeDropdownPath, setActiveDropdownPath] = useState([]); // Stores an array of IDs for the path of open menus
 
   const headerRef = useRef(null); // Ref for the entire header to detect outside clicks
+
+  // Function to update the active path when a menu item is hovered (desktop) or clicked (mobile)
+  const updateActiveDropdownPath = (itemId, itemLevel, actionType) => { // actionType: 'hover', 'toggle', 'clear'
+    setActiveDropdownPath(prevPath => {
+        if (actionType === 'clear') {
+            return [];
+        } else if (actionType === 'toggle') {
+            // For mobile clicks, we toggle the item's presence at its level
+            if (prevPath[itemLevel] === itemId) {
+                // If this item is already open, close it and all subsequent children
+                return prevPath.slice(0, itemLevel);
+            } else {
+                // Open this item, closing any siblings at this level and their children
+                return [...prevPath.slice(0, itemLevel), itemId];
+            }
+        } else { // 'hover'
+            // When hovering, we always want to set the new path segment
+            // and truncate any deeper paths
+            return [...prevPath.slice(0, itemLevel), itemId];
+        }
+    });
+  };
+
 
   const handleSearch = (e) => {
     e.preventDefault();
@@ -355,17 +398,31 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Close dropdowns and mobile menu when clicking outside
+  // Close dropdowns and mobile menu when clicking outside (entire header or body)
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (headerRef.current && !headerRef.current.contains(event.target)) {
-        setActiveDropdownId(null);
-        setIsMenuOpen(false);
+        setActiveDropdownPath([]); // Clear all dropdowns
+        setIsMenuOpen(false); // Close mobile menu
       }
     };
     document.addEventListener('click', handleClickOutside);
     return () => document.removeEventListener('click', handleClickOutside);
   }, []);
+
+  // Ref and handlers for the main desktop navigation UL to clear dropdowns on mouse leave
+  const navRef = useRef(null); // Ref for the main navigation UL
+  const leaveNavTimeoutRef = useRef(null); // Ref for the mouse leave timeout
+
+  const handleNavMouseEnter = () => {
+      clearTimeout(leaveNavTimeoutRef.current); // Clear any pending hide on re-entry
+  };
+
+  const handleNavMouseLeave = () => {
+      leaveNavTimeoutRef.current = setTimeout(() => {
+          setActiveDropdownPath([]); // Clear all open dropdowns after a short delay
+      }, 200); // Small delay to allow moving between top-level items
+  };
 
   return (
     <header ref={headerRef} className={`fixed top-0 left-0 w-full text-white transition-all duration-300 z-50 ${
@@ -382,20 +439,16 @@ const Header = () => {
               alt="MGM College of Engineering Logo"
               className="h-10 md:h-14 w-auto transition-all duration-300 group-hover:scale-105 rounded-full"
             />
-            <div className="flex flex-col text-white">
-              <span className="text-lg md:text-xl font-bold group-hover:text-blue-200 transition-colors">
-                MGM's College of Engineering
-              </span>
-              <span className="text-xs text-blue-200 opacity-0 group-hover:opacity-100 transition-opacity">
-                Affiliated to Dr. BATU, Approved by AICTE
-              </span>
-            </div>
+            {/* Simplified logo text to a single span, matching the image */}
+            <span className="text-lg md:text-xl font-bold text-white transition-colors">
+              MGM's College of Engineering
+            </span>
           </a>
 
           <div className="flex flex-col md:flex-row items-center gap-4 w-full md:w-auto">
             {/* Search Bar - Desktop (Visible only on md screens and up) */}
             <form onSubmit={handleSearch} className="relative w-full md:w-64 lg:w-72 hidden md:block">
-              <div className={`flex items-center bg-white rounded-full pl-4 pr-2 border-2 ${isSearchFocused ? 'border-blue-400 ring-2 ring-blue-400' : 'border-gray-200'} transition-all duration-300`}>
+              <div className={`flex items-center bg-white rounded-full pl-4 pr-2 border ${isSearchFocused ? 'border-blue-400' : 'border-gray-300'} transition-all duration-300`}>
                 <i className="fas fa-search text-gray-500 mr-2 text-base"></i>
                 <input
                   type="text"
@@ -416,7 +469,8 @@ const Header = () => {
               </div>
             </form>
 
-            <div className="hidden xl:block text-sm text-blue-100 text-center md:text-right max-w-xs">
+            {/* Accreditation text - Visible on MD screens and up, as in the image */}
+            <div className="text-sm text-blue-100 text-center md:text-right max-w-xs hidden md:block">
               Affiliated to Dr. BATU. Loners, Accredited by NAAC(2024), NBA
               Accredited (2024-2027), Approved by AICTE, New Delhi.
             </div>
@@ -428,14 +482,15 @@ const Header = () => {
 
       {/* Navigation section */}
       <div className="bg-white shadow-md">
-        <div className="container mx-auto px-1">
+        {/* Adjusted to w-full with responsive padding for maximum horizontal space */}
+        <div className="w-full mx-auto px-4 lg:px-6"> 
           <div className="flex justify-between items-center h-14 lg:h-auto"> {/* Added height for mobile consistency */}
             <button
               className="lg:hidden text-indigo-900 p-4 focus:outline-none"
               onClick={(e) => {
-                  e.stopPropagation();
+                  e.stopPropagation(); // Prevent header's handleClickOutside from closing menu
                   setIsMenuOpen(!isMenuOpen);
-                  setActiveDropdownId(null);
+                  setActiveDropdownPath([]); // Close any open dropdowns when main mobile menu toggles
               }}
               aria-label="Toggle menu"
             >
@@ -466,19 +521,21 @@ const Header = () => {
             </div>
 
             {/* Desktop Navigation */}
-            <nav className="hidden lg:block">
-              <ul className="flex space-x-1"
-                // This onMouseLeave handles closing the entire dropdown tree
-                // when the mouse leaves the main navigation bar, for desktop only.
-                onMouseLeave={() => setActiveDropdownId(null)}
+            <nav ref={navRef} className="hidden lg:block w-full"> {/* Added w-full here to allow flex to spread out */}
+              <ul
+                className="flex justify-between w-full space-x-1" // Further reduced spacing and added justify-between
+                onMouseEnter={handleNavMouseEnter}
+                onMouseLeave={handleNavMouseLeave}
               >
                 {menuItemsWithIds.map((item) => (
                   <MenuItem
                     key={item.id}
                     item={item}
-                    activeDropdownId={activeDropdownId}
-                    setActiveDropdownId={setActiveDropdownId}
+                    level={0} // Top level
+                    activeDropdownPath={activeDropdownPath}
+                    updateActiveDropdownPath={updateActiveDropdownPath}
                     isMobile={false}
+                    setIsMenuOpen={setIsMenuOpen}
                   />
                 ))}
               </ul>
@@ -494,9 +551,11 @@ const Header = () => {
                 <MenuItem
                   key={item.id}
                   item={item}
-                  activeDropdownId={activeDropdownId}
-                  setActiveDropdownId={setActiveDropdownId}
+                  level={0}
+                  activeDropdownPath={activeDropdownPath}
+                  updateActiveDropdownPath={updateActiveDropdownPath}
                   isMobile={true}
+                  setIsMenuOpen={setIsMenuOpen}
                 />
               ))}
             </ul>
