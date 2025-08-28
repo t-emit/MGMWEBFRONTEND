@@ -19,7 +19,7 @@ import CoursesOfferedPage from './pages/about/CoursesOfferedPage';
 import HistoryPage from './pages/about/HistoryPage';
 import GoverningCouncilPage from './pages/about/GoverningCouncilPage';
 import PressCoveragePage from './pages/about/PressCoveragePage';
-import LocationPage from './pages/about/LocationPage';
+import LocationPage from './pages/about/CampusInfoPage';
 import ServiceRulesPage from './pages/about/ServiceRulesPage';
 
 // Placeholder for other pages you'll create later
@@ -66,7 +66,7 @@ const App = () => {
           <Route path="/history" element={<HistoryPage />} />
           <Route path="/governing-council" element={<GoverningCouncilPage />} />
           <Route path="/press-coverage" element={<PressCoveragePage />} />
-          <Route path="/location" element={<LocationPage />} />
+          <Route path="/campus" element={<LocationPage />} />
           <Route path="/service-rules" element={<ServiceRulesPage />} />
 
           {/* Placeholder Routes for other main menu items (you'll replace these later) */}

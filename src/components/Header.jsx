@@ -29,7 +29,7 @@ const rawMenuItems = [
     icon: "fa-info-circle",
     children: [
       { name: "About Us", link: "/about-us", icon: "fa-building" }, // Updated
-      { name: "Vision & Mission", link: "/vision-mission", icon: "fa-bullseye" }, // Updated
+      // { name: "Vision & Mission", link: "/vision-mission", icon: "fa-bullseye" }, // Updated
       { name: "Core values, Code of conduct & Ethics", link: "/core-values-ethics", icon: "fa-gem" }, // Updated
       { name: "Accreditations / Affiliations", link: "/accreditations-affiliations", icon: "fa-award" }, // Updated
       { name: "Chairman's Desk", link: "/chairman-desk", icon: "fa-chair" }, // Updated
@@ -38,7 +38,7 @@ const rawMenuItems = [
       { name: "History", link: "/history", icon: "fa-history" }, // Updated
       { name: "Governing Council", link: "/governing-council", icon: "fa-users" }, // Updated
       { name: "Press Coverage", link: "/press-coverage", icon: "fa-newspaper" }, // Updated
-      { name: "Location", link: "/location", icon: "fa-map-marker-alt" }, // Updated
+      { name: "Campus", link: "/campus", icon: "fa-map-marker-alt" }, // Updated
       { name: "Service Rules", link: "/service-rules", icon: "fa-file-contract" } // Updated
     ]
   },

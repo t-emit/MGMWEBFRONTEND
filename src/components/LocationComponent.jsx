@@ -54,17 +54,17 @@ const LocationComponent = () => {
       {/* Transport Options */}
       {/* <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         <div className="bg-blue-50 p-6 rounded-xl border-l-4 border-blue-500 shadow-sm">
-          <h3 className="text-xl font-semibold mb-3 text-blue-800">✈️ By Air</h3>
+          <h3 className="text-xl font-semibold mb-3 text-blue-800">By Air</h3>
           <p className="text-gray-700">Nearest airport is within 5 km from the campus</p>
         </div>
 
         <div className="bg-green-50 p-6 rounded-xl border-l-4 border-green-500 shadow-sm">
-          <h3 className="text-xl font-semibold mb-3 text-green-800">🚆 By Rail</h3>
+          <h3 className="text-xl font-semibold mb-3 text-green-800">By Rail</h3>
           <p className="text-gray-700">Nanded Railway Station is within 5 km from the campus</p>
         </div>
 
         <div className="bg-purple-50 p-6 rounded-xl border-l-4 border-purple-500 shadow-sm">
-          <h3 className="text-xl font-semibold mb-3 text-purple-800">🚌 By Road</h3>
+          <h3 className="text-xl font-semibold mb-3 text-purple-800">By Road</h3>
           <p className="text-gray-700">Well connected by road transport from all major cities</p>
         </div>
       </div> */}

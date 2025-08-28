@@ -54,7 +54,7 @@ const AboutUsPage = () => {
           </div>
 
           {/* Quick Facts */}
-          <div className="bg-gray-50 rounded-xl shadow-lg p-8 mb-10">
+          {/* <div className="bg-gray-50 rounded-xl shadow-lg p-8 mb-10">
             <h2 className="text-3xl font-bold mb-6 text-indigo-800 border-b-2 border-indigo-200 pb-3">Quick Facts</h2>
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -88,7 +88,7 @@ const AboutUsPage = () => {
                 <div className="text-gray-700">NBA Accreditation Until</div>
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
 
         {/* Sidebar */}
