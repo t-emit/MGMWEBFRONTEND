@@ -38,7 +38,7 @@ const LocationComponent = () => {
             rel="noopener noreferrer"
             className="px-5 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-all shadow-md"
           >
-            🔍 View Larger Map
+            View Larger Map
           </a>
           <a
             href="https://www.google.com/maps/dir//MGM+College+of+Engineering,+Nanded/"
@@ -46,13 +46,13 @@ const LocationComponent = () => {
             rel="noopener noreferrer"
             className="px-5 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-all shadow-md"
           >
-            🚗 Driving Directions
+            Driving Directions
           </a>
         </div>
       </div>
 
       {/* Transport Options */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      {/* <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         <div className="bg-blue-50 p-6 rounded-xl border-l-4 border-blue-500 shadow-sm">
           <h3 className="text-xl font-semibold mb-3 text-blue-800">✈️ By Air</h3>
           <p className="text-gray-700">Nearest airport is within 5 km from the campus</p>
@@ -67,7 +67,7 @@ const LocationComponent = () => {
           <h3 className="text-xl font-semibold mb-3 text-purple-800">🚌 By Road</h3>
           <p className="text-gray-700">Well connected by road transport from all major cities</p>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };
