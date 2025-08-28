@@ -10,7 +10,6 @@ import HomePage from './pages/Home';
 
 // Import About Us sub-pages
 import AboutUsPage from './pages/about/AboutUsPage';
-import VisionMissionPage from './pages/about/VisionMissionPage';
 import CoreValuesEthicsPage from './pages/about/CoreValuesEthicsPage';
 import AccreditationsAffiliationsPage from './pages/about/AccreditationsAffiliationsPage';
 import ChairmansDeskPage from './pages/about/ChairmansDeskPage';
@@ -57,7 +56,6 @@ const App = () => {
 
           {/* About Us Routes */}
           <Route path="/about-us" element={<AboutUsPage />} />
-          <Route path="/vision-mission" element={<VisionMissionPage />} />
           <Route path="/core-values-ethics" element={<CoreValuesEthicsPage />} />
           <Route path="/accreditations-affiliations" element={<AccreditationsAffiliationsPage />} />
           <Route path="/chairman-desk" element={<ChairmansDeskPage />} />
