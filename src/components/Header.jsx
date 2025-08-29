@@ -1,6 +1,6 @@
 // components/Header.jsx
 import { useState, useEffect, useRef } from 'react';
-import { Link, useLocation } from 'react-router-dom'; // Import Link and useLocation for active link styling
+import { Link, useLocation, useNavigate } from 'react-router-dom'; // Import Link and useLocation for active link styling
 
 // IMPORTANT: For Font Awesome icons (fa-search, fa-home, etc.) to be visible,
 // you need to include the Font Awesome library in your project.
@@ -174,7 +174,7 @@ const rawMenuItems = [
           { name: "NSS", link: "/students-corner/social/nss", icon: "fa-hands" },
           { name: "Tech Life", link: "/students-corner/social/tech-life", icon: "fa-mobile-alt" },
           { name: "MGM Helpline", link: "/students-corner/social/mgm-helpline", icon: "fa-phone-alt" },
-          { name: "Unnat Bharat Abhiyan", link: "https://mgmcen.ac.in/pdf/UBA Report 10112024.pdf", icon: "fa-flag", target: "_blank" },
+          { name: "Unnat Bharat Abhiyan", link: "/pdfs/UBA/UBAReport10112024.pdf", icon: "fa-flag", target: "_blank" },
         ]
       },
       {
@@ -184,11 +184,28 @@ const rawMenuItems = [
         children: [
           { name: "About us", link: "/students-corner/visiotech/about-us", icon: "fa-info-circle" },
           { name: "Visiotech Poster", link: "/students-corner/visiotech/visiotech-poster", icon: "fa-image" },
-          { name: "Visiotech report 2023", link: "http://mgmcen.ac.in/docs/VISIOTECH 2023 WEBSITE.pdf", icon: "fa-file-pdf", target: "_blank" },
+          { name: "Visiotech report 2023", link: "/pdfs/visiotech/VISIOTECH 2023 WEBSITE.pdf", icon: "fa-file-pdf", target: "_blank" },
           { name: "VISIOTECH 2024", link: "http://www.visiotech2024.info/", icon: "fa-globe", target: "_blank" },
         ]
       },
-      { name: "GDSC", link: "https://mgmcen.ac.in/pdf/GDSC_MRB_5Oct2024.pdf", icon: "fa-google", target: "_blank" },
+      { name: "GDSC", link: "/pdfs/GDSC/GDSC_MRB_5Oct2024.pdf", icon: "fa-google", target: "_blank" },
+    ]
+  },
+    {
+    name: "Collaboration",
+    link: "#", // Parent item is not a direct link
+    icon: "fa-handshake", // A suitable icon for collaboration
+    children: [
+      { 
+        name: "Academic", 
+        link: "/collaboration/academic", // Route for the Academic Collaboration page
+        icon: "fa-university" 
+      },
+      { 
+        name: "Corporate & Industries", 
+        link: "/collaboration/corporate-industries", // Route for the Corporate Collaboration page
+        icon: "fa-industry" 
+      },
     ]
   },
   {
@@ -374,6 +391,8 @@ const Header = () => {
 
   const headerRef = useRef(null); // Ref for the entire header to detect outside clicks
 
+
+   const navigate = useNavigate();
   // Function to update the active path when a menu item is hovered (desktop) or clicked (mobile)
   const updateActiveDropdownPath = (itemId, itemLevel, actionType) => { // actionType: 'hover', 'toggle', 'clear'
     setActiveDropdownPath(prevPath => {
@@ -397,14 +416,18 @@ const Header = () => {
   };
 
 
-  const handleSearch = (e) => {
+ const handleSearch = (e) => {
     e.preventDefault();
-    alert(`Searching for: ${searchQuery}`);
-    setSearchQuery('');
-    if (document.activeElement instanceof HTMLElement) {
-      document.activeElement.blur(); // Blur the input after search
+    if (searchQuery.trim()) { // Only search if there is text
+      // Navigate to the search results page with the query
+      navigate(`/search?q=${encodeURIComponent(searchQuery.trim())}`);
+      setSearchQuery(''); // Clear the input
+      if (document.activeElement instanceof HTMLElement) {
+        document.activeElement.blur(); // Unfocus the input
+      }
+      setIsSearchFocused(false);
+      setIsMenuOpen(false); // Close mobile menu on search
     }
-    setIsSearchFocused(false);
   };
 
   // Handle scroll effect

@@ -38,12 +38,41 @@ import CSEDepartmentalActivityPage from './pages/Academic/CSE/CSEDepartmentalAct
 import EsteemedAlumni from './pages/alumni/EsteemedAlumni';
 import AlumniRegistration from './pages/alumni/AlumniRegistration';
 import AlumniSpeak from './pages/alumni/AlumniSpeak';
-import CesaPage from './pages/students-corner/CesaPage';
-import CucPage from './pages/students-corner/cucpage';
-import EtaPage from './pages/students-corner/EtaPage';
-import CucPage from './pages/students-corner/cucpage'; 
+import CesaPage from './pages/students-corner/academic/CesaPage';
+import CucPage from './pages/students-corner/academic/cucpage';
+import EtaPage from './pages/students-corner/academic/EtaPage';
+// import CucPage from './pages/students-corner/cucpage'; 
+import MesaPage from './pages/students-corner/academic/MesaPage';
 import CUCPage from './pages/Academic/CSE/CUCPage';
 import CSIIEIPage from './pages/Academic/CSE/CSIIEIPage';
+import ItsaPage from './pages/students-corner/academic/Itsapage';
+import CastActivityPage from './pages/students-corner/co-curricular/castActivity';
+import EnglishLanguageClubPage from './pages/students-corner/co-curricular/EngLangClub';
+import AchievementsIndoorPage from './pages/students-corner/sports/indoor';
+import AchievementsOutdoorPage from './pages/students-corner/sports/outdoor';
+
+import AarohanPage from './pages/students-corner/cultural/Arohan';
+import JhankaarPage from './pages/students-corner/cultural/Jankar';
+import SynergyPage from './pages/students-corner/cultural/Synergy';
+
+import NssPage from './pages/Social/nss';
+import TechLifePage from './pages/Social/techlife';
+import MgmHelplinePage from './pages/Social/helpline';
+
+import AboutVisiotechPage from './pages/visiotech/aboutvi';
+import VisiotechPosterPage from './pages/visiotech/viposter';
+
+import AcademicCollaborationPage from './pages/collab/acdemic';
+import CorporateIndustriesPage from './pages/collab/corporate';
+
+import CurrentAdvertisementPage from './pages/download/currentad';
+import NirfPage from './pages/download/nirf';
+import FeesRegulatoryAuthorityPage from './pages/download/fra';
+import AuditedStatementsPage from './pages/download/AuditedS';
+import TenderPage from './pages/download/Tender';
+import ContactPage from './pages/contact';
+
+import SearchResultsPage from './pages/search';
 // ==========================================================
 
 // Placeholder for other pages you'll create later
@@ -97,14 +126,47 @@ const App = () => {
           {/* ========================================================== */}
 
 
-<<<<<<< HEAD
         {/* ROUTE FOR THE CESA /cuc/eta PAGE */}
                   <Route path="/students-corner/academic/cesa" element={<CesaPage />} />
                   <Route path="/students-corner/academic/cuc" element={<CucPage />} />
                    <Route path="/students-corner/academic/eta" element={<EtaPage />} />
-                  
+                   <Route path="/students-corner/academic/mesa" element={<MesaPage />} />
+                   <Route path="/students-corner/academic/itsa" element={<ItsaPage />} />
+
+          {/*Co-curricilar pages*/}
+          <Route path="/students-corner/co-curricular/cast-activity" element={<CastActivityPage />} />
+          <Route path="/students-corner/co-curricular/english-language-club" element={<EnglishLanguageClubPage />} />
+
+          {/* Sports Pages */}
+           <Route path="/students-corner/sport/achievements-indoor" element={<AchievementsIndoorPage />} />
+          <Route path="/students-corner/sport/achievements-outdoor" element={<AchievementsOutdoorPage />} />
+         
+          {/* Cultural Pages */}
+          <Route path="/students-corner/cultural/aarohan" element={<AarohanPage />} />
+          <Route path="/students-corner/cultural/jhankaar" element={<JhankaarPage />} />
+          <Route path="/students-corner/cultural/synergy" element={<SynergyPage />} />
+         
+          {/* Social Pages */}
+          <Route path="/students-corner/social/nss" element={<NssPage />} />
+          <Route path="/students-corner/social/tech-life" element={<TechLifePage />} />
+          <Route path="/students-corner/social/mgm-helpline" element={<MgmHelplinePage />} />
+
+          <Route path="/students-corner/visiotech/about-us" element={<AboutVisiotechPage />} />
+          <Route path="/students-corner/visiotech/visiotech-poster" element={<VisiotechPosterPage />} />
+
+           <Route path="/collaboration/academic" element={<AcademicCollaborationPage />} />
+          <Route path="/collaboration/corporate-industries" element={<CorporateIndustriesPage />} />
+
+          <Route path="/download/current-advertisement" element={<CurrentAdvertisementPage />} />
+          <Route path="/download/nirf" element={<NirfPage />} />
+           <Route path="/download/fees-regulatory-authority" element={<FeesRegulatoryAuthorityPage />} />
+          <Route path="/download/audited-statements" element={<AuditedStatementsPage />} />
+          <Route path="/download/tender" element={<TenderPage />} />
+          <Route path="/contact" element={<ContactPage />} />
+
+          <Route path="/search" element={<SearchResultsPage />} />
+
           {/* Placeholder Routes for other main menu items (you'll replace these later) */}
-=======
           {/* STUDENTS CORNER ROUTES */}
           <Route path="/student-activities/academic/cesa" element={<CesaPage />} />
           <Route path="/student-activities/academic/cuc" element={<CucPage />} />
@@ -136,7 +198,6 @@ const App = () => {
           
           {/* Generic placeholder for any other /academics/... routes not specifically defined above */}
           {/* Keep this generic route LAST in the /academics group */}
->>>>>>> 41d736fd777754e685203e4c540aa286cd2bd29f
           <Route path="/academics/*" element={<PlaceholderPage title="Academics Section" />} />
 
 
