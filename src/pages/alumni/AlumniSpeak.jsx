@@ -2,7 +2,7 @@
 
 import React from 'react';
 import AlumniPageLayout from './AlumniPageLayout';
-
+import MediaCarousel from '../../components/MediaCarousel';
 // --- DATA FOR VIDEOS ---
 // IMPORTANT: Replace the placeholder 'video-filename.mp4' with your actual video filenames.
 const videoData = [
@@ -42,6 +42,18 @@ const videoData = [
   },
 ];
 
+// 1. CREATE the 'videoSlides' array FOR THE CAROUSEL
+// We map over the old 'videoData' to create the new format.
+const videoSlides = videoData.map(video => ({
+    videoSrc: video.src,
+    title: video.name,
+    subtitle: video.title,
+}));
+const gallerySlides = [
+    { imageSrc: "/images/alumni-posters/poster2.jpg", title: "Congratulations", subtitle: "Prashantsingh Bhadoria" },
+    { imageSrc: "/images/alumni-posters/poster1.jpg", title: "Alumni Collage" },
+    { imageSrc: "/images/alumni-posters/poster3.jpg", title: "Alumni Event" },
+];
 // --- DATA FOR WRITTEN TESTIMONIALS ---
 // IMPORTANT: Replace the placeholder 'photo-filename.jpg' with your actual photo filenames.
 const testimonialData = [
@@ -94,55 +106,22 @@ const AlumniSpeak = () => {
       <div className="space-y-16">
         
         {/* Section 1: Event Gallery / Posters */}
-        <section>
-          <h2 className="text-3xl font-bold text-gray-800 mb-6 pb-2 border-b-2 border-indigo-200">
+           <section>
+          <h2 className="text-3xl font-bold text-gray-800 mb-2 pb-2 border-b-2 border-indigo-200">
             Event Gallery
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {/* IMPORTANT: Replace the placeholder filenames below with your actual poster filenames */}
-            <div className="bg-white p-2 rounded-lg shadow-lg border">
-              <img 
-                src="/images/alumni-posters/poster1.jpg" 
-                alt="Congratulations Prashantsingh Bhadoria Poster" 
-                className="w-full h-auto object-contain rounded-md"
-              />
-            </div>
-            <div className="bg-white p-2 rounded-lg shadow-lg border">
-              <img 
-                src="/images/alumni-posters/poster2.jpg" 
-                alt="Alumni Collage Poster" 
-                className="w-full h-auto object-contain rounded-md"
-              />
-            </div>
-                        <div className="bg-white p-2 rounded-lg shadow-lg border">
-              <img 
-                src="/images/alumni-posters/poster3.jpg" 
-                alt="Alumni Collage Poster" 
-                className="w-full h-auto object-contain rounded-md"
-              />
-            </div>
-          </div>
+          <MediaCarousel slides={gallerySlides} />
         </section>
 
-        {/* Section 2: Video Testimonials */}
+      {/* Section 2: Video Testimonials - CORRECTED */}
         <section>
-          <h2 className="text-3xl font-bold text-gray-800 mb-6 pb-2 border-b-2 border-indigo-200">
+          <h2 className="text-3xl font-bold text-gray-800 mb-2 pb-2 border-b-2 border-indigo-200">
             Video Testimonials
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {videoData.map((video, index) => (
-              <div key={index} className="bg-white rounded-lg shadow-lg overflow-hidden border">
-                <video src={video.src} controls className="w-full h-auto">
-                  Your browser does not support the video tag.
-                </video>
-                <div className="p-4 text-center">
-                  <p className="font-bold text-gray-800">{video.name}</p>
-                  {video.title && <p className="text-sm text-gray-600">{video.title}</p>}
-                </div>
-              </div>
-            ))}
-          </div>
+          {/* 2. USE the new MediaCarousel with the correct 'videoSlides' variable */}
+          <MediaCarousel slides={videoSlides} />
         </section>
+
 
         {/* Section 3: Written Testimonials */}
         <section>
@@ -167,6 +146,7 @@ const AlumniSpeak = () => {
               </div>
             ))}
           </div>
+          
         </section>
         
       </div>

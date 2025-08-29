@@ -29,6 +29,7 @@ import AlumniRegistration from './pages/alumni/AlumniRegistration';
 import AlumniSpeak from './pages/alumni/AlumniSpeak';
 import CesaPage from './pages/students-corner/CesaPage';
 import CucPage from './pages/students-corner/cucpage';
+import EtaPage from './pages/students-corner/EtaPage';
 // ==========================================================
 
 // Placeholder for other pages you'll create later
@@ -82,13 +83,14 @@ const App = () => {
           {/* ========================================================== */}
           <Route path="/alumni/esteemed-alumni" element={<EsteemedAlumni />} />
           <Route path="/alumni/registration" element={<AlumniRegistration />} />
-          <Route path="/alumni/speak" element={<AlumniSpeak />} />
+          <Route path="/alumni/speaks" element={<AlumniSpeak />} />
           {/* ========================================================== */}
 
 
-        {/* ROUTE FOR THE CESA PAGE */}
+        {/* ROUTE FOR THE CESA /cuc/eta PAGE */}
                   <Route path="/students-corner/academic/cesa" element={<CesaPage />} />
                   <Route path="/students-corner/academic/cuc" element={<CucPage />} />
+                   <Route path="/students-corner/academic/eta" element={<EtaPage />} />
                   
           {/* Placeholder Routes for other main menu items (you'll replace these later) */}
           <Route path="/academics/*" element={<PlaceholderPage title="Academics Section" />} />

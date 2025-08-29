@@ -89,3 +89,52 @@ body {
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(10px);
 }
+/* src/index.css */
+
+/* ... all your other styles are above ... */
+
+/* --- Custom Swiper Styles --- */
+/* This targets the main swiper container in our carousel component */
+.mySwiper {
+  position: relative;
+  padding-bottom: 40px !important; /* Add space at the bottom for pagination dots */
+}
+
+/* Style for the navigation arrows (Next/Prev) */
+.mySwiper .swiper-button-next,
+.mySwiper .swiper-button-prev {
+  color: #4ade80; /* A nice green color to match the theme */
+  background-color: rgba(17, 24, 39, 0.5); /* Semi-transparent dark background */
+  width: 44px;
+  height: 44px;
+  border-radius: 9999px; /* Make it a circle */
+  transition: all 0.2s ease-in-out;
+}
+
+.mySwiper .swiper-button-next:hover,
+.mySwiper .swiper-button-prev:hover {
+    background-color: rgba(17, 24, 39, 0.8);
+    transform: scale(1.1);
+}
+
+/* Make the arrow icon itself a bit smaller */
+.mySwiper .swiper-button-next::after,
+.mySwiper .swiper-button-prev::after {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/* Style for the pagination dots */
+.mySwiper .swiper-pagination-bullet {
+  background-color: #9ca3af; /* A light gray for inactive dots */
+  width: 10px;
+  height: 10px;
+  opacity: 0.8;
+  transition: all 0.2s ease-in-out;
+}
+
+/* Style for the ACTIVE pagination dot */
+.mySwiper .swiper-pagination-bullet-active {
+  background-color: #4ade80; /* Green for the active dot */
+  transform: scale(1.2);
+}
