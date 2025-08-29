@@ -43,7 +43,7 @@ import AlumniSpeak from './pages/alumni/AlumniSpeak';
 
 import CesaPage from './pages/students-corner/academic/CesaPage';
 import CucPage from './pages/students-corner/academic/CucPage';
-import EtaPage from './pages/students-corner/academic/EtsaPage';
+import EtaPage from './pages/students-corner/academic/EtaPage';
 import MesaPage from './pages/students-corner/academic/MesaPage';
 import ItsaPage from './pages/students-corner/academic/Itsapage';
 
