@@ -18,11 +18,22 @@ import CoursesOfferedPage from './pages/about/CoursesOfferedPage';
 import HistoryPage from './pages/about/HistoryPage';
 import GoverningCouncilPage from './pages/about/GoverningCouncilPage';
 import PressCoveragePage from './pages/about/PressCoveragePage';
-import LocationPage from './pages/about/CampusInfoPage';
+import CampusInfoPage from './pages/about/CampusInfoPage'; 
 import ServiceRulesPage from './pages/about/ServiceRulesPage';
 
+// Import Academic CSE pages
+import ComputerScienceEngineeringPage from './pages/Academic/CSE/ComputerScienceEngineeringPage';
+import ProgrammesPage from './pages/Academic/CSE/ProgrammesPage';
+import TrainingPlacementPage from './pages/Academic/CSE/TrainingPlacementPage';
+import CSEFacultyProfilePage from './pages/Academic/CSE/FacultyProfilePage';
+import CSEFacultyDetailPage from './pages/Academic/CSE/FacultyDetailPage';
+import CSELaboratoryPage from './pages/Academic/CSE/CSELaboratoryPage';         // NEW: Lab List Page
+import CSELaboratoryDetailPage from './pages/Academic/CSE/CSELaboratoryDetailPage'; // NEW: Individual Lab Detail Page
+import CSEDepartmentalActivityPage from './pages/Academic/CSE/CSEDepartmentalActivityPage'; // NEW: Departmental Activity Page
+
+
 // ==========================================================
-//IMPORT THE NEW  PAGES HERE
+// IMPORT EXISTING ALUMNI & STUDENTS CORNER PAGES
 // ==========================================================
 import EsteemedAlumni from './pages/alumni/EsteemedAlumni';
 import AlumniRegistration from './pages/alumni/AlumniRegistration';
@@ -30,6 +41,9 @@ import AlumniSpeak from './pages/alumni/AlumniSpeak';
 import CesaPage from './pages/students-corner/CesaPage';
 import CucPage from './pages/students-corner/cucpage';
 import EtaPage from './pages/students-corner/EtaPage';
+import CucPage from './pages/students-corner/cucpage'; 
+import CUCPage from './pages/Academic/CSE/CUCPage';
+import CSIIEIPage from './pages/Academic/CSE/CSIIEIPage';
 // ==========================================================
 
 // Placeholder for other pages you'll create later
@@ -57,10 +71,6 @@ const App = () => {
       {/* Header is outside Routes because it's always present */}
       <Header />
 
-      {/* Main content area. Add padding-top to prevent content from hiding under fixed header.
-          Approximate height for the fixed header is around 112px (h-14 top bar + h-14 nav bar on desktop)
-          Adjust pt-28 (112px) if your header height changes with different screen sizes or scroll.
-      */}
       <main className=" bg-gray-50 min-h-screen">
         <Routes>
           <Route path="/" element={<HomePage />} />
@@ -75,11 +85,11 @@ const App = () => {
           <Route path="/history" element={<HistoryPage />} />
           <Route path="/governing-council" element={<GoverningCouncilPage />} />
           <Route path="/press-coverage" element={<PressCoveragePage />} />
-          <Route path="/campus" element={<LocationPage />} />
+          <Route path="/campus" element={<CampusInfoPage />} />
           <Route path="/service-rules" element={<ServiceRulesPage />} />
 
-         {/* ========================================================== */}
-          {/* ALUMNI ROUTE       */}
+          {/* ========================================================== */}
+          {/* ALUMNI ROUTES       */}
           {/* ========================================================== */}
           <Route path="/alumni/esteemed-alumni" element={<EsteemedAlumni />} />
           <Route path="/alumni/registration" element={<AlumniRegistration />} />
@@ -87,19 +97,59 @@ const App = () => {
           {/* ========================================================== */}
 
 
+<<<<<<< HEAD
         {/* ROUTE FOR THE CESA /cuc/eta PAGE */}
                   <Route path="/students-corner/academic/cesa" element={<CesaPage />} />
                   <Route path="/students-corner/academic/cuc" element={<CucPage />} />
                    <Route path="/students-corner/academic/eta" element={<EtaPage />} />
                   
           {/* Placeholder Routes for other main menu items (you'll replace these later) */}
+=======
+          {/* STUDENTS CORNER ROUTES */}
+          <Route path="/student-activities/academic/cesa" element={<CesaPage />} />
+          <Route path="/student-activities/academic/cuc" element={<CucPage />} />
+          {/* Add other specific student-activities routes here as they are developed */}
+
+
+          {/* ACADEMICS ROUTES (Specific CSE Department) */}
+          <Route path="/academics/computer-science-engineering" element={<ComputerScienceEngineeringPage />} />
+          <Route path="/academics/computer-science-engineering/programmes" element={<ProgrammesPage />} />
+          <Route path="/academics/computer-science-engineering/training-placement" element={<TrainingPlacementPage />} />
+          
+          {/* FACULTY ROUTES */}
+          <Route path="/academics/computer-science-engineering/faculty" element={<CSEFacultyProfilePage />} />
+          <Route path="/academics/computer-science-engineering/faculty/:facultyId" element={<CSEFacultyDetailPage />} />
+
+          {/* LABORATORY ROUTES (NEW) */}
+          <Route path="/academics/computer-science-engineering/labs" element={<CSELaboratoryPage />} />
+          <Route path="/academics/computer-science-engineering/labs/:labId" element={<CSELaboratoryDetailPage />} />
+
+          {/* Add other CSE specific routes as placeholders */}
+          <Route path="/academics/computer-science-engineering/research-publication" element={<PlaceholderPage title="CSE Research & Publication" />} />
+          <Route path="/academics/computer-science-engineering/achievements" element={<PlaceholderPage title="CSE Achievements" />} />
+          <Route path="/academics/computer-science-engineering/activities" element={<CSEDepartmentalActivityPage />} />
+          {/* Note: CUC and CSI/IEI are also under student-activities, adjust if you want separate departmental versions */}
+          <Route path="/academics/computer-science-engineering/cuc" element={<CUCPage/>} /> 
+          <Route path="/academics/computer-science-engineering/csi-iei" element={<CSIIEIPage />} />
+          <Route path="/academics/computer-science-engineering/downloads" element={<PlaceholderPage title="CSE Downloads" />} />
+          <Route path="/academics/computer-science-engineering/resources" element={<PlaceholderPage title="CSE Resources" />} />
+          
+          {/* Generic placeholder for any other /academics/... routes not specifically defined above */}
+          {/* Keep this generic route LAST in the /academics group */}
+>>>>>>> 41d736fd777754e685203e4c540aa286cd2bd29f
           <Route path="/academics/*" element={<PlaceholderPage title="Academics Section" />} />
-          <Route path="/research" element={<PlaceholderPage title="Research" />} />
+
+
+          {/* Other Main Menu Placeholder Routes */}
+          {/* Note: "/research" top-level link exists in Header. This is distinct from departmental research. */}
+          <Route path="/research" element={<PlaceholderPage title="Central Research" />} /> 
           <Route path="/cells-committees/*" element={<PlaceholderPage title="Cells & Committees Section" />} />
           <Route path="/admission/*" element={<PlaceholderPage title="Admission Section" />} />
           <Route path="/facilities/*" element={<PlaceholderPage title="Facilities Section" />} />
+          {/* Keeping this general as fallback for alumni if specific routes above don't match */}
           <Route path="/alumni/*" element={<PlaceholderPage title="Alumni Section" />} />
-          <Route path="/students-corner/*" element={<PlaceholderPage title="Students Corner Section" />} />
+          {/* Keeping this general as fallback for student-activities if specific routes above don't match */}
+          <Route path="/students-corner/*" element={<PlaceholderPage title="Students Corner Section" />} /> 
           <Route path="/download/*" element={<PlaceholderPage title="Download Section" />} />
           <Route path="/contact" element={<PlaceholderPage title="Contact Us" />} />
 

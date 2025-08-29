@@ -1,8 +1,14 @@
-import React, { useState } from 'react';
+import React, { useRef, useEffect } from 'react';
+import { useLocation } from 'react-router-dom'; // Import useLocation
 
 const ServiceRulesPage = () => {
-  const [activeChapter, setActiveChapter] = useState(0);
+  const location = useLocation(); // Get current URL location
   
+  // Refs for each chapter content section
+  const chapter1Ref = useRef(null);
+  const chapter2Ref = useRef(null);
+  const chapter3Ref = useRef(null);
+
   // Data for the 'Types of Leave' table
   const leaveTypes = [
     { srNo: 1, type: 'Casual Leave', abbreviation: 'CL' },
@@ -17,15 +23,42 @@ const ServiceRulesPage = () => {
     { srNo: 10, type: 'Sabbatical Leave', abbreviation: 'SbL' },
   ];
 
-  // Chapter data for navigation
+  // Chapter data for sidebar navigation, mapping to refs
   const chapters = [
-    { title: "Chapter I: Introduction & Definitions", id: "chapter1" },
-    { title: "Chapter II: Appointments", id: "chapter2" },
-    { title: "Chapter III: Service Rules", id: "chapter3" },
+    { title: "Chapter I: Introduction & Definitions", id: "chapter1", ref: chapter1Ref },
+    { title: "Chapter II: Appointments", id: "chapter2", ref: chapter2Ref },
+    { title: "Chapter III: Service Rules", id: "chapter3", ref: chapter3Ref },
   ];
 
+  // Function to scroll to a specific chapter
+  const scrollToChapter = (chapterId) => {
+    // Using a setTimeout to ensure the DOM has updated and element is rendered before scrolling
+    setTimeout(() => {
+        const element = document.getElementById(chapterId);
+        if (element) {
+            // Optional: Adjust scroll position if you have a fixed header
+            const headerOffset = 120; // Approximate height of your fixed header
+            const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
+            window.scrollTo({
+                top: elementPosition - headerOffset,
+                behavior: 'smooth'
+            });
+            // Update URL hash without causing a full page reload or component remount
+            window.history.pushState(null, '', `#${chapterId}`);
+        }
+    }, 100);
+  };
+
+  // Effect to scroll to a chapter if a hash is present in the URL on load or hash change
+  useEffect(() => {
+    if (location.hash) {
+      const id = location.hash.substring(1); // Remove the '#'
+      scrollToChapter(id);
+    }
+  }, [location.hash]); // Rerun effect when hash changes
+
   return (
-    <div className="container mx-auto px-4 py-8 mt-28">
+    <div className="container mx-auto px-4 py-8 mt-28 max-w-6xl">
       {/* Hero Section */}
       <div className="bg-gradient-to-r from-blue-900 to-indigo-800 rounded-xl p-8 text-white mb-8 shadow-xl">
         <h1 className="text-4xl md:text-5xl font-bold mb-4">Service Rules</h1>
@@ -37,15 +70,15 @@ const ServiceRulesPage = () => {
       <div className="flex flex-col lg:flex-row gap-8">
         {/* Sidebar Navigation */}
         <div className="lg:w-1/4">
-          <div className="bg-white rounded-xl shadow-lg p-6 sticky top-32">
+          <div className="bg-white rounded-xl shadow-lg p-6 sticky top-32 z-10"> {/* Added z-10 to ensure it's above content */}
             <h3 className="text-xl font-bold text-indigo-800 mb-4">Table of Contents</h3>
             <ul className="space-y-2">
               {chapters.map((chapter, index) => (
                 <li key={index}>
                   <button
-                    onClick={() => setActiveChapter(index)}
+                    onClick={() => scrollToChapter(chapter.id)}
                     className={`w-full text-left py-2 px-4 rounded-lg transition-colors ${
-                      activeChapter === index
+                      location.hash === `#${chapter.id}` // Active based on current URL hash
                         ? 'bg-indigo-100 text-indigo-800 font-semibold'
                         : 'text-gray-700 hover:bg-gray-100'
                     }`}
@@ -56,13 +89,13 @@ const ServiceRulesPage = () => {
               ))}
             </ul>
             
-            {/* Quick Links */}
+            {/* Quick Links (These will still use native anchor links) */}
             <div className="mt-8 pt-4 border-t border-gray-200">
               <h3 className="text-lg font-semibold text-indigo-800 mb-3">Quick Links</h3>
               <ul className="space-y-2">
-                <li><a href="#leave-types" className="text-blue-600 hover:underline">Leave Types</a></li>
-                <li><a href="#retirement" className="text-blue-600 hover:underline">Retirement Policies</a></li>
-                <li><a href="#welfare" className="text-blue-600 hover:underline">Welfare Schemes</a></li>
+                <li><button onClick={() => scrollToChapter('leave-types')} className="text-blue-600 hover:underline text-left w-full">Leave Types</button></li>
+                <li><button onClick={() => scrollToChapter('retirement')} className="text-blue-600 hover:underline text-left w-full">Retirement Policies</button></li>
+                <li><button onClick={() => scrollToChapter('welfare')} className="text-blue-600 hover:underline text-left w-full">Welfare Schemes</button></li>
               </ul>
             </div>
           </div>
@@ -76,7 +109,7 @@ const ServiceRulesPage = () => {
             </h2>
 
             {/* Content Section - Chapter-I */}
-            <div id="chapter1" className="prose max-w-none text-gray-700 leading-relaxed">
+            <div ref={chapter1Ref} id="chapter1" className="prose max-w-none text-gray-700 leading-relaxed scroll-mt-28"> {/* scroll-mt-28 for fixed header */}
               <div className="bg-indigo-50 p-4 rounded-lg mb-6 border-l-4 border-indigo-600">
                 <h3 className="text-2xl font-bold text-indigo-800">Chapter-I</h3>
               </div>
@@ -143,7 +176,7 @@ const ServiceRulesPage = () => {
             <hr className="my-8 border-t-2 border-indigo-200"/>
 
             {/* Content Section - Chapter-II */}
-            <div id="chapter2" className="prose max-w-none text-gray-700 leading-relaxed">
+            <div ref={chapter2Ref} id="chapter2" className="prose max-w-none text-gray-700 leading-relaxed scroll-mt-28"> {/* scroll-mt-28 for fixed header */}
               <div className="bg-indigo-50 p-4 rounded-lg mb-6 border-l-4 border-indigo-600">
                 <h3 className="text-2xl font-bold text-indigo-800">Chapter - II: APPOINTMENTS</h3>
               </div>
@@ -226,7 +259,7 @@ const ServiceRulesPage = () => {
                 </ul>
               </div>
 
-              <div id="retirement" className="mb-8">
+              <div id="retirement" className="mb-8 scroll-mt-28"> {/* Added scroll-mt-28 */}
                 <h4 className="text-xl font-semibold text-blue-800 mb-3">RETIREMENT</h4>
                 <ul className="list-disc pl-5 space-y-3 mb-6 bg-blue-50 p-4 rounded-lg">
                   <li>The age of superannuation of a Teaching Staff and Class IV employees is 60 years and Non-teaching staff is 58 years, the retirement benefits such as gratuity, etc. shall be paid at the time of retirement.</li>
@@ -250,7 +283,7 @@ const ServiceRulesPage = () => {
                 </ul>
               </div>
 
-              <div id="welfare" className="mb-8">
+              <div id="welfare" className="mb-8 scroll-mt-28"> {/* Added scroll-mt-28 */}
                 <h4 className="text-xl font-semibold text-blue-800 mb-3">FACULTY WELFARE SCHEMES</h4>
                 <ul className="list-disc pl-5 space-y-3 mb-6 bg-blue-50 p-4 rounded-lg">
                   <li>
@@ -290,7 +323,7 @@ const ServiceRulesPage = () => {
             <hr className="my-8 border-t-2 border-indigo-200"/>
 
             {/* Content Section - Chapter-III */}
-            <div id="chapter3" className="prose max-w-none text-gray-700 leading-relaxed">
+            <div ref={chapter3Ref} id="chapter3" className="prose max-w-none text-gray-700 leading-relaxed scroll-mt-28"> {/* Added scroll-mt-28 */}
               <div className="bg-indigo-50 p-4 rounded-lg mb-6 border-l-4 border-indigo-600">
                 <h3 className="text-2xl font-bold text-indigo-800">Chapter - III: RECORD OF SERVICE AND SENIORITY</h3>
               </div>
@@ -348,7 +381,7 @@ const ServiceRulesPage = () => {
               <div className="mb-8">
                 <h4 className="text-xl font-semibold text-blue-800 mb-3">3.1 Types of Leave</h4>
                 {/* Responsive Table for Leave Types */}
-                <div id="leave-types" className="overflow-x-auto relative shadow-md rounded-lg mt-4 mb-6">
+                <div id="leave-types" className="overflow-x-auto relative shadow-md rounded-lg mt-4 mb-6 scroll-mt-28">
                   <table className="w-full text-sm text-left text-gray-700">
                     <thead className="text-xs text-white uppercase bg-indigo-700">
                       <tr>
