@@ -20,6 +20,9 @@ import GoverningCouncilPage from './pages/about/GoverningCouncilPage';
 import PressCoveragePage from './pages/about/PressCoveragePage';
 import LocationPage from './pages/about/CampusInfoPage';
 import ServiceRulesPage from './pages/about/ServiceRulesPage';
+import ComputerScienceEngineeringPage from './pages/Academic/CSE/ComputerScienceEngineeringPage';
+import ProgrammesPage from './pages/Academic/CSE/ProgrammesPage';
+import TrainingPlacementPage from './pages/Academic/CSE/TrainingPlacementPage';
 
 // Placeholder for other pages you'll create later
 const PlaceholderPage = ({ title }) => (
@@ -69,6 +72,10 @@ const App = () => {
 
           {/* Placeholder Routes for other main menu items (you'll replace these later) */}
           <Route path="/academics/*" element={<PlaceholderPage title="Academics Section" />} />
+          {/* cse  */}
+          <Route path="/academics/computer-science-engineering" element={<ComputerScienceEngineeringPage />} />
+          <Route path="/academics/computer-science-engineering/programmes" element={<ProgrammesPage />} />
+          <Route path="/academics/computer-science-engineering/training-placement" element={<TrainingPlacementPage />} />
           <Route path="/research" element={<PlaceholderPage title="Research" />} />
           <Route path="/cells-committees/*" element={<PlaceholderPage title="Cells & Committees Section" />} />
           <Route path="/admission/*" element={<PlaceholderPage title="Admission Section" />} />

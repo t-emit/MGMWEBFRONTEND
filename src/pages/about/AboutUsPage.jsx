@@ -52,43 +52,6 @@ const AboutUsPage = () => {
               </div>
             </div>
           </div>
-
-          {/* Quick Facts */}
-          {/* <div className="bg-gray-50 rounded-xl shadow-lg p-8 mb-10">
-            <h2 className="text-3xl font-bold mb-6 text-indigo-800 border-b-2 border-indigo-200 pb-3">Quick Facts</h2>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              <div className="text-center p-6 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow">
-                <div className="text-4xl font-bold text-indigo-600 mb-2">35+</div>
-                <div className="text-gray-700">Years of Excellence</div>
-              </div>
-              
-              <div className="text-center p-6 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow">
-                <div className="text-4xl font-bold text-indigo-600 mb-2">50+</div>
-                <div className="text-gray-700">Educational Organizations</div>
-              </div>
-              
-              <div className="text-center p-6 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow">
-                <div className="text-4xl font-bold text-indigo-600 mb-2">5000+</div>
-                <div className="text-gray-700">Member Family</div>
-              </div>
-              
-              <div className="text-center p-6 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow">
-                <div className="text-4xl font-bold text-indigo-600 mb-2">5</div>
-                <div className="text-gray-700">Centers Across India</div>
-              </div>
-              
-              <div className="text-center p-6 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow">
-                <div className="text-4xl font-bold text-indigo-600 mb-2">2024</div>
-                <div className="text-gray-700">NAAC Accreditation</div>
-              </div>
-              
-              <div className="text-center p-6 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow">
-                <div className="text-4xl font-bold text-indigo-600 mb-2">2027</div>
-                <div className="text-gray-700">NBA Accreditation Until</div>
-              </div>
-            </div>
-          </div> */}
         </div>
 
         {/* Sidebar */}
