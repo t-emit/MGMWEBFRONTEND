@@ -7,6 +7,8 @@ import Footer from './components/Footer';
 
 // Import main pages
 import HomePage from './pages/Home';
+import ContactPage from './pages/contact';
+import SearchResultsPage from './pages/search';
 
 // Import About Us sub-pages
 import AboutUsPage from './pages/about/AboutUsPage';
@@ -18,7 +20,7 @@ import CoursesOfferedPage from './pages/about/CoursesOfferedPage';
 import HistoryPage from './pages/about/HistoryPage';
 import GoverningCouncilPage from './pages/about/GoverningCouncilPage';
 import PressCoveragePage from './pages/about/PressCoveragePage';
-import CampusInfoPage from './pages/about/CampusInfoPage'; 
+import CampusInfoPage from './pages/about/CampusInfoPage';
 import ServiceRulesPage from './pages/about/ServiceRulesPage';
 
 // Import Academic CSE pages
@@ -27,27 +29,27 @@ import ProgrammesPage from './pages/Academic/CSE/ProgrammesPage';
 import TrainingPlacementPage from './pages/Academic/CSE/TrainingPlacementPage';
 import CSEFacultyProfilePage from './pages/Academic/CSE/FacultyProfilePage';
 import CSEFacultyDetailPage from './pages/Academic/CSE/FacultyDetailPage';
-import CSELaboratoryPage from './pages/Academic/CSE/CSELaboratoryPage';         // NEW: Lab List Page
-import CSELaboratoryDetailPage from './pages/Academic/CSE/CSELaboratoryDetailPage'; // NEW: Individual Lab Detail Page
-import CSEDepartmentalActivityPage from './pages/Academic/CSE/CSEDepartmentalActivityPage'; // NEW: Departmental Activity Page
+import CSELaboratoryPage from './pages/Academic/CSE/CSELaboratoryPage';
+import CSELaboratoryDetailPage from './pages/Academic/CSE/CSELaboratoryDetailPage';
+import CSEDepartmentalActivityPage from './pages/Academic/CSE/CSEDepartmentalActivityPage';
+import CUCPage from './pages/Academic/CSE/CUCPage';
+import CSIIEIPage from './pages/Academic/CSE/CSIIEIPage';
+import AchievementsPage from './pages/Academic/CSE/AchievementsPage';
 
-
-// ==========================================================
-// IMPORT EXISTING ALUMNI & STUDENTS CORNER PAGES
-// ==========================================================
+// Import Alumni & Students Corner
 import EsteemedAlumni from './pages/alumni/EsteemedAlumni';
 import AlumniRegistration from './pages/alumni/AlumniRegistration';
 import AlumniSpeak from './pages/alumni/AlumniSpeak';
+
 import CesaPage from './pages/students-corner/academic/CesaPage';
-import CucPage from './pages/students-corner/academic/cucpage';
-import EtaPage from './pages/students-corner/academic/EtaPage';
-// import CucPage from './pages/students-corner/cucpage'; 
+import CucPage from './pages/students-corner/academic/CucPage';
+import EtaPage from './pages/students-corner/academic/EtsaPage';
 import MesaPage from './pages/students-corner/academic/MesaPage';
-import CUCPage from './pages/Academic/CSE/CUCPage';
-import CSIIEIPage from './pages/Academic/CSE/CSIIEIPage';
 import ItsaPage from './pages/students-corner/academic/Itsapage';
+
 import CastActivityPage from './pages/students-corner/co-curricular/castActivity';
 import EnglishLanguageClubPage from './pages/students-corner/co-curricular/EngLangClub';
+
 import AchievementsIndoorPage from './pages/students-corner/sports/indoor';
 import AchievementsOutdoorPage from './pages/students-corner/sports/outdoor';
 
@@ -70,14 +72,14 @@ import NirfPage from './pages/download/nirf';
 import FeesRegulatoryAuthorityPage from './pages/download/fra';
 import AuditedStatementsPage from './pages/download/AuditedS';
 import TenderPage from './pages/download/Tender';
-import ContactPage from './pages/contact';
 
-import SearchResultsPage from './pages/search';
+
+
 // ==========================================================
-
-// Placeholder for other pages you'll create later
+// Helper Placeholder Pages
+// ==========================================================
 const PlaceholderPage = ({ title }) => (
-  <div className="container mx-auto px-4 py-8 mt-28"> {/* mt-28 for header offset */}
+  <div className="container mx-auto px-4 py-8 mt-28">
     <h1 className="text-3xl font-bold mb-4 text-indigo-800">{title}</h1>
     <p className="text-gray-700">This is a placeholder page for {title}.</p>
     <div className="bg-yellow-50 border-l-4 border-yellow-500 text-yellow-700 p-4 mt-6">
@@ -93,14 +95,13 @@ const NotFoundPage = () => (
   </div>
 );
 
-
 const App = () => {
   return (
     <BrowserRouter>
       {/* Header is outside Routes because it's always present */}
       <Header />
 
-      <main className=" bg-gray-50 min-h-screen">
+      <main className="bg-gray-50 min-h-screen">
         <Routes>
           <Route path="/" element={<HomePage />} />
 
@@ -117,14 +118,15 @@ const App = () => {
           <Route path="/campus" element={<CampusInfoPage />} />
           <Route path="/service-rules" element={<ServiceRulesPage />} />
 
-          {/* ========================================================== */}
-          {/* ALUMNI ROUTES       */}
-          {/* ========================================================== */}
+          {/* Alumni Routes */}
           <Route path="/alumni/esteemed-alumni" element={<EsteemedAlumni />} />
           <Route path="/alumni/registration" element={<AlumniRegistration />} />
           <Route path="/alumni/speaks" element={<AlumniSpeak />} />
-          {/* ========================================================== */}
 
+          {/* Students Corner Routes */}
+          <Route path="/students-corner/academic/cesa" element={<CesaPage />} />
+          <Route path="/students-corner/academic/cuc" element={<CucPage />} />
+          <Route path="/students-corner/academic/eta" element={<EtaPage />} />
 
         {/* ROUTE FOR THE CESA /cuc/eta PAGE */}
                   <Route path="/students-corner/academic/cesa" element={<CesaPage />} />
@@ -174,25 +176,21 @@ const App = () => {
 
 
           {/* ACADEMICS ROUTES (Specific CSE Department) */}
+          {/* Academics Routes (CSE Department) */}
           <Route path="/academics/computer-science-engineering" element={<ComputerScienceEngineeringPage />} />
           <Route path="/academics/computer-science-engineering/programmes" element={<ProgrammesPage />} />
           <Route path="/academics/computer-science-engineering/training-placement" element={<TrainingPlacementPage />} />
-          
-          {/* FACULTY ROUTES */}
           <Route path="/academics/computer-science-engineering/faculty" element={<CSEFacultyProfilePage />} />
           <Route path="/academics/computer-science-engineering/faculty/:facultyId" element={<CSEFacultyDetailPage />} />
-
-          {/* LABORATORY ROUTES (NEW) */}
           <Route path="/academics/computer-science-engineering/labs" element={<CSELaboratoryPage />} />
           <Route path="/academics/computer-science-engineering/labs/:labId" element={<CSELaboratoryDetailPage />} />
-
-          {/* Add other CSE specific routes as placeholders */}
-          <Route path="/academics/computer-science-engineering/research-publication" element={<PlaceholderPage title="CSE Research & Publication" />} />
-          <Route path="/academics/computer-science-engineering/achievements" element={<PlaceholderPage title="CSE Achievements" />} />
+          <Route path="/academics/computer-science-engineering/achievements" element={<AchievementsPage />} />
           <Route path="/academics/computer-science-engineering/activities" element={<CSEDepartmentalActivityPage />} />
-          {/* Note: CUC and CSI/IEI are also under student-activities, adjust if you want separate departmental versions */}
-          <Route path="/academics/computer-science-engineering/cuc" element={<CUCPage/>} /> 
+          <Route path="/academics/computer-science-engineering/cuc" element={<CUCPage />} />
           <Route path="/academics/computer-science-engineering/csi-iei" element={<CSIIEIPage />} />
+
+          {/* Placeholders */}
+          <Route path="/academics/computer-science-engineering/research-publication" element={<PlaceholderPage title="CSE Research & Publication" />} />
           <Route path="/academics/computer-science-engineering/downloads" element={<PlaceholderPage title="CSE Downloads" />} />
           <Route path="/academics/computer-science-engineering/resources" element={<PlaceholderPage title="CSE Resources" />} />
           
@@ -200,27 +198,21 @@ const App = () => {
           {/* Keep this generic route LAST in the /academics group */}
           <Route path="/academics/*" element={<PlaceholderPage title="Academics Section" />} />
 
-
-          {/* Other Main Menu Placeholder Routes */}
-          {/* Note: "/research" top-level link exists in Header. This is distinct from departmental research. */}
-          <Route path="/research" element={<PlaceholderPage title="Central Research" />} /> 
+          {/* Other Main Menu Placeholders */}
+          <Route path="/research" element={<PlaceholderPage title="Central Research" />} />
           <Route path="/cells-committees/*" element={<PlaceholderPage title="Cells & Committees Section" />} />
           <Route path="/admission/*" element={<PlaceholderPage title="Admission Section" />} />
           <Route path="/facilities/*" element={<PlaceholderPage title="Facilities Section" />} />
-          {/* Keeping this general as fallback for alumni if specific routes above don't match */}
           <Route path="/alumni/*" element={<PlaceholderPage title="Alumni Section" />} />
-          {/* Keeping this general as fallback for student-activities if specific routes above don't match */}
-          <Route path="/students-corner/*" element={<PlaceholderPage title="Students Corner Section" />} /> 
+          <Route path="/students-corner/*" element={<PlaceholderPage title="Students Corner Section" />} />
           <Route path="/download/*" element={<PlaceholderPage title="Download Section" />} />
           <Route path="/contact" element={<PlaceholderPage title="Contact Us" />} />
 
-
-          {/* Catch-all route for unmatched paths */}
+          {/* Catch-all route */}
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </main>
 
-      {/* Footer is outside Routes because it's always present */}
       <Footer />
     </BrowserRouter>
   );
