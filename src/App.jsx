@@ -42,6 +42,7 @@ import CesaPage from './pages/students-corner/CesaPage';
 import CucPage from './pages/students-corner/cucpage'; 
 import CUCPage from './pages/Academic/CSE/CUCPage';
 import CSIIEIPage from './pages/Academic/CSE/CSIIEIPage';
+import AchievementsPage from './pages/Academic/CSE/AchievementsPage';
 // ==========================================================
 
 // Placeholder for other pages you'll create later
@@ -116,7 +117,7 @@ const App = () => {
 
           {/* Add other CSE specific routes as placeholders */}
           <Route path="/academics/computer-science-engineering/research-publication" element={<PlaceholderPage title="CSE Research & Publication" />} />
-          <Route path="/academics/computer-science-engineering/achievements" element={<PlaceholderPage title="CSE Achievements" />} />
+          <Route path="/academics/computer-science-engineering/achievements" element={<AchievementsPage />} />
           <Route path="/academics/computer-science-engineering/activities" element={<CSEDepartmentalActivityPage />} />
           {/* Note: CUC and CSI/IEI are also under student-activities, adjust if you want separate departmental versions */}
           <Route path="/academics/computer-science-engineering/cuc" element={<CUCPage/>} /> 
