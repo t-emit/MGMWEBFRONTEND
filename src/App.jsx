@@ -24,6 +24,16 @@ import ComputerScienceEngineeringPage from './pages/Academic/CSE/ComputerScience
 import ProgrammesPage from './pages/Academic/CSE/ProgrammesPage';
 import TrainingPlacementPage from './pages/Academic/CSE/TrainingPlacementPage';
 
+// ==========================================================
+//IMPORT THE NEW  PAGES HERE
+// ==========================================================
+import EsteemedAlumni from './pages/alumni/EsteemedAlumni';
+import AlumniRegistration from './pages/alumni/AlumniRegistration';
+import AlumniSpeak from './pages/alumni/AlumniSpeak';
+import CesaPage from './pages/students-corner/CesaPage';
+import CucPage from './pages/students-corner/cucpage';
+// ==========================================================
+
 // Placeholder for other pages you'll create later
 const PlaceholderPage = ({ title }) => (
   <div className="container mx-auto px-4 py-8 mt-28"> {/* mt-28 for header offset */}
@@ -70,6 +80,19 @@ const App = () => {
           <Route path="/campus" element={<LocationPage />} />
           <Route path="/service-rules" element={<ServiceRulesPage />} />
 
+         {/* ========================================================== */}
+          {/* ALUMNI ROUTE       */}
+          {/* ========================================================== */}
+          <Route path="/alumni/esteemed-alumni" element={<EsteemedAlumni />} />
+          <Route path="/alumni/registration" element={<AlumniRegistration />} />
+          <Route path="/alumni/speak" element={<AlumniSpeak />} />
+          {/* ========================================================== */}
+
+
+        {/* ROUTE FOR THE CESA PAGE */}
+                  <Route path="/students-corner/academic/cesa" element={<CesaPage />} />
+                  <Route path="/students-corner/academic/cuc" element={<CucPage />} />
+                  
           {/* Placeholder Routes for other main menu items (you'll replace these later) */}
           <Route path="/academics/*" element={<PlaceholderPage title="Academics Section" />} />
           {/* cse  */}
