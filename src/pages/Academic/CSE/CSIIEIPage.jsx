@@ -81,14 +81,14 @@ const CSIIEIPage = () => {
             </svg>
             CSI / IEI Activities & Reports
           </h2>
-          <div className="mt-4 md:mt-0">
+          {/* <div className="mt-4 md:mt-0">
             <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-indigo-100 text-indigo-800">
               <svg className="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
                 <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clipRule="evenodd"></path>
               </svg>
               Updated Recently
             </span>
-          </div>
+          </div> */}
         </div>
 
         <div className="prose prose-lg max-w-none text-gray-700 print:text-sm">
@@ -102,14 +102,14 @@ const CSIIEIPage = () => {
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {[
-                { img: '/pdf/IEI-Open-Source.jpg', text: 'IEI Open Source', pdf: 'https://mgmcen.ac.in/pdf/IEI Open Source.pdf' },
-                { img: '/pdf/IEI-Machine-Learning.jpg', text: 'IEI Machine Learning', pdf: 'https://mgmcen.ac.in/pdf/IEI Machine Learning.pdf' },
-                { img: '/pdf/IEI-Inuaguration.jpg', text: 'IEI Inuaguration', pdf: 'https://mgmcen.ac.in/pdf/IEI Inuaguration.pdf' },
-                { img: '/pdf/IEI-Intellectual-Property-Rights.jpg', text: 'IEI Intellectual Property Rights', pdf: 'https://mgmcen.ac.in/pdf/IEI Intellectual Property Rights.pdf' },
-                { img: '/pdf/IEI-IIT-Mandi.jpg', text: 'IEI IIT Mandi', pdf: 'https://mgmcen.ac.in/pdf/IEI IIT Mandi.pdf' },
-                { img: '/pdf/IEI-Frontend-Workshop.jpg', text: 'IEI Frontend Workshop', pdf: 'https://mgmcen.ac.in/pdf/IEI Frontend Workshop.pdf' },
-                { img: '/pdf/IEI-Data-Analytics.jpg', text: 'IEI Data Analytics', pdf: 'https://mgmcen.ac.in/pdf/IEI Data Analytics.pdf' },
-                { img: '/pdf/CSI-Generative-AI.jpg', text: 'CSI Generative AI', pdf: 'https://mgmcen.ac.in/pdf/CSI Generative AI.pdf' },
+                { img: '/images/csiiei/IEI-Open-Source.jpg', text: 'IEI Open Source', pdf: 'https://mgmcen.ac.in/pdf/IEI Open Source.pdf' },
+                { img: '/images/csiiei/IEI-Machine-Learning.jpg', text: 'IEI Machine Learning', pdf: 'https://mgmcen.ac.in/pdf/IEI Machine Learning.pdf' },
+                { img: '/images/csiiei/IEI-Inuaguration.jpg', text: 'IEI Inuaguration', pdf: 'https://mgmcen.ac.in/pdf/IEI Inuaguration.pdf' },
+                { img: '/images/csiiei/IEI-Intellectual-Property-Rights.jpg', text: 'IEI Intellectual Property Rights', pdf: 'https://mgmcen.ac.in/pdf/IEI Intellectual Property Rights.pdf' },
+                { img: '/images/csiiei/IEI-IIT-Mandi.jpg', text: 'IEI IIT Mandi', pdf: 'https://mgmcen.ac.in/pdf/IEI IIT Mandi.pdf' },
+                { img: '/images/csiiei/IEI-Frontend-Workshop.jpg', text: 'IEI Frontend Workshop', pdf: 'https://mgmcen.ac.in/pdf/IEI Frontend Workshop.pdf' },
+                { img: '/images/csiiei/IEI-Data-Analytics.jpg', text: 'IEI Data Analytics', pdf: 'https://mgmcen.ac.in/pdf/IEI Data Analytics.pdf' },
+                { img: '/images/csiiei/CSI-Generative-AI.jpg', text: 'CSI Generative AI', pdf: 'https://mgmcen.ac.in/pdf/CSI Generative AI.pdf' },
               ].map((item, index) => (
                 <div key={index} className="bg-gradient-to-b from-white to-indigo-50 rounded-xl p-4 shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 border border-gray-100 overflow-hidden group">
                   <a href={item.pdf} target="_blank" rel="noopener noreferrer" className="block">
@@ -144,7 +144,7 @@ const CSIIEIPage = () => {
               
               <div className="grid md:grid-cols-2 gap-6 mt-6">
                 <div className="bg-white p-4 rounded-lg shadow-sm border border-purple-200">
-                  <img src="/images/gallery/final2-day-img1.jpg" alt="Welcome of Resource Person Dr. M. R. Sanghavi" className="w-full h-auto rounded-md mb-3"/>
+                  <img src="/images/csiiei/final2-day-img1.jpg" alt="Welcome of Resource Person Dr. M. R. Sanghavi" className="w-full h-auto rounded-md mb-3"/>
                   <p className="text-center text-sm text-purple-700">(Welcome of Resource Person Dr. M. R. Sanghavi)</p>
                 </div>
                 <div>
@@ -156,8 +156,8 @@ const CSIIEIPage = () => {
               
               <div className="bg-white p-5 rounded-xl mt-6 border border-purple-200">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <img src="/images/gallery/final2-day-img2.jpg" alt="Glimpses of the Workshop" className="w-full h-auto rounded-md"/>
-                  <img src="/images/gallery/final2-day-img3.jpg" alt="More Glimpses of the Workshop" className="w-full h-auto rounded-md"/>
+                  <img src="/images/csiiei/final2-day-img2.jpg" alt="Glimpses of the Workshop" className="w-full h-auto rounded-md"/>
+                  <img src="/images/csiiei/final2-day-img3.jpg" alt="More Glimpses of the Workshop" className="w-full h-auto rounded-md"/>
                 </div>
                 <p className="text-center text-sm text-purple-700 mt-3">(Glimpses of the Workshop)</p>
               </div>
@@ -178,7 +178,7 @@ const CSIIEIPage = () => {
               <p className="mb-4 text-purple-800">Department of Computer Science and Engineering and CSI Student's Branch organized a BLIND C coding competition on 26th March 2022. BLIND C is a competition organized for students to enhance their coding skills and find out the best among them.</p>
               
               <div className="bg-white p-5 rounded-lg mt-6 mb-6 border border-purple-200">
-                <img src="/images/gallery/final-report-blind-img1.jpg" alt="Images of the Blind C event" className="w-full h-auto rounded-md"/>
+                <img src="/images/csiiei/final-report-blind-img1.jpg" alt="Images of the Blind C event" className="w-full h-auto rounded-md"/>
                 <p className="text-center text-sm text-purple-700 mt-3">Some images of the event</p>
               </div>
               
@@ -221,7 +221,7 @@ const CSIIEIPage = () => {
               <p className="mb-4 text-purple-800">Department of Computer Science & Engineering and Computer Society of India Student's Branch had organized the 2-days workshop on "Network Programming using Python" on 23rd and 24th May 2022.</p>
               
               <div className="bg-white p-5 rounded-lg mt-6 border border-purple-200">
-                <img src="/images/gallery/report-workshop-netwrok-programming-pyhton-img1.jpg" alt="Glimpses of the Workshop" className="w-full h-auto rounded-md"/>
+                <img src="/images/csiiei/report-workshop-netwrok-programming-pyhton-img1.jpg" alt="Glimpses of the Workshop" className="w-full h-auto rounded-md"/>
                 <p className="text-center text-sm text-purple-700 mt-3">(Glimpses of the Workshop)</p>
               </div>
             </div>
