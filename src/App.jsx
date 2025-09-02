@@ -72,6 +72,21 @@ import NirfPage from './pages/download/nirf';
 import FeesRegulatoryAuthorityPage from './pages/download/fra';
 import AuditedStatementsPage from './pages/download/AuditedS';
 import TenderPage from './pages/download/Tender';
+import AcademicCellPage from './pages/Cells & Committees/Academic Cell';
+import AdmissionCellPage from './pages/Cells & Committees/AdmissionCellPage';
+import AntiRaggingSquadPage from './pages/Cells & Committees/AntiRaggingSquadPage';
+import AntiRaggingCommitteePage from './pages/Cells & Committees/AntiRaggingCommitteePage';
+import CASERPCellPage from './pages/Cells & Committees/CASERPCellPage';
+import CollegeDevelopmentCommitteePage from './pages/Cells & Committees/CollegeDevelopmentCommitteePage';
+import CulturalCommitteePage from './pages/Cells & Committees/CulturalCommitteePage';
+import InternalComplaintCommitteePage from './pages/Cells & Committees/InternalComplaintCommitteePage';
+import ExaminationCellPage from './pages/Cells & Committees/ExaminationCellPage';
+import SCSTCellPage from './pages/Cells & Committees/SCSTCellPage';
+import StudentGrievanceRedressalCommitteePage from './pages/Cells & Committees/StudentGrievanceRedressalCommitteePage';
+import TrainingAndPlacementCellPage from './pages/Cells & Committees/TrainingAndPlacementCellPage';
+import UnderGraduatePage from './pages/Admission/UnderGraduatePage';
+import PostGraduatePage from './pages/Admission/PostGraduatePage';
+import UndertakingPage from './pages/Admission/UndertakingPage';
 
 // for cucPage
 
@@ -200,8 +215,31 @@ const App = () => {
 
           {/* Other Main Menu Placeholders */}
           <Route path="/research" element={<PlaceholderPage title="Central Research" />} />
-          <Route path="/cells-committees/*" element={<PlaceholderPage title="Cells & Committees Section" />} />
-          <Route path="/admission/*" element={<PlaceholderPage title="Admission Section" />} />
+
+
+          <Route path="/cells-committees/academic-cell" element={<AcademicCellPage />} />
+          <Route path="/cells-committees/admission-cell" element={<AdmissionCellPage />} />
+          <Route path="/cells-committees/anti-ragging-squad" element={<AntiRaggingSquadPage />} />
+          <Route path="/cells-committees/anti-ragging-committee" element={<AntiRaggingCommitteePage />} />
+          <Route path="/cells-committees/caserp-cell" element={<CASERPCellPage />} />
+          <Route path="/cells-committees/college-development-committee" element={<CollegeDevelopmentCommitteePage />} />
+          <Route path="/cells-committees/cultural-committee" element={<CulturalCommitteePage />} />
+          <Route path="/cells-committees/examination-cell" element={<ExaminationCellPage />} />
+          <Route path="/cells-committees/internal-complaint-committee" element={<InternalComplaintCommitteePage />} />
+          <Route path="/cells-committees/sc-st-cell" element={<SCSTCellPage />} />
+          <Route path="/cells-committees/student-grievance-redressal-committee" element={<StudentGrievanceRedressalCommitteePage />} />
+          <Route path="/cells-committees/training-placement-cell" element={<TrainingAndPlacementCellPage />} />
+
+
+
+          <Route path="/admission/under-graduate" element={<UnderGraduatePage />} />
+          <Route path="/admission/post-graduate" element={<PostGraduatePage/>} />
+          <Route path="/admission/fee-structure" element={<PlaceholderPage title="Admission Section" />} />
+          <Route path="/admission/undertaking" element={<UndertakingPage />} />
+
+
+
+
           <Route path="/facilities/*" element={<PlaceholderPage title="Facilities Section" />} />
           <Route path="/alumni/*" element={<PlaceholderPage title="Alumni Section" />} />
           <Route path="/students-corner/*" element={<PlaceholderPage title="Students Corner Section" />} />

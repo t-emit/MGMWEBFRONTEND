@@ -84,9 +84,8 @@ const rawMenuItems = [
     icon: "fa-user-graduate",
     children: [
       { name: "Under Graduate (B. Tech)", link: "/admission/under-graduate", icon: "fa-graduation-cap" },
-      { name: "Post Graduate (M. Tech)", link: "/admission/post-graduate", icon: "fa-mastercard" },
+      { name: "Post Graduate (M. Tech)", link: "/admission/post-graduate", icon: "fa-laptop" },
       { name: "Fee Structure", link: "/admission/fee-structure", icon: "fa-money-check-alt" },
-      { name: "Student Information", link: "/admission/student-information", icon: "fa-user-circle" },
       { name: "Undertaking", link: "/admission/undertaking", icon: "fa-signature" },
       { name: "Information Brochure Academic Year 2025-26", link: "https://mgmcen.ac.in/pdf/InformationBrochure_2025-26.pdf", icon: "fa-book-open", target: "_blank" },
       { name: "VidyaLaxmi (Educational Loan) Portal", link: "https://www.vidyalakshmi.co.in/", icon: "fa-university", target: "_blank" },
@@ -196,15 +195,15 @@ const rawMenuItems = [
     link: "#", // Parent item is not a direct link
     icon: "fa-handshake", // A suitable icon for collaboration
     children: [
-      { 
-        name: "Academic", 
+      {
+        name: "Academic",
         link: "/collaboration/academic", // Route for the Academic Collaboration page
-        icon: "fa-university" 
+        icon: "fa-university"
       },
-      { 
-        name: "Corporate & Industries", 
+      {
+        name: "Corporate & Industries",
         link: "/collaboration/corporate-industries", // Route for the Corporate Collaboration page
-        icon: "fa-industry" 
+        icon: "fa-industry"
       },
     ]
   },
@@ -231,7 +230,7 @@ const menuItemsWithIds = assignIds(rawMenuItems);
 const MenuItem = ({ item, level = 0, activeDropdownPath, updateActiveDropdownPath, isMobile, setIsMenuOpen }) => {
   const hasChildren = item.children && item.children.length > 0;
   const location = useLocation(); // To get current path for active styling
-  
+
   // A menu item is considered 'open' for desktop hover if its ID is in the active path
   const isOpenOnDesktop = !isMobile && activeDropdownPath.includes(item.id);
   // For mobile, an item is 'currently clicked' if it's the specific item at its level in the path
@@ -275,9 +274,14 @@ const MenuItem = ({ item, level = 0, activeDropdownPath, updateActiveDropdownPat
   const isDropdownActive = isCurrentlyClickedOnMobile || isOpenOnDesktop;
   const chevronIcon = isDropdownActive ? 'fa-chevron-up' : 'fa-chevron-down';
 
+  // Determine the correct Font Awesome class for the icon
+  // Check for specific brand icons that need `fab`
+  const isBrandIcon = ['fa-google', 'fa-mastercard'].includes(item.icon);
+  const iconClass = isBrandIcon ? 'fab' : 'fas';
+
   const linkContent = (
     <>
-      {item.icon && <i className={`fas ${item.icon} mr-1 text-sm w-4 text-center`}></i>}
+      {item.icon && <i className={`${iconClass} ${item.icon} mr-1 text-sm w-4 text-center`}></i>}
       <span className="flex-1 whitespace-nowrap">{item.name}</span>
       {hasChildren && (
         <i
@@ -305,7 +309,7 @@ const MenuItem = ({ item, level = 0, activeDropdownPath, updateActiveDropdownPat
       linkClasses.push('text-gray-700');
     }
   } else { // Desktop specific styling
-    linkClasses.push('px-2 rounded-md'); // Further reduced padding for desktop items
+    linkClasses.push('px-1 rounded-md'); // Further reduced padding for desktop items
     if (level === 0) { // Top-level desktop item
       linkClasses.push('font-semibold');
       // For top-level items on desktop, only text color changes on hover/active
@@ -355,11 +359,11 @@ const MenuItem = ({ item, level = 0, activeDropdownPath, updateActiveDropdownPat
                   isCurrentlyClickedOnMobile ? 'max-h-[300px] opacity-100 overflow-y-auto' : 'max-h-0 opacity-0'
                 }`
               : `absolute mt-0 min-w-64 bg-white shadow-xl rounded-lg py-2 border border-gray-100 z-[51] transition-all duration-300 origin-top-left
-                 ${isOpenOnDesktop // Show desktop dropdown if this item is in the active path
-                    ? 'opacity-100 visible translate-y-0 scale-100'
-                    : 'opacity-0 invisible translate-y-2 scale-95 pointer-events-none'
-                 }
-                 ${level === 0 ? 'left-0' : 'left-full top-0'}` // Sub-sub menus open to the right
+                ${isOpenOnDesktop // Show desktop dropdown if this item is in the active path
+                  ? 'opacity-100 visible translate-y-0 scale-100'
+                  : 'opacity-0 invisible translate-y-2 scale-95 pointer-events-none'
+                }
+                ${level === 0 ? 'left-0' : 'left-full top-0'}` // Sub-sub menus open to the right
             }
           `}
           style={isMobile && !isCurrentlyClickedOnMobile ? { maxHeight: 0 } : {}} // Explicitly set max-height for mobile transition
@@ -392,31 +396,31 @@ const Header = () => {
   const headerRef = useRef(null); // Ref for the entire header to detect outside clicks
 
 
-   const navigate = useNavigate();
+    const navigate = useNavigate();
   // Function to update the active path when a menu item is hovered (desktop) or clicked (mobile)
   const updateActiveDropdownPath = (itemId, itemLevel, actionType) => { // actionType: 'hover', 'toggle', 'clear'
     setActiveDropdownPath(prevPath => {
         if (actionType === 'clear') {
-            return [];
+          return [];
         } else if (actionType === 'toggle') {
-            // For mobile clicks, we toggle the item's presence at its level
-            if (prevPath[itemLevel] === itemId) {
-                // If this item is already open, close it and all subsequent children
-                return prevPath.slice(0, itemLevel);
-            } else {
-                // Open this item, closing any siblings at this level and their children
-                return [...prevPath.slice(0, itemLevel), itemId];
-            }
-        } else { // 'hover'
-            // When hovering, we always want to set the new path segment
-            // and truncate any deeper paths
+          // For mobile clicks, we toggle the item's presence at its level
+          if (prevPath[itemLevel] === itemId) {
+            // If this item is already open, close it and all subsequent children
+            return prevPath.slice(0, itemLevel);
+          } else {
+            // Open this item, closing any siblings at this level and their children
             return [...prevPath.slice(0, itemLevel), itemId];
+          }
+        } else { // 'hover'
+          // When hovering, we always want to set the new path segment
+          // and truncate any deeper paths
+          return [...prevPath.slice(0, itemLevel), itemId];
         }
     });
   };
 
 
- const handleSearch = (e) => {
+  const handleSearch = (e) => {
     e.preventDefault();
     if (searchQuery.trim()) { // Only search if there is text
       // Navigate to the search results page with the query
@@ -524,7 +528,7 @@ const Header = () => {
       {/* Navigation section */}
       <div className="bg-white shadow-md">
         {/* Adjusted to w-full with responsive padding for maximum horizontal space */}
-        <div className="w-full mx-auto px-4 lg:px-6"> 
+        <div className="w-full mx-auto px-4 lg:px-6">
           <div className="flex justify-between items-center h-14 lg:h-auto"> {/* Added height for mobile consistency */}
             <button
               className="lg:hidden text-indigo-900 p-4 focus:outline-none"
@@ -564,7 +568,7 @@ const Header = () => {
             {/* Desktop Navigation */}
             <nav ref={navRef} className="hidden lg:block w-full"> {/* Added w-full here to allow flex to spread out */}
               <ul
-                className="flex justify-between w-full space-x-1" // Further reduced spacing and added justify-between
+                className="flex justify-between w-full"
                 onMouseEnter={handleNavMouseEnter}
                 onMouseLeave={handleNavMouseLeave}
               >
