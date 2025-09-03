@@ -88,7 +88,15 @@ import PostGraduatePage from './pages/Admission/PostGraduatePage';
 import UndertakingPage from './pages/Admission/UndertakingPage';
 import VisionMissionPage from './pages/Academic/CSE/VisionMissionPage';
 
-// for cucPage
+// for facilities page
+import ClassroomsPage from './pages/facilities/ClassroomsPage';
+import AstronomyPage from './pages/facilities/AstronomyPage';
+import HostelsPage from './pages/facilities/HostelsPage';
+import InfrastructurePage from './pages/facilities/InfrastructurePage';
+import LibraryPage from './pages/facilities/LibraryPage';
+import SportsPage from './pages/facilities/SportsPage';
+import RemoteCenterPage from './pages/facilities/RemoteCentre';
+import LaboratoriesPage from './pages/facilities/Laboratories';
 
 // ==========================================================
 // Helper Placeholder Pages
@@ -133,6 +141,16 @@ const App = () => {
           <Route path="/campus" element={<CampusInfoPage />} />
           <Route path="/service-rules" element={<ServiceRulesPage />} />
 
+          {/* Facilities Routes */}
+          <Route path="/facilities/classrooms" element={<ClassroomsPage />} />
+          <Route path="/facilities/astronomy-space-technology" element={<AstronomyPage />} />
+          <Route path="/facilities/hostels" element={<HostelsPage />} />
+          <Route path="/facilities/infrastructure" element={<InfrastructurePage />} />
+          <Route path="/facilities/library" element={<LibraryPage />} />
+          <Route path="/facilities/sports" element={<SportsPage />} />
+          <Route path="/facilities/remote-center" element={<RemoteCenterPage />} />
+          <Route path="/facilities/laboratories" element={<LaboratoriesPage />} />
+          
           {/* Alumni Routes */}
           <Route path="/alumni/esteemed-alumni" element={<EsteemedAlumni />} />
           <Route path="/alumni/registration" element={<AlumniRegistration />} />
