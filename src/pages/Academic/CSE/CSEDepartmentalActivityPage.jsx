@@ -3,19 +3,21 @@ import { Link, useLocation } from 'react-router-dom';
 
 // Define the sub-navigation tabs for the CSE department
 // This array should ideally be a shared constant if used across multiple department-related pages.
+// Define the sub-navigation tabs for the CSE department
 const cseDepartmentTabs = [
   { name: "DEPT Profile", path: "/academics/computer-science-engineering" },
+  { name: "Vision-Mission", path: "/academics/computer-science-engineering/vision-mission" },
   { name: "Programmes", path: "/academics/computer-science-engineering/programmes" },
   { name: "Faculty Profile", path: "/academics/computer-science-engineering/faculty" },
   { name: "Laboratory", path: "/academics/computer-science-engineering/labs" },
   { name: "Training and Placement", path: "/academics/computer-science-engineering/training-placement" },
   { name: "Research & Publication", path: "/academics/computer-science-engineering/research-publication" },
   { name: "Achievements", path: "/academics/computer-science-engineering/achievements" },
-  { name: "Departmental Activity", path: "/academics/computer-science-engineering/activities" }, // This page's path
+  { name: "Departmental Activity", path: "/academics/computer-science-engineering/activities" },
   { name: "CUC", path: "/academics/computer-science-engineering/cuc" },
   { name: "CSI/IEI", path: "/academics/computer-science-engineering/csi-iei" },
-  { name: "Downloads", path: "/academics/computer-science-engineering/downloads" },
-  { name: "Resources", path: "/academics/computer-science-engineering/resources" },
+  { name: "Curriculum ", path: "/academics/computer-science-engineering/curriculum " },
+  { name: "consultancy", path: "/academics/computer-science-engineering/consultancy" },
 ];
 
 const CSEDepartmentalActivityPage = () => {

@@ -86,6 +86,7 @@ import TrainingAndPlacementCellPage from './pages/cells-committees/TrainingAndPl
 import UnderGraduatePage from './pages/Admission/UnderGraduatePage';
 import PostGraduatePage from './pages/Admission/PostGraduatePage';
 import UndertakingPage from './pages/Admission/UndertakingPage';
+import VisionMissionPage from './pages/Academic/CSE/VisionMissionPage';
 
 // for cucPage
 
@@ -191,6 +192,7 @@ const App = () => {
           {/* ACADEMICS ROUTES (Specific CSE Department) */}
           {/* Academics Routes (CSE Department) */}
           <Route path="/academics/computer-science-engineering" element={<ComputerScienceEngineeringPage />} />
+          <Route path="/academics/computer-science-engineering/vision-mission" element={<VisionMissionPage />} />
           <Route path="/academics/computer-science-engineering/programmes" element={<ProgrammesPage />} />
           <Route path="/academics/computer-science-engineering/training-placement" element={<TrainingPlacementPage />} />
           <Route path="/academics/computer-science-engineering/faculty" element={<CSEFacultyProfilePage />} />
