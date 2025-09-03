@@ -32,7 +32,6 @@ import CSEFacultyDetailPage from './pages/Academic/CSE/FacultyDetailPage';
 import CSELaboratoryPage from './pages/Academic/CSE/CSELaboratoryPage';
 import CSELaboratoryDetailPage from './pages/Academic/CSE/CSELaboratoryDetailPage';
 import CSEDepartmentalActivityPage from './pages/Academic/CSE/CSEDepartmentalActivityPage';
-import CUCPage from './pages/Academic/CSE/CUCPage';
 import CSIIEIPage from './pages/Academic/CSE/CSIIEIPage';
 import AchievementsPage from './pages/Academic/CSE/AchievementsPage';
 
@@ -42,7 +41,7 @@ import AlumniRegistration from './pages/alumni/AlumniRegistration';
 import AlumniSpeak from './pages/alumni/AlumniSpeak';
 
 import CesaPage from './pages/students-corner/academic/CesaPage';
-import CucPage from './pages/students-corner/academic/CucPage';
+// import CucPage from './pages/students-corner/academic/CucPage';
 import EtaPage from './pages/students-corner/academic/EtaPage';
 import MesaPage from './pages/students-corner/academic/MesaPage';
 import ItsaPage from './pages/students-corner/academic/Itsapage';
@@ -72,18 +71,18 @@ import NirfPage from './pages/download/nirf';
 import FeesRegulatoryAuthorityPage from './pages/download/fra';
 import AuditedStatementsPage from './pages/download/AuditedS';
 import TenderPage from './pages/download/Tender';
-import AcademicCellPage from './pages/Cells & Committees/Academic Cell';
-import AdmissionCellPage from './pages/Cells & Committees/AdmissionCellPage';
-import AntiRaggingSquadPage from './pages/Cells & Committees/AntiRaggingSquadPage';
-import AntiRaggingCommitteePage from './pages/Cells & Committees/AntiRaggingCommitteePage';
-import CASERPCellPage from './pages/Cells & Committees/CASERPCellPage';
-import CollegeDevelopmentCommitteePage from './pages/Cells & Committees/CollegeDevelopmentCommitteePage';
-import CulturalCommitteePage from './pages/Cells & Committees/CulturalCommitteePage';
-import InternalComplaintCommitteePage from './pages/Cells & Committees/InternalComplaintCommitteePage';
-import ExaminationCellPage from './pages/Cells & Committees/ExaminationCellPage';
-import SCSTCellPage from './pages/Cells & Committees/SCSTCellPage';
-import StudentGrievanceRedressalCommitteePage from './pages/Cells & Committees/StudentGrievanceRedressalCommitteePage';
-import TrainingAndPlacementCellPage from './pages/Cells & Committees/TrainingAndPlacementCellPage';
+import AcademicCellPage from './pages/cells-committees/Academic Cell';
+import AdmissionCellPage from './pages/cells-committees/AdmissionCellPage';
+import AntiRaggingSquadPage from './pages/cells-committees/AntiRaggingSquadPage';
+import AntiRaggingCommitteePage from './pages/cells-committees/AntiRaggingCommitteePage';
+import CASERPCellPage from './pages/cells-committees/CASERPCellPage';
+import CollegeDevelopmentCommitteePage from './pages/cells-committees/CollegeDevelopmentCommitteePage';
+import CulturalCommitteePage from './pages/cells-committees/CulturalCommitteePage';
+import InternalComplaintCommitteePage from './pages/cells-committees/InternalComplaintCommitteePage';
+import ExaminationCellPage from './pages/cells-committees/ExaminationCellPage';
+import SCSTCellPage from './pages/cells-committees/SCSTCellPage';
+import StudentGrievanceRedressalCommitteePage from './pages/cells-committees/StudentGrievanceRedressalCommitteePage';
+import TrainingAndPlacementCellPage from './pages/cells-committees/TrainingAndPlacementCellPage';
 import UnderGraduatePage from './pages/Admission/UnderGraduatePage';
 import PostGraduatePage from './pages/Admission/PostGraduatePage';
 import UndertakingPage from './pages/Admission/UndertakingPage';
@@ -144,7 +143,7 @@ const App = () => {
 
         {/* ROUTE FOR THE CESA /cuc/eta PAGE */}
                   <Route path="/students-corner/academic/cesa" element={<CesaPage />} />
-                  <Route path="/students-corner/academic/cuc" element={<CucPage />} />
+                  {/* <Route path="/students-corner/academic/cuc" element={<CucPage />} /> */}
                    <Route path="/students-corner/academic/eta" element={<EtaPage />} />
                    <Route path="/students-corner/academic/mesa" element={<MesaPage />} />
                    <Route path="/students-corner/academic/itsa" element={<ItsaPage />} />
@@ -185,7 +184,7 @@ const App = () => {
           {/* Placeholder Routes for other main menu items (you'll replace these later) */}
           {/* STUDENTS CORNER ROUTES */}
           <Route path="/student-activities/academic/cesa" element={<CesaPage />} />
-          <Route path="/student-activities/academic/cuc" element={<CucPage />} />
+          {/* <Route path="/student-activities/academic/cuc" element={<CucPage />} /> */}
           {/* Add other specific student-activities routes here as they are developed */}
 
 
@@ -200,7 +199,7 @@ const App = () => {
           <Route path="/academics/computer-science-engineering/labs/:labId" element={<CSELaboratoryDetailPage />} />
           <Route path="/academics/computer-science-engineering/achievements" element={<AchievementsPage />} />
           <Route path="/academics/computer-science-engineering/activities" element={<CSEDepartmentalActivityPage />} />
-          <Route path="/academics/computer-science-engineering/cuc" element={<CUCPage />} />
+          {/* <Route path="/academics/computer-science-engineering/cuc" element={<CUCPage />} /> */}
           <Route path="/academics/computer-science-engineering/csi-iei" element={<CSIIEIPage />} />
 
           {/* Placeholders */}
