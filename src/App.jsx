@@ -140,7 +140,6 @@ const App = () => {
 
           {/* Students Corner Routes */}
           <Route path="/students-corner/academic/cesa" element={<CesaPage />} />
-          <Route path="/students-corner/academic/cuc" element={<CucPage />} />
           <Route path="/students-corner/academic/eta" element={<EtaPage />} />
 
         {/* ROUTE FOR THE CESA /cuc/eta PAGE */}
