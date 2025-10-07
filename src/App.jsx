@@ -13,7 +13,6 @@ import SearchResultsPage from './pages/search';
 // Import About Us sub-pages
 import AboutUsPage from './pages/about/AboutUsPage';
 import CoreValuesEthicsPage from './pages/about/CoreValuesEthicsPage';
-import AccreditationsAffiliationsPage from './pages/about/AccreditationsAffiliationsPage';
 import ChairmansDeskPage from './pages/about/ChairmansDeskPage';
 import DirectorsDeskPage from './pages/about/DirectorsDeskPage';
 import CoursesOfferedPage from './pages/about/CoursesOfferedPage';
@@ -97,6 +96,8 @@ import LibraryPage from './pages/facilities/LibraryPage';
 import SportsPage from './pages/facilities/SportsPage';
 import RemoteCenterPage from './pages/facilities/RemoteCentre';
 import LaboratoriesPage from './pages/facilities/Laboratories';
+import IQACPage from './pages/IQAC/IQACPage';
+import NBACertificatePage from './pages/NBA/NBACertificatePage';
 
 // ==========================================================
 // Helper Placeholder Pages
@@ -124,14 +125,13 @@ const App = () => {
       {/* Header is outside Routes because it's always present */}
       <Header />
 
-      <main className="bg-gray-50 min-h-screen">
+      <main className="bg-gray-50 min-h-screen mt-[-100px]">
         <Routes>
           <Route path="/" element={<HomePage />} />
 
           {/* About Us Routes */}
           <Route path="/about-us" element={<AboutUsPage />} />
           <Route path="/core-values-ethics" element={<CoreValuesEthicsPage />} />
-          <Route path="/accreditations-affiliations" element={<AccreditationsAffiliationsPage />} />
           <Route path="/chairman-desk" element={<ChairmansDeskPage />} />
           <Route path="/director-desk" element={<DirectorsDeskPage />} />
           <Route path="/courses" element={<CoursesOfferedPage />} />
@@ -150,7 +150,7 @@ const App = () => {
           <Route path="/facilities/sports" element={<SportsPage />} />
           <Route path="/facilities/remote-center" element={<RemoteCenterPage />} />
           <Route path="/facilities/laboratories" element={<LaboratoriesPage />} />
-          
+
           {/* Alumni Routes */}
           <Route path="/alumni/esteemed-alumni" element={<EsteemedAlumni />} />
           <Route path="/alumni/registration" element={<AlumniRegistration />} />
@@ -160,26 +160,26 @@ const App = () => {
           <Route path="/students-corner/academic/cesa" element={<CesaPage />} />
           <Route path="/students-corner/academic/eta" element={<EtaPage />} />
 
-        {/* ROUTE FOR THE CESA /cuc/eta PAGE */}
-                  <Route path="/students-corner/academic/cesa" element={<CesaPage />} />
-                  {/* <Route path="/students-corner/academic/cuc" element={<CucPage />} /> */}
-                   <Route path="/students-corner/academic/eta" element={<EtaPage />} />
-                   <Route path="/students-corner/academic/mesa" element={<MesaPage />} />
-                   <Route path="/students-corner/academic/itsa" element={<ItsaPage />} />
+          {/* ROUTE FOR THE CESA /cuc/eta PAGE */}
+          <Route path="/students-corner/academic/cesa" element={<CesaPage />} />
+          {/* <Route path="/students-corner/academic/cuc" element={<CucPage />} /> */}
+          <Route path="/students-corner/academic/eta" element={<EtaPage />} />
+          <Route path="/students-corner/academic/mesa" element={<MesaPage />} />
+          <Route path="/students-corner/academic/itsa" element={<ItsaPage />} />
 
           {/*Co-curricilar pages*/}
           <Route path="/students-corner/co-curricular/cast-activity" element={<CastActivityPage />} />
           <Route path="/students-corner/co-curricular/english-language-club" element={<EnglishLanguageClubPage />} />
 
           {/* Sports Pages */}
-           <Route path="/students-corner/sport/achievements-indoor" element={<AchievementsIndoorPage />} />
+          <Route path="/students-corner/sport/achievements-indoor" element={<AchievementsIndoorPage />} />
           <Route path="/students-corner/sport/achievements-outdoor" element={<AchievementsOutdoorPage />} />
-         
+
           {/* Cultural Pages */}
           <Route path="/students-corner/cultural/aarohan" element={<AarohanPage />} />
           <Route path="/students-corner/cultural/jhankaar" element={<JhankaarPage />} />
           <Route path="/students-corner/cultural/synergy" element={<SynergyPage />} />
-         
+
           {/* Social Pages */}
           <Route path="/students-corner/social/nss" element={<NssPage />} />
           <Route path="/students-corner/social/tech-life" element={<TechLifePage />} />
@@ -188,12 +188,12 @@ const App = () => {
           <Route path="/students-corner/visiotech/about-us" element={<AboutVisiotechPage />} />
           <Route path="/students-corner/visiotech/visiotech-poster" element={<VisiotechPosterPage />} />
 
-           <Route path="/collaboration/academic" element={<AcademicCollaborationPage />} />
+          <Route path="/collaboration/academic" element={<AcademicCollaborationPage />} />
           <Route path="/collaboration/corporate-industries" element={<CorporateIndustriesPage />} />
 
           <Route path="/download/current-advertisement" element={<CurrentAdvertisementPage />} />
           <Route path="/download/nirf" element={<NirfPage />} />
-           <Route path="/download/fees-regulatory-authority" element={<FeesRegulatoryAuthorityPage />} />
+          <Route path="/download/fees-regulatory-authority" element={<FeesRegulatoryAuthorityPage />} />
           <Route path="/download/audited-statements" element={<AuditedStatementsPage />} />
           <Route path="/download/tender" element={<TenderPage />} />
           <Route path="/contact" element={<ContactPage />} />
@@ -226,13 +226,17 @@ const App = () => {
           <Route path="/academics/computer-science-engineering/research-publication" element={<PlaceholderPage title="CSE Research & Publication" />} />
           <Route path="/academics/computer-science-engineering/downloads" element={<PlaceholderPage title="CSE Downloads" />} />
           <Route path="/academics/computer-science-engineering/resources" element={<PlaceholderPage title="CSE Resources" />} />
-          
+
           {/* Generic placeholder for any other /academics/... routes not specifically defined above */}
           {/* Keep this generic route LAST in the /academics group */}
           <Route path="/academics/*" element={<PlaceholderPage title="Academics Section" />} />
 
           {/* Other Main Menu Placeholders */}
           <Route path="/research" element={<PlaceholderPage title="Central Research" />} />
+
+          {/* IQACPage */}
+          <Route path="/iqac" element={<IQACPage />} />
+
 
 
           <Route path="/cells-committees/academic-cell" element={<AcademicCellPage />} />
@@ -251,10 +255,12 @@ const App = () => {
 
 
           <Route path="/admission/under-graduate" element={<UnderGraduatePage />} />
-          <Route path="/admission/post-graduate" element={<PostGraduatePage/>} />
+          <Route path="/admission/post-graduate" element={<PostGraduatePage />} />
           <Route path="/admission/fee-structure" element={<PlaceholderPage title="Admission Section" />} />
           <Route path="/admission/undertaking" element={<UndertakingPage />} />
 
+          {/* nba  */}
+          <Route path="/nba" element={<NBACertificatePage />} />
 
 
 

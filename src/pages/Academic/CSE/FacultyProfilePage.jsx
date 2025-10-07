@@ -2,7 +2,6 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
-// Define the sub-navigation tabs for the CSE department
 const cseDepartmentTabs = [
   { name: "DEPT Profile", path: "/academics/computer-science-engineering" },
   { name: "Vision-Mission", path: "/academics/computer-science-engineering/vision-mission" },
@@ -14,9 +13,11 @@ const cseDepartmentTabs = [
   { name: "Achievements", path: "/academics/computer-science-engineering/achievements" },
   { name: "Departmental Activity", path: "/academics/computer-science-engineering/activities" },
   { name: "CUC", path: "/academics/computer-science-engineering/cuc" },
-  { name: "CSI/IEI", path: "/academics/computer-science-engineering/csi-iei" },
+  { name: "IEI", path: "/academics/computer-science-engineering/csi-iei" },
   { name: "Curriculum ", path: "/academics/computer-science-engineering/curriculum " },
   { name: "consultancy", path: "/academics/computer-science-engineering/consultancy" },
+  { name: "Innovation in teaching", path: "/academics/computer-science-engineering/consultancy" },
+  
 ];
 
 // Faculty data, cleaned up image paths (assuming /public/images/department/faculty/ or /public/images/)

@@ -38,11 +38,11 @@ const Footer = () => {
               Quick Links
             </h3>
             <ul className="space-y-3">
-              <li><a href="index.html" className="flex items-center gap-2 text-white/70 hover:text-yellow-500 transition-all hover:pl-2"><i className="fas fa-chevron-right text-xs"></i> Home</a></li>
-              <li><a href="about.html" className="flex items-center gap-2 text-white/70 hover:text-yellow-500 transition-all hover:pl-2"><i className="fas fa-chevron-right text-xs"></i> About Us</a></li>
-              <li><a href="courses.html" className="flex items-center gap-2 text-white/70 hover:text-yellow-500 transition-all hover:pl-2"><i className="fas fa-chevron-right text-xs"></i> Courses</a></li>
-              <li><a href="admission.html" className="flex items-center gap-2 text-white/70 hover:text-yellow-500 transition-all hover:pl-2"><i className="fas fa-chevron-right text-xs"></i> Admission</a></li>
-              <li><a href="contact.html" className="flex items-center gap-2 text-white/70 hover:text-yellow-500 transition-all hover:pl-2"><i className="fas fa-chevron-right text-xs"></i> Contact</a></li>
+              <li><a href="/" className="flex items-center gap-2 text-white/70 hover:text-yellow-500 transition-all hover:pl-2"><i className="fas fa-chevron-right text-xs"></i> Home</a></li>
+              <li><a href="/about-us" className="flex items-center gap-2 text-white/70 hover:text-yellow-500 transition-all hover:pl-2"><i className="fas fa-chevron-right text-xs"></i> About Us</a></li>
+              <li><a href="/courses" className="flex items-center gap-2 text-white/70 hover:text-yellow-500 transition-all hover:pl-2"><i className="fas fa-chevron-right text-xs"></i> Courses</a></li>
+              <li><a href="/admission/under-graduate" className="flex items-center gap-2 text-white/70 hover:text-yellow-500 transition-all hover:pl-2"><i className="fas fa-chevron-right text-xs"></i> Admission</a></li>
+              <li><a href="/contact" className="flex items-center gap-2 text-white/70 hover:text-yellow-500 transition-all hover:pl-2"><i className="fas fa-chevron-right text-xs"></i> Contact</a></li>
             </ul>
           </div>
           
