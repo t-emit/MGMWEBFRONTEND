@@ -19,7 +19,6 @@ import SearchResultsPage from './pages/search';
 // Import About Us sub-pages
 import AboutUsPage from './pages/about/AboutUsPage';
 import CoreValuesEthicsPage from './pages/about/CoreValuesEthicsPage';
-import AccreditationsAffiliationsPage from './pages/about/AccreditationsAffiliationsPage';
 import ChairmansDeskPage from './pages/about/ChairmansDeskPage';
 import DirectorsDeskPage from './pages/about/DirectorsDeskPage';
 import CoursesOfferedPage from './pages/about/CoursesOfferedPage';
@@ -40,6 +39,17 @@ import CSELaboratoryDetailPage from './pages/Academic/CSE/CSELaboratoryDetailPag
 import CSEDepartmentalActivityPage from './pages/Academic/CSE/CSEDepartmentalActivityPage';
 import CSIIEIPage from './pages/Academic/CSE/CSIIEIPage';
 import AchievementsPage from './pages/Academic/CSE/AchievementsPage';
+import CSEVisionMissionPage from './pages/Academic/CSE/VisionMissionPage'; // Renamed import to avoid conflict
+
+// Import Academic Civil Engineering pages (UPDATED IMPORTS)
+import CivilEngineeringPage from './pages/Academic/Civil/CivilEngineeringPage';
+// import CivilAchievementsPage from './pages/Academic/Civil/CivilAchievementsPage';
+// import CivilLaboratoryPage from './pages/Academic/Civil/CivilLaboratoryPage';
+// import CivilLaboratoryDetailPage from './pages/Academic/Civil/CivilLaboratoryDetailPage';
+// import CivilDepartmentalActivityPage from './pages/Academic/Civil/CivilDepartmentalActivityPage';
+// import CivilIEIPage from './pages/Academic/Civil/CivilIEIPage';
+import CivilVisionMissionPage from './pages/Academic/Civil/CivilVisionMissionPage'; // REMOVED: Vision/Mission now in CivilEngineeringPage
+
 
 // Import Alumni & Students Corner
 import EsteemedAlumni from './pages/alumni/EsteemedAlumni';
@@ -47,7 +57,7 @@ import AlumniRegistration from './pages/alumni/AlumniRegistration';
 import AlumniSpeak from './pages/alumni/AlumniSpeak';
 
 import CesaPage from './pages/students-corner/academic/CesaPage';
-// import CucPage from './pages/students-corner/academic/CucPage';
+// import CucPage from './pages/students-corner/academic/CucPage'; // Not defined, keeping commented
 import EtaPage from './pages/students-corner/academic/EtaPage';
 import MesaPage from './pages/students-corner/academic/MesaPage';
 import ItsaPage from './pages/students-corner/academic/Itsapage';
@@ -66,8 +76,7 @@ import NssPage from './pages/Social/nss';
 import TechLifePage from './pages/Social/techlife';
 import MgmHelplinePage from './pages/Social/helpline';
 
-import AboutVisiotechPage from './pages/visiotech/aboutvi';
-import VisiotechPosterPage from './pages/visiotech/viposter';
+
 
 import AcademicCollaborationPage from './pages/collab/acdemic';
 import CorporateIndustriesPage from './pages/collab/corporate';
@@ -92,7 +101,7 @@ import TrainingAndPlacementCellPage from './pages/cells-committees/TrainingAndPl
 import UnderGraduatePage from './pages/Admission/UnderGraduatePage';
 import PostGraduatePage from './pages/Admission/PostGraduatePage';
 import UndertakingPage from './pages/Admission/UndertakingPage';
-import VisionMissionPage from './pages/Academic/CSE/VisionMissionPage';
+// import VisionMissionPage from './pages/Academic/CSE/VisionMissionPage'; // This was the old import for CSE, renamed above
 
 // for facilities page
 import ClassroomsPage from './pages/facilities/ClassroomsPage';
@@ -103,6 +112,10 @@ import LibraryPage from './pages/facilities/LibraryPage';
 import SportsPage from './pages/facilities/SportsPage';
 import RemoteCenterPage from './pages/facilities/RemoteCentre';
 import LaboratoriesPage from './pages/facilities/Laboratories';
+import IQACPage from './pages/IQAC/IQACPage';
+import NBACertificatePage from './pages/NBA/NBACertificatePage';
+import VisiotechUnifiedPage from './pages/visiotech/VisiotechUnifiedPage';
+import CivilProgrammesPage from './pages/Academic/Civil/CivilProgrammesPage';
 
 // ==========================================================
 // Helper Placeholder Pages
@@ -130,14 +143,13 @@ const App = () => {
       {/* Header is outside Routes because it's always present */}
       <Header />
 
-      <main className="bg-gray-50 min-h-screen">
+      <main className="bg-gray-50 min-h-screen mt-[-100px]">
         <Routes>
           <Route path="/" element={<HomePage />} />
 
           {/* About Us Routes */}
           <Route path="/about-us" element={<AboutUsPage />} />
           <Route path="/core-values-ethics" element={<CoreValuesEthicsPage />} />
-          <Route path="/accreditations-affiliations" element={<AccreditationsAffiliationsPage />} />
           <Route path="/chairman-desk" element={<ChairmansDeskPage />} />
           <Route path="/director-desk" element={<DirectorsDeskPage />} />
           <Route path="/courses" element={<CoursesOfferedPage />} />
@@ -156,7 +168,7 @@ const App = () => {
           <Route path="/facilities/sports" element={<SportsPage />} />
           <Route path="/facilities/remote-center" element={<RemoteCenterPage />} />
           <Route path="/facilities/laboratories" element={<LaboratoriesPage />} />
-          
+
           {/* Alumni Routes */}
           <Route path="/alumni/esteemed-alumni" element={<EsteemedAlumni />} />
           <Route path="/alumni/registration" element={<AlumniRegistration />} />
@@ -165,41 +177,39 @@ const App = () => {
           {/* Students Corner Routes */}
           <Route path="/students-corner/academic/cesa" element={<CesaPage />} />
           <Route path="/students-corner/academic/eta" element={<EtaPage />} />
-
-        {/* ROUTE FOR THE CESA /cuc/eta PAGE */}
-                  <Route path="/students-corner/academic/cesa" element={<CesaPage />} />
-                  {/* <Route path="/students-corner/academic/cuc" element={<CucPage />} /> */}
-                   <Route path="/students-corner/academic/eta" element={<EtaPage />} />
-                   <Route path="/students-corner/academic/mesa" element={<MesaPage />} />
-                   <Route path="/students-corner/academic/itsa" element={<ItsaPage />} />
+          {/* ROUTE FOR THE CESA /cuc/eta PAGE */}
+          <Route path="/students-corner/academic/cesa" element={<CesaPage />} />
+          {/* <Route path="/students-corner/academic/cuc" element={<CucPage />} /> */}
+          <Route path="/students-corner/academic/eta" element={<EtaPage />} />
+          <Route path="/students-corner/academic/mesa" element={<MesaPage />} />
+          <Route path="/students-corner/academic/itsa" element={<ItsaPage />} />
 
           {/*Co-curricilar pages*/}
           <Route path="/students-corner/co-curricular/cast-activity" element={<CastActivityPage />} />
           <Route path="/students-corner/co-curricular/english-language-club" element={<EnglishLanguageClubPage />} />
 
           {/* Sports Pages */}
-           <Route path="/students-corner/sport/achievements-indoor" element={<AchievementsIndoorPage />} />
+          <Route path="/students-corner/sport/achievements-indoor" element={<AchievementsIndoorPage />} />
           <Route path="/students-corner/sport/achievements-outdoor" element={<AchievementsOutdoorPage />} />
-         
+
           {/* Cultural Pages */}
           <Route path="/students-corner/cultural/aarohan" element={<AarohanPage />} />
           <Route path="/students-corner/cultural/jhankaar" element={<JhankaarPage />} />
           <Route path="/students-corner/cultural/synergy" element={<SynergyPage />} />
-         
+
           {/* Social Pages */}
           <Route path="/students-corner/social/nss" element={<NssPage />} />
           <Route path="/students-corner/social/tech-life" element={<TechLifePage />} />
           <Route path="/students-corner/social/mgm-helpline" element={<MgmHelplinePage />} />
 
-          <Route path="/students-corner/visiotech/about-us" element={<AboutVisiotechPage />} />
-          <Route path="/students-corner/visiotech/visiotech-poster" element={<VisiotechPosterPage />} />
+          <Route path="/students-corner/visiotech" element={<VisiotechUnifiedPage />} />
 
-           <Route path="/collaboration/academic" element={<AcademicCollaborationPage />} />
+          <Route path="/collaboration/academic" element={<AcademicCollaborationPage />} />
           <Route path="/collaboration/corporate-industries" element={<CorporateIndustriesPage />} />
 
           <Route path="/download/current-advertisement" element={<CurrentAdvertisementPage />} />
           <Route path="/download/nirf" element={<NirfPage />} />
-           <Route path="/download/fees-regulatory-authority" element={<FeesRegulatoryAuthorityPage />} />
+          <Route path="/download/fees-regulatory-authority" element={<FeesRegulatoryAuthorityPage />} />
           <Route path="/download/audited-statements" element={<AuditedStatementsPage />} />
           <Route path="/download/tender" element={<TenderPage />} />
           <Route path="/contact" element={<ContactPage />} />
@@ -214,9 +224,8 @@ const App = () => {
 
 
           {/* ACADEMICS ROUTES (Specific CSE Department) */}
-          {/* Academics Routes (CSE Department) */}
           <Route path="/academics/computer-science-engineering" element={<ComputerScienceEngineeringPage />} />
-          <Route path="/academics/computer-science-engineering/vision-mission" element={<VisionMissionPage />} />
+          <Route path="/academics/computer-science-engineering/vision-mission" element={<CSEVisionMissionPage />} />
           <Route path="/academics/computer-science-engineering/programmes" element={<ProgrammesPage />} />
           <Route path="/academics/computer-science-engineering/training-placement" element={<TrainingPlacementPage />} />
           <Route path="/academics/computer-science-engineering/faculty" element={<CSEFacultyProfilePage />} />
@@ -228,17 +237,41 @@ const App = () => {
           {/* <Route path="/academics/computer-science-engineering/cuc" element={<CUCPage />} /> */}
           <Route path="/academics/computer-science-engineering/csi-iei" element={<CSIIEIPage />} />
 
-          {/* Placeholders */}
+          {/* ACADEMICS ROUTES (Specific Civil Engineering Department) (UPDATED ROUTES) */}
+          <Route path="/academics/civil-engineering" element={<CivilEngineeringPage />} />
+          {/* The old CivilVisionMissionPage is no longer needed as content is on CivilEngineeringPage */}
+          <Route path="/academics/civil-engineering/vision-mission" element={<CivilVisionMissionPage />} /> 
+          <Route path="/academics/civil-engineering/programmes" element={<CivilProgrammesPage />} />
+          {/* <Route path="/academics/civil-engineering/faculty" element={<PlaceholderPage title="Civil Faculty Profile" />} />
+          <Route path="/academics/civil-engineering/faculty/:facultyId" element={<PlaceholderPage title="Civil Faculty Detail" />} /> 
+          <Route path="/academics/civil-engineering/labs" element={<CivilLaboratoryPage />} />
+          <Route path="/academics/civil-engineering/labs/:labId" element={<CivilLaboratoryDetailPage />} />
+          <Route path="/academics/civil-engineering/training-placement" element={<PlaceholderPage title="Civil Training and Placement" />} />
+          <Route path="/academics/civil-engineering/research-publication" element={<PlaceholderPage title="Civil Research & Publication" />} />
+          <Route path="/academics/civil-engineering/achievements" element={<CivilAchievementsPage />} />
+          <Route path="/academics/civil-engineering/activities" element={<CivilDepartmentalActivityPage />} />
+          <Route path="/academics/civil-engineering/cuc" element={<PlaceholderPage title="Civil CUC" />} />
+          <Route path="/academics/civil-engineering/csi-iei" element={<CivilIEIPage />} />
+          <Route path="/academics/civil-engineering/curriculum" element={<PlaceholderPage title="Civil Curriculum" />} />
+          <Route path="/academics/civil-engineering/consultancy" element={<PlaceholderPage title="Civil Consultancy" />} />
+          <Route path="/academics/civil-engineering/innovation-teaching" element={<PlaceholderPage title="Civil Innovation in Teaching" />} /> */}
+
+
+          {/* Placeholders for other CSE-specific routes */}
           <Route path="/academics/computer-science-engineering/research-publication" element={<PlaceholderPage title="CSE Research & Publication" />} />
           <Route path="/academics/computer-science-engineering/downloads" element={<PlaceholderPage title="CSE Downloads" />} />
           <Route path="/academics/computer-science-engineering/resources" element={<PlaceholderPage title="CSE Resources" />} />
-          
+
           {/* Generic placeholder for any other /academics/... routes not specifically defined above */}
           {/* Keep this generic route LAST in the /academics group */}
           <Route path="/academics/*" element={<PlaceholderPage title="Academics Section" />} />
 
           {/* Other Main Menu Placeholders */}
           <Route path="/research" element={<PlaceholderPage title="Central Research" />} />
+
+          {/* IQACPage */}
+          <Route path="/iqac" element={<IQACPage />} />
+
 
 
           <Route path="/cells-committees/academic-cell" element={<AcademicCellPage />} />
@@ -257,10 +290,12 @@ const App = () => {
 
 
           <Route path="/admission/under-graduate" element={<UnderGraduatePage />} />
-          <Route path="/admission/post-graduate" element={<PostGraduatePage/>} />
+          <Route path="/admission/post-graduate" element={<PostGraduatePage />} />
           <Route path="/admission/fee-structure" element={<PlaceholderPage title="Admission Section" />} />
           <Route path="/admission/undertaking" element={<UndertakingPage />} />
 
+          {/* nba  */}
+          <Route path="/nba" element={<NBACertificatePage />} />
 
 
 

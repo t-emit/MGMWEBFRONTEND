@@ -11,6 +11,7 @@ function ManageEvents() {
     const [description, setDescription] = useState('');
     const [link, setLink] = useState('');
     const [imageFile, setImageFile] = useState(null); // State for the actual file
+    const [type, setType] = useState('news');
     const navigate = useNavigate();
 
     // Fetch all events when the component loads
@@ -42,7 +43,7 @@ function ManageEvents() {
         formData.append('description', description);
         formData.append('link', link);
         formData.append('image', imageFile); // 'image' must match the backend upload.single('image')
-
+        formData.append('type', type);
         try {
             const token = localStorage.getItem('admin_token');
             if (!token) {
