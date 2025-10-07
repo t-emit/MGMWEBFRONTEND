@@ -33,6 +33,17 @@ import CSELaboratoryDetailPage from './pages/Academic/CSE/CSELaboratoryDetailPag
 import CSEDepartmentalActivityPage from './pages/Academic/CSE/CSEDepartmentalActivityPage';
 import CSIIEIPage from './pages/Academic/CSE/CSIIEIPage';
 import AchievementsPage from './pages/Academic/CSE/AchievementsPage';
+import CSEVisionMissionPage from './pages/Academic/CSE/VisionMissionPage'; // Renamed import to avoid conflict
+
+// Import Academic Civil Engineering pages (UPDATED IMPORTS)
+import CivilEngineeringPage from './pages/Academic/Civil/CivilEngineeringPage';
+// import CivilAchievementsPage from './pages/Academic/Civil/CivilAchievementsPage';
+// import CivilLaboratoryPage from './pages/Academic/Civil/CivilLaboratoryPage';
+// import CivilLaboratoryDetailPage from './pages/Academic/Civil/CivilLaboratoryDetailPage';
+// import CivilDepartmentalActivityPage from './pages/Academic/Civil/CivilDepartmentalActivityPage';
+// import CivilIEIPage from './pages/Academic/Civil/CivilIEIPage';
+import CivilVisionMissionPage from './pages/Academic/Civil/CivilVisionMissionPage'; // REMOVED: Vision/Mission now in CivilEngineeringPage
+
 
 // Import Alumni & Students Corner
 import EsteemedAlumni from './pages/alumni/EsteemedAlumni';
@@ -40,7 +51,7 @@ import AlumniRegistration from './pages/alumni/AlumniRegistration';
 import AlumniSpeak from './pages/alumni/AlumniSpeak';
 
 import CesaPage from './pages/students-corner/academic/CesaPage';
-// import CucPage from './pages/students-corner/academic/CucPage';
+// import CucPage from './pages/students-corner/academic/CucPage'; // Not defined, keeping commented
 import EtaPage from './pages/students-corner/academic/EtaPage';
 import MesaPage from './pages/students-corner/academic/MesaPage';
 import ItsaPage from './pages/students-corner/academic/Itsapage';
@@ -84,7 +95,7 @@ import TrainingAndPlacementCellPage from './pages/cells-committees/TrainingAndPl
 import UnderGraduatePage from './pages/Admission/UnderGraduatePage';
 import PostGraduatePage from './pages/Admission/PostGraduatePage';
 import UndertakingPage from './pages/Admission/UndertakingPage';
-import VisionMissionPage from './pages/Academic/CSE/VisionMissionPage';
+// import VisionMissionPage from './pages/Academic/CSE/VisionMissionPage'; // This was the old import for CSE, renamed above
 
 // for facilities page
 import ClassroomsPage from './pages/facilities/ClassroomsPage';
@@ -98,6 +109,7 @@ import LaboratoriesPage from './pages/facilities/Laboratories';
 import IQACPage from './pages/IQAC/IQACPage';
 import NBACertificatePage from './pages/NBA/NBACertificatePage';
 import VisiotechUnifiedPage from './pages/visiotech/VisiotechUnifiedPage';
+import CivilProgrammesPage from './pages/Academic/Civil/CivilProgrammesPage';
 
 // ==========================================================
 // Helper Placeholder Pages
@@ -206,9 +218,8 @@ const App = () => {
 
 
           {/* ACADEMICS ROUTES (Specific CSE Department) */}
-          {/* Academics Routes (CSE Department) */}
           <Route path="/academics/computer-science-engineering" element={<ComputerScienceEngineeringPage />} />
-          <Route path="/academics/computer-science-engineering/vision-mission" element={<VisionMissionPage />} />
+          <Route path="/academics/computer-science-engineering/vision-mission" element={<CSEVisionMissionPage />} />
           <Route path="/academics/computer-science-engineering/programmes" element={<ProgrammesPage />} />
           <Route path="/academics/computer-science-engineering/training-placement" element={<TrainingPlacementPage />} />
           <Route path="/academics/computer-science-engineering/faculty" element={<CSEFacultyProfilePage />} />
@@ -220,7 +231,27 @@ const App = () => {
           {/* <Route path="/academics/computer-science-engineering/cuc" element={<CUCPage />} /> */}
           <Route path="/academics/computer-science-engineering/csi-iei" element={<CSIIEIPage />} />
 
-          {/* Placeholders */}
+          {/* ACADEMICS ROUTES (Specific Civil Engineering Department) (UPDATED ROUTES) */}
+          <Route path="/academics/civil-engineering" element={<CivilEngineeringPage />} />
+          {/* The old CivilVisionMissionPage is no longer needed as content is on CivilEngineeringPage */}
+          <Route path="/academics/civil-engineering/vision-mission" element={<CivilVisionMissionPage />} /> 
+          <Route path="/academics/civil-engineering/programmes" element={<CivilProgrammesPage />} />
+          {/* <Route path="/academics/civil-engineering/faculty" element={<PlaceholderPage title="Civil Faculty Profile" />} />
+          <Route path="/academics/civil-engineering/faculty/:facultyId" element={<PlaceholderPage title="Civil Faculty Detail" />} /> 
+          <Route path="/academics/civil-engineering/labs" element={<CivilLaboratoryPage />} />
+          <Route path="/academics/civil-engineering/labs/:labId" element={<CivilLaboratoryDetailPage />} />
+          <Route path="/academics/civil-engineering/training-placement" element={<PlaceholderPage title="Civil Training and Placement" />} />
+          <Route path="/academics/civil-engineering/research-publication" element={<PlaceholderPage title="Civil Research & Publication" />} />
+          <Route path="/academics/civil-engineering/achievements" element={<CivilAchievementsPage />} />
+          <Route path="/academics/civil-engineering/activities" element={<CivilDepartmentalActivityPage />} />
+          <Route path="/academics/civil-engineering/cuc" element={<PlaceholderPage title="Civil CUC" />} />
+          <Route path="/academics/civil-engineering/csi-iei" element={<CivilIEIPage />} />
+          <Route path="/academics/civil-engineering/curriculum" element={<PlaceholderPage title="Civil Curriculum" />} />
+          <Route path="/academics/civil-engineering/consultancy" element={<PlaceholderPage title="Civil Consultancy" />} />
+          <Route path="/academics/civil-engineering/innovation-teaching" element={<PlaceholderPage title="Civil Innovation in Teaching" />} /> */}
+
+
+          {/* Placeholders for other CSE-specific routes */}
           <Route path="/academics/computer-science-engineering/research-publication" element={<PlaceholderPage title="CSE Research & Publication" />} />
           <Route path="/academics/computer-science-engineering/downloads" element={<PlaceholderPage title="CSE Downloads" />} />
           <Route path="/academics/computer-science-engineering/resources" element={<PlaceholderPage title="CSE Resources" />} />
