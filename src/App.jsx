@@ -5,6 +5,12 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
 
+import ManageEvents from './pages/Admin/Events';
+import ProtectedRoute from './components/ProtectedRoute';
+import LoginPage from './pages/Admin/Login';
+import AdminLayout from './pages/Admin/AdminLayout';
+import ManageFaculty from './pages/Admin/ManageFaculty';
+
 // Import main pages
 import HomePage from './pages/Home';
 import ContactPage from './pages/contact';
@@ -263,7 +269,16 @@ const App = () => {
           <Route path="/students-corner/*" element={<PlaceholderPage title="Students Corner Section" />} />
           <Route path="/download/*" element={<PlaceholderPage title="Download Section" />} />
           <Route path="/contact" element={<PlaceholderPage title="Contact Us" />} />
-
+                  {/* --- Admin Routes --- */}
+        <Route path="/admin/login" element={<LoginPage />} />
+        
+        {/* This is the magic part! Any route inside here is protected. */}
+        <Route element={<ProtectedRoute />}>
+          <Route element={<AdminLayout />}>
+            <Route path="/admin/events" element={<ManageEvents />} />
+            <Route path="/admin/faculty" element={<ManageFaculty />} />
+          </Route>
+          </Route>
           {/* Catch-all route */}
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

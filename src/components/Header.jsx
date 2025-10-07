@@ -220,7 +220,16 @@ const rawMenuItems = [
       { name: "Other", link: "/download/other", icon: "fa-folder-open" },
     ]
   },
-  { name: "Contact", link: "/contact", icon: "fa-phone-alt" } // Updated to "/contact"
+  { name: "Contact", link: "/contact", icon: "fa-phone-alt" }, // Updated to "/contact"
+
+// === CHANGE 1: Add the Admin Login button as a menu item here ===
+  // We add a special property `isButton: true` to style it differently.
+  {
+    name: "Admin Login",
+    link: "/admin/login",
+    icon: "fa-user-shield",
+    isButton: true
+  }
 ];
 
 // Assign IDs once when the component is defined
@@ -297,7 +306,18 @@ const MenuItem = ({ item, level = 0, activeDropdownPath, updateActiveDropdownPat
   const linkClasses = [
     'flex items-center w-full py-2 text-sm transition-all duration-300',
   ];
-
+  // === CHANGE 2: Add special styling logic for the button ===
+  if (item.isButton) {
+    linkClasses.push('bg-blue-600 text-white font-bold rounded-md hover:bg-blue-700 justify-center');
+    if (isMobile) {
+      // In mobile view, make it stand out inside the dropdown
+      linkClasses.push('mx-4 my-2 px-4 w-auto'); // w-auto so it doesn't take full width
+    } else {
+      // In desktop view
+      linkClasses.push('px-3');
+    }
+  } else {
+    // This is the original styling logic for all other menu items
   if (isMobile) {
     linkClasses.push('px-4 border-b border-gray-100');
     linkClasses.push('hover:bg-blue-50');
@@ -329,7 +349,7 @@ const MenuItem = ({ item, level = 0, activeDropdownPath, updateActiveDropdownPat
       linkClasses.push('hover:bg-gray-100 hover:text-blue-600'); // Sub-level desktop item hover styles
     }
   }
-
+  }
   const finalLinkClasses = linkClasses.join(' ');
 
   // Use Link from react-router-dom for internal navigation
