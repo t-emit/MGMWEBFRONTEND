@@ -1,4 +1,3 @@
-// components/Header.jsx
 'use client'; // Added 'use client' for consistency with common practices in modern React frameworks
 import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
@@ -118,14 +117,14 @@ const rawMenuItems = [
           // { name: "ITSA", link: "/students-corner/academic/itsa", icon: "fa-users" },
           {
             name: "VISIOTECH",
-            link: "#",
+            link: "/students-corner/visiotech",
             icon: "fa-eye",
-            children: [
-              { name: "About us", link: "/students-corner/visiotech/about-us", icon: "fa-info-circle" },
-              { name: "Visiotech Poster", link: "/students-corner/visiotech/visiotech-poster", icon: "fa-image" },
-              { name: "Visiotech report 2023", link: "/pdfs/visiotech/VISIOTECH 2023 WEBSITE.pdf", icon: "fa-file-pdf", target: "_blank" },
-              { name: "VISIOTECH 2024", link: "http://www.visiotech2024.info/", icon: "fa-globe", target: "_blank" },
-            ]
+            // children: [
+            //   // { name: "About us", link: "/students-corner/visiotech/about-us", icon: "fa-info-circle" },
+            //   // { name: "Visiotech Poster", link: "/students-corner/visiotech/visiotech-poster", icon: "fa-image" },
+            //   // { name: "Visiotech report 2023", link: "/pdfs/visiotech/VISIOTECH 2023 WEBSITE.pdf", icon: "fa-file-pdf", target: "_blank" },
+            //   { name: "VISIOTECH 2024", link: "http://www.visiotech2024.info/", icon: "fa-globe", target: "_blank" },
+            // ]
           },
           { name: "GDSC", link: "/pdfs/GDSC/GDSC_MRB_5Oct2024.pdf", icon: "fa-google", target: "_blank" },
           { name: "English Language Club", link: "/students-corner/co-curricular/english-language-club", icon: "fa-language" },
@@ -314,7 +313,7 @@ ${isOpenOnDesktop
                 : 'opacity-0 invisible translate-y-2 scale-95 pointer-events-none'
               }
 ${level === 0 ? 'left-0' : 'left-full -top-2'}`} 
- `}
+`}
           style={isMobile && !isCurrentlyClickedOnMobile ? { maxHeight: 0 } : {}}
         >
           {item.children.map((child) => (
@@ -412,12 +411,12 @@ const Header = () => {
                 className="h-14 sm:h-16 md:h-20 lg:h-24 xl:h-28 w-auto transition-all duration-300 group-hover:scale-105 rounded-full shadow-lg"
               />
               <div className="flex flex-col flex-grow min-w-0">
-                {/* 2. INCREASED HEADING SIZE & ATTRACTIVE FONT */}
-                <span className="text-2xl sm:text-2xl md:text-2xl lg:text-2xl xl:text-4xl 2xl:text-xl font-extrabold text-white leading-tight py-1 tracking-wide drop-shadow-lg font-serif">
+                {/* 2. INCREASED HEADING SIZE & ATTRACTIVE FONT - Adjusted sizes to be larger */}
+                <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-4xl 2xl:text-4xl font-extrabold text-white leading-tight py-1 tracking-wide drop-shadow-lg font-serif">
                   M.G.M’s College of Engineering, Nanded.
                 </span>
-                {/* 2. INCREASED TAGLINE SIZE */}
-                <span className="text-xs sm:text-sm md:text-lg text-blue-200 mt-0.5 leading-snug max-w-full lg:max-w-xl">
+                {/* 2. INCREASED TAGLINE SIZE - Adjusted sizes to be larger */}
+                <span className="text-sm sm:text-base md:text-sm text-blue-200 mt-0.5 leading-snug max-w-full lg:max-w-xl">
                   ( An Autonomous Institute ) <br />
                   Affiliated to Dr. Babasaheb Ambedkar Technological University ,Lonere., <br />
                   Accredited by NAAC (2024-2029), Accredited by NBA (2024-2027), Approved by AICTE, New Delhi
@@ -478,8 +477,7 @@ const Header = () => {
             {/* Desktop Navigation */}
             <nav ref={navRef} className="hidden lg:block w-full">
               <ul
-                className="flex items-center justify-between flex-nowrap w-full h-full
- gap-x-1 lg:gap-x-1.5 xl:gap-x-0.5 2xl:gap-x-3"
+                className="flex items-center justify-between flex-nowrap w-full h-full gap-x-0.5 lg:gap-x-0.5 xl:gap-x-0.5 2xl:gap-x-0.5"
                 onMouseEnter={handleNavMouseEnter}
                 onMouseLeave={handleNavMouseLeave}
               >

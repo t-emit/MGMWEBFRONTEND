@@ -59,8 +59,7 @@ import NssPage from './pages/Social/nss';
 import TechLifePage from './pages/Social/techlife';
 import MgmHelplinePage from './pages/Social/helpline';
 
-import AboutVisiotechPage from './pages/visiotech/aboutvi';
-import VisiotechPosterPage from './pages/visiotech/viposter';
+
 
 import AcademicCollaborationPage from './pages/collab/acdemic';
 import CorporateIndustriesPage from './pages/collab/corporate';
@@ -98,6 +97,7 @@ import RemoteCenterPage from './pages/facilities/RemoteCentre';
 import LaboratoriesPage from './pages/facilities/Laboratories';
 import IQACPage from './pages/IQAC/IQACPage';
 import NBACertificatePage from './pages/NBA/NBACertificatePage';
+import VisiotechUnifiedPage from './pages/visiotech/VisiotechUnifiedPage';
 
 // ==========================================================
 // Helper Placeholder Pages
@@ -159,7 +159,6 @@ const App = () => {
           {/* Students Corner Routes */}
           <Route path="/students-corner/academic/cesa" element={<CesaPage />} />
           <Route path="/students-corner/academic/eta" element={<EtaPage />} />
-
           {/* ROUTE FOR THE CESA /cuc/eta PAGE */}
           <Route path="/students-corner/academic/cesa" element={<CesaPage />} />
           {/* <Route path="/students-corner/academic/cuc" element={<CucPage />} /> */}
@@ -185,8 +184,7 @@ const App = () => {
           <Route path="/students-corner/social/tech-life" element={<TechLifePage />} />
           <Route path="/students-corner/social/mgm-helpline" element={<MgmHelplinePage />} />
 
-          <Route path="/students-corner/visiotech/about-us" element={<AboutVisiotechPage />} />
-          <Route path="/students-corner/visiotech/visiotech-poster" element={<VisiotechPosterPage />} />
+          <Route path="/students-corner/visiotech" element={<VisiotechUnifiedPage />} />
 
           <Route path="/collaboration/academic" element={<AcademicCollaborationPage />} />
           <Route path="/collaboration/corporate-industries" element={<CorporateIndustriesPage />} />
