@@ -138,3 +138,20 @@ body {
   background-color: #4ade80; /* Green for the active dot */
   transform: scale(1.2);
 }
+/* Add this to the bottom of src/index.css */
+@keyframes scrollUp {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-50%);
+    }
+}
+.animate-scrollUp {
+    /* Adjust animation duration as needed */
+    animation: scrollUp 40s linear infinite;
+}
+.news-scroll-container:hover .animate-scrollUp,
+.events-scroll-container:hover .animate-scrollUp {
+    animation-play-state: paused;
+}

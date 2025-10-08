@@ -31,7 +31,6 @@ const rawMenuItems = [
       { name: "Campus", link: "/campus", icon: "fa-map-marker-alt" },
       { name: "Service Rules", link: "/service-rules", icon: "fa-file-contract" },
       { name: "Core values, Code of conduct & Ethics", link: "/core-values-ethics", icon: "fa-gem" },
-
     ]
   },
   {
@@ -69,7 +68,6 @@ const rawMenuItems = [
     ]
   },
   { name: "IQAC", link: "/iqac", icon: "fa-award" },
-
   {
     name: "Admission",
     link: "#",
@@ -109,29 +107,11 @@ const rawMenuItems = [
         link: "#",
         icon: "fa-graduation-cap",
         children: [
-          // { name: "CESA", link: "/students-corner/academic/cesa", icon: "fa-users" },
-          // { name: "CUC", link: "/students-corner/academic/cuc", icon: "fa-users" },
-          // { name: "ETA", link: "/students-corner/academic/eta", icon: "fa-users" },
-          // { name: "IEI", link: "/students-corner/academic/csi", icon: "fa-users" },
-          // { name: "MESA", link: "/students-corner/academic/mesa", icon: "fa-users" },
-          // { name: "ITSA", link: "/students-corner/academic/itsa", icon: "fa-users" },
-          {
-            name: "VISIOTECH",
-            link: "/students-corner/visiotech",
-            icon: "fa-eye",
-            // children: [
-            //   // { name: "About us", link: "/students-corner/visiotech/about-us", icon: "fa-info-circle" },
-            //   // { name: "Visiotech Poster", link: "/students-corner/visiotech/visiotech-poster", icon: "fa-image" },
-            //   // { name: "Visiotech report 2023", link: "/pdfs/visiotech/VISIOTECH 2023 WEBSITE.pdf", icon: "fa-file-pdf", target: "_blank" },
-            //   { name: "VISIOTECH 2024", link: "http://www.visiotech2024.info/", icon: "fa-globe", target: "_blank" },
-            // ]
-          },
+          { name: "VISIOTECH", link: "/students-corner/visiotech", icon: "fa-eye" },
           { name: "GDSC", link: "/pdfs/GDSC/GDSC_MRB_5Oct2024.pdf", icon: "fa-google", target: "_blank" },
           { name: "English Language Club", link: "/students-corner/co-curricular/english-language-club", icon: "fa-language" },
-
         ]
       },
-
       {
         name: "Sport",
         link: "#",
@@ -163,7 +143,6 @@ const rawMenuItems = [
           { name: "Unnat Bharat Abhiyan", link: "/pdfs/UBA/UBAReport10112024.pdf", icon: "fa-flag", target: "_blank" },
         ]
       },
-
     ]
   },
   {
@@ -176,10 +155,18 @@ const rawMenuItems = [
       { name: "Esteemed Alumni", link: "/alumni/esteemed-alumni", icon: "fa-star" },
     ]
   },
+  // === MERGED SECTION STARTS HERE ===
+  // Kept teammate's new links and added your Admin Login button at the end
   { name: "NBA", link: "/nba", icon: "fa-award" },
   { name: "NIRF", link: "/download/nirf", icon: "fa-chart-bar" },
   { name: "Contact", link: "/contact", icon: "fa-phone-alt" },
-
+  {
+    name: "Admin Login",
+    link: "/admin/login",
+    icon: "fa-user-shield",
+    isButton: true
+  }
+  // === MERGED SECTION ENDS HERE ===
 ];
 
 // Assign IDs once when the component is defined
@@ -234,50 +221,49 @@ const MenuItem = ({ item, level = 0, activeDropdownPath, updateActiveDropdownPat
       {item.icon && <i className={`${iconClass} ${item.icon} mr-1 text-base w-4 text-center`}></i>}
       <span className="flex-1 whitespace-nowrap">{item.name}</span>
       {hasChildren && (
-        <i
-          className={`fas ${chevronIcon} text-xs ml-1 transition-transform duration-300 ${isDropdownActive ? 'rotate-180' : ''
-            }`}
-        ></i>
+        <i className={`fas ${chevronIcon} text-xs ml-1 transition-transform duration-300 ${isDropdownActive ? 'rotate-180' : ''}`}></i>
       )}
     </>
   );
 
-  const linkClasses = [
-    'flex items-center w-full transition-all duration-300 relative',
-  ];
+  const linkClasses = ['flex items-center w-full transition-all duration-300 relative'];
 
-  if (isMobile) {
-    // Mobile classes: Unchanged for readability
-    linkClasses.push('px-6 py-3.5 border-b border-gray-100 text-base');
-    linkClasses.push('hover:bg-blue-50');
-    if (isCurrentlyClickedOnMobile || isParentOrSelfActive) {
-      linkClasses.push('bg-blue-50 text-blue-600 font-semibold');
-    } else if (level === 0) {
-      linkClasses.push('text-gray-800 font-medium');
+  if (item.isButton) {
+    linkClasses.push('bg-blue-600 text-white font-bold rounded-md hover:bg-blue-700 justify-center py-2.5'); // Added py-2.5 for consistent height
+    if (isMobile) {
+      linkClasses.push('mx-4 my-2 px-4 w-auto');
     } else {
-      linkClasses.push('text-gray-700');
+      linkClasses.push('px-3 lg:px-2 xl:px-3 2xl:px-4'); // Match padding with other items
     }
   } else {
-    // Desktop classes: Adjusted font size and padding
-    if (level === 0) {
-      // Top-level items
-      linkClasses.push('py-2.5');
-      linkClasses.push('px-2 lg:px-2 xl:px-3 2xl:px-4');
-      linkClasses.push('text-sm lg:text-sm xl:text-sm 2xl:text-sm font-semibold rounded-md');
-      linkClasses.push('border border-gray-200');
-
-      if (isDropdownActive || isParentOrSelfActive) {
-        linkClasses.push('text-blue-700 bg-blue-50 border-blue-700');
+    if (isMobile) {
+      linkClasses.push('px-6 py-3.5 border-b border-gray-100 text-base');
+      linkClasses.push('hover:bg-blue-50');
+      if (isCurrentlyClickedOnMobile || isParentOrSelfActive) {
+        linkClasses.push('bg-blue-50 text-blue-600 font-semibold');
+      } else if (level === 0) {
+        linkClasses.push('text-gray-800 font-medium');
       } else {
-        linkClasses.push('text-gray-800 hover:text-blue-700 hover:bg-blue-50 hover:border-blue-500');
+        linkClasses.push('text-gray-700');
       }
     } else {
-      // Dropdown items: Reduced padding for tighter spacing
-      linkClasses.push('px-5 py-3 text-base');
-      if (isActiveRoute) {
-        linkClasses.push('bg-blue-50 text-blue-600 font-medium');
+      if (level === 0) {
+        linkClasses.push('py-2.5');
+        linkClasses.push('px-2 lg:px-2 xl:px-3 2xl:px-4');
+        linkClasses.push('text-sm lg:text-sm xl:text-sm 2xl:text-sm font-semibold rounded-md');
+        linkClasses.push('border border-transparent'); // Use transparent border to prevent layout shift
+        if (isDropdownActive || isParentOrSelfActive) {
+          linkClasses.push('text-blue-700 bg-blue-50 border-blue-200');
+        } else {
+          linkClasses.push('text-gray-800 hover:text-blue-700 hover:bg-blue-50 hover:border-blue-200');
+        }
       } else {
-        linkClasses.push('text-gray-700 hover:bg-gray-100 hover:text-blue-600');
+        linkClasses.push('px-5 py-3 text-base');
+        if (isActiveRoute) {
+          linkClasses.push('bg-blue-50 text-blue-600 font-medium');
+        } else {
+          linkClasses.push('text-gray-700 hover:bg-gray-100 hover:text-blue-600');
+        }
       }
     }
   }
@@ -286,10 +272,7 @@ const MenuItem = ({ item, level = 0, activeDropdownPath, updateActiveDropdownPat
   const LinkComponent = item.target === '_blank' ? 'a' : Link;
 
   return (
-    <li
-      className={`relative flex-shrink-0 ${!isMobile && level === 0 ? 'group' : ''}`}
-      onMouseEnter={handleMouseEnter}
-    >
+    <li className={`relative flex-shrink-0 ${!isMobile && level === 0 ? 'group' : ''}`} onMouseEnter={handleMouseEnter}>
       <LinkComponent
         to={item.link}
         href={item.target === '_blank' ? item.link : undefined}
@@ -304,16 +287,13 @@ const MenuItem = ({ item, level = 0, activeDropdownPath, updateActiveDropdownPat
       {hasChildren && (
         <ul
           className={`
-${isMobile
-              ? `bg-white pl-8 overflow-hidden transition-all duration-500 ease-in-out ${isCurrentlyClickedOnMobile ? 'max-h-[500px] opacity-100 overflow-y-auto' : 'max-h-0 opacity-0'
-              }`
+            ${isMobile
+              ? `bg-white pl-8 overflow-hidden transition-all duration-500 ease-in-out ${isCurrentlyClickedOnMobile ? 'max-h-[500px] opacity-100 overflow-y-auto' : 'max-h-0 opacity-0'}`
               : `absolute mt-1 min-w-[16rem] bg-white shadow-2xl rounded-xl py-2 border border-gray-200 z-[51] transition-all duration-300 origin-top-left
-${isOpenOnDesktop
-                ? 'opacity-100 visible translate-y-0 scale-100'
-                : 'opacity-0 invisible translate-y-2 scale-95 pointer-events-none'
-              }
-${level === 0 ? 'left-0' : 'left-full -top-2'}`} 
-`}
+                ${isOpenOnDesktop ? 'opacity-100 visible translate-y-0 scale-100' : 'opacity-0 invisible translate-y-2 scale-95 pointer-events-none'}
+                ${level === 0 ? 'left-0' : 'left-full -top-2'}`
+            }
+          `}
           style={isMobile && !isCurrentlyClickedOnMobile ? { maxHeight: 0 } : {}}
         >
           {item.children.map((child) => (
@@ -338,24 +318,18 @@ const Header = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [isSearchFocused, setIsSearchFocused] = useState(false);
   const [activeDropdownPath, setActiveDropdownPath] = useState([]);
-
   const headerRef = useRef(null);
   const searchInputRef = useRef(null);
   const navigate = useNavigate();
 
   const updateActiveDropdownPath = (itemId, itemLevel, actionType) => {
     setActiveDropdownPath(prevPath => {
-      if (actionType === 'clear') {
-        return [];
-      } else if (actionType === 'toggle') {
-        if (prevPath[itemLevel] === itemId) {
-          return prevPath.slice(0, itemLevel);
-        } else {
-          return [...prevPath.slice(0, itemLevel), itemId];
-        }
-      } else { // 'hover' action type for desktop
+      if (actionType === 'clear') return [];
+      if (actionType === 'toggle') {
+        if (prevPath[itemLevel] === itemId) return prevPath.slice(0, itemLevel);
         return [...prevPath.slice(0, itemLevel), itemId];
       }
+      return [...prevPath.slice(0, itemLevel), itemId];
     });
   };
 
@@ -364,9 +338,7 @@ const Header = () => {
     if (searchQuery.trim()) {
       navigate(`/search?q=${encodeURIComponent(searchQuery.trim())}`);
       setSearchQuery('');
-      if (document.activeElement instanceof HTMLElement) {
-        document.activeElement.blur();
-      }
+      if (document.activeElement instanceof HTMLElement) document.activeElement.blur();
       setIsSearchFocused(false);
       setIsMenuOpen(false);
     }
@@ -386,36 +358,26 @@ const Header = () => {
   const navRef = useRef(null);
   const leaveNavTimeoutRef = useRef(null);
 
-  const handleNavMouseEnter = () => {
-    clearTimeout(leaveNavTimeoutRef.current);
-  };
-
+  const handleNavMouseEnter = () => clearTimeout(leaveNavTimeoutRef.current);
   const handleNavMouseLeave = () => {
-    leaveNavTimeoutRef.current = setTimeout(() => {
-      setActiveDropdownPath([]);
-    }, 200);
+    leaveNavTimeoutRef.current = setTimeout(() => setActiveDropdownPath([]), 200);
   };
 
   return (
     <header ref={headerRef} className={`relative top-0 left-0 w-full text-white transition-all duration-300 z-50 bg-gradient-to-r from-indigo-900 via-purple-900 to-blue-900 shadow-xl`}>
-      {/* Top section with logo and college info */}
       <div className="max-w-screen-2xl mx-auto px-8 py-4 md:px-10 md:py-5 lg:py-8">
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 sm:gap-6">
-          {/* Left side - Logo and College Info */}
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 flex-1 min-w-0">
             <Link to="/" className="flex flex-shrink-0 items-center gap-2 sm:gap-3 group">
               <img
                 src="/images/mgm2.webp"
                 alt="MGM College of Engineering Logo"
-                // 1. INCREASED LOGO SIZE
                 className="h-14 sm:h-16 md:h-20 lg:h-24 xl:h-28 w-auto transition-all duration-300 group-hover:scale-105 rounded-full shadow-lg"
               />
               <div className="flex flex-col flex-grow min-w-0">
-                {/* 2. INCREASED HEADING SIZE & ATTRACTIVE FONT - Adjusted sizes to be larger */}
                 <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-4xl 2xl:text-4xl font-extrabold text-white leading-tight py-1 tracking-wide drop-shadow-lg font-serif">
                   M.G.M’s College of Engineering, Nanded.
                 </span>
-                {/* 2. INCREASED TAGLINE SIZE - Adjusted sizes to be larger */}
                 <span className="text-sm sm:text-base md:text-sm text-blue-200 mt-0.5 leading-snug max-w-full lg:max-w-xl">
                   ( An Autonomous Institute ) <br />
                   Affiliated to Dr. Babasaheb Ambedkar Technological University ,Lonere., <br />
@@ -424,13 +386,10 @@ const Header = () => {
               </div>
             </Link>
           </div>
-
-          {/* Right side - Search Bar */}
           <div className="w-full sm:w-64 flex-shrink-0 mt-3 sm:mt-0 ">
             <form onSubmit={handleSearch} className="relative w-full">
               <div
-                className={`flex items-center bg-white rounded-full pl-4 pr-2 border transition-all duration-200 ${isSearchFocused ? 'border-blue-500 ring-2 ring-blue-500 ring-opacity-50' : 'border-gray-300 hover:border-blue-400'
-                  }`}
+                className={`flex items-center bg-white rounded-full pl-4 pr-2 border transition-all duration-200 ${isSearchFocused ? 'border-blue-500 ring-2 ring-blue-500 ring-opacity-50' : 'border-gray-300 hover:border-blue-400'}`}
               >
                 <input
                   ref={searchInputRef}
@@ -442,7 +401,6 @@ const Header = () => {
                   onBlur={() => setIsSearchFocused(false)}
                   className="w-full py-2.5 px-2 focus:outline-none text-gray-800 placeholder-gray-500 bg-transparent text-sm sm:text-base"
                 />
-
                 <button
                   type="submit"
                   className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white p-2.5 rounded-full transition-all duration-300 flex items-center justify-center ml-2 flex-shrink-0"
@@ -456,11 +414,9 @@ const Header = () => {
         </div>
       </div>
 
-      {/* Navigation section */}
       <div className="bg-white shadow-2xl border-t border-gray-200">
         <div className="max-w-screen-2xl mx-auto px-4 lg:px-2">
           <div className="flex justify-between items-stretch">
-            {/* Mobile Menu Button */}
             <button
               className="lg:hidden text-indigo-900 px-4 py-3.5 rounded-lg hover:bg-gray-100 transition-colors duration-300"
               onClick={(e) => {
@@ -470,11 +426,8 @@ const Header = () => {
               }}
               aria-label="Toggle menu"
             >
-              <i className={`fas ${isMenuOpen ? 'fa-times' : 'fa-bars'} text-xl transition-transform duration-300 ${isMenuOpen ? 'rotate-90' : ''
-                }`}></i>
+              <i className={`fas ${isMenuOpen ? 'fa-times' : 'fa-bars'} text-xl transition-transform duration-300 ${isMenuOpen ? 'rotate-90' : ''}`}></i>
             </button>
-
-            {/* Desktop Navigation */}
             <nav ref={navRef} className="hidden lg:block w-full">
               <ul
                 className="flex items-center justify-between flex-nowrap w-full h-full gap-x-0.5 lg:gap-x-0.5 xl:gap-x-0.5 2xl:gap-x-0.5"
@@ -494,8 +447,6 @@ const Header = () => {
                 ))}
               </ul>
             </nav>
-
-            {/* Mobile Search Info - Only shows when menu is open */}
             {isMenuOpen && (
               <div className="lg:hidden flex-1 flex items-center justify-end pr-4 py-3.5">
                 <div className="text-sm text-gray-600 bg-blue-50 px-3 py-1.5 rounded-lg">
@@ -504,10 +455,7 @@ const Header = () => {
               </div>
             )}
           </div>
-
-          {/* Mobile Navigation */}
-          <div className={`lg:hidden bg-white absolute top-full left-0 w-full shadow-2xl z-40 transition-all duration-500 ease-in-out overflow-hidden border-t border-gray-200 ${isMenuOpen ? 'max-h-screen opacity-100 overflow-y-auto' : 'max-h-0 opacity-0'
-            }`}>
+          <div className={`lg:hidden bg-white absolute top-full left-0 w-full shadow-2xl z-40 transition-all duration-500 ease-in-out overflow-hidden border-t border-gray-200 ${isMenuOpen ? 'max-h-screen opacity-100 overflow-y-auto' : 'max-h-0 opacity-0'}`}>
             <ul className="py-4">
               {menuItemsWithIds.map((item) => (
                 <MenuItem
