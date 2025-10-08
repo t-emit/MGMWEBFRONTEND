@@ -12,7 +12,7 @@ const LoginPage = () => {
         e.preventDefault();
         setError('');
         try {
-            const response = await axios.post('http://localhost:5000/api/auth/login', { email, password });
+            const response = await axios.post('https://mgmweb-backend.onrender.com/api/auth/login', { email, password });
             
             // On successful login, save the token and redirect
             localStorage.setItem('admin_token', response.data.token);

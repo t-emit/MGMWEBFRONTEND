@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
-const API_URL = 'http://localhost:5000/api/events'; // Your backend URL
+const API_URL = 'https://mgmweb-backend.onrender.com/api/events'; // Your backend URL
 
 function ManageEvents() {
     const [events, setEvents] = useState([]);

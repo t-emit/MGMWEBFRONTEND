@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
-const API_URL = 'http://localhost:5000/api/faculty';
+const API_URL = 'https://mgmweb-backend.onrender.com/api/faculty';
 
 function ManageFaculty() {
     const [faculty, setFaculty] = useState([]);
