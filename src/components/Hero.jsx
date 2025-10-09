@@ -10,7 +10,8 @@ const Hero = () => {
   const slides = [
     { type: 'image', content: "/images/hero/slide4.jpg" },
     { type: 'image', content: "/images/hero/slide2.jpg" },
-    { type: 'image', content: "/images/hero/slide1.jpg" },
+    // { type: 'image', content: "/images/hero/slide1.jpg" },
+    { type: 'image', content: "/images/hero/slide3.JPG" },
     {
       type: 'text',
       mainTitle: "M.G.M's College of Engineering, Nanded.",
