@@ -1,14 +1,27 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import App from './App.jsx'
-// 1. Import the Modal library
-import Modal from 'react-modal';
+// src/main.jsx
 
-// 2. Tell the library what your app's root element is
+import { StrictMode } from 'react';
+import { createRoot } from 'react-dom/client';
+import { BrowserRouter } from 'react-router-dom'; // 1. Import BrowserRouter here
+import App from './App.jsx';
+import { AuthProvider } from './context/AuthContext'; // 2. Import AuthProvider here
+import './index.css';
+
+// Your Modal setup is fine
+import Modal from 'react-modal';
 Modal.setAppElement('#root');
-createRoot(document.getElementById('root')).render(
+
+const root = createRoot(document.getElementById('root'));
+
+root.render(
   <StrictMode>
-    <App />
-  </StrictMode>,
-)
+    {/* 3. AuthProvider is the OUTERMOST wrapper */}
+    <AuthProvider>
+      {/* 4. BrowserRouter is INSIDE AuthProvider */}
+      <BrowserRouter>
+        {/* 5. App is INSIDE BrowserRouter */}
+        <App />
+      </BrowserRouter>
+    </AuthProvider>
+  </StrictMode>
+);

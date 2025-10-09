@@ -1,43 +1,58 @@
 import React from 'react';
 import { NavLink, Outlet, useNavigate } from 'react-router-dom';
+import { useAuth } from '../../context/AuthContext';
 
 const AdminLayout = () => {
-  const navigate = useNavigate();
+    const { logout } = useAuth();
+    const navigate = useNavigate();
 
-  const handleLogout = () => {
-    localStorage.removeItem('admin_token');
-    navigate('/admin/login');
-  };
+    const handleLogout = () => {
+        logout();
+        navigate('/admin/login');
+    };
 
-  return (
-    <div style={{ display: 'flex', minHeight: '100vh' }}>
-      {/* Sidebar */}
-      <aside style={{ width: '250px', background: '#2c3e50', color: 'white', padding: '20px' }}>
-        <h2 style={{ fontSize: '1.5em', textAlign: 'center', marginBottom: '30px' }}>MGM Admin</h2>
-        <nav style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-          <NavLink to="/admin/events" style={({ isActive }) => ({ color: isActive ? '#3498db' : 'white', textDecoration: 'none' })}>
-            Manage Events
-          </NavLink>
-          <NavLink to="/admin/faculty" style={({ isActive }) => ({ color: isActive ? '#3498db' : 'white', textDecoration: 'none' })}>
-  Manage Faculty
-</NavLink>
-          {/* We will add more links here as we build new features */}
-        </nav>
-        <button 
-          onClick={handleLogout} 
-          style={{ width: '100%', padding: '10px', marginTop: '40px', background: '#e74c3c', color: 'white', border: 'none', cursor: 'pointer' }}
-        >
-          Logout
-        </button>
-      </aside>
+    return (
+        <div className="flex h-screen bg-gray-100 pt-28"> {/* pt-28 to account for your header */}
+            {/* Sidebar */}
+            <aside className="w-64 bg-gray-800 text-white flex flex-col">
+                <div className="p-4 text-2xl font-semibold border-b border-gray-700">Admin Panel</div>
+                <nav className="flex-1 p-4 space-y-2">
+                    <NavLink 
+                        to="/admin/dashboard" 
+                        className={({ isActive }) => `block px-4 py-2 rounded-md hover:bg-gray-700 ${isActive ? 'bg-indigo-600' : ''}`}
+                    >
+                        Dashboard
+                    </NavLink>
+                    <NavLink 
+                        to="/admin/events" 
+                        className={({ isActive }) => `block px-4 py-2 rounded-md hover:bg-gray-700 ${isActive ? 'bg-indigo-600' : ''}`}
+                    >
+                        Manage Events
+                    </NavLink>
+                    <NavLink 
+                        to="/admin/faculty" 
+                        className={({ isActive }) => `block px-4 py-2 rounded-md hover:bg-gray-700 ${isActive ? 'bg-indigo-600' : ''}`}
+                    >
+                        Manage Faculty
+                    </NavLink>
+                    {/* Add more admin links here */}
+                </nav>
+                <div className="p-4 border-t border-gray-700">
+                    <button 
+                        onClick={handleLogout}
+                        className="w-full px-4 py-2 font-medium text-white bg-red-600 rounded-md hover:bg-red-700"
+                    >
+                        Logout
+                    </button>
+                </div>
+            </aside>
 
-      {/* Main Content Area */}
-      <main style={{ flex: 1, padding: '40px', background: '#ecf0f1' }}>
-        {/* The specific admin page will be rendered here */}
-        <Outlet />
-      </main>
-    </div>
-  );
+            {/* Main Content */}
+            <main className="flex-1 p-6 overflow-y-auto">
+                <Outlet /> {/* Child routes will be rendered here */}
+            </main>
+        </div>
+    );
 };
 
 export default AdminLayout;
