@@ -8,6 +8,7 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview"
+   
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^7.0.0",
@@ -16,6 +17,7 @@
     "@fortawesome/react-fontawesome": "^3.0.0",
     "@tailwindcss/vite": "^4.1.12",
     "axios": "^1.12.2",
+    "gh-pages": "^6.3.0",
     "icons": "^1.0.0",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
