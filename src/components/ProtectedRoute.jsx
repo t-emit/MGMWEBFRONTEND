@@ -1,12 +1,22 @@
+// src/components/ProtectedRoute.jsx
+
 import React from 'react';
 import { Navigate, Outlet } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext';
 
 const ProtectedRoute = () => {
-    const token = localStorage.getItem('admin_token');
+  const { isAuthenticated, isAdmin } = useAuth();
 
-    // If there's a token, show the page they asked for (the <Outlet />).
-    // Otherwise, redirect them to the login page.
-    return token ? <Outlet /> : <Navigate to="/admin/login" />;
+  // ADD THIS CONSOLE LOG
+  console.log(
+    `[ProtectedRoute] Checking auth... IsAuthenticated: ${isAuthenticated}, IsAdmin: ${isAdmin}`
+  );
+
+  if (isAuthenticated && isAdmin) {
+    return <Outlet />;
+  }
+
+  return <Navigate to="/admin/login" replace />;
 };
 
 export default ProtectedRoute;
