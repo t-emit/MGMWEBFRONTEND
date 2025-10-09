@@ -21,7 +21,7 @@ const ManageEvents = () => {
     // Function to fetch all events
     const fetchEvents = async () => {
         try {
-            const res = await axios.get('http://localhost:5000/api/events');
+            const res = await axios.get('${import.meta.env.VITE_API_URL}/api/events');
             setEvents(res.data);
         } catch (err) {
             setError('Failed to fetch events.');
