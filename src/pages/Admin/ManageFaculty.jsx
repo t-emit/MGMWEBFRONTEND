@@ -15,7 +15,7 @@ function ManageFaculty() {
 
     const fetchFaculty = async () => {
         try {
-            const res = await axios.get('http://localhost:5000/api/faculty');
+            const res = await axios.get('${import.meta.env.VITE_API_URL}/api/faculty');
             setFaculty(res.data);
         } catch (err) {
             setError('Failed to fetch faculty.');
