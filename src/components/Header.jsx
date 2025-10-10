@@ -157,13 +157,7 @@ const rawMenuItems = [
   },
   { name: "NBA", link: "/nba", icon: "fa-award" },
   { name: "NIRF", link: "/download/nirf", icon: "fa-chart-bar" },
-  { name: "Contact", link: "/contact", icon: "fa-phone-alt" },
-  {
-    name: "Admin Login",
-    link: "/admin/login",
-    icon: "fa-user-shield",
-    isButton: true
-  }
+  { name: "Contact", link: "/contact", icon: "fa-phone-alt" }
   // === MERGED SECTION ENDS HERE ===
 ];
 
