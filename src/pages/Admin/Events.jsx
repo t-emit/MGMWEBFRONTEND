@@ -7,7 +7,7 @@ const ManageEvents = () => {
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState('');
     
-    // Form state - ADDED NEW STATE FOR FILES
+    // Form state
     const [title, setTitle] = useState('');
     const [date, setDate] = useState('');
     const [description, setDescription] = useState('');
@@ -18,15 +18,28 @@ const ManageEvents = () => {
 
     const { token } = useAuth();
 
-    const fetchEvents = async () => { /* ... no changes here ... */ };
-    useEffect(() => { fetchEvents(); }, []);
+    // THIS IS THE FUNCTION THAT IS CURRENTLY BROKEN
+    const fetchEvents = async () => {
+        try {
+            // Ensure this line uses the environment variable and backticks
+            const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/events`);
+            setEvents(res.data);
+        } catch (err) {
+            setError('Failed to fetch events.');
+            console.error("Fetch Events Error:", err);
+        } finally {
+            setIsLoading(false);
+        }
+    };
 
-    // Function to add a new event - MAJOR CHANGES HERE
+    useEffect(() => {
+        fetchEvents();
+    }, []);
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         setError('');
 
-        // Use FormData to send text and files together
         const formData = new FormData();
         formData.append('title', title);
         formData.append('date', date);
@@ -44,15 +57,14 @@ const ManageEvents = () => {
             const res = await axios.post(`${import.meta.env.VITE_API_URL}/api/events`, formData, {
                 headers: {
                     'Authorization': `Bearer ${token}`,
-                    'Content-Type': 'multipart/form-data' // Important for file uploads
+                    'Content-Type': 'multipart/form-data'
                 }
             });
 
             setEvents([res.data, ...events]);
-            // Clear form
             setTitle(''); setDate(''); setDescription(''); setLink(''); setType('news');
             setImageFile(null); setPdfFile(null);
-            document.getElementById('image-input').value = null; // Reset file inputs
+            document.getElementById('image-input').value = null;
             document.getElementById('pdf-input').value = null;
 
         } catch (err) {
@@ -61,24 +73,38 @@ const ManageEvents = () => {
         }
     };
 
-    const handleDelete = async (id) => { /* ... no changes here ... */ };
+    // THIS FUNCTION ALSO NEEDS TO BE CHECKED
+    const handleDelete = async (id) => {
+        if (window.confirm('Are you sure you want to delete this item?')) {
+            try {
+                // Ensure this line uses the environment variable and backticks
+                await axios.delete(`${import.meta.env.VITE_API_URL}/api/events/${id}`, {
+                    headers: {
+                        'Authorization': `Bearer ${token}`
+                    }
+                });
+                setEvents(events.filter(event => event._id !== id));
+            } catch (err) {
+                setError('Failed to delete event.');
+                console.error("Delete Event Error:", err);
+            }
+        }
+    };
 
     return (
         <div className="container mx-auto p-4">
             <h1 className="text-2xl font-bold mb-4">Manage News & Events</h1>
 
-            {/* Add New Event Form - UPDATED with file inputs */}
+            {/* Add New Event Form */}
             <div className="bg-white p-6 rounded-lg shadow-md mb-8">
                 <h2 className="text-xl font-semibold mb-4">Add New Item</h2>
                 <form onSubmit={handleSubmit} className="space-y-4">
-                    {/* ... other form fields ... */}
                     <div><label className="block text-sm font-medium text-gray-700">Title</label><input type="text" value={title} onChange={(e) => setTitle(e.target.value)} required className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2" /></div>
                     <div><label className="block text-sm font-medium text-gray-700">Date</label><input type="date" value={date} onChange={(e) => setDate(e.target.value)} required className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2" /></div>
                     <div><label className="block text-sm font-medium text-gray-700">Description</label><textarea value={description} onChange={(e) => setDescription(e.target.value)} required rows="3" className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"></textarea></div>
                     <div><label className="block text-sm font-medium text-gray-700">Link (Optional)</label><input type="url" value={link} onChange={(e) => setLink(e.target.value)} className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2" /></div>
                     <div><label className="block text-sm font-medium text-gray-700">Type</label><select value={type} onChange={(e) => setType(e.target.value)} className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"><option value="news">News</option><option value="event">Event</option></select></div>
                     
-                    {/* NEW FILE INPUTS */}
                     <div>
                         <label className="block text-sm font-medium text-gray-700">Image (Optional, jpg/png)</label>
                         <input id="image-input" type="file" accept="image/jpeg, image/png" onChange={(e) => setImageFile(e.target.files[0])} className="mt-1 block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"/>
@@ -93,7 +119,7 @@ const ManageEvents = () => {
                 </form>
             </div>
 
-            {/* Current Events List - UPDATED to show file links */}
+            {/* Current Events List */}
             <div>
                 <h2 className="text-xl font-semibold mb-4">Current Items</h2>
                 {isLoading ? <p>Loading...</p> : (
