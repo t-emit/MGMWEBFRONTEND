@@ -125,6 +125,9 @@ import CivilCESAPage from './pages/Academic/Civil/CivilCESAPage';
 import CivilCurriculumPage from './pages/Academic/Civil/CivilCurriculumPage';
 import CivilConsultancyPage from './pages/Academic/Civil/CivilConsultancyPage';
 import CivilResearchPublicationPage from './pages/Academic/Civil/CivilResearchPublicationPage';
+import EntcPage from './pages/Academic/ENTC/EntcPage';
+import EntcVisionMissionPage from './pages/Academic/ENTC/EntcVisionMissionPage';
+import EntcProgrammesPage from './pages/Academic/ENTC/EntcProgrammesPage';
 
 // ==========================================================
 // Helper Placeholder Pages
@@ -252,6 +255,9 @@ const App = () => {
           <Route path="/academics/civil-engineering/curriculum" element={<CivilCurriculumPage />} />
           <Route path="/academics/civil-engineering/consultancy" element={<CivilConsultancyPage />} />
           <Route path="/academics/civil-engineering/research-publication" element={<CivilResearchPublicationPage />} />
+          <Route path="/academics/electronincs-telecommunication-engineering" element={<EntcPage />} />
+          <Route path="/academics/electronincs-telecommunication-engineering/vision-mission" element={<EntcVisionMissionPage />} />
+          <Route path="/academics/electronincs-telecommunication-engineering/programmes" element={<EntcProgrammesPage />} />
           <Route path="/academics/*" element={<PlaceholderPage title="Academics Section" />} />
 
 
