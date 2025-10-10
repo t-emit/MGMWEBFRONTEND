@@ -18,6 +18,7 @@ const civilDepartmentTabs = [
  * CivilVisionMissionPage
  * Displays the Vision, Mission, PEOs, PSOs, and POs for the Civil Engineering Department.
  * Uses the blue/indigo theme for a clean, professional look, matching the CSE page style.
+ * Updated to consistently use the 'Inter' font throughout, aligning with other department pages.
  */
 const CivilVisionMissionPage = () => {
     const location = useLocation();
@@ -36,7 +37,7 @@ const CivilVisionMissionPage = () => {
     );
 
     return (
-        <div className="container mx-auto px-4 py-8 mt-28 max-w-6xl font-['Inter'] print:mt-4 print:max-w-none">
+        <div className="container mx-auto px-4 py-8 mt-28 max-w-6xl print:mt-4 print:max-w-none">
             
             {/* Hero Section - Themed to Blue/Indigo (CSE Theme) */}
             <div className="bg-gradient-to-r from-blue-900 to-indigo-900 rounded-xl p-8 md:p-12 text-white mb-6 shadow-2xl relative overflow-hidden print:bg-blue-900 print:shadow-none print:rounded-none print:p-6">

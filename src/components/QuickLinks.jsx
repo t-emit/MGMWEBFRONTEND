@@ -14,13 +14,16 @@ const QuickLinks = () => {
 
   return (
     <section className="py-16 bg-blue-900 text-white">
-      <div className="container mx-auto px-4 max-w-6xl">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 relative">
+      {/* Removed 'container' and direct 'px-4' from this div. Max width and centering remain. */}
+      <div className="mx-auto max-w-6xl"> 
+        {/* Applied responsive horizontal padding to the heading */}
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 relative px-4 sm:px-6"> 
           Quick Links
           <span className="absolute bottom-[-1rem] left-1/2 transform -translate-x-1/2 w-24 h-1 bg-yellow-500 rounded"></span>
         </h2>
         
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
+        {/* Applied responsive horizontal padding to the grid container */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 px-4 sm:px-6">
           {links.map((link, index) => (
             <a 
               key={index}

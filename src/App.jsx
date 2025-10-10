@@ -110,6 +110,10 @@ import CivilProgrammesPage from './pages/Academic/Civil/CivilProgrammesPage';
 // Import other top-level pages
 import IQACPage from './pages/IQAC/IQACPage';
 import NBACertificatePage from './pages/NBA/NBACertificatePage';
+import AcademicCalendarPage from './pages/Academic/AcademicCalendarPage';
+import CSEResearchPublicationPage from './pages/Academic/CSE/CSEResearchPublicationPage';
+import CSECurriculumPage from './pages/Academic/CSE/CSECurriculumPage';
+import CUC from './pages/Academic/CSE/cuc';
 
 // ==========================================================
 // Helper Placeholder Pages
@@ -217,14 +221,19 @@ const App = () => {
           <Route path="/academics/computer-science-engineering/labs/:labId" element={<CSELaboratoryDetailPage />} />
           <Route path="/academics/computer-science-engineering/achievements" element={<AchievementsPage />} />
           <Route path="/academics/computer-science-engineering/activities" element={<CSEDepartmentalActivityPage />} />
+          <Route path="/academics/computer-science-engineering/curriculum" element={<CSECurriculumPage />} />
+          <Route path="/academics/computer-science-engineering/cuc" element={<CUC />} />
+
+
           <Route path="/academics/computer-science-engineering/csi-iei" element={<CSIIEIPage />} />
-          <Route path="/academics/computer-science-engineering/research-publication" element={<PlaceholderPage title="CSE Research & Publication" />} />
-          <Route path="/academics/computer-science-engineering/downloads" element={<PlaceholderPage title="CSE Downloads" />} />
-          <Route path="/academics/computer-science-engineering/resources" element={<PlaceholderPage title="CSE Resources" />} />
+          <Route path="/academics/computer-science-engineering/research-publication" element={<CSEResearchPublicationPage/>} />
           <Route path="/academics/civil-engineering" element={<CivilEngineeringPage />} />
-          <Route path="/academics/civil-engineering/vision-mission" element={<CivilVisionMissionPage />} /> 
+          <Route path="/academics/civil-engineering/vision-mission" element={<CivilVisionMissionPage />} />
           <Route path="/academics/civil-engineering/programmes" element={<CivilProgrammesPage />} />
           <Route path="/academics/*" element={<PlaceholderPage title="Academics Section" />} />
+
+
+          <Route path="/academics/academic-calendar" element={<AcademicCalendarPage />} />
 
           {/* Cells & Committees Routes */}
           <Route path="/cells-committees/academic-cell" element={<AcademicCellPage />} />
@@ -250,7 +259,7 @@ const App = () => {
           <Route path="/research" element={<PlaceholderPage title="Central Research" />} />
           <Route path="/iqac" element={<IQACPage />} />
           <Route path="/nba" element={<NBACertificatePage />} />
-          
+
           {/* --- ADMIN ROUTES --- */}
           <Route path="/admin/login" element={<LoginPage />} />
           <Route element={<ProtectedRoute />}>
@@ -260,7 +269,7 @@ const App = () => {
               <Route path="/admin/faculty" element={<ManageFaculty />} />
             </Route>
           </Route>
-          
+
           {/* CATCH-ALL: This MUST be the last route */}
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

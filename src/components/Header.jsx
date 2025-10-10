@@ -155,11 +155,15 @@ const rawMenuItems = [
       { name: "Esteemed Alumni", link: "/alumni/esteemed-alumni", icon: "fa-star" },
     ]
   },
-  // === MERGED SECTION STARTS HERE ===
-  // Kept teammate's new links and added your Admin Login button at the end
   { name: "NBA", link: "/nba", icon: "fa-award" },
   { name: "NIRF", link: "/download/nirf", icon: "fa-chart-bar" },
-  { name: "Contact", link: "/contact", icon: "fa-phone-alt" }
+  { name: "Contact", link: "/contact", icon: "fa-phone-alt" },
+  {
+    name: "Admin Login",
+    link: "/admin/login",
+    icon: "fa-user-shield",
+    isButton: true
+  }
   // === MERGED SECTION ENDS HERE ===
 ];
 
@@ -366,21 +370,23 @@ const Header = () => {
               <img
                 src="/images/mgm2.webp"
                 alt="MGM College of Engineering Logo"
-                className="h-14 sm:h-16 md:h-20 lg:h-24 xl:h-28 w-auto transition-all duration-300 group-hover:scale-105 rounded-full shadow-lg"
+                className="h-14 mr-4 sm:h-16 md:h-20 lg:h-24 xl:h-28 w-auto transition-all duration-300 group-hover:scale-105 rounded-full shadow-lg"
               />
               <div className="flex flex-col flex-grow min-w-0">
                 <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-4xl 2xl:text-4xl font-extrabold text-white leading-tight py-1 tracking-wide drop-shadow-lg font-serif">
                   M.G.M’s College of Engineering, Nanded.
                 </span>
-                <span className="text-sm sm:text-base md:text-sm text-blue-200 mt-0.5 leading-snug max-w-full lg:max-w-xl">
+                {/* Text below title: Centered, improved appearance, and responsiveness */}
+                <span className="block  text-sm sm:text-base md:text-base text-purple-100 mt-0.5 leading-snug max-w-full lg:max-w-xl  drop-shadow-sm">
                   ( An Autonomous Institute ) <br />
-                  Affiliated to Dr. Babasaheb Ambedkar Technological University ,Lonere., <br />
+                  Affiliated to Dr. Babasaheb Ambedkar Technological University ,Lonere. <br />
                   Accredited by NAAC (2024-2029), Accredited by NBA (2024-2027), Approved by AICTE, New Delhi
                 </span>
               </div>
             </Link>
           </div>
-          <div className="w-full sm:w-64 flex-shrink-0 mt-3 sm:mt-0 ">
+          {/* Search bar: Reduced width and consistent spacing */}
+          <div className="w-full sm:w-56 flex-shrink-0 mt-3 sm:mt-0 ">
             <form onSubmit={handleSearch} className="relative w-full">
               <div
                 className={`flex items-center bg-white rounded-full pl-4 pr-2 border transition-all duration-200 ${isSearchFocused ? 'border-blue-500 ring-2 ring-blue-500 ring-opacity-50' : 'border-gray-300 hover:border-blue-400'}`}
@@ -395,9 +401,10 @@ const Header = () => {
                   onBlur={() => setIsSearchFocused(false)}
                   className="w-full py-2.5 px-2 focus:outline-none text-gray-800 placeholder-gray-500 bg-transparent text-sm sm:text-base"
                 />
+                {/* Removed inline comment here */}
                 <button
                   type="submit"
-                  className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white p-2.5 rounded-full transition-all duration-300 flex items-center justify-center ml-2 flex-shrink-0"
+                  className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white p-2.5 rounded-full transition-all duration-300 flex items-center justify-center ml-1 flex-shrink-0"
                   aria-label="Submit search"
                 >
                   <i className="fas fa-search text-base"></i>
@@ -408,6 +415,7 @@ const Header = () => {
         </div>
       </div>
 
+      {/* Navigation Bar (untouched as per instructions) */}
       <div className="bg-white shadow-2xl border-t border-gray-200">
         <div className="max-w-screen-2xl mx-auto px-4 lg:px-2">
           <div className="flex justify-between items-stretch">

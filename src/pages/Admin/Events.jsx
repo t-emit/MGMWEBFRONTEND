@@ -4,7 +4,9 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useAuth } from '../../context/AuthContext'; // To get the auth token
 
-const ManageEvents = () => {
+const API_URL = 'http://localhost:5000/api/events'; // Your backend URL
+
+function ManageEvents() {
     const [events, setEvents] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState('');
