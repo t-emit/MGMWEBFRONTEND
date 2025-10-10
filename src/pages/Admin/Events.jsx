@@ -16,14 +16,14 @@ const ManageEvents = () => {
 
     const { token } = useAuth();
 
+    // Function to fetch all events
     const fetchEvents = async () => {
         try {
-            // This one is already correct
             const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/events`);
             setEvents(res.data);
         } catch (err) {
             setError('Failed to fetch events.');
-            console.error(err);
+            console.error("Fetch Events Error:", err);
         } finally {
             setIsLoading(false);
         }
@@ -33,6 +33,7 @@ const ManageEvents = () => {
         fetchEvents();
     }, []);
 
+    // Function to add a new event
     const handleSubmit = async (e) => {
         e.preventDefault();
         setError('');
@@ -40,33 +41,37 @@ const ManageEvents = () => {
         const newEvent = { title, date, description, link, type };
         
         try {
-            // FIX: Use the environment variable here
             const res = await axios.post(`${import.meta.env.VITE_API_URL}/api/events`, newEvent, {
                 headers: {
                     'Authorization': `Bearer ${token}`
                 }
             });
-            setEvents([res.data, ...events]);
-            setTitle(''); setDate(''); setDescription(''); setLink(''); setType('news');
+            setEvents([res.data, ...events]); // Add new event to the top of the list
+            // Clear form
+            setTitle(''); 
+            setDate(''); 
+            setDescription(''); 
+            setLink(''); 
+            setType('news');
         } catch (err) {
             setError('Failed to add event. Please try again.');
-            console.error(err);
+            console.error("Submit Event Error:", err);
         }
     };
 
+    // Function to delete an event
     const handleDelete = async (id) => {
         if (window.confirm('Are you sure you want to delete this item?')) {
             try {
-                // FIX: Use the environment variable here
                 await axios.delete(`${import.meta.env.VITE_API_URL}/api/events/${id}`, {
                     headers: {
                         'Authorization': `Bearer ${token}`
                     }
                 });
-                setEvents(events.filter(event => event._id !== id));
+                setEvents(events.filter(event => event._id !== id)); // Remove from UI
             } catch (err) {
                 setError('Failed to delete event.');
-                console.error(err);
+                console.error("Delete Event Error:", err);
             }
         }
     };
@@ -79,7 +84,6 @@ const ManageEvents = () => {
             <div className="bg-white p-6 rounded-lg shadow-md mb-8">
                 <h2 className="text-xl font-semibold mb-4">Add New Item</h2>
                 <form onSubmit={handleSubmit} className="space-y-4">
-                    {/* ... form JSX remains the same ... */}
                     <div>
                         <label className="block text-sm font-medium text-gray-700">Title</label>
                         <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} required className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2" />
