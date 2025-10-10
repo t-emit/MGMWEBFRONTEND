@@ -46,6 +46,7 @@ const rawMenuItems = [
       { name: "Mechanical Engineering", link: "/academics/mechanical-engineering", icon: "fa-cogs" },
       { name: "Artificial Intelligence and Machine Learning", link: "/academics/artificial-intelligence-machine-learning", icon: "fa-brain" },
       { name: "Academic Calendar", link: "/academics/academic-calendar", icon: "fa-calendar-alt" },
+      { name: "Exam Section", link: "/academics/exam-section", icon: "fa-file-alt" },
     ]
   },
   {
@@ -158,12 +159,12 @@ const rawMenuItems = [
   { name: "NBA", link: "/nba", icon: "fa-award" },
   { name: "NIRF", link: "/download/nirf", icon: "fa-chart-bar" },
   { name: "Contact", link: "/contact", icon: "fa-phone-alt" },
-  {
-    name: "Admin Login",
-    link: "/admin/login",
-    icon: "fa-user-shield",
-    isButton: true
-  }
+  // {
+  //   name: "Admin Login",
+  //   link: "/admin/login",
+  //   icon: "fa-user-shield",
+  //   isButton: true
+  // }
   // === MERGED SECTION ENDS HERE ===
 ];
 

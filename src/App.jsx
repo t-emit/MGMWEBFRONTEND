@@ -114,6 +114,16 @@ import AcademicCalendarPage from './pages/Academic/AcademicCalendarPage';
 import CSEResearchPublicationPage from './pages/Academic/CSE/CSEResearchPublicationPage';
 import CSECurriculumPage from './pages/Academic/CSE/CSECurriculumPage';
 import CUC from './pages/Academic/CSE/cuc';
+import CivilTrainingPlacementPage from './pages/Academic/Civil/CivilTrainingPlacementPage';
+import CivilAchievementPage from './pages/Academic/Civil/CivilAchievementPage';
+import CivilDepartmentalActivityPage from './pages/Academic/Civil/CivilDepartmentalActivityPage';
+import CivilFacultyProfilePage from './pages/Academic/Civil/CivilFacultyProfilePage';
+import CivilFacultyDetailPage from './pages/Academic/Civil/CivilFacultyDetailPage';
+import CivilLaboratoryPage from './pages/Academic/Civil/CivilLaboratoryPage';
+import CivilLaboratoryDetailPage from './pages/Academic/Civil/CivilLaboratoryDetailPage';
+import CivilCESAPage from './pages/Academic/Civil/CivilCESAPage';
+import CivilCurriculumPage from './pages/Academic/Civil/CivilCurriculumPage';
+import CivilConsultancyPage from './pages/Academic/Civil/CivilConsultancyPage';
 
 // ==========================================================
 // Helper Placeholder Pages
@@ -230,6 +240,16 @@ const App = () => {
           <Route path="/academics/civil-engineering" element={<CivilEngineeringPage />} />
           <Route path="/academics/civil-engineering/vision-mission" element={<CivilVisionMissionPage />} />
           <Route path="/academics/civil-engineering/programmes" element={<CivilProgrammesPage />} />
+          <Route path="/academics/civil-engineering/training-placement" element={<CivilTrainingPlacementPage />} />
+          <Route path="/academics/civil-engineering/achievements" element={<CivilAchievementPage />} />
+          <Route path="/academics/civil-engineering/activities" element={<CivilDepartmentalActivityPage />} />
+          <Route path="/academics/civil-engineering/faculty" element={<CivilFacultyProfilePage />} />
+          <Route path="/academics/civil-engineering/:facultyId" element={<CivilFacultyDetailPage />} />
+          <Route path="/academics/civil-engineering/labs" element={<CivilLaboratoryPage />} />
+          <Route path="/academics/civil-engineering/:labId" element={<CivilLaboratoryDetailPage />} />
+          <Route path="/academics/civil-engineering/cesa" element={<CivilCESAPage />} />
+          <Route path="/academics/civil-engineering/curriculum" element={<CivilCurriculumPage />} />
+          <Route path="/academics/civil-engineering/consultancy" element={<CivilConsultancyPage />} />
           <Route path="/academics/*" element={<PlaceholderPage title="Academics Section" />} />
 
 

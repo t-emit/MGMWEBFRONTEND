@@ -73,7 +73,7 @@ const CivilEngineeringPage = () => {
                   <img
                     alt={`${hodDetails.value}, Head, Department of Civil Engineering`}
                     className="w-full h-64 object-cover"
-                    src={hodDetails.image}
+                    src='/images/Dr.AK Hashmi_HOD.jpg'
                     onError={(e) => { e.target.onerror = null; e.target.src = '/images/placeholder-person.jpg'; }} // Fallback
                   />
                   <div className="p-4 bg-gradient-to-b from-white to-gray-50">
