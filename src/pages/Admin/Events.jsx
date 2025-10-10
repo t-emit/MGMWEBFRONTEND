@@ -1,12 +1,8 @@
-// frontend/src/pages/Admin/Events.jsx
-
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useAuth } from '../../context/AuthContext'; // To get the auth token
+import { useAuth } from '../../context/AuthContext';
 
-const API_URL = 'http://localhost:5000/api/events'; // Your backend URL
-
-function ManageEvents() {
+const ManageEvents = () => {
     const [events, setEvents] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState('');
@@ -16,18 +12,18 @@ function ManageEvents() {
     const [date, setDate] = useState('');
     const [description, setDescription] = useState('');
     const [link, setLink] = useState('');
-    const [type, setType] = useState('news'); // Default to 'news'
+    const [type, setType] = useState('news');
 
-    const { token } = useAuth(); // Get the token from our context
+    const { token } = useAuth();
 
     // Function to fetch all events
     const fetchEvents = async () => {
         try {
-            const res = await axios.get('${import.meta.env.VITE_API_URL}/api/events');
+            const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/events`);
             setEvents(res.data);
         } catch (err) {
             setError('Failed to fetch events.');
-            console.error(err);
+            console.error("Fetch Events Error:", err);
         } finally {
             setIsLoading(false);
         }
@@ -37,6 +33,7 @@ function ManageEvents() {
         fetchEvents();
     }, []);
 
+    // Function to add a new event
     const handleSubmit = async (e) => {
         e.preventDefault();
         setError('');
@@ -44,24 +41,29 @@ function ManageEvents() {
         const newEvent = { title, date, description, link, type };
         
         try {
-            const res = await axios.post('http://localhost:5000/api/events', newEvent, {
+            const res = await axios.post(`${import.meta.env.VITE_API_URL}/api/events`, newEvent, {
                 headers: {
-                    'Authorization': `Bearer ${token}` // Send the token for verification
+                    'Authorization': `Bearer ${token}`
                 }
             });
             setEvents([res.data, ...events]); // Add new event to the top of the list
             // Clear form
-            setTitle(''); setDate(''); setDescription(''); setLink(''); setType('news');
+            setTitle(''); 
+            setDate(''); 
+            setDescription(''); 
+            setLink(''); 
+            setType('news');
         } catch (err) {
             setError('Failed to add event. Please try again.');
-            console.error(err);
+            console.error("Submit Event Error:", err);
         }
     };
 
+    // Function to delete an event
     const handleDelete = async (id) => {
         if (window.confirm('Are you sure you want to delete this item?')) {
             try {
-                await axios.delete(`http://localhost:5000/api/events/${id}`, {
+                await axios.delete(`${import.meta.env.VITE_API_URL}/api/events/${id}`, {
                     headers: {
                         'Authorization': `Bearer ${token}`
                     }
@@ -69,7 +71,7 @@ function ManageEvents() {
                 setEvents(events.filter(event => event._id !== id)); // Remove from UI
             } catch (err) {
                 setError('Failed to delete event.');
-                console.error(err);
+                console.error("Delete Event Error:", err);
             }
         }
     };
