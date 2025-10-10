@@ -8,8 +8,8 @@ const NewsEvents = () => {
     useEffect(() => {
         const fetchNews = async () => {
             try {
-                // IMPORTANT: In production, change this to your live backend URL
-                const response = await axios.get('http://localhost:5000/api/events');
+                // THIS IS THE CORRECTED LINE
+                const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/events`);
                 setNewsItems(response.data);
             } catch (error) {
                 console.error("Error fetching news and events:", error);
