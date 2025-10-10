@@ -1,12 +1,8 @@
-// frontend/src/pages/Admin/Events.jsx
-
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useAuth } from '../../context/AuthContext'; // To get the auth token
+import { useAuth } from '../../context/AuthContext';
 
-const API_URL = 'http://localhost:5000/api/events'; // Your backend URL
-
-function ManageEvents() {
+const ManageEvents = () => {
     const [events, setEvents] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState('');
@@ -16,15 +12,14 @@ function ManageEvents() {
     const [date, setDate] = useState('');
     const [description, setDescription] = useState('');
     const [link, setLink] = useState('');
-    const [type, setType] = useState('news'); // Default to 'news'
+    const [type, setType] = useState('news');
 
-    const { token } = useAuth(); // Get the token from our context
+    const { token } = useAuth();
 
-    // Function to fetch all events
     const fetchEvents = async () => {
         try {
+            // This one is already correct
             const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/events`);
-            
             setEvents(res.data);
         } catch (err) {
             setError('Failed to fetch events.');
@@ -45,13 +40,13 @@ function ManageEvents() {
         const newEvent = { title, date, description, link, type };
         
         try {
-            const res = await axios.post('http://localhost:5000/api/events', newEvent, {
+            // FIX: Use the environment variable here
+            const res = await axios.post(`${import.meta.env.VITE_API_URL}/api/events`, newEvent, {
                 headers: {
-                    'Authorization': `Bearer ${token}` // Send the token for verification
+                    'Authorization': `Bearer ${token}`
                 }
             });
-            setEvents([res.data, ...events]); // Add new event to the top of the list
-            // Clear form
+            setEvents([res.data, ...events]);
             setTitle(''); setDate(''); setDescription(''); setLink(''); setType('news');
         } catch (err) {
             setError('Failed to add event. Please try again.');
@@ -62,12 +57,13 @@ function ManageEvents() {
     const handleDelete = async (id) => {
         if (window.confirm('Are you sure you want to delete this item?')) {
             try {
-                await axios.delete(`http://localhost:5000/api/events/${id}`, {
+                // FIX: Use the environment variable here
+                await axios.delete(`${import.meta.env.VITE_API_URL}/api/events/${id}`, {
                     headers: {
                         'Authorization': `Bearer ${token}`
                     }
                 });
-                setEvents(events.filter(event => event._id !== id)); // Remove from UI
+                setEvents(events.filter(event => event._id !== id));
             } catch (err) {
                 setError('Failed to delete event.');
                 console.error(err);
@@ -83,6 +79,7 @@ function ManageEvents() {
             <div className="bg-white p-6 rounded-lg shadow-md mb-8">
                 <h2 className="text-xl font-semibold mb-4">Add New Item</h2>
                 <form onSubmit={handleSubmit} className="space-y-4">
+                    {/* ... form JSX remains the same ... */}
                     <div>
                         <label className="block text-sm font-medium text-gray-700">Title</label>
                         <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} required className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2" />
