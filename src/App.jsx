@@ -124,6 +124,7 @@ import CivilLaboratoryDetailPage from './pages/Academic/Civil/CivilLaboratoryDet
 import CivilCESAPage from './pages/Academic/Civil/CivilCESAPage';
 import CivilCurriculumPage from './pages/Academic/Civil/CivilCurriculumPage';
 import CivilConsultancyPage from './pages/Academic/Civil/CivilConsultancyPage';
+import CivilResearchPublicationPage from './pages/Academic/Civil/CivilResearchPublicationPage';
 
 // ==========================================================
 // Helper Placeholder Pages
@@ -250,6 +251,7 @@ const App = () => {
           <Route path="/academics/civil-engineering/cesa" element={<CivilCESAPage />} />
           <Route path="/academics/civil-engineering/curriculum" element={<CivilCurriculumPage />} />
           <Route path="/academics/civil-engineering/consultancy" element={<CivilConsultancyPage />} />
+          <Route path="/academics/civil-engineering/research-publication" element={<CivilResearchPublicationPage />} />
           <Route path="/academics/*" element={<PlaceholderPage title="Academics Section" />} />
 
 
