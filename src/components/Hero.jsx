@@ -44,7 +44,7 @@ const Hero = () => {
 
     const interval = setInterval(() => {
       nextSlide();
-    }, 5000);
+    }, 2500);
 
     return () => clearInterval(interval);
   }, [currentSlide, isPaused, nextSlide]);
@@ -53,7 +53,7 @@ const Hero = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoaded(true);
-    }, 100);
+    }, 50);
     return () => clearTimeout(timer);
   }, []);
 

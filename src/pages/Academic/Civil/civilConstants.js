@@ -924,3 +924,263 @@ export const civilConsultancyResources = [
     linkText: 'Open Teaching Learning Resources in new tab',
   },
 ];
+
+
+
+// ... (all existing constants like civilDepartmentDetails, civilProgrammesCourses, civilTrainingFieldTraining, civilAchievements, civilTeachingStaff, civilSupportingStaff, civilLaboratories, cesaReports, cesaAbout, cesaDetailedEvents, civilSyllabus, civilConsultancyResources) ...
+
+// --- NEW CONSTANTS FOR CIVIL RESEARCH AND PUBLICATION PAGE ---
+
+export const civilResearchPublicationsSummary = [
+  { label: 'International refereed Journals', count: 27, anchor: 'international-journals' },
+  { label: 'National Journals', count: 2, anchor: 'national-journals' },
+  { label: 'International Conferences', count: 14, anchor: 'international-conferences' },
+  { label: 'National Conferences', count: 9, anchor: 'national-conferences' },
+];
+
+export const civilResearchPublications = [
+  // --- International Journals ---
+  {
+    category: 'International Journals',
+    id: 'international-journals',
+    facultyPublications: [
+      {
+        facultyName: 'Dr. Deepak V. Pattewar',
+        papers: [
+          { srNo: 1, authors: 'D.V. Pattewar, K. M. Sharma, and P.D. Dahe', title: 'Yield Estimation for a Single Purpose Multi Reservoir System using LP Based Yield Model', journalName: 'Journal of Water Resources & Protection', volumeNo: 5, issueNo: 7, year: 2013, pageRange: '28-34' },
+          { srNo: 2, authors: 'K. M. Sharma, D.V. Pattewar and P.D. Dahe', title: 'Assessment of safe reservoir yield by full optimization model by linear programming method', journalName: 'International Journal of Water Resource and Environmental Engineering (IJWREE)', volumeNo: '03', issueNo: '10', year: 2011, pageRange: '204-211' },
+          { srNo: 3, authors: 'K. M. Sharma, D.V. Pattewar and P.D. Dahe', title: 'Comparison of actual release schedule and optimal operation of Isapur reservoir, India', journalName: 'International Journal of Civil Engineering Research and Development (IJCERD)', volumeNo: '01', issueNo: '02', year: 2012, pageRange: '21-29' },
+          { srNo: 4, authors: 'K. M. Sharma, D.V. Pattewar and P.D. Dahe', title: 'Identification of Failure Years by Modification of Yield Model in Isapur Reservoir, India', journalName: 'Journal of Water Resources & Protection', volumeNo: 6, issueNo: 11, year: 2014, pageRange: '1509-1516' },
+          { srNo: 5, authors: 'Sharma Rahulkumar Dr.D.V.Pattewar Dr.A.K.Hashhmi', title: 'Impact of sloshing motion on ground supported circular liquid storage tank.', journalName: 'International Journal of Engineering research & technology', volumeNo: '02', issueNo: '09', year: 2013, pageRange: '609-612' },
+        ],
+      },
+      {
+        facultyName: 'Dr. A. K. Hashmi',
+        papers: [
+          { srNo: 1, authors: 'Karanpal S., Hashmi A. and Patil L.G', title: 'Performance based evaluation of Reinforced Concrete buildings at Vertical Geometric Regularity Limit', journalName: 'Innovation Infrastructure Solutions', volumeNo: '3', issueNo: 8, year: 2023, pageRange: '11-27' },
+          { srNo: 2, authors: 'Hashmi A. K. Karanpal S., and Patil L.G', title: 'Performance Based Efficient Design of Reinforced Concrete Frames with Vertical Irregularities', journalName: 'Asian Journal of Civil Engineering', volumeNo: 23, issueNo: 1, year: 2022, pageRange: '375-389' },
+          { srNo: 3, authors: 'Hashmi A. and Madan A', title: 'Fragility Analysis of Masonry Infilled Reinforced Concrete Frames for Near Field Earthquakes', journalName: 'KSCE Journal of Civil Engineering,', volumeNo: 24, issueNo: 1, year: 2020, pageRange: '122-130' },
+          { srNo: 4, authors: 'Hashmi A., Ibrahim S.M., Jameel M., Madan A', title: 'Efficient Preliminary Seismic Design of Reinforced Concrete Structures using Vulnerability Indices', journalName: 'Indian Concrete Journal', volumeNo: 92, issueNo: 7, year: 2018, pageRange: '65-73' },
+          { srNo: 5, authors: 'Madan A. and Hashmi A.', title: 'Seismic Performance of Masonry Infilled Reinforced Concrete Frames Subjected to Near-Field Earthquakes', journalName: 'Journal of Structural Engineering, ASCE', volumeNo: 134, issueNo: 9, year: 2008, pageRange: '1569-1581.' },
+          { srNo: 6, authors: 'Hashmi A and Madan A', title: 'Damage Forecast of Masonry Infilled Reinforced Concrete Framed Building Subjected To Earthquakes In India', journalName: 'Current Science', volumeNo: 94, issueNo: 1, year: 2008, pageRange: '61-73' },
+        ],
+      },
+      {
+        facultyName: 'Dr. Kalpeshkumar M. Sharma',
+        papers: [
+          { srNo: 1, authors: 'K. M. Sharma, D.V. Pattewar and P.D. Dahe', title: 'Assessment of safe reservoir yield by full optimization model by linear programming method', journalName: 'International Journal of Water Resource and Environmental Engineering (IJWREE)', volumeNo: '03', issueNo: '10', year: 2011, pageRange: '204-211' },
+          { srNo: 2, authors: 'K. M. Sharma, D.V. Pattewar and P.D. Dahe', title: 'Comparison of actual release schedule and optimal operation of Isapur reservoir, India', journalName: 'International Journal of Civil Engineering Research and Development (IJCERD)', volumeNo: '01', issueNo: '02', year: 2012, pageRange: '21-29' },
+          { srNo: 3, authors: 'D.V. Pattewar, K. M. Sharma, and P.D. Dahe', title: 'Yield Estimation for a Single Purpose Multi Reservoir System using LP Based Yield Model', journalName: 'Journal of Water Resources & Protection', volumeNo: 5, issueNo: 7, year: 2013, pageRange: '28-34' },
+          { srNo: 4, authors: 'K. M. Sharma, D.V. Pattewar and P.D. Dahe', title: 'Identification of Failure Years by Modification of Yield Model in Isapur Reservoir, India', journalName: 'Journal of Water Resources & Protection', volumeNo: 6, issueNo: 11, year: 2014, pageRange: '1509-1516' },
+          { srNo: 5, authors: 'Anil S. Paralikar, P D Dahe, Madhav Vaidya and Kalpeshkumar Sharma', title: 'Reservoir Releases using Genetic Algorithm', journalName: 'International Journal of Innovations & Advancement in Computer Science, IJIACS', volumeNo: 6, issueNo: 5, year: 2017, pageRange: '363-366' },
+          { srNo: 6, authors: 'Anil S. Paralikar, and Kalpeshkumar Sharma', title: 'Effective Application of Soft Computing Techniques to Reservoir Operation', journalName: 'International Journal of Engineering Research and Advanced Development, IJERAD', volumeNo: 7, issueNo: 1, year: 2018, pageRange: '11-24' },
+          { srNo: 7, authors: 'A.S.Paralikar, P.D. Dahe and Kalpeshkumar M. Sharma', title: 'Optimal Operation Study of Reservoir System Using Optimization and Simulation Techniques- A Case Study of Uduthorehalla Reservoir in India', journalName: 'Water and Energy International Journal', volumeNo: 61, issueNo: 11, year: 2019, pageRange: '47-51' },
+          { srNo: 8, authors: 'Anil S. Paralikar, and Kalpeshkumar Sharma', title: 'Application of Relative Importance Index for Assessment of On-Site Labour Productivity', journalName: 'International Research Journal of Innovations in Engineering and Technology, IRJIET', volumeNo: 5, issueNo: 8, year: 2021, pageRange: '24-39' },
+        ],
+      },
+      {
+        facultyName: 'Dr. Mohd. Zameeruddin',
+        papers: [
+          { srNo: 1, authors: 'Mohammad Asif and Mohd. Zameeruddin', title: 'Evaluating the Effects of Plastic Hinge Location on Performance of the Moment Resisting Frames subjected to Seismic Loads', journalName: 'International Journal of Research in Engineering Application & Management', volumeNo: 7, issueNo: 4, year: 2021, pageRange: '67-71' },
+          { srNo: 2, authors: 'Zameer Ahemad and Mohd. Zameeruddin', title: 'Performance Evaluation of Moment Resisting Frames with SCWB and WCSB Configuration using Performance-based Seismic Procedures', journalName: 'International Journal of Research in Engineering Application & Management', volumeNo: 7, issueNo: 3, year: 2021, pageRange: '102-109' },
+          { srNo: 3, authors: 'Abdul Mabood, Mohd. Zameerruddin, and P.M. Shimpale', title: 'Performance-based Seismic Evaluation of Vertically Irregular Moment Resisting Reinforced Concrete Frames using Nonlinear Statics Analysis', journalName: 'SSRG International Journal of Civil Engineering', volumeNo: 8, issueNo: 6, year: 2021, pageRange: '8-19' },
+          { srNo: 4, authors: 'Tayyaba Anjum and Mohd Zameeruddin', title: 'Evaluation of efficacy of the elevated water tank under the seismic loads', journalName: 'SSRG International Journal of Civil Engineering', volumeNo: 8, issueNo: 1, year: 2021, pageRange: '20-26' },
+          { srNo: 5, authors: 'Rishikesh Hingole and Mohd Zameeruddin', title: 'Estimation of the efficacy of tuned liquid column damper using frequency response curves', journalName: 'SSRG International Journal of Civil Engineering', volumeNo: 8, issueNo: 1, year: 2021, pageRange: '4-15' },
+          { srNo: 6, authors: 'Narayan Dakore and Mohd Zameeruddin', title: 'Partial Replacement of Natural Sand with Plastic Waste and Artificial Sand in a Concrete Mix', journalName: 'International Advanced Research Journal in Science, Engineering and Technology', volumeNo: 7, issueNo: 11, year: 2020, pageRange: '53-57' },
+          { srNo: 7, authors: 'Rahul D Rathod and Mohd Zameeruddin', title: 'Pushover Analysis of reinforced concrete frames with mass irregularity', journalName: 'International Journal of Advances in Engineering and Management', volumeNo: 2, issueNo: 4, year: 2020, pageRange: '167-174' },
+          { srNo: 8, authors: 'Mohd. Zameeruddin & K. K. Sangle', title: 'Damage Assessment of Reinforced Concrete Moment Resisting Frames using Performance-based seismic evaluation Procedure', journalName: 'Journal of King Saud University - Engineering Sciences', volumeNo: 33, issueNo: 4, year: 2021, pageRange: '227-239' },
+          { srNo: 9, authors: 'Mohd. Zameeruddin & K. K. Sangle', title: 'Performance-based Seismic Assessment of Reinforced Concrete Moment Resisting Frames', journalName: 'Journal of King Saud University - Engineering Sciences', volumeNo: 33, issueNo: 3, year: 2021, pageRange: '153-165' },
+          { srNo: 10, authors: 'Mohd. Zameeruddin & K. K. Sangle', title: 'Energy-based Damage Assessment of RCMRFs using Pushover', journalName: 'Asian Journal of Civil Engineering', volumeNo: 18, issueNo: 7, year: 2017, pageRange: '1077-1093' },
+          { srNo: 11, authors: 'Mohd. Zameeruddin & K. K. Sangle', title: 'Seismic Performance Evaluation of Reinforced Concrete Frames Subjected to Seismic Loads', journalName: 'Journal of the Institution of Engineers (India): Series A', volumeNo: 98, issueNo: '1-2', year: 2017, pageRange: '177-183' },
+          { srNo: 12, authors: 'Mohd. Zameeruddin & K. K. Sangle', title: 'Seismic Damage Assessment of Reinforced Concrete Structure using Non-linear Static Analyses', journalName: 'KSCE Journal of Civil Engineering', volumeNo: 21, issueNo: 4, year: 2016, pageRange: '1319-1330' },
+          { srNo: 13, authors: 'Mohd. Zameeruddin & K. K. Sangle', title: 'Review on Recent Developments in the Performance-based Seismic Design of Reinforced Concrete Structures', journalName: 'Structures', volumeNo: 6, issueNo: 1, year: 2016, pageRange: '119-133' },
+          { srNo: 14, authors: 'Mohd Zameeruddin & Pathan Mazharkhan', title: 'Performance-based Seismic Assessment of Low-rise Reinforced Concrete Building Designed as per IS 1893', journalName: 'IUP Journal of Structural Engineering', volumeNo: 11, issueNo: 4, year: 2018, pageRange: '1-17' },
+          { srNo: 15, authors: 'Anurag D Patil & Mohd. Zameeruddin', title: 'Performance-based Seismic Evaluation of Medium Rise 3D Bare Frame', journalName: 'Journal of Emerging Technologies and Innovative Research', volumeNo: 5, issueNo: 9, year: 2018, pageRange: '227-232' },
+          { srNo: 16, authors: 'Tashmeer-us-Sana & Mohd. Zameeruddin', title: 'Performance-based Seismic Assessment of MRF using Multimode Pushover Analysis', journalName: 'International Journal of Advanced Engineering Research and Technology', volumeNo: 6, issueNo: 4, year: 2018, pageRange: '263-269' },
+          { srNo: 17, authors: 'Mohd. Zameeruddin & U. N. Jaiswal', title: 'Inelastic Analysis of Reinforced Concrete Frames', journalName: 'IUP Journal of Structural Engineering', volumeNo: 9, issueNo: 2, year: 2018, pageRange: '63-80' },
+          { srNo: 18, authors: 'Mohd. Zameeruddin &', title: 'Performance-based seismic evaluation of RCMRFs', journalName: 'IUP Journal of Structural Engineering', volumeNo: 9, issueNo: 3, year: 2016, pageRange: '34-43' },
+          { srNo: 19, authors: 'Santosh Kumar B. Naik, Mohd. Zameeruddin and Keshav K. Sangle', title: 'Seismic Performance Evaluation of Reinforced Frames with Irregular Elevations using Nonlinear Static Pushover Analysis', journalName: 'International Journal of Modern Trends in Engineering and Research', volumeNo: 2, issueNo: 7, year: 2015, pageRange: '648-653' },
+          { srNo: 20, authors: 'Mohd. Zameeruddin & Joytsna More', title: 'Some Studies on Effect of Response Reduction Factor (R)-value on Seismic Behaviour of RCC Building', journalName: 'International journal of earth sciences and engineering', volumeNo: 1, issueNo: 8, year: 2015, pageRange: '388-395' },
+          { srNo: 21, authors: 'Md. Anwaruddin & Mohd. Zameeruddin', title: 'Pushover Analysis of Medium Rise Multi-Storey RCC Frame with and Without Vertical Irregularity', journalName: 'International Journal of Engineering Research and Applications', volumeNo: 3, issueNo: 5, year: 2013, pageRange: '540-546' },
+          { srNo: 22, authors: 'Mohd Zameeruddin', title: 'Estimation of Response of 2- DOF RCC Base Isolated Building to Earthquake Loading', journalName: 'International Journal of Emerging Technology and Advanced Engineering', volumeNo: 3, issueNo: 7, year: 2013, pageRange: '608-616' },
+          { srNo: 23, authors: 'Mohd Zameeruddin', title: 'Estimation of response of 5-storeyed RCC base isolated building to earthquake loading', journalName: 'International journal of earth sciences and engineering', volumeNo: 3, issueNo: 4, year: 2010, pageRange: '720-734' },
+        ],
+      },
+      {
+        facultyName: 'Mrs. S. V. Kannawar',
+        papers: [
+          { srNo: 1, authors: 'Ms.M.P.Kulkarni,\nMs. S. V. Kannawar', title: 'Water Supply in Marathwada Region: An overview', journalName: 'International Journal Of Engineering Research And Applications (IJERA', volumeNo: 'Vol. 13, ISSN: 2248-9622', issueNo: 'Issue 5', year: 2023, pageRange: '180 - 189' },
+          { srNo: 2, authors: 'Mr. A. A. Bhore,\nMs.M.P.Kulkarni,\nMs. S.V. Kannawar', title: 'Analysis and Evaluation of Mass Transportation System: A Case Study of Nanded City, Maharashtra', journalName: 'International Journal of Science and Research (IJSR)', volumeNo: 'Vol.12 , ISSN: 2319-7064', issueNo: 'Issue 5', year: 2023, pageRange: '1798 - 1800' },
+          { srNo: 3, authors: 'Ms. S. V. Kannawar,\nMs.M.P.Kulkarni', title: 'Impact of seasonal Water Logging Problems and its effect in urban area:A Case Study of Nanded City,Maharashtra', journalName: 'International Journal of Innovative Research in Technology (IJIRT)', volumeNo: '| Vol.9, ISSN: 2349-6002', issueNo: 'Issue 12', year: 2023, pageRange: '1012 - 1015' },
+        ],
+      },
+      {
+        facultyName: 'Mr. S. D. Halbandge',
+        papers: [
+          { srNo: 1, authors: 'Mr. S. D. Halbandge', title: 'Design of Flat Slab for Preliminary Design by ANN', journalName: 'International Journal of Engineering Reasearch Technology', volumeNo: '02', issueNo: '05', year: 2013, pageRange: '1773 to 1777' },
+        ],
+      },
+      {
+        facultyName: 'Mr. Girish S. Deshmukh',
+        papers: [
+          { srNo: 1, authors: 'S. D. Halbandge and G. S. Deshmukh', title: 'Study Of Flat Slab By Ann For Preliminary Design', journalName: 'International Journal of Engineering Research & Technology (IJERT)', volumeNo: 2, issueNo: 5, year: 2013, pageRange: '1773-1777' },
+          { srNo: 2, authors: 'Shaikh Abdul Aijaj Abdul Rahman and Girish Deshmukh', title: 'Seismic Response of Vertically Irregular RC Frame with Stiffness Irregularity at Fourth Floor', journalName: 'International Journal of Emerging Technology and Advanced', volumeNo: 3, issueNo: 8, year: 2013, pageRange: '377-386' },
+          { srNo: 3, authors: 'G. S. Deshmukh and Syed Zubair Ahmed', title: 'Approximate Seismic Analysis Procedure for Multi-bay RC Framed Structures', journalName: 'International Journal of Civil and Structural Engineering Research', volumeNo: 4, issueNo: 2, year: 2017, pageRange: '12-21' },
+          { srNo: 4, authors: 'Girish S. Deshmukh, Pandit.M.Shimpale , Sarika B. Shinde', title: 'Study of Barrel Vault', journalName: 'International Journal of Engineering Research', volumeNo: 5, issueNo: 'Special 1', year: 2016, pageRange: '229-231' },
+        ],
+      },
+      {
+        facultyName: 'Mr. R. R. Alurwad',
+        papers: [
+          { srNo: 1, authors: 'Mr. R. R. Alurwad', title: 'Seismic Analysis of Reinforced Concrete Frame With Infilled Wall', journalName: '', volumeNo: '', issueNo: '', year: null, pageRange: '' },
+        ],
+      },
+      {
+        facultyName: 'Mrs. M. P. Kulkarni',
+        papers: [
+          { srNo: 1, authors: 'Ms.M.P.Kulkarni,', title: 'Water Supply in Marathwada Region: An overview', journalName: 'International Journal Of Engineering Research And Applications (IJERA', volumeNo: 'Vol. 13, ISSN: 2248-9622', issueNo: 'Issue 5', year: 2023, pageRange: '180 - 189' },
+          { srNo: 2, authors: 'Mr. A. A. Bhore,\nMs.M.P.Kulkarni', title: 'Analysis and Evaluation of Mass Transportation System: A Case Study of Nanded City, Maharashtra', journalName: 'International Journal of Science and Research (IJSR)', volumeNo: 'Vol.12 , ISSN: 2319-7064', issueNo: 'Issue 5', year: 2023, pageRange: '1798 - 1800' },
+          { srNo: 3, authors: 'Ms. S. V. Kannawar,\nMs.M.P.Kulkarni', title: 'Impact of seasonal Water Logging Problems and its effect in urban area:A Case Study of Nanded City,Maharashtra', journalName: 'International Journal of Innovative Research in Technology (IJIRT)', volumeNo: '| Vol.9, ISSN: 2349-6002', issueNo: 'Issue 12', year: 2023, pageRange: '1012 - 1015' },
+        ],
+      },
+      {
+        facultyName: 'Mr. Rahulkumar R. Sharma',
+        papers: [
+          { srNo: 1, authors: 'Sharma Rahulkumar', title: 'Impact of Sloshing Motion of water on Ground Supported Circular Liquid\nStorage Tank', journalName: 'International Journals of Engineering Research & Technology (IJERT)', volumeNo: 'ISSN: 2278-0181 Vol. 2', issueNo: '9', year: 2013, pageRange: '609-612' },
+          { srNo: 2, authors: 'Rameshwar Bawalge, Sharma Rahulkumar', title: 'Parametric Study on Time Period of a RC structure', journalName: 'International Journals of Engineering Research & Applications', volumeNo: 'ISSN:2248-9622\nVol. 11, (Series-Iv)', issueNo: '2', year: 2021, pageRange: '01-07' },
+          { srNo: 3, authors: 'Swati Sawale,\nSharma Rahulkumar', title: 'Influence of Different Lateral Load Resisting Structural\nSystems on Seismic Performance.', journalName: 'International Journals of Engineering Research & Applications', volumeNo: 'ISSN: 2248-9622, Vol. 12 (Series-II)', issueNo: '3', year: 2022, pageRange: 'pp. 01-04' },
+          { srNo: 4, authors: 'Harish Kadam Sharma Rahulkumar', title: 'International Journal of Engineering Research and Applications', journalName: 'International Journals of Engineering Research & Applications', volumeNo: 'ISSN: 2248-9622, Vol. 12, (Series-I)', issueNo: '7', year: 2022, pageRange: '153-165' },
+        ],
+      },
+      {
+        facultyName: 'Mr. Aniket A.Bhore',
+        papers: [
+          { srNo: 1, authors: 'Ms.M.P.Kulkarni,\nMs. S. V. Kannawar,\nMr. A. A. Bhore', title: 'Water Supply in Marathwada Region: An overview', journalName: 'International Journal Of Engineering Research And Applications (IJERA', volumeNo: 'Vol. 13, ISSN: 2248-9622', issueNo: 'Issue 5', year: 2023, pageRange: '180 - 189' },
+          { srNo: 2, authors: 'Mr. A. A. Bhore,\nMs.M.P.Kulkarni,\nMs. S.V. Kannawar', title: 'Analysis and Evaluation of Mass Transportation System: A Case Study of Nanded City, Maharashtra', journalName: 'International Journal of Science and Research (IJSR)', volumeNo: 'Vol.12 , ISSN: 2319-7064', issueNo: 'Issue 5', year: 2023, pageRange: '1798 - 1800' },
+          { srNo: 3, authors: 'Ms. S. V. Kannawar,\nMr. A. A. Bhore,\nMs.M.P.Kulkarni', title: 'Impact of seasonal Water Logging Problems and its effect in urban area:A Case Study of Nanded City,Maharashtra', journalName: 'International Journal of Innovative Research in Technology (IJIRT)', volumeNo: '| Vol.9, ISSN: 2349-6002', issueNo: 'Issue 12', year: 2023, pageRange: '1012 - 1015' },
+        ],
+      },
+    ],
+  },
+  // --- National Journals ---
+  {
+    category: 'National Journals',
+    id: 'national-journals',
+    facultyPublications: [
+      {
+        facultyName: 'Dr. A. K. Hashmi',
+        papers: [
+          { srNo: 1, authors: 'Hashmi A., Ibrahim S.M., Jameel M., Madan A', title: 'Efficient Preliminary Seismic Design of Reinforced Concrete Structures using Vulnerability Indices', journalName: 'Indian Concrete Journal', volumeNo: 92, issueNo: 7, year: 2018, pageRange: '65-73' },
+          { srNo: 2, authors: 'Hashmi A., Syed M. I. and Madan A.,', title: 'Development of Analysis Curves for RC Beam Sections Based on Simple Approach of Mechanics', journalName: 'Indian Concrete Journal', volumeNo: 92, issueNo: 6, year: 2018, pageRange: '57–63' },
+          { srNo: 3, authors: 'Hashmi A., Madan A', title: 'Seismic Performance of Masonry Infilled Reinforced Concrete Structures,', journalName: 'Indian Concrete Journal,', volumeNo: 91, issueNo: 5, year: 2017, pageRange: '24-33' },
+          { srNo: 4, authors: 'Hashmi A', title: 'Seismic Evaluation and Preliminary Design of Regular Setback Masonry infilled Open Ground Storey Frames', journalName: 'Journal of Institute of Engineers (India): Series A', volumeNo: 97, issueNo: 2, year: 2016, pageRange: '121-131' },
+          { srNo: 5, authors: 'Hashmi A', title: 'Design Aids for Seismic Strengthening of Reinforced Concrete Beams', journalName: 'The Indian Concrete Journal', volumeNo: 90, issueNo: 4, year: 2016, pageRange: '93-100' },
+          { srNo: 6, authors: 'Hashmi A', title: 'Preliminary Seismic Evaluation Aid for Reinforced Concrete Framed Structures based on IS 15988(2013) Guidelines', journalName: 'The Indian Concrete Journal', volumeNo: 89, issueNo: 9, year: 2015, pageRange: '1-5' },
+          { srNo: 7, authors: 'Hashmi A', title: 'Preliminary Design and Analysis of Masonry Reinforced Concrete Frame Based on Storey Drift Limitations under Lateral Loads', journalName: 'Journal of Structural Engineer, SERC, CSIR', volumeNo: 41, issueNo: 5, year: 2014, pageRange: '509-514' },
+        ],
+      },
+      {
+        facultyName: 'Dr. Kalpeshkumar M. Sharma',
+        papers: [
+          { srNo: 1, authors: 'A.S.Paralikar, P.D. Dahe and Kalpeshkumar M. Sharma', title: 'Optimal Operation Study of Reservoir System Using Optimization and Simulation Techniques- A Case Study of Uduthorehalla Reservoir in India', journalName: 'Water and Energy audit', volumeNo: 24, issueNo: 5, year: 2021, pageRange: '241-247' },
+        ],
+      },
+      {
+        facultyName: 'Dr. Mohd. Zameeruddin',
+        papers: [
+          { srNo: 1, authors: 'Mohd. Zameeruddin and Keshav K. Sangle', title: 'Performance-based seismic evaluation of RCMRFs', journalName: 'The IUP journal of structural engineering', volumeNo: 9, issueNo: 3, year: 2016, pageRange: '34-43' },
+        ],
+      },
+      {
+        facultyName: 'Mr. Girish S. Deshmukh',
+        papers: [
+          { srNo: 1, authors: 'G. S. Deshmukh', title: 'Preliminary Design of Double Layer Grid using ANN', journalName: 'Journal of Structural Engg', volumeNo: 40, issueNo: 3, year: 2013, pageRange: 'pp 215-27' },
+          { srNo: 2, authors: 'Shaikh A. Aijaj Girish S. Deshmukh', title: 'Seismic Analysis of Vertically Irregular Building', journalName: 'SRTMU\'s Research Journal of Science', volumeNo: 2, issueNo: 1, year: 2013, pageRange: '101-111' },
+        ],
+      },
+    ],
+  },
+  // --- International Conferences ---
+  {
+    category: 'International Conferences',
+    id: 'international-conferences',
+    facultyPublications: [
+      {
+        facultyName: 'Dr. A. K. Hashmi',
+        papers: [
+          { srNo: 1, authors: 'Dr. A. K. Hashmi', title: 'Comparative Investigation of Setback Structures under Incremental Lateral Load Analysis', conferenceName: 'International Conference on Recent Trends in Engineering and Technology', heldAt: 'SNJB College of Engineering, Chandwad', duration: '22-24 Feb 2013\npp 972-974' },
+          { srNo: 2, authors: 'Dr. A. K. Hashmi', title: 'Parametric Study of Preliminary Seismic Evaluation of Existing Structures.', conferenceName: 'International Conference on Recent Trends in Engineering and Technology', heldAt: 'SNJB College of Engineering, Chandwad', duration: '22-24 Feb 2013' },
+          { srNo: 3, authors: 'Dr. A. K. Hashmi', title: 'Tentative Design of Building Frames based on Serviceability Criterion.', conferenceName: 'International Conference of “Benchmarks in Engineering Science and Technology”', heldAt: 'B. D. College of Engineering, Sevagram', duration: '7-8 Sep 2012' },
+          { srNo: 4, authors: 'Hashmi A. and Madan A', title: 'Seismic Performance of Masonry Infilled R/C Framed Structures with Soft Ground Story', conferenceName: 'Proceedings of 10th East Asia Pacific Conference on Structural Engineering and Construction Technology', heldAt: 'Asian Institute of Technology, Bangkok, Thailand,', duration: '2006\npp 243-249' },
+          { srNo: 5, authors: 'Hashmi A., and Madan A.', title: 'Performance Based Seismic Design of Masonry Infilled Frames using Feature Sensitive Neural Networks', conferenceName: '8th European Congress on Computational Mechanics and Science', heldAt: 'Venice, Italy.', duration: 'June30-\nJuly4, 2008' },
+          { srNo: 6, authors: 'Hashmi A and Madan A', title: 'Performance Based Seismic Design of Masonry Infilled Reinforced Structures for Near Field Earthquakes', conferenceName: 'International conference on Earthquake Engineering, Canadian Earthquake Engineering Society', heldAt: 'Toronto,\nCanada', duration: 'July\n26-29, 2010' },
+        ],
+      },
+      {
+        facultyName: 'Dr. Kalpeshkumar M. Sharma',
+        papers: [
+          { srNo: 1, authors: 'K. M. Sharma, D.V. Pattewar and P.D. Dahe', title: 'Assessment and modification of Yield model for Reservoir system in India', conferenceName: 'Water and Society 2011 (WS11),', heldAt: 'Las Vegas, USA', duration: 'December 5-7, 2011.' },
+          { srNo: 2, authors: 'A. S. Paralikar and Kalpeshkumar Sharma', title: 'Reservoir Releases Using Genetic Algorithm', conferenceName: '5th International conference on Advancement in Engineering, Applied science & Management (ICAEASM-2017)', heldAt: 'Bengaluru, Karnatka', duration: 'November 26-27, 2017' },
+        ],
+      },
+      {
+        facultyName: 'Dr. Mohd. Zameeruddin',
+        papers: [
+          { srNo: 1, authors: 'Mohd. Zameeruddin and Keshav K. Sangle', title: 'Study of NSPs and NTH analyses of RCMRFs', conferenceName: 'International Conference on Recent trends in Engineering & Technology', heldAt: 'SNJB’s Late Sau. K. B. Jain College of Engg,Chandwad, Nasikh (Maharashtra)', duration: '28-30 April 2016' },
+          { srNo: 2, authors: 'Mohd. Zameeruddin and Keshav K. Sangle', title: 'Some Studies on Seismic Performance of 2D-reinforced Concrete Frames based on Seismic Indices', conferenceName: 'International Conference on Recent trends in Engineering & Technology', heldAt: 'SNJB’s Late Sau. K. B. Jain College of Engg,Chandwad, Nasikh (Maharashtra)', duration: '28-30 March 2014\npp 243-252' },
+          { srNo: 3, authors: 'Md. Awaruddin, Md. Yousuf Shaikh, Md. Zameeruddin and P. M. Shimpale', title: 'A Review of Performance based Design: Part-I', conferenceName: 'International Conference on Recent trends in Engg & Technology', heldAt: 'SNJB’s Late Sau. K. B. Jain College of Engg,Chandwad', duration: '22-24 Feb 2013\npp 839-843.' },
+          { srNo: 4, authors: 'Md. Awaruddin, Md. Yousuf Shaikh, Md. Zameeruddin and P. M. Shimpale', title: 'A Review of Performance based Design: Part-II', conferenceName: 'International Conference on Recent trends in Engg & Technology', heldAt: 'SNJB’s Late Sau. K. B. Jain College of Engg,Chandwad', duration: '22-24 Feb 2013\npp 887-894' },
+          { srNo: 5, authors: 'Md. Zameeruddin S. and Dr. M. G. Shaikh', title: 'Design of Base Isolator for building', conferenceName: 'Proceedings of International Conference on Innovative World of Structural Engineering, ICIWSE-2010', heldAt: 'Government College of Engineering, Aurangabad, Maharashtra, India', duration: 'Sept 17-19, 2010\npp 227-241' },
+          { srNo: 6, authors: 'Md. Zameeruddin S. and Dr. M. G. Shaikh', title: 'Estimation of Response of 2-DOF RCC Base Isolated Building to Earthquake Loading', conferenceName: 'International Conference on Emerging teds in Engineering-ICETE 2010', heldAt: 'Dr. J. J Magdum College of Engineering, Jaysingpur, Kolhapur', duration: '20-21 Feb 2010\npp 21-32' },
+        ],
+      },
+    ],
+  },
+  // --- National Conferences ---
+  {
+    category: 'National Conferences',
+    id: 'national-conferences',
+    facultyPublications: [
+      {
+        facultyName: 'Dr. Deepak V. Pattewar',
+        papers: [
+          { srNo: 1, authors: 'K. M. Sharma, D.V. Pattewar and P.D. Dahe', title: 'Application of Yield Model for Reservoir Operation System', conferenceName: 'Water for Future (NCWF 2010)', heldAt: 'Nanded, India', duration: 'February 25-26, 2011.' },
+          { srNo: 2, authors: 'Sharma Rahulkumar Dr.D.V.Pattewar Dr.A.K.Hashhmi', title: 'Parametric study for seismic design of ground supported circular liquid storage tank.', conferenceName: 'National conf. On recent advances in Civil Engg.', heldAt: 'NIT Patna', duration: 'June 13-14, 2013' },
+        ],
+      },
+      {
+        facultyName: 'Dr. A. K. Hashmi',
+        papers: [
+          { srNo: 1, authors: 'Hashmi A. and Madan A.', title: 'Seismic Performance of Masonry Infilled R/C Frames with Open Ground Story in India', conferenceName: 'Proceedings of 13 th Symposium on Earthquake Engineering', heldAt: 'Indian Institute of Technology, Roorkee, India,', duration: '2006\npp 695-704' },
+          { srNo: 2, authors: 'Dr. A. K. Hashmi', title: 'Comparative Study of Capacity Based Design of RC Frame under Different Loading Pattern', conferenceName: 'National Conference on Recent Advances in Civil Engineering', heldAt: 'NIT Patna', duration: '13-14 June, 2013\npp 57-61' },
+          { srNo: 3, authors: 'Dr. A. K. Hashmi', title: 'Seismic Design of Ground Supported Circular Liquid Storage Tank', conferenceName: 'National Conference on Recent Advances in Civil Engineering', heldAt: 'NIT Patna', duration: '13-14 June,2013\npp 51-57' },
+        ],
+      },
+      {
+        facultyName: 'Dr. Kalpeshkumar M. Sharma',
+        papers: [
+          { srNo: 1, authors: 'K. M. Sharma, D.V. Pattewar and P.D. Dahe', title: 'Application of Yield Model for Reservoir Operation System', conferenceName: 'Water for Future (NCWF 2010)', heldAt: 'Nanded, India', duration: 'February 25-26, 2011.' },
+          { srNo: 2, authors: 'A. S. Paralikar, P. D. Dahe and K. M. Sharma', title: 'Application of Linear Programming for Urmodi Dam Reservoir Operation', conferenceName: 'International conference on "Technological Advances in Climate-Smart Agricultural and Sustainability" (TACSA)', heldAt: 'Nanded-India', duration: 'January 16-17,2017' },
+        ],
+      },
+      {
+        facultyName: 'Mrs. M. P. Kulkarni',
+        papers: [
+          { srNo: 1, authors: 'Ms.M.P.Kulkarni', title: 'Reservoir Planning and operation of Upper Manar Project', conferenceName: 'Water for Future', heldAt: 'SGGS I E&T,Nanded', duration: '7-8th March 2011' },
+        ],
+      },
+      {
+        facultyName: 'Mr. Rahulkumar R. Sharma',
+        papers: [
+          { srNo: 1, authors: 'Sharma Rahulkumar', title: 'Parametric study for Seismic design of Ground Supported Circular Liquid Storage Tank', conferenceName: 'National Conference on Recent Advances in Civil Engineering', heldAt: 'NIT Patna, Bihar,', duration: 'June 13-14 2013' },
+        ],
+      },
+      {
+        facultyName: 'Ms. Vaishali I. Kadam',
+        papers: [
+          { srNo: 1, authors: 'Vaishali I. Kadam', title: 'Comparative Study of Use Of Admixture and Fibre In Concrete', conferenceName: 'Trust area in Civil engineering (TACE-2015).', heldAt: 'D. Y. Patil Akurdi, pune', duration: 'Oct 2015\n10 to 14' },
+        ],
+      },
+    ],
+  },
+];

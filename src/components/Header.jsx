@@ -140,7 +140,6 @@ const rawMenuItems = [
         children: [
           { name: "NSS", link: "/students-corner/social/nss", icon: "fa-hands" },
           { name: "Tech Life", link: "/students-corner/social/tech-life", icon: "fa-mobile-alt" },
-          { name: "MGM Helpline", link: "/students-corner/social/mgm-helpline", icon: "fa-phone-alt" },
           { name: "Unnat Bharat Abhiyan", link: "/pdfs/UBA/UBAReport10112024.pdf", icon: "fa-flag", target: "_blank" },
         ]
       },
