@@ -127,6 +127,13 @@ import CivilLaboratoryDetailPage from './pages/Academic/Civil/CivilLaboratoryDet
 import CivilCESAPage from './pages/Academic/Civil/CivilCESAPage';
 import CivilCurriculumPage from './pages/Academic/Civil/CivilCurriculumPage';
 import CivilConsultancyPage from './pages/Academic/Civil/CivilConsultancyPage';
+import CivilResearchPublicationPage from './pages/Academic/Civil/CivilResearchPublicationPage';
+import EntcPage from './pages/Academic/ENTC/EntcPage';
+import EntcVisionMissionPage from './pages/Academic/ENTC/EntcVisionMissionPage';
+import EntcProgrammesPage from './pages/Academic/ENTC/EntcProgrammesPage';
+import EntcTrainingPlacementPage from './pages/Academic/ENTC/EntcTrainingPlacementPage';
+import EntcEtaPage from './pages/Academic/ENTC/EntcEtaPage';
+import EntcCurriculumPage from './pages/Academic/ENTC/EntcCurriculumPage';
 
 // ==========================================================
 // Helper Placeholder Pages
@@ -253,6 +260,13 @@ const App = () => {
           <Route path="/academics/civil-engineering/cesa" element={<CivilCESAPage />} />
           <Route path="/academics/civil-engineering/curriculum" element={<CivilCurriculumPage />} />
           <Route path="/academics/civil-engineering/consultancy" element={<CivilConsultancyPage />} />
+          <Route path="/academics/civil-engineering/research-publication" element={<CivilResearchPublicationPage />} />
+          <Route path="/academics/electronincs-telecommunication-engineering" element={<EntcPage />} />
+          <Route path="/academics/electronincs-telecommunication-engineering/vision-mission" element={<EntcVisionMissionPage />} />
+          <Route path="/academics/electronincs-telecommunication-engineering/programmes" element={<EntcProgrammesPage />} />
+          <Route path="/academics/electronincs-telecommunication-engineering/training-placement" element={<EntcTrainingPlacementPage />} />
+          <Route path="/academics/electronincs-telecommunication-engineering/eta" element={<EntcEtaPage />} />
+          <Route path="/academics/electronincs-telecommunication-engineering/curriculum" element={<EntcCurriculumPage />} />
           <Route path="/academics/*" element={<PlaceholderPage title="Academics Section" />} />
 
 
