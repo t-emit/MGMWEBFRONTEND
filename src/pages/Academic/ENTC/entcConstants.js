@@ -1,5 +1,3 @@
-
-// Define the sub-navigation tabs for the Electronics & Telecommunication Engineering department
 export const entcDepartmentTabs = [
   { name: "DEPT Profile", path: "/academics/electronincs-telecommunication-engineering" },
   { name: "Vision-Mission", path: "/academics/electronincs-telecommunication-engineering/vision-mission" },
@@ -10,10 +8,11 @@ export const entcDepartmentTabs = [
   { name: "Research & Publication", path: "/academics/electronincs-telecommunication-engineering/research-publication" },
   { name: "Achievements", path: "/academics/electronincs-telecommunication-engineering/achievements" },
   { name: "Departmental Activity", path: "/academics/electronincs-telecommunication-engineering/activities" },
+  { name: "Departmental Committees", path: "/academics/electronincs-telecommunication-engineering/committees" },
   { name: "ETA", path: "/academics/electronincs-telecommunication-engineering/eta" },
-  { name: "Curriculum", path: "/academics/electronincs-telecommunication-engineering/curriculum" }, // NEW TAB
-  { name: "Downloads", path: "/academics/electronincs-telecommunication-engineering/downloads" }, // From sidebar, remains as a separate tab.
+  { name: "Curriculum", path: "/academics/electronincs-telecommunication-engineering/curriculum" },
   { name: "Consultancy", path: "/academics/electronincs-telecommunication-engineering/consultancy" },
+  { name: "Innovation in Teaching", path: "/academics/electronincs-telecommunication-engineering/innovation-teaching" }, // NEW TAB
 ];
 
 // Data for the Department Details table
@@ -32,13 +31,7 @@ export const entcDepartmentDetails = [
   { label: 'Supporting Teaching Staff', value: '06' },
 ];
 
-// Data for the Head of Department (HOD) in the sidebar
-export const entcHeadDetails = {
-  name: 'Dr. Mrs. Kalpana P. Paithane _Jondhale',
-  designation: 'Professor & Head, Dept. of ECT',
-  email: 'jondhale_kc@mgmcen.ac.in',
-  image: '/images/img-head-entc.jpg', // Placeholder image, ensure this path is correct in your public folder
-};
+
 
 // Department Overview text
 export const entcDepartmentOverview = `
@@ -119,16 +112,7 @@ export const entcCourseOutcomesLinks = [
   { name: 'Click here for Course outcomes', url: 'http://mgmcen.ac.in/pdf/Course Outcomes_Civil Dept_MGMCOEN.pdf' },
 ];
 
-// Placeholder for Consultancy (if provided in the sidebar but no detailed page data)
-export const entcConsultancyResources = [
-  {
-    id: 'consultancy-overview',
-    title: 'Consultancy Services',
-    type: 'text',
-    content: 'Details about consultancy services offered by the Electronics & Telecommunication Engineering Department are currently not available in the provided data. Please check back later or refer to the official department contacts.',
-  },
-  // If specific PDFs or iframes for ENTC consultancy are later found, they can be added here.
-];
+
 
 
 // --- NEW CONSTANTS FOR TRAINING AND PLACEMENT PAGE (Data extracted from Civil T&P page) ---
@@ -824,7 +808,88 @@ export const entcWebinarImages = [
   { src: 'https://mgmcen.ac.in/images/Webinar on Mobile Communication and OTT.jpg', alt: 'Webinar on Mobile Communication and OTT', caption: 'Webinar on Mobile Communication and OTT' },
 ];
 
-// --- NEW CONSTANTS FOR CURRICULUM PAGE (from Downloads HTML) ---
+
+
+
+// Placeholder for Assignments and Resources, as they were empty in the source HTML
+export const entcCurriculumAssignments = [];
+export const entcCurriculumResources = [];
+
+// --- NEW CONSTANTS FOR ETA PAGE STRUCTURE ---
+
+export const etaPageHero = {
+  title: 'Electronics Technocrats Association (ETA)',
+  subtitle: 'Insights into ETA activities, council, and achievements.',
+};
+
+export const etaPageMainHeading = 'Electronics Technocrats Association (ETA)';
+
+// Add these new constants to your existing entcConstants.js file
+
+// --- NEW CONSTANTS FOR ENTC FACULTY PROFILE PAGE ---
+// Images for ENTC Faculty should be stored in public/images/entc/faculty/
+export const entcTeachingStaff = [
+  { id: 's-l-kotgire', img: '/images/entc/faculty/Department_4-20241111184851.jpg', name: 'Dr. S. L. Kotgire', designation: 'Professor', specialization: 'Communication', email: 'kotgire_sl@mgmcen.ac.in' },
+  { id: 'kalpana-c-jondhale-paithane', img: '/images/entc/faculty/Department_4-20241111185142.jpg', name: 'Dr. Mrs. Kalpana C. Jondhale Paithane', designation: 'Professor & Head Of The Department', specialization: 'Image processing, Computer Vision and Pattern Recognition', email: 'jondhale_kc@mgmcen.ac.in' },
+  { id: 'm-r-banwaskar', img: '/images/entc/faculty/Department_4-20241111185256.jpg', name: 'Dr. Mrs. M. R. Banwaskar', designation: 'Professor', specialization: 'Electronics Design Technology', email: 'banwaskar_mr@mgmcen.ac.in' },
+  { id: 'v-s-jadhav', img: '/images/entc/faculty/Department_4-20241111185327.jpg', name: 'Mr. V. S. Jadhav', designation: 'Assistant Professor', specialization: 'Digital Signal Procesing', email: 'jadhav_vs@mgmcen.ac.in' },
+  { id: 'p-p-kanadkhedkar', img: '/images/entc/faculty/Department_4-20241111185426.jpg', name: 'Ms. P. P. Kanadkhedkar', designation: 'Assistant Professor Senior', specialization: 'N/A', email: 'kanadkhedkar_pp@mgmcen.ac.in' },
+  { id: 'sayed-shoaib-anwar', img: '/images/entc/faculty/Department_4-20241111185617.jpg', name: 'Mr. Sayed Shoaib Anwar', designation: 'Assistant Professor Senior', specialization: 'Wireless communication, Multicarrier communication', email: 'sayed_shoaib@mgmcen.ac.in' },
+  { id: 'a-k-salve', img: '/images/entc/faculty/Department_4-20241111185459.jpg', name: 'Ms. A. K. Salve', designation: 'Assistant Professor', specialization: 'Computer Science and Engineering', email: 'salve_ak@mgmcen.ac.in' },
+  { id: 'm-v-mangalagiri', img: '/images/entc/faculty/Department_4-20241111185652.jpg', name: 'Ms. M. V. Mangalagiri', designation: 'Assistant Professor', specialization: 'Embedded System Design, Wireless Communication.', email: 'mangalagiri_mv@mgmcen.ac.in' },
+  { id: 'd-j-tuptewar', img: '/images/entc/faculty/Department_4-20241111185810.jpg', name: 'Mr. D. J. Tuptewar', designation: 'Assistant Professor', specialization: 'Signal and Image Processing, Embedded System Design , VLSI.', email: 'tuptewar_dj@mgmcen.ac.in' },
+  { id: 'aparna-b-dalvi', img: '/images/entc/faculty/Department_4-20241111185531.jpg', name: 'Ms. Aparna B. Dalvi', designation: 'Asst. Professor', specialization: 'Digital Image Processing', email: 'dalvi_ab@mgmcen.ac.in' },
+];
+
+export const entcSupportingStaff = [
+  { id: 'p-t-janke', img: '/images/entc/faculty/Department_4-20242111125234.jpg', name: 'Mr. P. T. Janke', designation: 'Lab Assistant', specialization: 'N/A', email: 'jankepiraji123@rediffmail.com' },
+  { id: 's-d-hundekar', img: '/images/entc/faculty/Department_4-20140701074027.png', name: 'Mr. S. D. Hundekar', designation: 'Lab Assistant', specialization: 'N/A', email: 'shrikanthundekar@gmail.com' },
+  { id: 'n-r-parikh', img: '/images/entc/faculty/Department_4-20140701075440.png', name: 'Mr. N. R. Parikh', designation: 'Lab Assistant', specialization: 'N/A', email: 'nitin.parik@yahoo.in' },
+  { id: 'dhage-dhiraj-suresh', img: '/images/entc/faculty/Department_4-20242111130050.jpg', name: 'Dhage Dhiraj Suresh', designation: 'Lab Assistant', specialization: 'N/A', email: 'dhiraj.dhage37@gmail.com' },
+  { id: 'jadhav-namdev-gopinath', img: '/images/entc/faculty/Department_4-20242111130401.jpg', name: 'Jadhav Namdev Gopinath', designation: 'Lab Assistant', specialization: 'N/A', email: 'N/A' }, // Email was empty in source HTML
+  { id: 'bharkade-chakradhar-balaji', img: '/images/entc/faculty/Department_4-20242111130833.jpg', name: 'Bharkade Chakradhar Balaji', designation: 'Lab Assistant', specialization: 'N/A', email: 'chakradharbharkade@gmail.com' },
+  { id: 'parikh-nitin-rameshwar', img: '/images/entc/faculty/Department_4-20242111131237.jpg', name: 'Parikh Nitin Rameshwar', designation: 'Lab Assistant', specialization: 'N/A', email: 'parikhnitin@mgmcen.ac.in' },
+  { id: 'g-m-zele', img: '/images/entc/faculty/Department_4-20180507132807.jpg', name: 'Mr. G. M. Zele', designation: 'Peon', specialization: 'N/A', email: 'N/A' }, // Email was empty in source HTML
+  { id: 'b-d-yadav', img: '/images/entc/faculty/Department_4-20140701080520.png', name: 'Mr. B. D. Yadav', designation: 'Peon', specialization: 'N/A', email: 'N/A' }, // Email was empty in source HTML
+];
+
+export const allEntcFacultyData = [...entcTeachingStaff, ...entcSupportingStaff];
+
+// IMPORTANT: Update entcHeadDetails to reflect the HOD from the new faculty data
+// This is necessary because the previous entcHeadDetails had a placeholder image and generic designation.
+// Replace the existing entcHeadDetails in entcConstants.js with this:
+export const entcHeadDetails = {
+  name: 'Dr. Mrs. Kalpana C. Jondhale Paithane',
+  designation: 'Professor & Head Of The Department',
+  email: 'jondhale_kc@mgmcen.ac.in',
+  image: '/images/entc/faculty/Department_4-20241111185142.jpg', // Path to HOD's actual image
+};
+
+// --- NEW CONSTANTS FOR ENTC LABORATORIES PAGE ---
+// Placeholder data for E&TC laboratories
+export const entcLaboratories = [
+  { srNo: 1, id: 'digital-signal-processing-lab', name: 'Digital Signal Processing Lab', area: '60 sqm', incharge: 'Mr. V. S. Jadhav', detailsLink: 'digital-signal-processing-lab' },
+  { srNo: 2, id: 'vlsi-design-lab', name: 'VLSI Design Lab', area: '75 sqm', incharge: 'Mr. D. J. Tuptewar', detailsLink: 'vlsi-design-lab' },
+  { srNo: 3, id: 'analog-communication-lab', name: 'Analog Communication Lab', area: '70 sqm', incharge: 'Dr. S. L. Kotgire', detailsLink: 'analog-communication-lab' },
+  { srNo: 4, id: 'microcontroller-lab', name: 'Microcontroller Lab', area: '65 sqm', incharge: 'Ms. M. V. Mangalagiri', detailsLink: 'microcontroller-lab' },
+  { srNo: 5, id: 'advanced-communication-lab', name: 'Advanced Communication Lab', area: '80 sqm', incharge: 'Mr. Sayed Shoaib Anwar', detailsLink: 'advanced-communication-lab' },
+  { srNo: 6, id: 'optical-fiber-communication-lab', name: 'Optical Fiber Communication Lab', area: '55 sqm', incharge: 'Ms. P. P. Kanadkhedkar', detailsLink: 'optical-fiber-communication-lab' },
+  { srNo: 7, id: 'embedded-system-design-lab', name: 'Embedded System Design Lab', area: '70 sqm', incharge: 'Ms. Aparna B. Dalvi', detailsLink: 'embedded-system-design-lab' },
+  { srNo: 8, id: 'project-and-research-lab', name: 'Project and Research Lab', area: '90 sqm', incharge: 'Dr. Mrs. Kalpana C. Jondhale Paithane', detailsLink: 'project-and-research-lab' },
+];
+
+
+
+// --- NEW CONSTANTS FOR ENTC DEPARTMENTAL COMMITTEES PAGE ---
+export const entcDepartmentalCommittees = [
+  { name: 'Departmental Advisory Board (DAB) - E&TC Department', url: '/academics/electronincs-telecommunication-engineering/committees/dab.pdf', description: 'Oversees the overall departmental strategy and development.' },
+  { name: 'Program Assessment Committee (PAC) - E&TC Department', url: '/academics/electronincs-telecommunication-engineering/committees/pac.pdf', description: 'Monitors and improves program educational objectives and outcomes.' },
+  { name: 'Departmental Research Committee (DRC) - E&TC Department', url: '/academics/electronincs-telecommunication-engineering/committees/drc.pdf', description: 'Promotes and guides research activities within the department.' },
+  { name: 'Training & Placement Committee - E&TC Department', url: '/academics/electronincs-telecommunication-engineering/committees/tnp.pdf', description: 'Facilitates student placements and industry training.' },
+  { name: 'Student Mentorship Committee - E&TC Department', url: '/academics/electronincs-telecommunication-engineering/committees/mentorship.pdf', description: 'Provides academic and personal guidance to students.' },
+];
+
+// --- UPDATED CONSTANTS FOR ENTC CURRICULUM PAGE (formerly Downloads content) ---
 export const entcCurriculumSyllabus = [
   {
     category: 'SE',
@@ -857,6 +922,7 @@ export const entcCurriculumSyllabus = [
   },
 ];
 
+
 export const entcCurriculumOtherDownloads = [
   { srNo: 1, heading: 'Evaluation Scheme', url: 'http://mgmcen.ac.in/images/department/other/Department_4-20241611112146.pdf' },
   { srNo: 2, heading: 'News Letter July-Dec 2022', url: 'http://mgmcen.ac.in/images/department/other/Department_4-20241811103746.pdf' },
@@ -865,6 +931,98 @@ export const entcCurriculumOtherDownloads = [
   { srNo: 5, heading: 'News Letter Jan-June 2024', url: 'http://mgmcen.ac.in/images/department/other/Department_4-20241811103848.pdf' },
 ];
 
-// Placeholder for Assignments and Resources, as they were empty in the source HTML
-export const entcCurriculumAssignments = [];
-export const entcCurriculumResources = [];
+
+// --- NEW CONSTANTS FOR ENTC DEPARTMENTAL ACTIVITY PAGE ---
+export const entcDepartmentalActivities = [
+  {
+    id: 'yoga-meditation-aicte-lab',
+    title: 'Yoga And Meditation For Improving Cognitive Abilities And Aicte Idea Lab Activities',
+    type: 'pdf',
+    pdf: {
+      src: 'http://mgmcen.ac.in/pdf/ECT%20dept%20-%20Activity%201.pdf',
+      linkText: 'Open Activity Report 1 (PDF)',
+    },
+  },
+  {
+    id: 'computer-hardware-fault-diagnosis-workshop',
+    title: 'Workshop On Introduction to Computer Hardware and Fault Diagnosis',
+    type: 'pdf',
+    pdf: {
+      src: 'http://mgmcen.ac.in/pdf/ECT%20dept%20-%20Activity%202.pdf',
+      linkText: 'Open Activity Report 2 (PDF)',
+    },
+  },
+  {
+    id: 'engineers-day-celebration-report',
+    title: 'Report on Engineer\'s Day Celebration',
+    type: 'pdf',
+    pdf: {
+      src: 'http://mgmcen.ac.in/pdf/ECT%20dept%20-%20Activity%203.pdf',
+      linkText: 'Open Activity Report 3 (PDF)',
+    },
+  },
+  {
+    id: 'iot-workshop',
+    title: 'Workshop On “Internet of Things”',
+    type: 'pdf',
+    pdf: {
+      src: 'http://mgmcen.ac.in/pdf/ECT%20dept%20-%20Activity%204%20IOT%20WORKSHOP-1.pdf',
+      linkText: 'Open IoT Workshop Report (PDF)',
+    },
+  },
+];
+
+export const entcDepartmentalActivityGallery = [
+  { src: 'https://www.mgmcen.ac.in/images/gallery/19102020191607-Poster-1.jpg', alt: 'Departmental Activity Poster 1' },
+  { src: 'https://www.mgmcen.ac.in/images/gallery/19102020191623-Poster-2.jpg', alt: 'Departmental Activity Poster 2' },
+  { src: 'https://www.mgmcen.ac.in/images/gallery/19102020191637-Poster-3.jpg', alt: 'Departmental Activity Poster 3' },
+  { src: 'https://www.mgmcen.ac.in/images/gallery/19102020191652-Poster-4.jpg', alt: 'Departmental Activity Poster 4' },
+];
+
+
+
+
+// --- NEW CONSTANTS FOR ENTC INNOVATION IN TEACHING PAGE ---
+export const entcInnovationInTeaching = {
+  intro: `The Electronics & Telecommunication Engineering Department is committed to fostering an engaging and effective learning environment through innovative teaching practices. We believe in constantly evolving our pedagogical approaches to keep pace with technological advancements and enhance student learning outcomes.`,
+  resources: [
+    {
+      id: 'innovative-practices-pdf',
+      title: 'Innovative Practices For Teaching And Learning',
+      type: 'pdf',
+      pdf: {
+        src: 'https://mgmcen.ac.in/pdf/Innovative%20Practices%20For%20Teaching%20And%20Learning%20ECT.pdf',
+        linkText: 'Open Innovative Practices PDF',
+        icon: '/images/filetype-pdf.svg', // Assuming this SVG is in your public/images folder
+      },
+    },
+    {
+      id: 'suggestion-iframe',
+      title: 'Suggestion in Innovative Practices for Teaching and Learning',
+      type: 'iframe',
+      iframe: {
+        src: 'https://mgmcen.ac.in/ect-suggestion.html', // Note: This iframe source needs to be accessible
+        linkText: 'Open Suggestions in new tab',
+      },
+      description: `This section provides insights and suggestions on various innovative practices implemented or considered for enhancing teaching and learning methodologies within the department.`,
+    },
+  ],
+  gallery: [
+    // Add any specific images for innovation in teaching here if available
+    // Example: { src: '/images/entc/innovation/innovative-class-1.jpg', alt: 'Interactive Classroom Session' },
+  ],
+};
+
+// --- UPDATED CONSTANTS FOR ENTC CONSULTANCY PAGE ---
+// Based on the provided HTML, no *specific* distinct consultancy projects/services were listed,
+// so retaining a descriptive placeholder for now. If you have specific data, replace this.
+export const entcConsultancyResources = [
+  {
+    id: 'consultancy-overview',
+    title: 'Consultancy Services',
+    type: 'text',
+    content: 'The Electronics & Telecommunication Engineering Department offers expert consultancy services leveraging the extensive knowledge and experience of its faculty. Our services range across various domains of Electronics and Communication, including but not limited to: signal processing, embedded systems, VLSI design, wireless communication, and IoT solutions. We collaborate with industries and organizations to provide technical solutions, project guidance, and training programs. For specific consultancy inquiries, please contact the department head.',
+  },
+  // If specific PDFs or iframes for ENTC consultancy are later found, they can be added here.
+  // Example: { id: 'consultancy-brochure', title: 'Consultancy Brochure', type: 'pdf', pdf: { src: '/pdfs/entc/consultancy-brochure.pdf', linkText: 'Download Brochure' } }
+];

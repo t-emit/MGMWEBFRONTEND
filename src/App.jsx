@@ -138,6 +138,15 @@ import EntcResearchPublicationPage from './pages/Academic/ENTC/EntcResearchPubli
 import FeeStructurePage from './pages/Admission/FeeStructurePage';
 import SwayamNPTELPage from './pages/SwayamNPTEL/SwayamNPTELPage';
 import MandatoryDisclosurePage from './pages/MandatoryDisclosure/MandatoryDisclosurePage';
+import EntcFacultyProfilePage from './pages/Academic/ENTC/EntcFacultyProfilePage';
+import EntcFacultyDetailPage from './pages/Academic/ENTC/EntcFacultyDetailPage';
+import EntcLaboratoryPage from './pages/Academic/ENTC/EntcLaboratoryPage';
+import EntcLaboratoryDetailPage from './pages/Academic/ENTC/EntcLaboratoryDetailPage';
+import EntcDepartmentalCommitteesPage from './pages/Academic/ENTC/EntcDepartmentalCommitteesPage';
+import EntcDepartmentalActivityPage from './pages/Academic/ENTC/EntcDepartmentalActivityPage';
+import EntcConsultancyPage from './pages/Academic/ENTC/EntcConsultancyPage';
+import EntcInnovationInTeachingPage from './pages/Academic/ENTC/EntcInnovationInTeachingPage';
+import EntcAchievementPage from './pages/Academic/ENTC/EntcAchievementPage';
 
 // ==========================================================
 // Helper Placeholder Pages
@@ -265,17 +274,33 @@ const App = () => {
           <Route path="/academics/civil-engineering/curriculum" element={<CivilCurriculumPage />} />
           <Route path="/academics/civil-engineering/consultancy" element={<CivilConsultancyPage />} />
           <Route path="/academics/civil-engineering/research-publication" element={<CivilResearchPublicationPage />} />
-          <Route path="/academics/electronincs-telecommunication-engineering" element={<EntcPage />} />
           <Route path="/academics/electronincs-telecommunication-engineering/vision-mission" element={<EntcVisionMissionPage />} />
+          <Route path="/academics/electronincs-telecommunication-engineering" element={<EntcPage />} />
+
           <Route path="/academics/electronincs-telecommunication-engineering/programmes" element={<EntcProgrammesPage />} />
           <Route path="/academics/electronincs-telecommunication-engineering/training-placement" element={<EntcTrainingPlacementPage />} />
-          <Route path="/academics/electronincs-telecommunication-engineering/eta" element={<EntcEtaPage />} />
+          <Route path="/academics/electronincs-telecommunication-engineering/eta" element={<EtaPage />} />
           <Route path="/academics/electronincs-telecommunication-engineering/curriculum" element={<EntcCurriculumPage />} />
           <Route path="/academics/electronincs-telecommunication-engineering/research-publication" element={<EntcResearchPublicationPage />} />
+          <Route path="/academics/electronincs-telecommunication-engineering/faculty" element={<EntcFacultyProfilePage />} />
+          <Route path="/academics/electronincs-telecommunication-engineering/faculty/:facultyId" element={<EntcFacultyDetailPage />} />
+          <Route path="/academics/electronincs-telecommunication-engineering/labs" element={<EntcLaboratoryPage />} />
+          <Route path="/academics/electronincs-telecommunication-engineering/labs/:labId" element={<EntcLaboratoryDetailPage />} />
+
+          <Route path="/academics/electronincs-telecommunication-engineering/committees" element={<EntcDepartmentalCommitteesPage />} />
+          <Route path="/academics/electronincs-telecommunication-engineering/activities" element={<EntcDepartmentalActivityPage />} />
+
+          <Route path="/academics/electronincs-telecommunication-engineering/consultancy" element={<EntcConsultancyPage />} />
+
+          {/* NEW ENTC Innovation in Teaching Route */}
+          <Route path="/academics/electronincs-telecommunication-engineering/innovation-teaching" element={<EntcInnovationInTeachingPage />} />
+          <Route path="/academics/electronincs-telecommunication-engineering/achievements" element={<EntcAchievementPage />} />
+          <Route path="/academics/academic-calendar" element={<AcademicCalendarPage />} />
+
+
           <Route path="/academics/*" element={<PlaceholderPage title="Academics Section" />} />
 
 
-          <Route path="/academics/academic-calendar" element={<AcademicCalendarPage />} />
 
           {/* Cells & Committees Routes */}
           <Route path="/cells-committees/academic-cell" element={<AcademicCellPage />} />
