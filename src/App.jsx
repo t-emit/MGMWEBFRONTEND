@@ -13,7 +13,7 @@ import AdminLayout from './pages/Admin/AdminLayout';
 import ManageFaculty from './pages/Admin/ManageFaculty';
 
 import ManagePages from './pages/Admin/ManagePages';
-import EditPageContent from './pages/Admin/EditPageContent';
+import EditPageContent from './pages/Admin/EditPagecontent';
 
 // Import main pages
 import HomePage from './pages/Home';
