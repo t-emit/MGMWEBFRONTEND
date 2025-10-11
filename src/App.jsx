@@ -136,6 +136,8 @@ import EntcEtaPage from './pages/Academic/ENTC/EntcEtaPage';
 import EntcCurriculumPage from './pages/Academic/ENTC/EntcCurriculumPage';
 import EntcResearchPublicationPage from './pages/Academic/ENTC/EntcResearchPublicationPage';
 import FeeStructurePage from './pages/Admission/FeeStructurePage';
+import SwayamNPTELPage from './pages/SwayamNPTEL/SwayamNPTELPage';
+import MandatoryDisclosurePage from './pages/MandatoryDisclosure/MandatoryDisclosurePage';
 
 // ==========================================================
 // Helper Placeholder Pages
@@ -248,7 +250,7 @@ const App = () => {
 
 
           <Route path="/academics/computer-science-engineering/csi-iei" element={<CSIIEIPage />} />
-          <Route path="/academics/computer-science-engineering/research-publication" element={<CSEResearchPublicationPage/>} />
+          <Route path="/academics/computer-science-engineering/research-publication" element={<CSEResearchPublicationPage />} />
           <Route path="/academics/civil-engineering" element={<CivilEngineeringPage />} />
           <Route path="/academics/civil-engineering/vision-mission" element={<CivilVisionMissionPage />} />
           <Route path="/academics/civil-engineering/programmes" element={<CivilProgrammesPage />} />
@@ -270,7 +272,7 @@ const App = () => {
           <Route path="/academics/electronincs-telecommunication-engineering/eta" element={<EntcEtaPage />} />
           <Route path="/academics/electronincs-telecommunication-engineering/curriculum" element={<EntcCurriculumPage />} />
           <Route path="/academics/electronincs-telecommunication-engineering/research-publication" element={<EntcResearchPublicationPage />} />
-          <Route path="/academics/*" element={<PlaceholderPage title="Academics Section" />} /> 
+          <Route path="/academics/*" element={<PlaceholderPage title="Academics Section" />} />
 
 
           <Route path="/academics/academic-calendar" element={<AcademicCalendarPage />} />
@@ -300,6 +302,12 @@ const App = () => {
           <Route path="/iqac" element={<IQACPage />} />
           <Route path="/nba" element={<NBACertificatePage />} />
 
+          {/* Second Line */}
+          <Route path="/swayam-nptel" element={<SwayamNPTELPage />} />
+          <Route path="/mandatory-disclosure" element={<MandatoryDisclosurePage />} />
+          <Route path="/auditory-statement" element={<AuditedStatementsPage />} />
+
+
           {/* --- ADMIN ROUTES --- */}
           <Route path="/admin/login" element={<LoginPage />} />
           <Route element={<ProtectedRoute />}>
@@ -307,8 +315,8 @@ const App = () => {
               <Route path="/admin/dashboard" element={<p>Welcome to the Admin Dashboard!</p>} />
               <Route path="/admin/events" element={<ManageEvents />} />
               <Route path="/admin/faculty" element={<ManageFaculty />} />
-              <Route path="/admin/pages" element={<ManagePages />} /> 
-              <Route path="/admin/pages/edit/:pageIdentifier" element={<EditPageContent />} /> 
+              <Route path="/admin/pages" element={<ManagePages />} />
+              <Route path="/admin/pages/edit/:pageIdentifier" element={<EditPageContent />} />
             </Route>
           </Route>
 
