@@ -171,7 +171,7 @@ const additionalTabs = [
   { name: "Fees Regulatory Authority", link: "/download/fees-regulatory-authority", icon: "fa-file-invoice-dollar" },
   { name: "Mandatory Disclosure", link: "/mandatory-disclosure", icon: "fa-scroll" },
   { name: "Auditory Statement", link: "/auditory-statement", icon: "fa-chart-pie" },
-  { name: "Swayam NPTEL", link: "/swayam-nptel", icon: "fa-laptop-house", target: "_blank" }
+  { name: "Swayam NPTEL", link: "/swayam-nptel", icon: "fa-laptop-house"}
 ];
 
 // Assign IDs once when the component is defined
