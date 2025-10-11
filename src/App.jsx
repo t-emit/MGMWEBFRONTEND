@@ -134,6 +134,8 @@ import EntcProgrammesPage from './pages/Academic/ENTC/EntcProgrammesPage';
 import EntcTrainingPlacementPage from './pages/Academic/ENTC/EntcTrainingPlacementPage';
 import EntcEtaPage from './pages/Academic/ENTC/EntcEtaPage';
 import EntcCurriculumPage from './pages/Academic/ENTC/EntcCurriculumPage';
+import EntcResearchPublicationPage from './pages/Academic/ENTC/EntcResearchPublicationPage';
+import FeeStructurePage from './pages/Admission/FeeStructurePage';
 
 // ==========================================================
 // Helper Placeholder Pages
@@ -267,7 +269,8 @@ const App = () => {
           <Route path="/academics/electronincs-telecommunication-engineering/training-placement" element={<EntcTrainingPlacementPage />} />
           <Route path="/academics/electronincs-telecommunication-engineering/eta" element={<EntcEtaPage />} />
           <Route path="/academics/electronincs-telecommunication-engineering/curriculum" element={<EntcCurriculumPage />} />
-          <Route path="/academics/*" element={<PlaceholderPage title="Academics Section" />} />
+          <Route path="/academics/electronincs-telecommunication-engineering/research-publication" element={<EntcResearchPublicationPage />} />
+          <Route path="/academics/*" element={<PlaceholderPage title="Academics Section" />} /> 
 
 
           <Route path="/academics/academic-calendar" element={<AcademicCalendarPage />} />
@@ -289,7 +292,7 @@ const App = () => {
           {/* Admission Routes */}
           <Route path="/admission/under-graduate" element={<UnderGraduatePage />} />
           <Route path="/admission/post-graduate" element={<PostGraduatePage />} />
-          <Route path="/admission/fee-structure" element={<PlaceholderPage title="Admission Section" />} />
+          <Route path="/admission/fee-structure" element={<FeeStructurePage />} />
           <Route path="/admission/undertaking" element={<UndertakingPage />} />
 
           {/* Other Top-level Routes */}
