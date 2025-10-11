@@ -12,6 +12,9 @@ import LoginPage from './pages/Admin/Login';
 import AdminLayout from './pages/Admin/AdminLayout';
 import ManageFaculty from './pages/Admin/ManageFaculty';
 
+import ManagePages from './pages/Admin/ManagePages';
+import EditPageContent from './pages/Admin/EditPageContent';
+
 // Import main pages
 import HomePage from './pages/Home';
 import ContactPage from './pages/contact';
@@ -304,6 +307,8 @@ const App = () => {
               <Route path="/admin/dashboard" element={<p>Welcome to the Admin Dashboard!</p>} />
               <Route path="/admin/events" element={<ManageEvents />} />
               <Route path="/admin/faculty" element={<ManageFaculty />} />
+              <Route path="/admin/pages" element={<ManagePages />} /> 
+              <Route path="/admin/pages/edit/:pageIdentifier" element={<EditPageContent />} /> 
             </Route>
           </Route>
 
