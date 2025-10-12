@@ -11,9 +11,8 @@ import ProtectedRoute from './components/ProtectedRoute';
 import LoginPage from './pages/Admin/Login';
 import AdminLayout from './pages/Admin/AdminLayout';
 import ManageFaculty from './pages/Admin/ManageFaculty';
-
 import ManagePages from './pages/Admin/ManagePages';
-import EditPageContent from './pages/Admin/EditPagecontent';
+import EditPageContent from './pages/Admin/EditPageContent'; // CORRECTED: Capital 'C'
 
 // Import main pages
 import HomePage from './pages/Home';
@@ -93,6 +92,8 @@ import TrainingAndPlacementCellPage from './pages/cells-committees/TrainingAndPl
 import UnderGraduatePage from './pages/Admission/UnderGraduatePage';
 import PostGraduatePage from './pages/Admission/PostGraduatePage';
 import UndertakingPage from './pages/Admission/UndertakingPage';
+import FeeStructurePage from './pages/Admission/FeeStructurePage';
+
 
 // Import Academic Department pages
 import ComputerScienceEngineeringPage from './pages/Academic/CSE/ComputerScienceEngineeringPage';
@@ -109,6 +110,35 @@ import CSEVisionMissionPage from './pages/Academic/CSE/VisionMissionPage';
 import CivilEngineeringPage from './pages/Academic/Civil/CivilEngineeringPage';
 import CivilVisionMissionPage from './pages/Academic/Civil/CivilVisionMissionPage';
 import CivilProgrammesPage from './pages/Academic/Civil/CivilProgrammesPage';
+import EntcPage from './pages/Academic/ENTC/EntcPage';
+import EntcVisionMissionPage from './pages/Academic/ENTC/EntcVisionMissionPage';
+import EntcProgrammesPage from './pages/Academic/ENTC/EntcProgrammesPage';
+import EntcTrainingPlacementPage from './pages/Academic/ENTC/EntcTrainingPlacementPage';
+import EntcEtaPage from './pages/Academic/ENTC/EntcEtaPage';
+import EntcCurriculumPage from './pages/Academic/ENTC/EntcCurriculumPage';
+import EntcResearchPublicationPage from './pages/Academic/ENTC/EntcResearchPublicationPage';
+import EntcFacultyProfilePage from './pages/Academic/ENTC/EntcFacultyProfilePage';
+import EntcFacultyDetailPage from './pages/Academic/ENTC/EntcFacultyDetailPage';
+import EntcLaboratoryPage from './pages/Academic/ENTC/EntcLaboratoryPage';
+import EntcLaboratoryDetailPage from './pages/Academic/ENTC/EntcLaboratoryDetailPage';
+import EntcDepartmentalCommitteesPage from './pages/Academic/ENTC/EntcDepartmentalCommitteesPage';
+import EntcDepartmentalActivityPage from './pages/Academic/ENTC/EntcDepartmentalActivityPage';
+import EntcConsultancyPage from './pages/Academic/ENTC/EntcConsultancyPage';
+import EntcInnovationInTeachingPage from './pages/Academic/ENTC/EntcInnovationInTeachingPage';
+import EntcAchievementPage from './pages/Academic/ENTC/EntcAchievementPage';
+
+// ========= NEW: Import Applied Science & Humanities Pages =========
+import ASHProfilePage from './pages/Academic/applied_Science/ASHProfilePage';
+import ASHFacultyProfilePage from './pages/Academic/applied_Science/ASHFacultyProfilePage';
+import ASHFacultyDetailPage from './pages/Academic/applied_Science/ASHFacultyDetailPage';
+import ASHLaboratoryPage from './pages/Academic/applied_Science/ASHLaboratoryPage';
+import ASHLaboratoryDetailPage from './pages/Academic/applied_Science/ASHLaboratoryDetailPage';
+import ASHCareerOrientationPage from './pages/Academic/applied_Science/ASHCareerOrientationPage';
+import ASHAchievementPage from './pages/Academic/applied_Science/ASHAchievementPage';
+import ASHResearchPublicationPage from './pages/Academic/applied_Science/ASHResearchPublicationPage';
+import ASHDownloadsPage from './pages/Academic/applied_Science/ASHDownloadsPage';
+// =================================================================
+
 
 // Import other top-level pages
 import IQACPage from './pages/IQAC/IQACPage';
@@ -128,25 +158,8 @@ import CivilCESAPage from './pages/Academic/Civil/CivilCESAPage';
 import CivilCurriculumPage from './pages/Academic/Civil/CivilCurriculumPage';
 import CivilConsultancyPage from './pages/Academic/Civil/CivilConsultancyPage';
 import CivilResearchPublicationPage from './pages/Academic/Civil/CivilResearchPublicationPage';
-import EntcPage from './pages/Academic/ENTC/EntcPage';
-import EntcVisionMissionPage from './pages/Academic/ENTC/EntcVisionMissionPage';
-import EntcProgrammesPage from './pages/Academic/ENTC/EntcProgrammesPage';
-import EntcTrainingPlacementPage from './pages/Academic/ENTC/EntcTrainingPlacementPage';
-import EntcEtaPage from './pages/Academic/ENTC/EntcEtaPage';
-import EntcCurriculumPage from './pages/Academic/ENTC/EntcCurriculumPage';
-import EntcResearchPublicationPage from './pages/Academic/ENTC/EntcResearchPublicationPage';
-import FeeStructurePage from './pages/Admission/FeeStructurePage';
 import SwayamNPTELPage from './pages/SwayamNPTEL/SwayamNPTELPage';
 import MandatoryDisclosurePage from './pages/MandatoryDisclosure/MandatoryDisclosurePage';
-import EntcFacultyProfilePage from './pages/Academic/ENTC/EntcFacultyProfilePage';
-import EntcFacultyDetailPage from './pages/Academic/ENTC/EntcFacultyDetailPage';
-import EntcLaboratoryPage from './pages/Academic/ENTC/EntcLaboratoryPage';
-import EntcLaboratoryDetailPage from './pages/Academic/ENTC/EntcLaboratoryDetailPage';
-import EntcDepartmentalCommitteesPage from './pages/Academic/ENTC/EntcDepartmentalCommitteesPage';
-import EntcDepartmentalActivityPage from './pages/Academic/ENTC/EntcDepartmentalActivityPage';
-import EntcConsultancyPage from './pages/Academic/ENTC/EntcConsultancyPage';
-import EntcInnovationInTeachingPage from './pages/Academic/ENTC/EntcInnovationInTeachingPage';
-import EntcAchievementPage from './pages/Academic/ENTC/EntcAchievementPage';
 
 // ==========================================================
 // Helper Placeholder Pages
@@ -256,10 +269,9 @@ const App = () => {
           <Route path="/academics/computer-science-engineering/activities" element={<CSEDepartmentalActivityPage />} />
           <Route path="/academics/computer-science-engineering/curriculum" element={<CSECurriculumPage />} />
           <Route path="/academics/computer-science-engineering/cuc" element={<CUC />} />
-
-
           <Route path="/academics/computer-science-engineering/csi-iei" element={<CSIIEIPage />} />
           <Route path="/academics/computer-science-engineering/research-publication" element={<CSEResearchPublicationPage />} />
+          
           <Route path="/academics/civil-engineering" element={<CivilEngineeringPage />} />
           <Route path="/academics/civil-engineering/vision-mission" element={<CivilVisionMissionPage />} />
           <Route path="/academics/civil-engineering/programmes" element={<CivilProgrammesPage />} />
@@ -267,16 +279,16 @@ const App = () => {
           <Route path="/academics/civil-engineering/achievements" element={<CivilAchievementPage />} />
           <Route path="/academics/civil-engineering/activities" element={<CivilDepartmentalActivityPage />} />
           <Route path="/academics/civil-engineering/faculty" element={<CivilFacultyProfilePage />} />
-          <Route path="/academics/civil-engineering/:facultyId" element={<CivilFacultyDetailPage />} />
+          <Route path="/academics/civil-engineering/faculty/:facultyId" element={<CivilFacultyDetailPage />} />
           <Route path="/academics/civil-engineering/labs" element={<CivilLaboratoryPage />} />
-          <Route path="/academics/civil-engineering/:labId" element={<CivilLaboratoryDetailPage />} />
+          <Route path="/academics/civil-engineering/labs/:labId" element={<CivilLaboratoryDetailPage />} />
           <Route path="/academics/civil-engineering/cesa" element={<CivilCESAPage />} />
           <Route path="/academics/civil-engineering/curriculum" element={<CivilCurriculumPage />} />
           <Route path="/academics/civil-engineering/consultancy" element={<CivilConsultancyPage />} />
           <Route path="/academics/civil-engineering/research-publication" element={<CivilResearchPublicationPage />} />
-          <Route path="/academics/electronincs-telecommunication-engineering/vision-mission" element={<EntcVisionMissionPage />} />
+          
           <Route path="/academics/electronincs-telecommunication-engineering" element={<EntcPage />} />
-
+          <Route path="/academics/electronincs-telecommunication-engineering/vision-mission" element={<EntcVisionMissionPage />} />
           <Route path="/academics/electronincs-telecommunication-engineering/programmes" element={<EntcProgrammesPage />} />
           <Route path="/academics/electronincs-telecommunication-engineering/training-placement" element={<EntcTrainingPlacementPage />} />
           <Route path="/academics/electronincs-telecommunication-engineering/eta" element={<EtaPage />} />
@@ -286,21 +298,26 @@ const App = () => {
           <Route path="/academics/electronincs-telecommunication-engineering/faculty/:facultyId" element={<EntcFacultyDetailPage />} />
           <Route path="/academics/electronincs-telecommunication-engineering/labs" element={<EntcLaboratoryPage />} />
           <Route path="/academics/electronincs-telecommunication-engineering/labs/:labId" element={<EntcLaboratoryDetailPage />} />
-
           <Route path="/academics/electronincs-telecommunication-engineering/committees" element={<EntcDepartmentalCommitteesPage />} />
           <Route path="/academics/electronincs-telecommunication-engineering/activities" element={<EntcDepartmentalActivityPage />} />
-
           <Route path="/academics/electronincs-telecommunication-engineering/consultancy" element={<EntcConsultancyPage />} />
-
-          {/* NEW ENTC Innovation in Teaching Route */}
           <Route path="/academics/electronincs-telecommunication-engineering/innovation-teaching" element={<EntcInnovationInTeachingPage />} />
           <Route path="/academics/electronincs-telecommunication-engineering/achievements" element={<EntcAchievementPage />} />
+          
+          {/* ========= NEW: Applied Science & Humanities Routes ========= */}
+          <Route path="/academics/applied-science" element={<ASHProfilePage />} />
+          <Route path="/academics/applied-science/faculty" element={<ASHFacultyProfilePage />} />
+          <Route path="/academics/applied-science/faculty/:facultyId" element={<ASHFacultyDetailPage />} />
+          <Route path="/academics/applied-science/labs" element={<ASHLaboratoryPage />} />
+          <Route path="/academics/applied-science/labs/:labId" element={<ASHLaboratoryDetailPage />} />
+          <Route path="/academics/applied-science/career-orientation" element={<ASHCareerOrientationPage />} />
+          <Route path="/academics/applied-science/achievements" element={<ASHAchievementPage />} />
+          <Route path="/academics/applied-science/research-publication" element={<ASHResearchPublicationPage />} />
+          <Route path="/academics/applied-science/downloads" element={<ASHDownloadsPage />} />
+          {/* ========================================================== */}
+          
           <Route path="/academics/academic-calendar" element={<AcademicCalendarPage />} />
-
-
           <Route path="/academics/*" element={<PlaceholderPage title="Academics Section" />} />
-
-
 
           {/* Cells & Committees Routes */}
           <Route path="/cells-committees/academic-cell" element={<AcademicCellPage />} />
@@ -326,12 +343,9 @@ const App = () => {
           <Route path="/research" element={<PlaceholderPage title="Central Research" />} />
           <Route path="/iqac" element={<IQACPage />} />
           <Route path="/nba" element={<NBACertificatePage />} />
-
-          {/* Second Line */}
           <Route path="/swayam-nptel" element={<SwayamNPTELPage />} />
           <Route path="/mandatory-disclosure" element={<MandatoryDisclosurePage />} />
           <Route path="/auditory-statement" element={<AuditedStatementsPage />} />
-
 
           {/* --- ADMIN ROUTES --- */}
           <Route path="/admin/login" element={<LoginPage />} />
