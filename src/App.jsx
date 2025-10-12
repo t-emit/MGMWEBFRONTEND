@@ -12,7 +12,7 @@ import LoginPage from './pages/Admin/Login';
 import AdminLayout from './pages/Admin/AdminLayout';
 import ManageFaculty from './pages/Admin/ManageFaculty';
 import ManagePages from './pages/Admin/ManagePages';
-import EditPageContent from './pages/Admin/EditPageContent'; // CORRECTED: Capital 'C'
+import EditPageContent from './pages/Admin/EditPagecontent'; // CORRECTED: Capital 'C'
 
 // Import main pages
 import HomePage from './pages/Home';
