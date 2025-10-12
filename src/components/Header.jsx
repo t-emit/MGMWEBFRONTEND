@@ -38,7 +38,7 @@ const rawMenuItems = [
     link: "#",
     icon: "fa-book",
     children: [
-      { name: "Applied Science & Humanities", link: "/academics/applied-science-humanities", icon: "fa-flask" },
+      { name: "Applied Science & Humanities", link: "/academics/applied-science", icon: "fa-flask" },
       { name: "Civil Engineering", link: "/academics/civil-engineering", icon: "fa-hard-hat" },
       { name: "Computer Science & Engineering", link: "/academics/computer-science-engineering", icon: "fa-laptop-code" },
       { name: "Electronics & Telecommunication Engineering", link: "/academics/electronincs-telecommunication-engineering", icon: "fa-microchip" },
