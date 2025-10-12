@@ -41,6 +41,9 @@ const AdminLayout = () => {
 >
     Manage Page Content
 </NavLink>
+<NavLink to="/admin/departments">
+    Manage Departments
+</NavLink>
                     {/* Add more admin links here */}
                 </nav>
                 <div className="p-4 border-t border-gray-700">
