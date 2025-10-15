@@ -1,3 +1,5 @@
+// ... START OF FILE entcConstants.js ...
+
 export const entcDepartmentTabs = [
   { name: "DEPT Profile", path: "/academics/electronincs-telecommunication-engineering" },
   { name: "Vision-Mission", path: "/academics/electronincs-telecommunication-engineering/vision-mission" },
@@ -819,8 +821,11 @@ export const entcCurriculumResources = [];
 
 export const etaPageHero = {
   title: 'Electronics Technocrats Association (ETA)',
-  subtitle: 'Insights into ETA activities, council, and achievements.',
+  // subtitle: 'Insights into ETA activities, council, and achievements.', // This old subtitle describes ETA's content, not its header title.
 };
+
+// New constant for the specific subtitle in the hero section for ETA
+export const etaHeroTagline = 'Department of Electronics & Telecommunication';
 
 export const etaPageMainHeading = 'Electronics Technocrats Association (ETA)';
 
