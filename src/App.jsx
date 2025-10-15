@@ -13,6 +13,7 @@ import AdminLayout from './pages/Admin/AdminLayout';
 import ManageFaculty from './pages/Admin/ManageFaculty';
 import ManagePages from './pages/Admin/ManagePages';
 import EditPageContent from './pages/Admin/EditPagecontent'; // CORRECTED: Capital 'C'
+import ManageDepartments from './pages/Admin/ManageDepartments';
 
 // Import main pages
 import HomePage from './pages/Home';
@@ -356,6 +357,7 @@ const App = () => {
               <Route path="/admin/faculty" element={<ManageFaculty />} />
               <Route path="/admin/pages" element={<ManagePages />} />
               <Route path="/admin/pages/edit/:pageIdentifier" element={<EditPageContent />} />
+              <Route path="/admin/departments" element={<ProtectedRoute><ManageDepartments /></ProtectedRoute>} />
             </Route>
           </Route>
 
