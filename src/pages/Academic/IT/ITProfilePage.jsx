@@ -11,7 +11,7 @@ const itDepartmentTabs = [
   { name: "IT Departmental Activity", path: "/academics/information-technology/departmental-activity" },
   { name: "IT Laboratory Detail", path: "/academics/information-technology/laboratory-detail" },
   { name: "IT Laboratory", path: "/academics/information-technology/laboratory" },
-  { name: "IT Profile", path: "/academics/information-technology/profile" },
+  { name: "IT Profile", path: "/academics/information-technology" },
   { name: "IT Programmes", path: "/academics/information-technology/programmes" },
   { name: "IT Research Publication", path: "/academics/information-technology/research-publication" },
   { name: "ITSA", path: "/academics/information-technology/itsa" },

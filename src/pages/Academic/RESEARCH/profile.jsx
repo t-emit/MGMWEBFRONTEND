@@ -30,8 +30,8 @@ const fundedProjects = [
 
 // Define the sub-navigation tabs for the Research section
 const researchDepartmentTabs = [
-  { name: "Research Profile", path: "/academics/research" },
-  { name: "Intellectual Property Cell", path: "/academics/research/ip-cell" },
+  { name: "Research Profile", path: "/research" },
+  { name: "Intellectual Property Cell", path: "/research/ip-cell" },
 ];
 
 const ResearchProfilePage = () => {

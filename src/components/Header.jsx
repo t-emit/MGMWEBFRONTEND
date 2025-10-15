@@ -169,7 +169,7 @@ const rawMenuItems = [
 // Additional tabs for the second row - CORRECTED NAMES
 const additionalTabs = [
   { name: "Training and Placement Cell", link: "/training-placement-cell", icon: "fa-briefcase" },
-  { name: "Resarch", link: "/cells-committees/training-placement-cell", icon: "fa-briefcase" },
+  { name: "Research", link: "/research", icon: "fa-flask" },
 
   { name: "Fees Regulatory Authority", link: "/download/fees-regulatory-authority", icon: "fa-file-invoice-dollar" },
   { name: "Mandatory Disclosure", link: "/mandatory-disclosure", icon: "fa-scroll" },

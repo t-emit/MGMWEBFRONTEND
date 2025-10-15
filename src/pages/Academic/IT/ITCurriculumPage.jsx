@@ -3,60 +3,97 @@ import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { itDepartmentTabs, itCurriculumData } from './itConstants';
 
-// Navigation tabs for the Information Technology department
-const itDepartmentTabs = [
-  { name: "Faculty Detail", path: "/academics/information-technology/faculty-detail" },
-  { name: "Faculty Profile", path: "/academics/information-technology/faculty-profile" },
-  { name: "Information Technology", path: "/academics/information-technology" },
-  { name: "IT Achievements", path: "/academics/information-technology/achievements" },
-  { name: "IT Curriculum", path: "/academics/information-technology/curriculum" },
-  { name: "IT Departmental Activity", path: "/academics/information-technology/departmental-activity" },
-  { name: "IT Laboratory Detail", path: "/academics/information-technology/laboratory-detail" },
-  { name: "IT Laboratory", path: "/academics/information-technology/laboratory" },
-  { name: "IT Profile", path: "/academics/information-technology/profile" },
-  { name: "IT Programmes", path: "/academics/information-technology/programmes" },
-  { name: "IT Research Publication", path: "/academics/information-technology/research-publication" },
-  { name: "ITSA", path: "/academics/information-technology/itsa" },
-  { name: "IT Training Placement", path: "/academics/information-technology/training-placement" },
-  { name: "IT Vision Mission", path: "/academics/information-technology/vision-mission" },
-  { name: "IT Consultancy", path: "/academics/information-technology/consultancy" },
-  { name: "IT Departmental Committees", path: "/academics/information-technology/departmental-committees" },
-];
-
-// Helper for consistent table header styling
-const TableHeader = ({ children }) => (
-  <thead className="text-xs text-white uppercase bg-gradient-to-r from-blue-700 to-indigo-800 print:bg-gray-800">
-    <tr>{children}</tr>
-  </thead>
-);
-
-// Helper for consistent table row styling
-const TableRow = ({ children, index, className = '' }) => (
-  <tr className={`${index % 2 === 0 ? 'bg-gray-50' : 'bg-white'} border-b hover:bg-indigo-50 transition-colors print:border-b ${className}`}>
-    {children}
-  </tr>
-);
-
 const ITCurriculumPage = () => {
   const location = useLocation();
-  const [isSyllabusExpanded, setIsSyllabusExpanded] = useState(true); // Syllabus section starts open
-  const [isTimetableExpanded, setIsTimetableExpanded] = useState(true); // Timetable section starts open
+  const currentDeptPath = "/academics/information-technology";
+  const [openSection, setOpenSection] = useState('syllabus'); // Default to 'syllabus' open
+
+  const toggleSection = (sectionId) => {
+    setOpenSection(openSection === sectionId ? null : sectionId);
+  };
+
+  // Reusable function for rendering download tables (matching ENTC style)
+  const renderDownloadTable = (items, keyPrefix) => (
+    <div className="overflow-x-auto relative rounded-lg border border-gray-200">
+      <table className="w-full text-sm text-left text-gray-700 print:text-xs">
+        <thead className="text-xs text-white uppercase bg-indigo-600 print:bg-gray-800">
+          <tr>
+            <th scope="col" className="py-3 px-4 rounded-tl-lg w-16 text-center print:px-2">Sr.No</th>
+            <th scope="col" className="py-3 px-4 print:px-2">Heading</th>
+            <th scope="col" className="py-3 px-4 rounded-tr-lg text-center w-32 print:px-2">Download</th>
+          </tr>
+        </thead>  
+        <tbody>
+          {items.length > 0 ? (
+            items.map((item, index) => (
+              <tr key={`${keyPrefix}-${index}`} className={`${index % 2 === 0 ? 'bg-gray-50' : 'bg-white'} border-b hover:bg-indigo-50 transition-colors duration-150 print:border-b`}>
+                <td className="py-3 px-4 text-center font-medium print:py-2 print:px-2">{item.srNo}</td>
+                <td className="py-3 px-4 font-medium text-gray-900 print:py-2 print:px-2">{item.heading}</td>
+                <td className="py-3 px-4 text-center print:py-2 print:px-2">
+                  <a href={item.url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center text-blue-600 hover:text-blue-800 transition-colors print:text-gray-700 print:no-underline">
+                    <svg className="w-5 h-5 print:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                    <span className="ml-1 print:hidden">PDF</span>
+                  </a>
+                </td>
+              </tr>
+            ))
+          ) : (
+            <tr>
+              <td colSpan="3" className="py-4 px-4 text-center text-gray-500 italic">No items available.</td>
+            </tr>
+          )}
+        </tbody>
+      </table>
+    </div>
+  );
+
+  // Helper component for creating a collapsible section (Accordion)
+  const AccordionSection = ({ id, title, iconPath, children, defaultOpen = true }) => {
+    const isOpen = openSection === id;
+    return (
+      <div className="border border-gray-200 rounded-lg shadow-sm overflow-hidden mb-4 print:shadow-none print:border">
+        <button
+          className={`flex justify-between items-center w-full p-4 focus:outline-none transition-colors duration-200 ${isOpen ? 'bg-indigo-50' : 'bg-white hover:bg-gray-50'} print:bg-white`}
+          onClick={() => toggleSection(id)}
+        >
+          <div className="flex items-center">
+            <svg className={`w-6 h-6 mr-3 ${isOpen ? 'text-indigo-600' : 'text-gray-500'} print:hidden`} fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d={iconPath}></path>
+            </svg>
+            <h3 className={`text-xl font-semibold text-left print:text-lg ${isOpen ? 'text-indigo-800' : 'text-gray-700'}`}>
+              {title}
+            </h3>
+          </div>
+          
+        </button>
+        {isOpen && (
+          <div className="p-4 border-t border-gray-200 bg-white print:p-0 print:border-none animate-fadeIn">
+            {children}
+          </div>
+        )}
+      </div>
+    );
+  };
 
   return (
     <div className="container mx-auto px-4 py-8 mt-28 max-w-6xl print:mt-4 print:max-w-none">
       {/* Hero Section */}
       <div className="bg-gradient-to-r from-blue-900 to-indigo-900 rounded-xl p-8 md:p-12 text-white mb-6 shadow-2xl relative overflow-hidden print:bg-blue-900 print:shadow-none print:rounded-none print:p-6">
         <div className="absolute top-0 right-0 -mt-16 -mr-16 opacity-10 print:hidden">
-          {/* Syllabus/Curriculum Icon SVG */}
           <svg className="w-64 h-64" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm-1 7V3.5L18.5 9H13zm-4 7c-.55 0-1-.45-1-1s.45-1 1-1h6c.55 0 1 .45 1 1s-.45 1-1 1H9zm0-4c-.55 0-1-.45-1-1s.45-1 1-1h6c.55 0 1 .45 1 1s-.45 1-1 1H9z"></path>
+            <path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
           </svg>
         </div>
-        <h1 className="text-4xl md:text-5xl font-bold mb-4 relative z-10 print:text-3xl">Information Technology</h1>
+        <h1 className="text-4xl md:text-5xl font-bold mb-4 relative z-10 print:text-3xl">Curriculum & Downloads</h1>
         <p className="text-xl opacity-90 max-w-2xl relative z-10 print:text-lg">
-          Explore the academic curriculum and syllabus for the IT Department.
+          Access academic syllabi and other departmental documents.
         </p>
         <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-blue-400 to-indigo-400 print:hidden"></div>
+      </div>
+
+      {/* Breadcrumb */}
+      <div className="text-sm text-gray-600 mb-6 print:hidden">
+          <Link to="/" className="hover:text-indigo-600">Home</Link> / <Link to="/academics" className="hover:text-indigo-600">Academics</Link> / <Link to={currentDeptPath} className="hover:text-indigo-600">IT</Link> / <span className="text-indigo-600 font-medium">Curriculum</span>
       </div>
 
       {/* Department Sub-Navigation Tabs */}
@@ -86,103 +123,43 @@ const ITCurriculumPage = () => {
 
       {/* Main Content Area */}
       <div className="bg-white rounded-xl shadow-lg p-6 md:p-8 mb-10 border border-gray-100 print:shadow-none print:border-none print:rounded-none">
+        <h2 className="text-3xl font-bold mb-8 text-indigo-800 border-b-2 border-indigo-100 pb-4 flex items-center print:text-2xl">
+          <svg className="w-8 h-8 mr-3 text-indigo-500 print:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+          </svg>
+          Curriculum Documents
+        </h2>
 
-        {/* Syllabus Section (Accordion) */}
-        <div className="mb-8">
-            <h2 className="text-3xl font-bold mb-6 text-indigo-800 border-b-2 border-indigo-100 pb-4 flex items-center print:text-2xl">
-              <svg className="w-8 h-8 mr-3 text-indigo-600 print:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
-              Syllabus
-            </h2>
-          <div
-            className="flex items-center justify-between p-4 bg-indigo-50 rounded-lg shadow-sm cursor-pointer hover:bg-indigo-100 transition-colors"
-            onClick={() => setIsSyllabusExpanded(!isSyllabusExpanded)}
-          >
-            <h3 className="text-xl font-bold text-indigo-800">Department Syllabus Documents</h3>
-            <svg
-              className={`w-6 h-6 text-indigo-600 transform transition-transform duration-300 ${isSyllabusExpanded ? 'rotate-180' : ''}`}
-              fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
-            >
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
-            </svg>
-          </div>
-          <div className={`overflow-hidden transition-all duration-500 ease-in-out ${isSyllabusExpanded ? 'max-h-screen opacity-100 mt-4' : 'max-h-0 opacity-0'}`}>
-            <div className="overflow-x-auto relative rounded-xl shadow-md border border-gray-200">
-              <table className="w-full text-sm text-left text-gray-700 print:text-xs">
-                <TableHeader>
-                  <th scope="col" className="py-4 px-4 md:px-6 print:py-2 print:px-3">Sr.No</th>
-                  <th scope="col" className="py-4 px-4 md:px-6 print:py-2 print:px-3">Heading</th>
-                  <th scope="col" className="py-4 px-4 md:px-6 print:py-2 print:px-3">Download</th>
-                </TableHeader>
-                <tbody>
-                  {itCurriculumData.syllabus.map((yearSection, yearIndex) => (
-                    <React.Fragment key={yearIndex}>
-                      <tr className="bg-indigo-100 text-indigo-800 font-semibold text-center print:bg-indigo-100">
-                        <td colSpan="3" className="py-3 px-4 md:px-6 print:py-2 print:px-3">{yearSection.yearSection}</td>
-                      </tr>
-                      {yearSection.files.map((file, fileIndex) => (
-                        <TableRow key={`${yearIndex}-${fileIndex}`} index={fileIndex}>
-                          <td className="py-4 px-4 md:px-6 text-center font-medium print:py-2 print:px-3">{file.srNo}</td>
-                          <td className="py-4 px-4 md:px-6 font-medium text-gray-900 whitespace-nowrap print:py-2 print:px-3">{file.heading}</td>
-                          <td className="py-4 px-4 md:px-6 text-center print:py-2 print:px-3">
-                            <a href={file.link} target="_blank" rel="noopener noreferrer" className="text-indigo-600 hover:text-indigo-800 transition-colors">
-                              <i className="fas fa-download text-lg"></i>
-                            </a>
-                          </td>
-                        </TableRow>
-                      ))}
-                    </React.Fragment>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </div>
+        <div className="mt-6">
+            {/* Syllabus Section */}
+            <AccordionSection id="syllabus" title="Syllabus" iconPath="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253">
+                {itCurriculumData.syllabus.map((category, catIndex) => (
+                  <div key={catIndex} className="mb-6 last:mb-0">
+                    <h4 className="text-lg font-bold text-indigo-700 mb-3 border-b border-indigo-100 pb-1 inline-block print:text-base">
+                      {category.category}
+                    </h4>
+                    {renderDownloadTable(category.links, `syllabus-cat-${catIndex}`)}
+                  </div>
+                ))}
+            </AccordionSection>
+
+            {/* Assignments Section (Empty in source HTML - kept for structure) */}
+            <AccordionSection id="assignments" title="Assignments" iconPath="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" defaultOpen={false}>
+                {renderDownloadTable(itCurriculumData.assignments, 'assignments')}
+            </AccordionSection>
+
+            {/* Resources Section (Empty in source HTML - kept for structure) */}
+            <AccordionSection id="resources" title="Resources" iconPath="M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2M8 7H6a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2v-2" defaultOpen={false}>
+                {renderDownloadTable(itCurriculumData.resources, 'resources')}
+            </AccordionSection>
+
+            {/* Other Downloads Section (e.g., Timetables) */}
+            <AccordionSection id="other-downloads" title="Other Downloads" iconPath="M12 6V4m0 2a2 2 0 100 4m0-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9 0a2 2 0 100 4m0-4h.01M7 7h.01M17 7h.01M7 17h.01M17 17h.01M17 12h.01M7 12h.01" defaultOpen={true}>
+                {renderDownloadTable(itCurriculumData.otherDownloads, 'other-downloads')}
+            </AccordionSection>
         </div>
 
-        {/* Timetables Section (Accordion) */}
-        <div className="mb-8">
-            <h2 className="text-3xl font-bold mb-6 text-indigo-800 border-b-2 border-indigo-100 pb-4 flex items-center print:text-2xl">
-              <svg className="w-8 h-8 mr-3 text-indigo-600 print:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
-              Other Downloads
-            </h2>
-          <div
-            className="flex items-center justify-between p-4 bg-indigo-50 rounded-lg shadow-sm cursor-pointer hover:bg-indigo-100 transition-colors"
-            onClick={() => setIsTimetableExpanded(!isTimetableExpanded)}
-          >
-            <h3 className="text-xl font-bold text-indigo-800">Department Timetables</h3>
-            <svg
-              className={`w-6 h-6 text-indigo-600 transform transition-transform duration-300 ${isTimetableExpanded ? 'rotate-180' : ''}`}
-              fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
-            >
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
-            </svg>
-          </div>
-          <div className={`overflow-hidden transition-all duration-500 ease-in-out ${isTimetableExpanded ? 'max-h-screen opacity-100 mt-4' : 'max-h-0 opacity-0'}`}>
-            <div className="overflow-x-auto relative rounded-xl shadow-md border border-gray-200">
-              <table className="w-full text-sm text-left text-gray-700 print:text-xs">
-                <TableHeader>
-                  <th scope="col" className="py-4 px-4 md:px-6 print:py-2 print:px-3">Sr.No</th>
-                  <th scope="col" className="py-4 px-4 md:px-6 print:py-2 print:px-3">Heading</th>
-                  <th scope="col" className="py-4 px-4 md:px-6 print:py-2 print:px-3">Download</th>
-                </TableHeader>
-                <tbody>
-                  {itCurriculumData.timetables.map((file, index) => (
-                    <TableRow key={index} index={index}>
-                      <td className="py-4 px-4 md:px-6 text-center font-medium print:py-2 print:px-3">{file.srNo}</td>
-                      <td className="py-4 px-4 md:px-6 font-medium text-gray-900 whitespace-nowrap print:py-2 print:px-3">{file.heading}</td>
-                      <td className="py-4 px-4 md:px-6 text-center print:py-2 print:px-3">
-                        <a href={file.link} target="_blank" rel="noopener noreferrer" className="text-indigo-600 hover:text-indigo-800 transition-colors">
-                          <i className="fas fa-download text-lg"></i>
-                        </a>
-                      </td>
-                    </TableRow>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-
-      </div> {/* End Main Content Area */}
+      </div>
     </div>
   );
 };
