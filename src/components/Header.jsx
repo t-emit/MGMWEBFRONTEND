@@ -74,6 +74,7 @@ const rawMenuItems = [
       { name: "Training and Placement Cell", link: "/cells-committees/training-placement-cell", icon: "fa-briefcase" },
     ]
   },
+
   { name: "IQAC", link: "/iqac", icon: "fa-award" },
   {
     name: "Admission",
@@ -162,16 +163,20 @@ const rawMenuItems = [
     ]
   },
   { name: "NBA", link: "/nba", icon: "fa-award" },
-  { name: "NIRF", link: "/download/nirf", icon: "fa-chart-bar" },
   { name: "Contact", link: "/contact", icon: "fa-phone-alt" },
 ];
 
 // Additional tabs for the second row - CORRECTED NAMES
 const additionalTabs = [
+  { name: "Training and Placement Cell", link: "/cells-committees/training-placement-cell", icon: "fa-briefcase" },
+  { name: "Resarch", link: "/cells-committees/training-placement-cell", icon: "fa-briefcase" },
+
   { name: "Fees Regulatory Authority", link: "/download/fees-regulatory-authority", icon: "fa-file-invoice-dollar" },
   { name: "Mandatory Disclosure", link: "/mandatory-disclosure", icon: "fa-scroll" },
-  { name: "Auditory Statement", link: "/auditory-statement", icon: "fa-chart-pie" },
-  { name: "Swayam NPTEL", link: "/swayam-nptel", icon: "fa-laptop-house"}
+  { name: "NIRF", link: "/download/nirf", icon: "fa-chart-bar" },
+  { name: "Audited Statement", link: "/auditory-statement", icon: "fa-chart-pie" },
+  { name: "Swayam NPTEL", link: "/swayam-nptel", icon: "fa-laptop-house" }
+
 ];
 
 // Assign IDs once when the component is defined
