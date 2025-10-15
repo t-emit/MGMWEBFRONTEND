@@ -168,7 +168,7 @@ const rawMenuItems = [
 
 // Additional tabs for the second row - CORRECTED NAMES
 const additionalTabs = [
-  { name: "Training and Placement Cell", link: "/cells-committees/training-placement-cell", icon: "fa-briefcase" },
+  { name: "Training and Placement Cell", link: "/training-placement-cell", icon: "fa-briefcase" },
   { name: "Resarch", link: "/cells-committees/training-placement-cell", icon: "fa-briefcase" },
 
   { name: "Fees Regulatory Authority", link: "/download/fees-regulatory-authority", icon: "fa-file-invoice-dollar" },

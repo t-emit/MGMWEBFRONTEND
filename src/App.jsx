@@ -159,6 +159,7 @@ import CivilConsultancyPage from './pages/Academic/Civil/CivilConsultancyPage';
 import CivilResearchPublicationPage from './pages/Academic/Civil/CivilResearchPublicationPage';
 import SwayamNPTELPage from './pages/SwayamNPTEL/SwayamNPTELPage';
 import MandatoryDisclosurePage from './pages/MandatoryDisclosure/MandatoryDisclosurePage';
+import MechanicalEngineeringPage from './pages/Academic/Mechanical/MechanicalEngineeringPage';
 
 // ==========================================================
 // Helper Placeholder Pages
@@ -301,6 +302,7 @@ const App = () => {
           <Route path="/academics/electronincs-telecommunication-engineering/consultancy" element={<EntcConsultancyPage />} />
           <Route path="/academics/electronincs-telecommunication-engineering/innovation-teaching" element={<EntcInnovationInTeachingPage />} />
           <Route path="/academics/electronincs-telecommunication-engineering/achievements" element={<EntcAchievementPage />} />
+          <Route path="/academics/mechanical-engineering" element={<MechanicalEngineeringPage />} />
           
           {/* ========= NEW: Applied Science & Humanities Routes ========= */}
           <Route path="/academics/applied-science" element={<ASHProfilePage />} />
