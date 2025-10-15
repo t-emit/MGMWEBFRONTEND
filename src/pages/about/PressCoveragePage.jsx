@@ -3,6 +3,8 @@ import React from 'react';
 const PressCoveragePage = () => {
   // Array of image sources, directly from the original HTML
   const pressImages = [
+    
+    'images/Press Coverage/press coverage.jpg',
     'images/IMG-20240923-WA0006.jpg',
     'images/IMG-20240920-WA0017.jpg',
     'images/IMG-20241009-WA0003.jpg',

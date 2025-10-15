@@ -160,6 +160,7 @@ import CivilResearchPublicationPage from './pages/Academic/Civil/CivilResearchPu
 import SwayamNPTELPage from './pages/SwayamNPTEL/SwayamNPTELPage';
 import MandatoryDisclosurePage from './pages/MandatoryDisclosure/MandatoryDisclosurePage';
 import MechanicalEngineeringPage from './pages/Academic/Mechanical/MechanicalEngineeringPage';
+import PhotoGallery from './pages/Gallery/PhotoGallery';
 
 // ==========================================================
 // Helper Placeholder Pages
@@ -346,6 +347,7 @@ const App = () => {
           <Route path="/swayam-nptel" element={<SwayamNPTELPage />} />
           <Route path="/mandatory-disclosure" element={<MandatoryDisclosurePage />} />
           <Route path="/auditory-statement" element={<AuditedStatementsPage />} />
+          <Route path="/photo-gallery" element={<PhotoGallery />} />
 
           {/* --- ADMIN ROUTES --- */}
           <Route path="/admin/login" element={<LoginPage />} />

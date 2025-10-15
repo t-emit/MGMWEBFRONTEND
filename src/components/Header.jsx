@@ -102,7 +102,7 @@ const rawMenuItems = [
       { name: "Laboratories", link: "/facilities/laboratories", icon: "fa-flask" },
       { name: "Sports", link: "/facilities/sports", icon: "fa-running" },
       { name: "Remote Center", link: "/facilities/remote-center", icon: "fa-satellite-dish" },
-      { name: "Ekeeda", link: "https://ekeeda.com/", icon: "fa-external-link-alt", target: "_blank" },
+      // { name: "Ekeeda", link: "https://ekeeda.com/", icon: "fa-external-link-alt", target: "_blank" },
     ]
   },
   {
@@ -175,7 +175,8 @@ const additionalTabs = [
   { name: "Mandatory Disclosure", link: "/mandatory-disclosure", icon: "fa-scroll" },
   { name: "NIRF", link: "/download/nirf", icon: "fa-chart-bar" },
   { name: "Audited Statement", link: "/auditory-statement", icon: "fa-chart-pie" },
-  { name: "Swayam NPTEL", link: "/swayam-nptel", icon: "fa-laptop-house" }
+  { name: "Swayam NPTEL", link: "/swayam-nptel", icon: "fa-laptop-house" },
+  { name: "Photo Gallery", link: "/photo-gallery", icon: "fa-image" }
 
 ];
 
