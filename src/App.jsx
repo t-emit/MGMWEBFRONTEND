@@ -179,6 +179,7 @@ import ITLaboratoryDetailPage from './pages/Academic/IT/ITLaboratoryDetailPage';
 import ITLaboratoryPage from './pages/Academic/IT/ITLaboratoryPage';
 import ITProgrammesPage from './pages/Academic/IT/ITProgrammesPage';
 import ITVisionMissionPage from './pages/Academic/IT/ITVisionMissionPage';
+import ExamSection from './pages/Academic/ExamSection';
 
 // ==========================================================
 // Helper Placeholder Pages
@@ -350,6 +351,10 @@ const App = () => {
           <Route path="/academics/information-technology/laboratories" element={<ITLaboratoryPage />} />
           <Route path="/academics/information-technology/laboratories/:labId" element={<ITLaboratoryDetailPage />} />
           <Route path="/academics/information-technology/programmes" element={<ITProgrammesPage />} />
+
+
+
+          <Route path="/academics/exam-section" element={<ExamSection />} />
 
 
 
