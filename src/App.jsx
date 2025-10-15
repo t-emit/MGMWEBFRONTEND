@@ -48,7 +48,6 @@ import AlumniSpeak from './pages/alumni/AlumniSpeak';
 
 // Import Students Corner pages
 import CesaPage from './pages/students-corner/academic/CesaPage';
-import EtaPage from './pages/students-corner/academic/EtaPage';
 import MesaPage from './pages/students-corner/academic/MesaPage';
 import ItsaPage from './pages/students-corner/academic/Itsapage';
 import CastActivityPage from './pages/students-corner/co-curricular/castActivity';
@@ -222,7 +221,6 @@ const App = () => {
 
           {/* Students Corner Routes */}
           <Route path="/students-corner/academic/cesa" element={<CesaPage />} />
-          <Route path="/students-corner/academic/eta" element={<EtaPage />} />
           <Route path="/students-corner/academic/mesa" element={<MesaPage />} />
           <Route path="/students-corner/academic/itsa" element={<ItsaPage />} />
           <Route path="/students-corner/co-curricular/cast-activity" element={<CastActivityPage />} />
@@ -291,7 +289,7 @@ const App = () => {
           <Route path="/academics/electronincs-telecommunication-engineering/vision-mission" element={<EntcVisionMissionPage />} />
           <Route path="/academics/electronincs-telecommunication-engineering/programmes" element={<EntcProgrammesPage />} />
           <Route path="/academics/electronincs-telecommunication-engineering/training-placement" element={<EntcTrainingPlacementPage />} />
-          <Route path="/academics/electronincs-telecommunication-engineering/eta" element={<EtaPage />} />
+          <Route path="/academics/electronincs-telecommunication-engineering/eta" element={<EntcEtaPage />} />
           <Route path="/academics/electronincs-telecommunication-engineering/curriculum" element={<EntcCurriculumPage />} />
           <Route path="/academics/electronincs-telecommunication-engineering/research-publication" element={<EntcResearchPublicationPage />} />
           <Route path="/academics/electronincs-telecommunication-engineering/faculty" element={<EntcFacultyProfilePage />} />
