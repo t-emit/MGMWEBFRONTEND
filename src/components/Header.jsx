@@ -55,6 +55,10 @@ const rawMenuItems = [
       { name: "Exam Section", link: "/academics/exam-section", icon: "fa-file-alt" },
     ]
   },
+  { name: "IEDC", link: "/cells-committees/innovation-entrepreneurship-development-cell", icon: "fa-lightbulb" },
+  { name: "Research", link: "/research", icon: "fa-flask" },
+
+
   {
     name: "Cells & Committees",
     link: "#",
@@ -75,7 +79,6 @@ const rawMenuItems = [
     ]
   },
 
-  { name: "IQAC", link: "/iqac", icon: "fa-award" },
   {
     name: "Admission",
     link: "#",
@@ -162,14 +165,14 @@ const rawMenuItems = [
       { name: "Esteemed Alumni", link: "/alumni/esteemed-alumni", icon: "fa-star" },
     ]
   },
-  { name: "NBA", link: "/nba", icon: "fa-award" },
   { name: "Contact", link: "/contact", icon: "fa-phone-alt" },
 ];
 
 // Additional tabs for the second row - CORRECTED NAMES
 const additionalTabs = [
   { name: "Training and Placement Cell", link: "/training-placement-cell", icon: "fa-briefcase" },
-  { name: "Research", link: "/research", icon: "fa-flask" },
+  { name: "IQAC", link: "/iqac", icon: "fa-award" },
+  { name: "NBA", link: "/nba", icon: "fa-award" },
 
   { name: "Fees Regulatory Authority", link: "/download/fees-regulatory-authority", icon: "fa-file-invoice-dollar" },
   { name: "Mandatory Disclosure", link: "/mandatory-disclosure", icon: "fa-scroll" },

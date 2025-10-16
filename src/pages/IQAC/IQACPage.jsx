@@ -348,7 +348,7 @@ const IQACPage = () => {
       {/* ADDED: NAAC Certificate Button */}
       <div className="text-center mb-12">
         <UniversalLink
-          url="http://mgmcen.ac.in/pdf/Naac_certificate.pdf" // <-- IMPORTANT: Replace with the actual URL to your NAAC certificate PDF
+          url="./pdfs/naac/NAAC 2 cycle.pdf" // <-- IMPORTANT: Replace with the actual URL to your NAAC certificate PDF
           className="inline-block bg-yellow-500 text-blue-900 font-bold text-lg px-8 py-3 rounded-lg shadow-md hover:bg-yellow-400 transition-colors duration-300 ease-in-out transform hover:scale-105"
         >
           <i className="fas fa-certificate mr-2"></i> View NAAC Certificate

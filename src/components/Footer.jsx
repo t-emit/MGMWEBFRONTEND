@@ -267,7 +267,7 @@ const Footer = () => {
             </span>
             <br /> {/* Ensures a new line */}
             <span>
-              Unique Browser Visits :{" "}
+              Visitors :{" "}
               <span className="font-semibold">{uniqueBrowserVisits}</span>
             </span>
             {/* VERY IMPORTANT NOTE FOR "TOTAL VISITORS" */}
