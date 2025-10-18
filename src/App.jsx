@@ -180,6 +180,13 @@ import ITLaboratoryPage from './pages/Academic/IT/ITLaboratoryPage';
 import ITProgrammesPage from './pages/Academic/IT/ITProgrammesPage';
 import ITVisionMissionPage from './pages/Academic/IT/ITVisionMissionPage';
 import ExamSection from './pages/Academic/ExamSection';
+import TrainingPlacementProfilePage from './pages/Tnp/TrainingPlacementProfilePage';
+import TNPGalleryPage from './pages/Tnp/TNPGalleryPage';
+import TNPAchievementPage from './pages/Tnp/TNPAchievementPage';
+import TNPCareerCounsellingPage from './pages/Tnp/TNPCareerCounsellingPage';
+import TNPTrainingPage from './pages/Tnp/TNPTrainingPage';
+import MajorRecruitersPage from './pages/Tnp/MajorRecruitersPage';
+import TNPFacultyPage from './pages/Tnp/TNPFacultyPage';
 
 // ==========================================================
 // Helper Placeholder Pages
@@ -393,6 +400,16 @@ const App = () => {
           <Route path="/mandatory-disclosure" element={<MandatoryDisclosurePage />} />
           <Route path="/auditory-statement" element={<AuditedStatementsPage />} />
           <Route path="/photo-gallery" element={<PhotoGallery />} />
+
+          {/* TNP Roting  */}
+          <Route path="/academics/training-placement/profile" element={<TrainingPlacementProfilePage />} />
+          <Route path="/academics/training-placement/faculty-profile" element={<TNPFacultyPage />} />
+          <Route path="/academics/training-placement/major-recruiters" element={<MajorRecruitersPage />} />
+          <Route path="/academics/training-placement/training-programs" element={<TNPTrainingPage />} />
+          <Route path="/academics/training-placement/career-counselling" element={<TNPCareerCounsellingPage />} />
+          <Route path="/academics/training-placement/achievements" element={<TNPAchievementPage />} />
+          <Route path="/academics/training-placement/gallery" element={<TNPGalleryPage />} />
+
 
           {/* --- ADMIN ROUTES --- */}
           <Route path="/admin/login" element={<LoginPage />} />
