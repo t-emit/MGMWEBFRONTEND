@@ -3,31 +3,32 @@ import React, { useState, useEffect, useCallback } from 'react';
 
 // --- Mock Data for Photo Gallery ---
 const mockGalleryData = [
-  { id: 'img1', src: '/images/gallery/Lab Inauguration-20132812150148.jpg' },
-  { id: 'img2', src: '/images/gallery/College Campus-20132812150551.jpg' },
-  { id: 'img3', src: '/images/gallery/Library-20132812151022.jpg' },
-  { id: 'img4', src: '/images/gallery/Canteen-20132812151614.jpg' },
-  { id: 'img5', src: '/images/gallery/Laboratory-20132812151733.jpg' },
-  { id: 'img6', src: '/images/gallery/Classrooms-20132812152401.jpg' },
-  { id: 'img7', src: '/images/gallery/Sports_Day.jpg' },
-  { id: 'img8', src: '/images/gallery/Annual_Fest.jpg' },
-  { id: 'img9', src: '/images/gallery/Convocation.jpg' },
-  { id: 'img10', src: '/images/gallery/Workshop_Event.jpg' },
-  { id: 'img11', src: '/images/gallery/Cultural_Program.jpg' },
-  { id: 'img12', src: '/images/gallery/Science_Exhibition.jpg' },
-  { id: 'img13', src: '/images/gallery/Guest_Lecture.jpg' },
-  { id: 'img14', src: '/images/gallery/NCC_Camp.jpg' },
-  { id: 'img15', src: '/images/gallery/Blood_Donation_Drive.jpg' },
-//   { id: 'img16', src: '/images/gallery/Alumni_Meet.jpg' },
-//   { id: 'img17', src: '/images/gallery/Robotics_Club.jpg' },
-//   { id: 'img18', src: '/images/gallery/Startup_Pitch.jpg' },
-//   { id: 'img19', src: '/images/gallery/Environmental_Awareness.jpg' },
-//   { id: 'img20', src: '/images/gallery/Faculty_FDP.jpg' },
-//   { id: 'img21', src: '/images/gallery/New_Hostel.jpg' },
-//   { id: 'img22', src: '/images/gallery/Research_Lab.jpg' },
-//   { id: 'img23', src: '/images/gallery/Inter_College.jpg' },
-//   { id: 'img24', src: '/images/gallery/Yoga_Wellness.jpg' },
-//   { id: 'img25', src: '/images/gallery/Farewell_Party.jpg' },
+  { id: 'img1', src: '/images/gallery/img1.jpg' },
+  { id: 'img2', src: '/images/gallery/img2.jpg' },
+  { id: 'img4', src: '/images/gallery/img3.jpg' },
+  { id: 'img5', src: '/images/gallery/img4.jpg' },
+  { id: 'img6', src: '/images/gallery/img5.jpg' },
+  { id: 'img7', src: '/images/gallery/img6.jpg' },
+  { id: 'img8', src: '/images/gallery/img7.jpg' },
+  { id: 'img9', src: '/images/gallery/img8.jpg' },
+  { id: 'img10', src: '/images/gallery/img9.jpg' },
+  { id: 'img3', src: '/images/gallery/hostel.jpg' },
+
+  // { id: 'img11', src: '/images/gallery/Cultural_Program.jpg' },
+  // { id: 'img12', src: '/images/gallery/Science_Exhibition.jpg' },
+  // { id: 'img13', src: '/images/gallery/Guest_Lecture.jpg' },
+  // { id: 'img14', src: '/images/gallery/NCC_Camp.jpg' },
+  // { id: 'img15', src: '/images/gallery/Blood_Donation_Drive.jpg' },
+  //   { id: 'img16', src: '/images/gallery/Alumni_Meet.jpg' },
+  //   { id: 'img17', src: '/images/gallery/Robotics_Club.jpg' },
+  //   { id: 'img18', src: '/images/gallery/Startup_Pitch.jpg' },
+  //   { id: 'img19', src: '/images/gallery/Environmental_Awareness.jpg' },
+  //   { id: 'img20', src: '/images/gallery/Faculty_FDP.jpg' },
+  //   { id: 'img21', src: '/images/gallery/New_Hostel.jpg' },
+  //   { id: 'img22', src: '/images/gallery/Research_Lab.jpg' },
+  //   { id: 'img23', src: '/images/gallery/Inter_College.jpg' },
+  //   { id: 'img24', src: '/images/gallery/Yoga_Wellness.jpg' },
+  //   { id: 'img25', src: '/images/gallery/Farewell_Party.jpg' },
 ];
 
 const IMAGES_PER_PAGE = 9;
@@ -108,7 +109,7 @@ const PhotoGallery = () => {
   const getPageNumbers = () => {
     const pages = [];
     const maxVisiblePages = 5;
-    
+
     if (totalPages <= maxVisiblePages) {
       for (let i = 1; i <= totalPages; i++) {
         pages.push(i);
@@ -154,9 +155,9 @@ const PhotoGallery = () => {
           &times;
         </button>
 
-        <div className="relative flex items-center justify-center h-full w-full max-w-6xl max-h-[90vh]" 
-             onClick={(e) => e.stopPropagation()}>
-          
+        <div className="relative flex items-center justify-center h-full w-full max-w-6xl max-h-[90vh]"
+          onClick={(e) => e.stopPropagation()}>
+
           {/* Previous Button */}
           <button
             onClick={(e) => { e.stopPropagation(); navigateLightbox(-1); }}
@@ -206,9 +207,9 @@ const PhotoGallery = () => {
                 src={img.src}
                 alt=""
                 className={`w-10 h-10 object-cover rounded-lg cursor-pointer transition-all duration-300
-                           ${index === currentImageIndex 
-                             ? 'ring-3 ring-yellow-400 transform scale-110' 
-                             : 'opacity-60 hover:opacity-100'}
+                           ${index === currentImageIndex
+                    ? 'ring-3 ring-yellow-400 transform scale-110'
+                    : 'opacity-60 hover:opacity-100'}
                            hover:transform hover:scale-105`}
                 onClick={(e) => {
                   e.stopPropagation();
@@ -229,7 +230,7 @@ const PhotoGallery = () => {
         <div className="absolute inset-0 bg-black opacity-20"></div>
         <div className="absolute top-0 right-0 w-48 h-48 md:w-64 md:h-64 bg-yellow-400 rounded-full -translate-y-24 md:-translate-y-32 translate-x-24 md:translate-x-32 opacity-20"></div>
         <div className="absolute bottom-0 left-0 w-32 h-32 md:w-48 md:h-48 bg-blue-400 rounded-full translate-y-16 md:translate-y-24 -translate-x-16 md:-translate-x-24 opacity-20"></div>
-        
+
         <div className="relative z-10 text-center">
           <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 md:mb-4 text-white">
             Photo Gallery
@@ -252,12 +253,11 @@ const PhotoGallery = () => {
           >
             {/* Image Container with Loading State */}
             <div className="relative overflow-hidden bg-gray-100 aspect-square">
-              <div className={`absolute inset-0 flex items-center justify-center transition-opacity duration-300 ${
-                loadedImages[image.id] ? 'opacity-0' : 'opacity-100'
-              }`}>
+              <div className={`absolute inset-0 flex items-center justify-center transition-opacity duration-300 ${loadedImages[image.id] ? 'opacity-0' : 'opacity-100'
+                }`}>
                 <div className="w-8 h-8 sm:w-10 sm:h-10 border-3 sm:border-4 border-yellow-500 border-t-transparent rounded-full animate-spin"></div>
               </div>
-              
+
               <img
                 src={image.src}
                 alt="Gallery Image"
@@ -265,7 +265,7 @@ const PhotoGallery = () => {
                            ${loadedImages[image.id] ? 'opacity-100' : 'opacity-0'}`}
                 onLoad={() => handleImageLoad(image.id)}
               />
-              
+
               {/* Enhanced Overlay - Only on hover */}
               <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-30 transition-all duration-500"></div>
 
@@ -322,8 +322,8 @@ const PhotoGallery = () => {
                     className={`px-3 sm:px-4 md:px-5 py-2 sm:py-3 rounded-lg sm:rounded-xl text-sm sm:text-base md:text-lg font-semibold 
                                 transition-all duration-300 transform hover:scale-110
                                 ${currentPage === number
-                                  ? 'bg-gradient-to-r from-yellow-500 to-yellow-400 text-blue-900 shadow-inner font-bold'
-                                  : 'bg-gradient-to-r from-gray-800 to-gray-700 text-white hover:from-gray-700 hover:to-gray-600'}
+                        ? 'bg-gradient-to-r from-yellow-500 to-yellow-400 text-blue-900 shadow-inner font-bold'
+                        : 'bg-gradient-to-r from-gray-800 to-gray-700 text-white hover:from-gray-700 hover:to-gray-600'}
                                 shadow-lg`}
                     aria-current={currentPage === number ? 'page' : undefined}
                   >
