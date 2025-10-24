@@ -1,6 +1,7 @@
 'use client';
 import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import NewsTicker from './NewsTicker'; 
 
 // Utility function to assign unique IDs to menu items for easier state management
 const assignIds = (items, parentId = '') => {
@@ -414,6 +415,7 @@ const Header = () => {
 
   return (
     <header ref={headerRef} className={`relative top-0 left-0 w-full text-white transition-all duration-300 z-50 bg-gradient-to-r from-indigo-900 via-purple-900 to-blue-900 shadow-xl`}>
+      
       {/* Top Section with Logo and College Name/Description */}
       <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 py-4 md:py-5 lg:py-6">
         <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4 lg:gap-6">
@@ -466,7 +468,7 @@ const Header = () => {
           </div>
         </div>
       </div>
-
+      <NewsTicker />
       {/* Main Navigation Bar - Now with two distinct rows on desktop */}
       <div className="bg-white shadow-2xl border-t border-gray-200 text-gray-800"> {/* Added text-gray-800 for overall text color */}
         <div className="max-w-screen-2xl mx-auto px-2 lg:px-4 py-2"> {/* Adjusted vertical padding for the whole nav container */}
