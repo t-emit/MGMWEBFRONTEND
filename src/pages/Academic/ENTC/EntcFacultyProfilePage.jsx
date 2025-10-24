@@ -48,7 +48,7 @@ const EntcFacultyProfilePage = () => {
             );
           })}
         </div>
-      </nav>
+      </nav>  
 
       {/* Main Content Area with improved card design */}
       <div className="bg-white rounded-xl shadow-lg p-6 md:p-8 mb-10 border border-gray-100 print:shadow-none print:border-none print:rounded-none">

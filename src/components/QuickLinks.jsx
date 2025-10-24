@@ -11,7 +11,7 @@ const QuickLinks = () => {
     { icon: "newspaper", text: "News", link: "viewnews.html" },
     { icon: "file-contract", text: "Tender", link: "download/tender-notice.html" },
     { icon: "hand-holding-usd", text: "Vidyalaxmi", link: "https://mgmcen.ac.in/pdf/Vidyalaxmi_website%20(2).pdf", target: "_blank" },
-    { icon: "flag", text: "Azadi Ka Amrit Mahotsav", link: "#", target: "_blank" } 
+    { icon: "flag", text: "Azadi Ka Amrit Mahotsav", link: "https://amritkaal.nic.in/", target: "_blank" } 
   ];
 
   return (

@@ -55,6 +55,10 @@ const rawMenuItems = [
       { name: "Exam Section", link: "/academics/exam-section", icon: "fa-file-alt" },
     ]
   },
+  { name: "IEDC", link: "/cells-committees/innovation-entrepreneurship-development-cell", icon: "fa-lightbulb" },
+  { name: "Research", link: "/research", icon: "fa-flask" },
+
+
   {
     name: "Cells & Committees",
     link: "#",
@@ -74,7 +78,7 @@ const rawMenuItems = [
       { name: "Training and Placement Cell", link: "/cells-committees/training-placement-cell", icon: "fa-briefcase" },
     ]
   },
-  { name: "IQAC", link: "/iqac", icon: "fa-award" },
+
   {
     name: "Admission",
     link: "#",
@@ -101,7 +105,7 @@ const rawMenuItems = [
       { name: "Laboratories", link: "/facilities/laboratories", icon: "fa-flask" },
       { name: "Sports", link: "/facilities/sports", icon: "fa-running" },
       { name: "Remote Center", link: "/facilities/remote-center", icon: "fa-satellite-dish" },
-      { name: "Ekeeda", link: "https://ekeeda.com/", icon: "fa-external-link-alt", target: "_blank" },
+      // { name: "Ekeeda", link: "https://ekeeda.com/", icon: "fa-external-link-alt", target: "_blank" },
     ]
   },
   {
@@ -161,17 +165,22 @@ const rawMenuItems = [
       { name: "Esteemed Alumni", link: "/alumni/esteemed-alumni", icon: "fa-star" },
     ]
   },
-  { name: "NBA", link: "/nba", icon: "fa-award" },
-  { name: "NIRF", link: "/download/nirf", icon: "fa-chart-bar" },
   { name: "Contact", link: "/contact", icon: "fa-phone-alt" },
 ];
 
 // Additional tabs for the second row - CORRECTED NAMES
 const additionalTabs = [
+  { name: "Training and Placement Cell", link: "/academics/training-placement/profile", icon: "fa-briefcase" },
+  { name: "IQAC", link: "/iqac", icon: "fa-award" },
+  { name: "NBA", link: "/nba", icon: "fa-award" },
+
   { name: "Fees Regulatory Authority", link: "/download/fees-regulatory-authority", icon: "fa-file-invoice-dollar" },
   { name: "Mandatory Disclosure", link: "/mandatory-disclosure", icon: "fa-scroll" },
-  { name: "Auditory Statement", link: "/auditory-statement", icon: "fa-chart-pie" },
-  { name: "Swayam NPTEL", link: "/swayam-nptel", icon: "fa-laptop-house"}
+  { name: "NIRF", link: "/download/nirf", icon: "fa-chart-bar" },
+  { name: "Audited Statement", link: "/auditory-statement", icon: "fa-chart-pie" },
+  { name: "Swayam NPTEL", link: "/swayam-nptel", icon: "fa-laptop-house" },
+  { name: "Photo Gallery", link: "/photo-gallery", icon: "fa-image" }
+
 ];
 
 // Assign IDs once when the component is defined

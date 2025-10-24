@@ -1,17 +1,47 @@
-// src/pages/facilities/LibraryPage.jsx
+import React, { useState } from 'react';
+import { FaExternalLinkAlt, FaChevronDown, FaChevronUp } from 'react-icons/fa'; // Added Chevron icons
 
-import React from 'react';
-import { FaExternalLinkAlt } from 'react-icons/fa';
+// --- Reusable CollapsibleSection Component ---
+const CollapsibleSection = ({ title, children, defaultOpen = false }) => {
+    const [isOpen, setIsOpen] = useState(defaultOpen);
 
-// --- Reusable Component for Sections ---
-const InfoSection = ({ title, children, className = '' }) => (
-    <section className={`py-6 border-t ${className}`}>
-        <h2 className="text-2xl font-bold text-indigo-800 mb-6">{title}</h2>
-        <div className="space-y-4">
-            {children}
-        </div>
-    </section>
-);
+    const toggleOpen = () => {
+        setIsOpen(!isOpen);
+    };
+
+    return (
+        <section className="border-t border-gray-200 pt-6">
+            <button
+                className="w-full flex justify-between items-center text-left py-4 px-6 bg-indigo-50 hover:bg-indigo-100 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition-all duration-300 ease-in-out"
+                onClick={toggleOpen}
+                aria-expanded={isOpen}
+            >
+                <h2 className="text-xl md:text-2xl font-bold text-indigo-800">
+                    {title}
+                </h2>
+                {isOpen ? (
+                    <FaChevronUp className="text-indigo-600 text-lg transition-transform duration-300" />
+                ) : (
+                    <FaChevronDown className="text-indigo-600 text-lg transition-transform duration-300" />
+                )}
+            </button>
+            <div
+                className={`overflow-hidden transition-all duration-500 ease-in-out ${
+                    isOpen ? 'max-h-screen opacity-100 mt-6' : 'max-h-0 opacity-0 mt-0'
+                }`}
+                style={{
+                    maxHeight: isOpen ? '10000px' : '0px' // A large enough value for max-height to handle content
+                }}
+            >
+                <div className="p-4 md:p-6 bg-white rounded-b-lg shadow-inner space-y-4"> {/* Inner padding and background for content */}
+                    {children}
+                </div>
+            </div>
+        </section>
+    );
+};
+
+// --- Library Data (kept as is) ---
 const libraryStaff = [
     { name: 'Dr. Hambarde G.K.', qualification: 'M.Lib., M.Phil., Ph.D.', designation: 'Librarian', joiningDate: '16/10/1989', duties: 'General Administration & Supervision' },
     { name: 'Mrs. Kulkarni. R.V.', qualification: 'B.A., B.Lib.Sc.', designation: 'Lib. Asst.', joiningDate: '05/08/1992', duties: 'Circulation Section (FE & SE) Student' },
@@ -57,13 +87,6 @@ const activeMembers = [
     { type: 'Supporting Staff', count: '75' },
     { type: 'UG Students', count: 'Final Year-101, Third Year-118, Second Year-262, First Year-311' },
     { type: 'PG Students', count: 'Nil' },
-];
-
-const bookIssuePolicy = [
-    { type: 'Faculty', count: '12', period: 'Whole Semester' },
-    { type: 'Supporting Staff', count: '02', period: '15 Days' },
-    { type: 'UG Students', count: 'Final Year-04, Third Year-04, Second Year-04, First Year-04', period: '15 Days' },
-    { type: 'PG Students', count: '05', period: '15 Days' },
 ];
 
 const importantWebsites = [
@@ -213,33 +236,40 @@ const magazines = {
     ]
 };
 
+// --- LibraryPage Component ---
 const LibraryPage = () => {
     return (
         <div className="bg-gray-50 min-h-screen py-12 pt-40">
-            <div className="container mx-auto px-4">
+            <div className="container mx-auto px-4 max-w-5xl"> {/* Added max-width for better readability */}
                 <div className="mb-8">
                     <h1 className="text-4xl font-bold text-indigo-800 border-b-2 border-indigo-200 pb-4">
                         Library
                     </h1>
                 </div>
 
-                <div className="bg-white p-8 rounded-lg shadow-lg space-y-10">
-                    <div className="flex flex-wrap md:flex-nowrap gap-8">
-                        <div className="flex-grow space-y-4 text-gray-700 leading-relaxed">
+                <div className="bg-white p-8 rounded-lg shadow-lg mb-12"> {/* Intro content container */}
+                    {/* This div will contain the floating image and the text that wraps around it */}
+                    <div className="relative mb-6"> {/* Removed space-y-10 from here, as parent already has it */}
+                        <div className="md:float-right md:ml-8 md:mb-4 w-full md:w-64 lg:w-72 xl:w-80 text-center"> {/* Image container, width adjusted for better flow */}
+                            <img src="/images/facilities/library/librarian.jpg" alt="Librarian Dr. Hambarde G.K." className="w-40 h-40 mx-auto rounded-full object-cover shadow-md mb-2" />
+                            <h3 className="font-bold text-gray-800">Dr. Hambarde G.K.</h3>
+                            <p className="text-sm text-gray-600">Librarian</p>
+                        </div>
+                        {/* All paragraphs are now in one block that wraps around the float */}
+                        <div className="space-y-4 text-gray-700 leading-relaxed">
                             <p>Our Central Library since 1984 has grown from 931 to 46040 volumes till date. The library covers an area of 6528 Sft. with two floors having reading room capacity of 150 students. The library is automated using LMS SOUL 3.0.The library subscribes to national & international journals and magazines with E-books, CD ROM’s covering Engineering, Management, Religion, Cultural subjects etc. So that students can evolve into excellent professional & good cultured human beings. The library collection includes Books, e-books, Journals, e-journals, back volumes of technical journals, Ph.D. Thesis of faculty, project Reports, PG Dissertations and non-book materials. The library follows open access for Final Year B.Tech. / P.G. students & faculty members.</p>
                             <p>The library currently subscribes scholarly Journals in Engineering Science & Humanities. Library also provides IP based online access to international journals like IEEE, ASME, ASCE, DELNET, full text e-journals and databases. These e-journals are accessible through internet to campus users. Library also subscribes Ebsco core engineering e-books collection in which e-books from worldwide publishers are available for students and faculty. Library provides remote login for access to DELNET resources.</p>
                             <p>Membership of the central library is open to all faculty, staff & students of the College without any fees.Library books are classified according to D.D.C. classification scheme & shelved on stacks. Web OPAC and M-OPAC is available for users. Dictionary catalogue in card form is maintained for Marathi, Hindi & English Literature Books, it help users to locate books in the Library collection.</p>
                             <p>Digital library plays an important role in student’s life. College has sufficient digital resources. Reading area of the library has been Wi-Fi enabled and under CCTV surveillance.Users are allowed to use their laptops in reading room. 20 computers with headphone are available for users to access database of e-journals, e-books & other free online e-resources like Shodhganga, National Digital Library, NPTEL Video lectures, Inflibnet, DOAJ & DOAB etc.</p>
                             <p>The college central library opens at 9.30 AM and closes at 5.30 PM. Transactions of books takes place during 10.00 AM to 5.00 PM with half an hour break. During exam preparation leave and exam period the library is open till mid-night for students. Students has been issued a bar coded library ticket with the help of bar code scanner transaction of books takes place, for library transaction the ILMS generates a e- receipt with details of library book transacted. All library books are bar-coded.</p>
                         </div>
-                        <div className="text-center flex-shrink-0 w-full md:w-1/4">
-                            <img src="/images/facilities/library/librarian.jpg" alt="Librarian Dr. Hambarde G.K." className="w-40 h-40 mx-auto rounded-full object-cover shadow-md mb-2" />
-                            <h3 className="font-bold text-gray-800">Dr. Hambarde G.K.</h3>
-                            <p className="text-sm text-gray-600">Librarian</p>
-                        </div>
+                        <div className="clear-both"></div> {/* Clears the float to ensure subsequent content doesn't wrap */}
                     </div>
-                    
-                   <InfoSection title="Library Staff">
+                </div>
+                
+                {/* All sections below are now collapsible */}
+                <div className="space-y-6"> {/* Added spacing between collapsible sections */}
+                   <CollapsibleSection title="Library Staff">
                        <div className="overflow-x-auto">
                             <table className="w-full border-collapse border text-sm">
                                 <thead className="bg-gray-100">
@@ -261,9 +291,9 @@ const LibraryPage = () => {
                                 </tbody>
                             </table>
                         </div>
-                    </InfoSection>
+                    </CollapsibleSection>
 
-                    <InfoSection title="Available Library Resources">
+                    <CollapsibleSection title="Available Library Resources">
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
                             <div>
                                 <h3 className="text-xl font-semibold mb-4">i) Hard Copies</h3>
@@ -280,200 +310,181 @@ const LibraryPage = () => {
                                 <p className="text-xs mt-2 text-gray-600">*IP based access is provided.<br/>**Remote login is provided.</p>
                             </div>
                         </div>
-                    </InfoSection>
+                    </CollapsibleSection>
 
-                    <InfoSection title="Library Facility in a Nutshell">
+                    <CollapsibleSection title="Library Facility in a Nutshell">
                         <ol className="list-decimal list-inside space-y-2">{facilityNutshell.map((item, i) => <li key={i}>{item}</li>)}</ol>
-                    </InfoSection>
+                    </CollapsibleSection>
 
-                    <InfoSection title="Support to Students for Self-learning Activities">
+                    <CollapsibleSection title="Support to Students for Self-learning Activities">
                         <p>Following activity can be supports for self-learning.</p>
                         <ol className="list-decimal list-inside space-y-2">{selfLearningSupport.map((item, i) => <li key={i}>{item}</li>)}</ol>
-                    </InfoSection>
-                    {/* In the return statement of LibraryPage, add these new sections */}
+                    </CollapsibleSection>
 
-{/* Library Active Members Table */}
-<InfoSection title="Library Active Members">
-    <table className="w-full max-w-lg mx-auto border-collapse border text-sm">
-        <thead className="bg-gray-100">
-            <tr>
-                <th className="border p-2 font-semibold">Sr. No.</th>
-                <th className="border p-2 font-semibold text-left">Type of Member</th>
-                <th className="border p-2 font-semibold">No. of Members</th>
-            </tr>
-        </thead>
-        <tbody>
-            {activeMembers.map((item, i) => (
-                <tr key={i} className="odd:bg-white even:bg-gray-50">
-                    <td className="border p-2 text-center">{`0${i + 1}.`}</td>
-                    <td className="border p-2">{item.type}</td>
-                    <td className="border p-2 whitespace-pre-line">{item.count}</td>
-                </tr>
-            ))}
-            <tr className="font-bold bg-gray-100">
-                <td className="border p-2" colSpan="2">Total</td>
-                <td className="border p-2 text-center">977</td>
-            </tr>
-        </tbody>
-    </table>
-</InfoSection>
-
-{/* Time Limit & Issue of Books Table */}
-<InfoSection title="Time Limit & Issue of Books to Members">
-    <table className="w-full border-collapse border text-sm">
-        <thead className="bg-gray-100">
-            <tr>
-                {['Sr.', 'Type of Member', 'No. of Book Issue', 'Time Period'].map(h => <th key={h} className="border p-2 font-semibold">{h}</th>)}
-            </tr>
-        </thead>
-        <tbody>
-            {timeLimitBooks.map((item, i) => (
-                <tr key={i} className="odd:bg-white even:bg-gray-50">
-                    <td className="border p-2 text-center">{`0${i + 1}.`}</td>
-                    <td className="border p-2">{item.type}</td>
-                    <td className="border p-2 whitespace-pre-line text-center">{item.issue}</td>
-                    <td className="border p-2 text-center">{item.period}</td>
-                </tr>
-            ))}
-        </tbody>
-    </table>
-</InfoSection>
-
-{/* Branchwise Journals Table */}
-<InfoSection title="Branchwise National Journals">
-    <table className="w-full max-w-lg mx-auto border-collapse border text-sm">
-        <thead className="bg-gray-100"><tr>{['Sr. No.', 'Branch', 'Total Journals'].map(h => <th key={h} className="border p-2 font-semibold">{h}</th>)}</tr></thead>
-        <tbody>
-            {branchwiseJournals.map((item, i) => <tr key={i} className="odd:bg-white even:bg-gray-50"><td className="border p-2 text-center">{`0${i+1}.`}</td><td className="border p-2">{item.branch}</td><td className="border p-2 text-center">{item.total}</td></tr>)}
-            <tr className="font-bold bg-gray-100"><td colSpan="2" className="border p-2">Total</td><td className="border p-2 text-center">62</td></tr>
-        </tbody>
-    </table>
-</InfoSection>
-
-{/* In the return statement of LibraryPage, replace this entire section */}
-
-<InfoSection title="List of National Journals">
-    <div className="overflow-x-auto">
-        <table className="w-full border-collapse border text-sm">
-            <thead className="bg-gray-100">
-                <tr>
-                    <th className="border p-2 font-semibold">Sr. No.</th>
-                    <th className="border p-2 font-semibold text-left">Branch / Title</th>
-                </tr>
-            </thead>
-            <tbody>
-                {nationalJournals.map((item, index) => {
-                    if (item.isHeader) {
-                        // Find all journals under this header
-                        const journalsForDept = [];
-                        for (let i = index + 1; i < nationalJournals.length; i++) {
-                            if (nationalJournals[i].isHeader) break;
-                            journalsForDept.push(nationalJournals[i]);
-                        }
-
-                        return (
-                            <React.Fragment key={index}>
-                                <tr className="bg-gray-100">
-                                    <td colSpan="2" className="border p-2 font-bold">{item.title}</td>
+                    <CollapsibleSection title="Library Active Members">
+                        <table className="w-full max-w-lg mx-auto border-collapse border text-sm">
+                            <thead className="bg-gray-100">
+                                <tr>
+                                    <th className="border p-2 font-semibold">Sr. No.</th>
+                                    <th className="border p-2 font-semibold text-left">Type of Member</th>
+                                    <th className="border p-2 font-semibold">No. of Members</th>
                                 </tr>
-                                {journalsForDept.map((journal, journalIndex) => (
-                                    <tr key={`${index}-${journalIndex}`}>
-                                        <td className="border p-2 text-center">{journalIndex + 1}</td>
-                                        <td className="border p-2">{journal.title}</td>
+                            </thead>
+                            <tbody>
+                                {activeMembers.map((item, i) => (
+                                    <tr key={i} className="odd:bg-white even:bg-gray-50">
+                                        <td className="border p-2 text-center">{`0${i + 1}.`}</td>
+                                        <td className="border p-2">{item.type}</td>
+                                        <td className="border p-2 whitespace-pre-line">{item.count}</td>
                                     </tr>
                                 ))}
-                            </React.Fragment>
-                        );
-                    }
-                    return null; // We only render items when we find a header
-                })}
-            </tbody>
-        </table>
-    </div>
-</InfoSection>
+                                <tr className="font-bold bg-gray-100">
+                                    <td className="border p-2" colSpan="2">Total</td>
+                                    <td className="border p-2 text-center">977</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </CollapsibleSection>
 
-{/* In the return statement of LibraryPage, replace the old Newspapers & Magazines section with this one */}
+                    <CollapsibleSection title="Time Limit & Issue of Books to Members">
+                        <table className="w-full border-collapse border text-sm">
+                            <thead className="bg-gray-100">
+                                <tr>
+                                    {['Sr.', 'Type of Member', 'No. of Book Issue', 'Time Period'].map(h => <th key={h} className="border p-2 font-semibold">{h}</th>)}
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {timeLimitBooks.map((item, i) => (
+                                    <tr key={i} className="odd:bg-white even:bg-gray-50">
+                                        <td className="border p-2 text-center">{`0${i + 1}.`}</td>
+                                        <td className="border p-2">{item.type}</td>
+                                        <td className="border p-2 whitespace-pre-line text-center">{item.issue}</td>
+                                        <td className="border p-2 text-center">{item.period}</td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                    </CollapsibleSection>
 
-<InfoSection title="Newspapers & Magazines Subscribed">
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 text-sm">
-        {/* Newspapers */}
-        <div>
-            <h3 className="text-lg font-semibold mb-2">Local Newspapers</h3>
-            <table className="w-full border">
-                <thead className="bg-gray-100"><tr><th className="border p-2 w-1/4">Sr. No.</th><th className="border p-2 text-left">Name</th></tr></thead>
-                <tbody>{newspapers.local.map((n, i) => <tr key={i}><td className="border p-2 text-center">{i + 1}.</td><td className="border p-2">{n.name}</td></tr>)}</tbody>
-            </table>
-        </div>
-        <div>
-            <h3 className="text-lg font-semibold mb-2">Regional Newspapers</h3>
-            <table className="w-full border">
-                <thead className="bg-gray-100"><tr><th className="border p-2 w-1/4">Sr. No.</th><th className="border p-2 text-left">Name</th></tr></thead>
-                <tbody>{newspapers.regional.map((n, i) => <tr key={i}><td className="border p-2 text-center">{i + 1}.</td><td className="border p-2">{n.name}</td></tr>)}</tbody>
-            </table>
-        </div>
-        <div>
-            <h3 className="text-lg font-semibold mb-2">National Newspapers</h3>
-            <table className="w-full border">
-                <thead className="bg-gray-100"><tr><th className="border p-2 w-1/4">Sr. No.</th><th className="border p-2 text-left">Name</th></tr></thead>
-                <tbody>{newspapers.national.map((n, i) => <tr key={i}><td className="border p-2 text-center">{i + 1}.</td><td className="border p-2">{n.name}</td></tr>)}</tbody>
-            </table>
-        </div>
-        
-        {/* Magazines */}
-        <div>
-            <h3 className="text-lg font-semibold mb-2">Technical Magazines</h3>
-            <table className="w-full border">
-                <thead className="bg-gray-100"><tr><th className="border p-2 w-1/4">Sr. No.</th><th className="border p-2 text-left">Title</th><th className="border p-2 text-left">Frequency</th></tr></thead>
-                <tbody>{magazines.technical.map((m, i) => <tr key={i}><td className="border p-2 text-center">{i + 1}.</td><td className="border p-2">{m.title}</td><td className="border p-2">{m.frequency}</td></tr>)}</tbody>
-            </table>
-        </div>
-        <div>
-            <h3 className="text-lg font-semibold mb-2">Non-Technical (English)</h3>
-            <table className="w-full border">
-                <thead className="bg-gray-100"><tr><th className="border p-2 w-1/4">Sr. No.</th><th className="border p-2 text-left">Title</th><th className="border p-2 text-left">Frequency</th></tr></thead>
-                <tbody>{magazines.nonTechnicalEnglish.map((m, i) => <tr key={i}><td className="border p-2 text-center">{i + 1}.</td><td className="border p-2">{m.title}</td><td className="border p-2">{m.frequency}</td></tr>)}</tbody>
-            </table>
-        </div>
-         <div>
-            <h3 className="text-lg font-semibold mb-2">Non-Technical (Marathi)</h3>
-            <table className="w-full border">
-                <thead className="bg-gray-100"><tr><th className="border p-2 w-1/4">Sr. No.</th><th className="border p-2 text-left">Title</th><th className="border p-2 text-left">Frequency</th></tr></thead>
-                <tbody>{magazines.nonTechnicalMarathi.map((m, i) => <tr key={i}><td className="border p-2 text-center">{i + 1}.</td><td className="border p-2">{m.title}</td><td className="border p-2">{m.frequency}</td></tr>)}</tbody>
-            </table>
-        </div>
-    </div>
-</InfoSection>
-  {/* In the return statement of LibraryPage, replace this section */}
+                    <CollapsibleSection title="Branchwise National Journals">
+                        <table className="w-full max-w-lg mx-auto border-collapse border text-sm">
+                            <thead className="bg-gray-100"><tr>{['Sr. No.', 'Branch', 'Total Journals'].map(h => <th key={h} className="border p-2 font-semibold">{h}</th>)}</tr></thead>
+                            <tbody>
+                                {branchwiseJournals.map((item, i) => <tr key={i} className="odd:bg-white even:bg-gray-50"><td className="border p-2 text-center">{`0${i+1}.`}</td><td className="border p-2">{item.branch}</td><td className="border p-2 text-center">{item.total}</td></tr>)}
+                                <tr className="font-bold bg-gray-100"><td colSpan="2" className="border p-2">Total</td><td className="border p-2 text-center">62</td></tr>
+                            </tbody>
+                        </table>
+                    </CollapsibleSection>
 
+                    <CollapsibleSection title="List of National Journals">
+                        <div className="overflow-x-auto">
+                            <table className="w-full border-collapse border text-sm">
+                                <thead className="bg-gray-100">
+                                    <tr>
+                                        <th className="border p-2 font-semibold">Sr. No.</th>
+                                        <th className="border p-2 font-semibold text-left">Branch / Title</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {nationalJournals.map((item, index) => {
+                                        if (item.isHeader) {
+                                            const journalsForDept = [];
+                                            for (let i = index + 1; i < nationalJournals.length; i++) {
+                                                if (nationalJournals[i].isHeader) break;
+                                                journalsForDept.push(nationalJournals[i]);
+                                            }
 
+                                            return (
+                                                <React.Fragment key={index}>
+                                                    <tr className="bg-gray-100">
+                                                        <td colSpan="2" className="border p-2 font-bold">{item.title}</td>
+                                                    </tr>
+                                                    {journalsForDept.map((journal, journalIndex) => (
+                                                        <tr key={`${index}-${journalIndex}`} className="odd:bg-white even:bg-gray-50">
+                                                            <td className="border p-2 text-center">{journalIndex + 1}</td>
+                                                            <td className="border p-2">{journal.title}</td>
+                                                        </tr>
+                                                    ))}
+                                                </React.Fragment>
+                                            );
+                                        }
+                                        return null;
+                                    })}
+                                </tbody>
+                            </table>
+                        </div>
+                    </CollapsibleSection>
 
-<InfoSection title="Important Websites for E-Resources">
-    <div className="space-y-4">
-        {importantWebsites.map((link, i) => (
-            // Use a div for each list item
-            <div key={i}>
-                {/* A flex container to hold the number and the link */}
-                <div className="flex items-start">
-                    {/* The Number */}
-                    <span className="font-semibold text-gray-800 w-8 flex-shrink-0">{i + 1}.</span>
-                    
-                    {/* The Link */}
-                    <a 
-                        href={link} 
-                        target="_blank" 
-                        rel="noopener noreferrer" 
-                        className="text-indigo-600 hover:underline inline-flex items-center break-all"
-                    >
-                        <span>{link}</span>
-                        <FaExternalLinkAlt className="ml-2 text-xs flex-shrink-0" />
-                    </a>
-                </div>
-            </div>
-        ))}
-    </div>
-</InfoSection>
-                    
-                    {/* Add other tables for resources, members, etc., in new sections here */}
+                    <CollapsibleSection title="Newspapers & Magazines Subscribed">
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 text-sm">
+                            {/* Newspapers */}
+                            <div>
+                                <h3 className="text-lg font-semibold mb-2">Local Newspapers</h3>
+                                <table className="w-full border">
+                                    <thead className="bg-gray-100"><tr><th className="border p-2 w-1/4">Sr. No.</th><th className="border p-2 text-left">Name</th></tr></thead>
+                                    <tbody>{newspapers.local.map((n, i) => <tr key={i} className="odd:bg-white even:bg-gray-50"><td className="border p-2 text-center">{i + 1}.</td><td className="border p-2">{n.name}</td></tr>)}</tbody>
+                                </table>
+                            </div>
+                            <div>
+                                <h3 className="text-lg font-semibold mb-2">Regional Newspapers</h3>
+                                <table className="w-full border">
+                                    <thead className="bg-gray-100"><tr><th className="border p-2 w-1/4">Sr. No.</th><th className="border p-2 text-left">Name</th></tr></thead>
+                                    <tbody>{newspapers.regional.map((n, i) => <tr key={i} className="odd:bg-white even:bg-gray-50"><td className="border p-2 text-center">{i + 1}.</td><td className="border p-2">{n.name}</td></tr>)}</tbody>
+                                </table>
+                            </div>
+                            <div>
+                                <h3 className="text-lg font-semibold mb-2">National Newspapers</h3>
+                                <table className="w-full border">
+                                    <thead className="bg-gray-100"><tr><th className="border p-2 w-1/4">Sr. No.</th><th className="border p-2 text-left">Name</th></tr></thead>
+                                    <tbody>{newspapers.national.map((n, i) => <tr key={i} className="odd:bg-white even:bg-gray-50"><td className="border p-2 text-center">{i + 1}.</td><td className="border p-2">{n.name}</td></tr>)}</tbody>
+                                </table>
+                            </div>
+                            
+                            {/* Magazines */}
+                            <div>
+                                <h3 className="text-lg font-semibold mb-2">Technical Magazines</h3>
+                                <table className="w-full border">
+                                    <thead className="bg-gray-100"><tr><th className="border p-2 w-1/4">Sr. No.</th><th className="border p-2 text-left">Title</th><th className="border p-2 text-left">Frequency</th></tr></thead>
+                                    <tbody>{magazines.technical.map((m, i) => <tr key={i} className="odd:bg-white even:bg-gray-50"><td className="border p-2 text-center">{i + 1}.</td><td className="border p-2">{m.title}</td><td className="border p-2">{m.frequency}</td></tr>)}</tbody>
+                                </table>
+                            </div>
+                            <div>
+                                <h3 className="text-lg font-semibold mb-2">Non-Technical (English)</h3>
+                                <table className="w-full border">
+                                    <thead className="bg-gray-100"><tr><th className="border p-2 w-1/4">Sr. No.</th><th className="border p-2 text-left">Title</th><th className="border p-2 text-left">Frequency</th></tr></thead>
+                                    <tbody>{magazines.nonTechnicalEnglish.map((m, i) => <tr key={i} className="odd:bg-white even:bg-gray-50"><td className="border p-2 text-center">{i + 1}.</td><td className="border p-2">{m.title}</td><td className="border p-2">{m.frequency}</td></tr>)}</tbody>
+                                </table>
+                            </div>
+                            <div>
+                                <h3 className="text-lg font-semibold mb-2">Non-Technical (Marathi)</h3>
+                                <table className="w-full border">
+                                    <thead className="bg-gray-100"><tr><th className="border p-2 w-1/4">Sr. No.</th><th className="border p-2 text-left">Title</th><th className="border p-2 text-left">Frequency</th></tr></thead>
+                                    <tbody>{magazines.nonTechnicalMarathi.map((m, i) => <tr key={i} className="odd:bg-white even:bg-gray-50"><td className="border p-2 text-center">{i + 1}.</td><td className="border p-2">{m.title}</td><td className="border p-2">{m.frequency}</td></tr>)}</tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </CollapsibleSection>
+
+                    <CollapsibleSection title="Important Websites for E-Resources">
+                        <div className="space-y-4">
+                            {importantWebsites.map((link, i) => (
+                                <div key={i}>
+                                    <div className="flex items-start">
+                                        <span className="font-semibold text-gray-800 w-8 flex-shrink-0">{i + 1}.</span>
+                                        <a 
+                                            href={link} 
+                                            target="_blank" 
+                                            rel="noopener noreferrer" 
+                                            className="text-indigo-600 hover:underline inline-flex items-center break-all"
+                                        >
+                                            <span>{link}</span>
+                                            <FaExternalLinkAlt className="ml-2 text-xs flex-shrink-0" />
+                                        </a>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </CollapsibleSection>
                 </div>
             </div>
         </div>

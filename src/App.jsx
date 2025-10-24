@@ -49,7 +49,6 @@ import AlumniSpeak from './pages/alumni/AlumniSpeak';
 
 // Import Students Corner pages
 import CesaPage from './pages/students-corner/academic/CesaPage';
-import EtaPage from './pages/students-corner/academic/EtaPage';
 import MesaPage from './pages/students-corner/academic/MesaPage';
 import ItsaPage from './pages/students-corner/academic/Itsapage';
 import CastActivityPage from './pages/students-corner/co-curricular/castActivity';
@@ -161,6 +160,34 @@ import CivilConsultancyPage from './pages/Academic/Civil/CivilConsultancyPage';
 import CivilResearchPublicationPage from './pages/Academic/Civil/CivilResearchPublicationPage';
 import SwayamNPTELPage from './pages/SwayamNPTEL/SwayamNPTELPage';
 import MandatoryDisclosurePage from './pages/MandatoryDisclosure/MandatoryDisclosurePage';
+import MechanicalEngineeringPage from './pages/Academic/Mechanical/MechanicalEngineeringPage';
+import PhotoGallery from './pages/Gallery/PhotoGallery';
+import ITProfilePage from './pages/Academic/IT/ITProfilePage';
+import ResearchProfilePage from './pages/Academic/RESEARCH/profile';
+import IntellectualPropertyCellPage from './pages/Academic/RESEARCH/IntellectualPropertyCellPage';
+import InformationTechnologyPage from './pages/Academic/IT/InformationTechnologyPage';
+import ITSAPage from './pages/Academic/IT/ITSAPage';
+import ITAchievementsPage from './pages/Academic/IT/ITAchievementsPage';
+import ItTrainingPlacementPage from './pages/Academic/IT/ITTrainingPlacementPage';
+import ITResearchPublicationPage from './pages/Academic/IT/ITResearchPublicationPage';
+import ITDepartmentalActivityPage from './pages/Academic/IT/ITDepartmentalActivityPage';
+import ITCurriculumPage from './pages/Academic/IT/ITCurriculumPage';
+import ITDepartmentalCommitteesPage from './pages/Academic/IT/ITDepartmentalCommitteesPage';
+import ITConsultancyPage from './pages/Academic/IT/ITconsultancy';
+import FacultyProfilePage from './pages/Academic/CSE/FacultyProfilePage';
+import FacultyDetailPage from './pages/Academic/CSE/FacultyDetailPage';
+import ITLaboratoryDetailPage from './pages/Academic/IT/ITLaboratoryDetailPage';
+import ITLaboratoryPage from './pages/Academic/IT/ITLaboratoryPage';
+import ITProgrammesPage from './pages/Academic/IT/ITProgrammesPage';
+import ITVisionMissionPage from './pages/Academic/IT/ITVisionMissionPage';
+import ExamSection from './pages/Academic/ExamSection';
+import TrainingPlacementProfilePage from './pages/Tnp/TrainingPlacementProfilePage';
+import TNPGalleryPage from './pages/Tnp/TNPGalleryPage';
+import TNPAchievementPage from './pages/Tnp/TNPAchievementPage';
+import TNPCareerCounsellingPage from './pages/Tnp/TNPCareerCounsellingPage';
+import TNPTrainingPage from './pages/Tnp/TNPTrainingPage';
+import MajorRecruitersPage from './pages/Tnp/MajorRecruitersPage';
+import TNPFacultyPage from './pages/Tnp/TNPFacultyPage';
 
 // ==========================================================
 // Helper Placeholder Pages
@@ -223,7 +250,6 @@ const App = () => {
 
           {/* Students Corner Routes */}
           <Route path="/students-corner/academic/cesa" element={<CesaPage />} />
-          <Route path="/students-corner/academic/eta" element={<EtaPage />} />
           <Route path="/students-corner/academic/mesa" element={<MesaPage />} />
           <Route path="/students-corner/academic/itsa" element={<ItsaPage />} />
           <Route path="/students-corner/co-curricular/cast-activity" element={<CastActivityPage />} />
@@ -272,7 +298,7 @@ const App = () => {
           <Route path="/academics/computer-science-engineering/cuc" element={<CUC />} />
           <Route path="/academics/computer-science-engineering/csi-iei" element={<CSIIEIPage />} />
           <Route path="/academics/computer-science-engineering/research-publication" element={<CSEResearchPublicationPage />} />
-          
+
           <Route path="/academics/civil-engineering" element={<CivilEngineeringPage />} />
           <Route path="/academics/civil-engineering/vision-mission" element={<CivilVisionMissionPage />} />
           <Route path="/academics/civil-engineering/programmes" element={<CivilProgrammesPage />} />
@@ -287,12 +313,12 @@ const App = () => {
           <Route path="/academics/civil-engineering/curriculum" element={<CivilCurriculumPage />} />
           <Route path="/academics/civil-engineering/consultancy" element={<CivilConsultancyPage />} />
           <Route path="/academics/civil-engineering/research-publication" element={<CivilResearchPublicationPage />} />
-          
+
           <Route path="/academics/electronincs-telecommunication-engineering" element={<EntcPage />} />
           <Route path="/academics/electronincs-telecommunication-engineering/vision-mission" element={<EntcVisionMissionPage />} />
           <Route path="/academics/electronincs-telecommunication-engineering/programmes" element={<EntcProgrammesPage />} />
           <Route path="/academics/electronincs-telecommunication-engineering/training-placement" element={<EntcTrainingPlacementPage />} />
-          <Route path="/academics/electronincs-telecommunication-engineering/eta" element={<EtaPage />} />
+          <Route path="/academics/electronincs-telecommunication-engineering/eta" element={<EntcEtaPage />} />
           <Route path="/academics/electronincs-telecommunication-engineering/curriculum" element={<EntcCurriculumPage />} />
           <Route path="/academics/electronincs-telecommunication-engineering/research-publication" element={<EntcResearchPublicationPage />} />
           <Route path="/academics/electronincs-telecommunication-engineering/faculty" element={<EntcFacultyProfilePage />} />
@@ -304,7 +330,8 @@ const App = () => {
           <Route path="/academics/electronincs-telecommunication-engineering/consultancy" element={<EntcConsultancyPage />} />
           <Route path="/academics/electronincs-telecommunication-engineering/innovation-teaching" element={<EntcInnovationInTeachingPage />} />
           <Route path="/academics/electronincs-telecommunication-engineering/achievements" element={<EntcAchievementPage />} />
-          
+          <Route path="/academics/mechanical-engineering" element={<MechanicalEngineeringPage />} />
+
           {/* ========= NEW: Applied Science & Humanities Routes ========= */}
           <Route path="/academics/applied-science" element={<ASHProfilePage />} />
           <Route path="/academics/applied-science/faculty" element={<ASHFacultyProfilePage />} />
@@ -316,7 +343,33 @@ const App = () => {
           <Route path="/academics/applied-science/research-publication" element={<ASHResearchPublicationPage />} />
           <Route path="/academics/applied-science/downloads" element={<ASHDownloadsPage />} />
           {/* ========================================================== */}
-          
+
+          <Route path="/academics/information-technology" element={<InformationTechnologyPage />} />
+          <Route path="/academics/information-technology/vision-mission" element={<ITVisionMissionPage />} />
+          <Route path="/academics/information-technology/itsa" element={<ITSAPage />} />
+          <Route path="/academics/information-technology/achievements" element={<ITAchievementsPage />} />
+          <Route path="/academics/information-technology/training-placement" element={<ItTrainingPlacementPage />} />
+          <Route path="/academics/information-technology/research-publication" element={<ITResearchPublicationPage />} />
+          <Route path="/academics/information-technology/activities" element={<ITDepartmentalActivityPage />} />
+          <Route path="/academics/information-technology/curriculum" element={<ITCurriculumPage />} />
+          <Route path="/academics/information-technology/committees" element={<ITDepartmentalCommitteesPage />} />
+          <Route path="/academics/information-technology/consultancy" element={<ITConsultancyPage />} />
+          <Route path="/academics/information-technology/faculty" element={<FacultyProfilePage />} />
+          <Route path="/academics/information-technology/faculty/:facultyId" element={<FacultyDetailPage />} />
+          <Route path="/academics/information-technology/laboratories" element={<ITLaboratoryPage />} />
+          <Route path="/academics/information-technology/laboratories/:labId" element={<ITLaboratoryDetailPage />} />
+          <Route path="/academics/information-technology/programmes" element={<ITProgrammesPage />} />
+
+
+
+          <Route path="/academics/exam-section" element={<ExamSection />} />
+
+
+
+          <Route path="/research" element={<ResearchProfilePage />} />
+          <Route path="/research/ip-cell" element={<IntellectualPropertyCellPage />} />
+
+
           <Route path="/academics/academic-calendar" element={<AcademicCalendarPage />} />
           <Route path="/academics/*" element={<PlaceholderPage title="Academics Section" />} />
 
@@ -347,6 +400,17 @@ const App = () => {
           <Route path="/swayam-nptel" element={<SwayamNPTELPage />} />
           <Route path="/mandatory-disclosure" element={<MandatoryDisclosurePage />} />
           <Route path="/auditory-statement" element={<AuditedStatementsPage />} />
+          <Route path="/photo-gallery" element={<PhotoGallery />} />
+
+          {/* TNP Roting  */}
+          <Route path="/academics/training-placement/profile" element={<TrainingPlacementProfilePage />} />
+          <Route path="/academics/training-placement/faculty-profile" element={<TNPFacultyPage />} />
+          <Route path="/academics/training-placement/major-recruiters" element={<MajorRecruitersPage />} />
+          <Route path="/academics/training-placement/training-programs" element={<TNPTrainingPage />} />
+          <Route path="/academics/training-placement/career-counselling" element={<TNPCareerCounsellingPage />} />
+          <Route path="/academics/training-placement/achievements" element={<TNPAchievementPage />} />
+          <Route path="/academics/training-placement/gallery" element={<TNPGalleryPage />} />
+
 
           {/* --- ADMIN ROUTES --- */}
           <Route path="/admin/login" element={<LoginPage />} />

@@ -9,7 +9,7 @@ import {
   entcFacultyListPdf,
 } from './entcConstants'; // Import data from constants
 
-const EntcPage = () => {
+const EntcPage = () => { 
   const location = useLocation();
 
   return (
