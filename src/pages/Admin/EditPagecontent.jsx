@@ -1,164 +1,142 @@
-import React, { useState, useEffect, useCallback } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+// pages/Admin/EditPageContent.jsx
+import React, { useState, useEffect, useMemo } from 'react';
+import { useParams } from 'react-router-dom';
 import axios from 'axios';
-import { useAuth } from '../../context/AuthContext';
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css'; // import styles
 
 const EditPageContent = () => {
-    const { pageIdentifier } = useParams();
-    const navigate = useNavigate();
-    const { token } = useAuth();
+  const { slug } = useParams();
+  const [pageData, setPageData] = useState({ title: '', subtitle: '', content: '' });
+  const [loading, setLoading] = useState(true);
+  const [saving, setSaving] = useState(false);
+  const [message, setMessage] = useState('');
 
-    const [pageData, setPageData] = useState(null);
-    const [isLoading, setIsLoading] = useState(true);
-    const [error, setError] = useState('');
-    const [isSaving, setIsSaving] = useState(false);
+  const token = localStorage.getItem('adminToken'); // Your auth token
 
-    // Fetch the page content when the component loads
-    useEffect(() => {
-        const fetchPageContent = async () => {
-            try {
-                setIsLoading(true);
-                const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/pages/${pageIdentifier}`);
-                setPageData(res.data);
-            } catch (err) {
-                setError('Failed to fetch page content.');
-                console.error(err);
-            } finally {
-                setIsLoading(false);
-            }
-        };
-        fetchPageContent();
-    }, [pageIdentifier]);
-
-    // Generic handler for nested properties within the 'content' object
-    const handleContentChange = (section, field, value) => {
-        setPageData(prevData => ({
-            ...prevData,
-            content: {
-                ...prevData.content,
-                [section]: {
-                    ...prevData.content[section],
-                    [field]: value,
-                },
-            },
-        }));
+  useEffect(() => {
+    const fetchPage = async () => {
+      try {
+        const config = { headers: { Authorization: `Bearer ${token}` } };
+        const { data } = await axios.get(`/api/pages/${slug}`, config);
+        setPageData(data);
+      } catch (err) {
+        setMessage('Error: Failed to load page content.');
+      } finally {
+        setLoading(false);
+      }
     };
-    
-    // Handler for arrays of simple strings (like paragraphs)
-    const handleParagraphChange = (section, index, value) => {
-        const newParagraphs = [...pageData.content[section].paragraphs];
-        newParagraphs[index] = value;
-        handleContentChange(section, 'paragraphs', newParagraphs);
+    fetchPage();
+  }, [slug, token]);
+
+  const handleSave = async () => {
+    setSaving(true);
+    setMessage('');
+    try {
+      const config = { headers: { Authorization: `Bearer ${token}` } };
+      await axios.put(`/api/pages/${slug}`, pageData, config);
+      setMessage('Content saved successfully!');
+      setTimeout(() => setMessage(''), 3000);
+    } catch (err) {
+      setMessage('Error: Failed to save content.');
+    } finally {
+      setSaving(false);
+    }
+  };
+
+  // Custom image handler for ReactQuill
+  const imageHandler = (quillInstance) => {
+    const input = document.createElement('input');
+    input.setAttribute('type', 'file');
+    input.setAttribute('accept', 'image/*');
+    input.click();
+
+    input.onchange = async () => {
+      const file = input.files[0];
+      const formData = new FormData();
+      formData.append('file', file);
+
+      // Show a loading indicator if you can
+      const range = quillInstance.getEditor().getSelection(true);
+
+      try {
+        const config = { headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'multipart/form-data' } };
+        const res = await axios.post('/api/pages/upload', formData, config);
+        
+        // Insert the image URL into the editor
+        quillInstance.getEditor().insertEmbed(range.index, 'image', res.data.url);
+      } catch (error) {
+        console.error('Image upload failed:', error);
+        setMessage('Image upload failed.');
+      }
     };
+  };
 
-    // Handler for arrays of objects (like infoBoxes or timeline items)
-    const handleArrayObjectChange = (section, arrayName, index, field, value) => {
-        const newArray = [...pageData.content[section][arrayName]];
-        newArray[index] = { ...newArray[index], [field]: value };
-        handleContentChange(section, arrayName, newArray);
-    };
+  const modules = useMemo(() => ({
+    toolbar: {
+      container: [
+        [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+        ['bold', 'italic', 'underline', 'strike', 'blockquote'],
+        [{'list': 'ordered'}, {'list': 'bullet'}, {'indent': '-1'}, {'indent': '+1'}],
+        ['link', 'image', 'video'], // Added 'image'
+        ['clean']
+      ],
+      handlers: {
+        image: () => imageHandler(quillRef.current)
+      }
+    },
+  }), []);
 
+  const quillRef = React.useRef();
 
-    // Handle form submission
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        setIsSaving(true);
-        setError('');
-        try {
-            const payload = {
-                pageTitle: pageData.pageTitle,
-                content: pageData.content // Send the entire updated content object
-            };
+  if (loading) return <div>Loading editor...</div>;
 
-            await axios.put(`${import.meta.env.VITE_API_URL}/api/pages/${pageIdentifier}`, payload, {
-                headers: { 'Authorization': `Bearer ${token}` }
-            });
-
-            alert('Page updated successfully!');
-            navigate('/admin/pages');
-
-        } catch (err) {
-            setError('Failed to update page. Please check the console and try again.');
-            console.error(err);
-        } finally {
-            setIsSaving(false);
-        }
-    };
-    
-    if (isLoading) return <p>Loading editor...</p>;
-    if (error && !pageData) return <p className="text-red-500">{error}</p>;
-    if (!pageData) return <p>No data found for this page.</p>;
-
-    const { content } = pageData; // Destructure for easier access
-
-    return (
-        <div className="container mx-auto p-4">
-            <h1 className="text-2xl font-bold mb-4">Editing: {pageData.pageTitle}</h1>
-
-            <form onSubmit={handleSubmit} className="bg-white p-6 rounded-lg shadow-md space-y-8">
-                {/* --- GENERAL SETTINGS --- */}
-                <div>
-                    <h2 className="text-xl font-semibold text-gray-800 border-b pb-2 mb-4">General Settings</h2>
-                    <label className="block text-sm font-medium text-gray-700">Page Title</label>
-                    <input 
-                        type="text" 
-                        value={pageData.pageTitle} 
-                        onChange={(e) => setPageData({...pageData, pageTitle: e.target.value})}
-                        className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 text-lg font-bold"
-                    />
-                </div>
-
-                {/* --- HERO SECTION --- */}
-                <div>
-                    <h2 className="text-xl font-semibold text-gray-800 border-b pb-2 mb-4">Hero Section</h2>
-                    <label className="block text-sm font-medium text-gray-700">Title</label>
-                    <input type="text" value={content.hero.title} onChange={(e) => handleContentChange('hero', 'title', e.target.value)} className="mt-1 block w-full p-2 border rounded-md"/>
-                    <label className="block text-sm font-medium text-gray-700 mt-2">Subtitle</label>
-                    <textarea value={content.hero.subtitle} onChange={(e) => handleContentChange('hero', 'subtitle', e.target.value)} rows="3" className="mt-1 block w-full p-2 border rounded-md"></textarea>
-                </div>
-
-                {/* --- LEGACY SECTION --- */}
-                <div>
-                    <h2 className="text-xl font-semibold text-gray-800 border-b pb-2 mb-4">Legacy Section</h2>
-                    <label className="block text-sm font-medium text-gray-700">Title</label>
-                    <input type="text" value={content.legacy.title} onChange={(e) => handleContentChange('legacy', 'title', e.target.value)} className="mt-1 block w-full p-2 border rounded-md"/>
-                    <label className="block text-sm font-medium text-gray-700 mt-2">Image URL</label>
-                    <input type="text" value={content.legacy.imageUrl} onChange={(e) => handleContentChange('legacy', 'imageUrl', e.target.value)} className="mt-1 block w-full p-2 border rounded-md"/>
-                    {content.legacy.paragraphs.map((p, index) => (
-                        <div key={index}>
-                           <label className="block text-sm font-medium text-gray-700 mt-2">Paragraph {index + 1}</label>
-                           <textarea value={p} onChange={(e) => handleParagraphChange('legacy', index, e.target.value)} rows="4" className="mt-1 block w-full p-2 border rounded-md"></textarea>
-                        </div>
-                    ))}
-                    {content.legacy.infoBoxes.map((box, index) => (
-                        <div key={index} className="p-3 mt-2 border rounded-md bg-gray-50">
-                            <h3 className="font-semibold text-gray-600">Info Box {index + 1}</h3>
-                            <label className="block text-xs font-medium text-gray-500 mt-1">Title</label>
-                            <input type="text" value={box.title} onChange={(e) => handleArrayObjectChange('legacy', 'infoBoxes', index, 'title', e.target.value)} className="mt-1 block w-full p-2 border rounded-md text-sm"/>
-                            <label className="block text-xs font-medium text-gray-500 mt-1">Text</label>
-                            <textarea value={box.text} onChange={(e) => handleArrayObjectChange('legacy', 'infoBoxes', index, 'text', e.target.value)} rows="2" className="mt-1 block w-full p-2 border rounded-md text-sm"></textarea>
-                        </div>
-                    ))}
-                </div>
-
-                {/* Add more sections for 'journey' and 'timeline' following the same pattern */}
-
-
-                {/* --- SUBMIT AREA --- */}
-                <div className="pt-5 border-t">
-                    {error && <p className="text-red-500 mb-4">{error}</p>}
-                    <div className="flex gap-4">
-                        <button type="submit" disabled={isSaving} className="px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 disabled:bg-blue-300">
-                            {isSaving ? 'Saving...' : 'Save Changes'}
-                        </button>
-                        <button type="button" onClick={() => navigate('/admin/pages')} className="px-6 py-2 bg-gray-200 text-gray-800 rounded-md hover:bg-gray-300">
-                            Cancel
-                        </button>
-                    </div>
-                </div>
-            </form>
+  return (
+    <div className="container mx-auto p-4">
+      <h1 className="text-2xl font-bold mb-4">Editing: {pageData.title}</h1>
+      <div className="space-y-4">
+        <div>
+          <label className="block text-sm font-medium text-gray-700">Page Title</label>
+          <input
+            type="text"
+            value={pageData.title}
+            onChange={(e) => setPageData({ ...pageData, title: e.target.value })}
+            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-2"
+          />
         </div>
-    );
+        <div>
+          <label className="block text-sm font-medium text-gray-700">Page Subtitle / Intro</label>
+          <textarea
+            value={pageData.subtitle}
+            onChange={(e) => setPageData({ ...pageData, subtitle: e.target.value })}
+            rows={3}
+            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-2"
+          />
+        </div>
+        <div>
+          <label className="block text-sm font-medium text-gray-700">Main Content</label>
+          <ReactQuill
+            ref={quillRef}
+            theme="snow"
+            value={pageData.content}
+            onChange={(content) => setPageData({ ...pageData, content })}
+            modules={modules}
+            className="bg-white"
+          />
+        </div>
+        <div className="flex items-center space-x-4">
+          <button
+            onClick={handleSave}
+            disabled={saving}
+            className="bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700 disabled:bg-gray-400"
+          >
+            {saving ? 'Saving...' : 'Save Changes'}
+          </button>
+          {message && <p className="text-sm text-gray-600">{message}</p>}
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default EditPageContent;
