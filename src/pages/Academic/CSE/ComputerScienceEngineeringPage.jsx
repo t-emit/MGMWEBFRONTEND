@@ -156,7 +156,7 @@ const ComputerScienceEngineeringPage = () => {
               <img
                 alt="Dr. Rajurkar A.M., Head, Department of CSE"
                 className="w-full h-64 object-cover"
-                src="/images/img-head-cse-p2.jpg"
+                src="/images/cse/faculty/img-head-cse-p2.jpg"
               />
               <div className="p-5 bg-gradient-to-b from-white to-gray-50">
                 <h3 className="text-xl font-semibold text-blue-800 mb-1">

@@ -288,7 +288,7 @@ export const cseResearchData = {
             issn_doi: `2005-4238`
         },
         {
-            srNo: " ", // This was a blank row in HTML
+            srNo: 13, // Corrected from " "
             title: `Analysis of Tree structure for Secure Group Communication Using LKH Approach`,
             authors: `Aparna S. Pande, Y. V. Joshi & Manisha Y. Joshi`,
             journalName: `International Journal of Computer Sciences and Engineering`,
@@ -296,7 +296,7 @@ export const cseResearchData = {
             issn_doi: `2347-2693`
         },
         {
-            srNo: 13,
+            srNo: 14, // Corrected from 13
             title: `An improved diagnosis technique for breast cancer using LCFS and TreeHiCARe classifier model`,
             authors: `D. K. Nagthane and Dr. A. M. Rajurkar`,
             journalName: `Sensor Review`,
@@ -304,7 +304,7 @@ export const cseResearchData = {
             issn_doi: `0260-2288`
         },
         {
-            srNo: 14,
+            srNo: 15, // Corrected from 14
             title: `Shot Boundary Detection of MPEG Video using Biorthogonal Wavelet Transform`,
             authors: `Anita Thengade & Archana M. Rajurkar`,
             journalName: `International Journal of Pure and Applied Mathematics`,
@@ -312,7 +312,7 @@ export const cseResearchData = {
             issn_doi: `1311-8080`
         },
         {
-            srNo: 15,
+            srNo: 16, // Corrected from 15
             title: `Secure Forensic Report Retrieval Application using Cipher Text-Policy Attribute-Based Encryption`,
             authors: `Vinod I. Jondhale & Manisha Y. Joshi`,
             journalName: `International Journal of Science and Research`,
@@ -320,7 +320,7 @@ export const cseResearchData = {
             issn_doi: `2319-7064`
         },
         {
-            srNo: 16,
+            srNo: 17, // Corrected from 16
             title: `Cloud Data Security Using Third Party Auditor`,
             authors: `Aman Bhimrao Kamble & M. Y. Joshi`,
             journalName: `International Journal of Scientific Research in Science, Engineering and Technology`,
@@ -328,7 +328,7 @@ export const cseResearchData = {
             issn_doi: `2394-4099`
         },
         {
-            srNo: 17,
+            srNo: 18, // Corrected from 17
             title: `A Secure End-To-End Protocol for Secure Transmission of SMS`,
             authors: `Vaidehi V. Mantri & M. Y. Joshi`,
             journalName: `International Journal of Science and Research`,
@@ -339,13 +339,13 @@ export const cseResearchData = {
     
     conferencePublications: [
         {
-            srNo: 1,
-            facultyName: `Dr. A. M. Rajurkar`,
-            title: `Early Detection of Stem Borer in Grape Diseases`,
-            conferenceName: `Artificial Intelligence in Agriculture, Volume 5`,
-            year: "2022",
-            isbn: `ISBN 978-981-15-4851-2`,
-            publisher: `Springer`
+            srNo: 1, // 1st column
+            facultyName: `Dr. A. M. Rajurkar`, // 2nd column
+            title: `Early Detection of Stem Borer in Grape Diseases`, // 3rd column
+            conferenceName: `Artificial Intelligence in Agriculture, Volume 5`, // 4th column
+            year: "2022", // 5th column
+            isbn: `ISBN 978-981-15-4851-2`, // 6th column
+            publisher: `Springer` // 7th column
         },
         {
             srNo: 2,
