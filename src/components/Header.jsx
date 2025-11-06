@@ -169,7 +169,7 @@ const rawMenuItems = [
   { name: "Contact", link: "/contact", icon: "fa-phone-alt" },
 ];
 
-// Additional tabs for the second row - CORRECTED NAMES
+// Additional tabs for the second row
 const additionalTabs = [
   { name: "Training and Placement Cell", link: "/academics/training-placement/profile", icon: "fa-briefcase" },
   { name: "IQAC", link: "/iqac", icon: "fa-award" },
@@ -188,7 +188,7 @@ const additionalTabs = [
 const menuItemsWithIds = assignIds(rawMenuItems);
 
 // Recursive MenuItem Component
-const MenuItem = ({ item, level = 0, activeDropdownPath, updateActiveDropdownPath, isMobile, setIsMenuOpen }) => {
+const MenuItem = ({ item, level = 0, activeDropdownPath, updateActiveDropdownPath, isMobile, setIsMenuOpen, isLastItem = false }) => {
   const hasChildren = item.children && item.children.length > 0;
   const location = useLocation();
 
@@ -252,32 +252,39 @@ const MenuItem = ({ item, level = 0, activeDropdownPath, updateActiveDropdownPat
     }
   } else {
     if (isMobile) {
-      linkClasses.push('px-6 py-3.5 border-b border-orange-100 text-base');
+      // Mobile menu items (level 0 and >0)
+      linkClasses.push('px-6 py-3.5 border-b border-orange-200 text-base'); // Adjusted border to orange-200 for visibility
       linkClasses.push('hover:bg-orange-50 hover:text-orange-700');
       if (isCurrentlyClickedOnMobile || isParentOrSelfActive) {
-        linkClasses.push('bg-orange-50 text-orange-700 font-semibold');
+        linkClasses.push('bg-orange-50 text-orange-700 font-bold'); // More bold for active/open mobile items
       } else if (level === 0) {
         linkClasses.push('text-gray-800 font-medium');
-      } else {
-        linkClasses.push('text-gray-700');
+      } else { // Mobile sub-menu items (level > 0)
+        linkClasses.push('text-gray-700 font-semibold'); // Semibold for non-active mobile sub-menu items
       }
-    } else {
-      if (level === 0) {
-        linkClasses.push('py-2.5'); // Main menu items retain original padding
-        linkClasses.push('px-2 lg:px-2 xl:px-3 2xl:px-4'); // Standard responsive horizontal padding
+    } else { // Desktop
+      if (level === 0) { // Desktop Main menu items
+        linkClasses.push('py-2.5');
+        linkClasses.push('px-2 lg:px-2 xl:px-3 2xl:px-4');
         linkClasses.push('text-sm lg:text-sm xl:text-sm 2xl:text-sm font-semibold rounded-md');
-        linkClasses.push('border border-transparent transition-all duration-300');
+        linkClasses.push('border transition-all duration-300'); // Ensure border is always present
         if (isDropdownActive || isParentOrSelfActive) {
           linkClasses.push('text-white bg-gradient-to-r from-orange-500 to-amber-500 border-orange-400 shadow-lg');
         } else {
+          // Default border for non-active, non-hovered items
+          linkClasses.push('border-orange-200'); 
           linkClasses.push('text-gray-800 hover:text-white hover:bg-gradient-to-r hover:from-orange-400 hover:to-amber-400 hover:border-orange-300 hover:shadow-md');
         }
-      } else {
+      } else { // Desktop Sub-menu items (level > 0)
         linkClasses.push('px-5 py-3 text-base transition-all duration-300');
+        // Add bottom border for "boxes", but not for the very last item in the dropdown
+        if (!isLastItem) {
+          linkClasses.push('border-b border-orange-100'); // Light border for desktop sub-menu items
+        }
         if (isActiveRoute) {
-          linkClasses.push('bg-orange-50 text-orange-700 font-medium border-l-4 border-orange-500');
+          linkClasses.push('bg-orange-50 text-orange-700 font-bold border-l-4 border-orange-500'); // More bold for active sub-menu items
         } else {
-          linkClasses.push('text-gray-700 hover:bg-orange-50 hover:text-orange-600 hover:border-l-4 hover:border-orange-300');
+          linkClasses.push('text-gray-700 font-semibold hover:bg-orange-50 hover:text-orange-600 hover:border-l-4 hover:border-orange-300'); // Semibold for non-active sub-menu items
         }
       }
     }
@@ -311,7 +318,7 @@ const MenuItem = ({ item, level = 0, activeDropdownPath, updateActiveDropdownPat
           `}
           style={isMobile && !isCurrentlyClickedOnMobile ? { maxHeight: 0 } : {}}
         >
-          {item.children.map((child) => (
+          {item.children.map((child, index) => (
             <MenuItem
               key={child.id}
               item={child}
@@ -320,6 +327,7 @@ const MenuItem = ({ item, level = 0, activeDropdownPath, updateActiveDropdownPat
               updateActiveDropdownPath={updateActiveDropdownPath}
               isMobile={isMobile}
               setIsMenuOpen={setIsMenuOpen}
+              isLastItem={index === item.children.length - 1} // Pass isLastItem for desktop dropdowns
             />
           ))}
         </ul>
@@ -335,13 +343,14 @@ const AdditionalTab = ({ item, isMobile }) => {
 
   const linkClasses = [
     'flex items-center justify-center transition-all duration-300 relative text-center',
-    'py-2', // Reduced vertical padding for the second row
-    'px-2 lg:px-2 xl:px-3 2xl:px-4', // Standard responsive horizontal padding, consistent with MenuItem
-    'text-sm lg:text-sm xl:text-sm 2xl:text-sm font-semibold rounded-md', // Consistent font styling
-    'border border-transparent transition-all duration-300', // Consistent border
+    'py-2',
+    'px-2 lg:px-2 xl:px-3 2xl:px-4',
+    'text-sm lg:text-sm xl:text-sm 2xl:text-sm font-semibold rounded-md',
+    // Always apply a border
+    'border transition-all duration-300', 
     isActiveRoute
       ? 'text-white bg-gradient-to-r from-orange-500 to-amber-500 border-orange-400 shadow-lg'
-      : 'text-gray-800 hover:text-white hover:bg-gradient-to-r hover:from-orange-400 hover:to-amber-400 hover:border-orange-300 hover:shadow-md'
+      : 'border-orange-200 text-gray-800 hover:text-white hover:bg-gradient-to-r hover:from-orange-400 hover:to-amber-400 hover:border-orange-300 hover:shadow-md'
   ].join(' ');
 
   const LinkComponent = item.target === '_blank' ? 'a' : Link;
@@ -431,10 +440,11 @@ const Header = () => {
                 <span className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-extrabold text-white leading-tight py-1 tracking-wide drop-shadow-lg font-serif">
                   M.G.M's College of Engineering, Nanded.
                 </span>
-                <span className="block text-xs sm:text-sm md:text-base text-purple-100 mt-0.5 leading-snug max-w-full lg:max-w-xl drop-shadow-sm">
+                {/* Modified the description for NBA accreditation to stay on one line */}
+                <span className="block text-xs sm:text-sm md:text-base text-purple-100 mt-0.5 leading-snug drop-shadow-sm">
                   ( An Autonomous Institute ) <br />
                   Affiliated to Dr. Babasaheb Ambedkar Technological University ,Lonere. <br />
-                  Accredited by NAAC (2024-2029), Accredited by NBA (2024-2027), Approved by AICTE, New Delhi
+                  Accredited by NAAC (2024-2029), <span className="whitespace-nowrap">Accredited by NBA CSE, MEC, ENTC and CIVIL (2024-2027)</span>, Approved by AICTE, New Delhi
                 </span>
               </div>
             </Link>
@@ -556,7 +566,7 @@ const Header = () => {
                     href={item.target === '_blank' ? item.link : undefined}
                     target={item.target}
                     rel={item.target === '_blank' ? 'noopener noreferrer' : undefined}
-                    className="flex items-center px-6 py-3.5 border-b border-orange-400 text-base text-gray-800 hover:bg-orange-400 hover:text-white transition-colors duration-300"
+                    className="flex items-center px-6 py-3.5 border-b border-orange-200 text-base text-gray-800 hover:bg-orange-400 hover:text-white transition-colors duration-300" // Adjusted border to orange-200 for consistency
                     onClick={() => setIsMenuOpen(false)}
                   >
                     {item.icon && <i className={`fas ${item.icon} mr-3 text-base w-4 text-center`}></i>}

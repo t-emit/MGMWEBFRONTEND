@@ -24,7 +24,7 @@ const About = () => {
               AICTE, New Delhi and is affiliated to Dr. Babasaheb Ambedkar
               Technological University, Lonere.
             </p>
-            <a href="about.html" className="px-6 py-3 bg-red-600 text-white rounded-lg font-semibold hover:bg-red-700 transition-all inline-block">
+            <a href="/about-us" className="px-6 py-3 bg-red-600 text-white rounded-lg font-semibold hover:bg-red-700 transition-all inline-block">
               Read More
             </a>
           </div>
