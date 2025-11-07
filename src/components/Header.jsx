@@ -1,7 +1,7 @@
 'use client';
 import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import NewsTicker from './NewsTicker'; 
+import NewsTicker from './NewsTicker';
 
 // Utility function to assign unique IDs to menu items for easier state management
 const assignIds = (items, parentId = '') => {
@@ -56,7 +56,7 @@ const rawMenuItems = [
       { name: "Exam Section", link: "/academics/exam-section", icon: "fa-file-alt" },
     ]
   },
-  { name: "IEDC", link: "/cells-committees/innovation-entrepreneurship-development-cell", icon: "fa-lightbulb" },
+  { name: "IEDC", link: "/innovation-entrepreneurship-development-cell", icon: "fa-lightbulb" },
   { name: "Research", link: "/research", icon: "fa-flask" },
 
 
@@ -253,7 +253,7 @@ const MenuItem = ({ item, level = 0, activeDropdownPath, updateActiveDropdownPat
   } else {
     if (isMobile) {
       // Mobile menu items (level 0 and >0)
-      linkClasses.push('px-6 py-3.5 border-b border-orange-200 text-base'); // Adjusted border to orange-200 for visibility
+      linkClasses.push('px-6 py-3.5 border-b border-black text-base'); // Changed border to black
       linkClasses.push('hover:bg-orange-50 hover:text-orange-700');
       if (isCurrentlyClickedOnMobile || isParentOrSelfActive) {
         linkClasses.push('bg-orange-50 text-orange-700 font-bold'); // More bold for active/open mobile items
@@ -269,22 +269,22 @@ const MenuItem = ({ item, level = 0, activeDropdownPath, updateActiveDropdownPat
         linkClasses.push('text-sm lg:text-sm xl:text-sm 2xl:text-sm font-semibold rounded-md');
         linkClasses.push('border transition-all duration-300'); // Ensure border is always present
         if (isDropdownActive || isParentOrSelfActive) {
-          linkClasses.push('text-white bg-gradient-to-r from-orange-500 to-amber-500 border-orange-400 shadow-lg');
+          linkClasses.push('text-white bg-gradient-to-r from-orange-500 to-amber-500 border-black shadow-lg'); // Changed border to black
         } else {
           // Default border for non-active, non-hovered items
-          linkClasses.push('border-orange-200'); 
-          linkClasses.push('text-gray-800 hover:text-white hover:bg-gradient-to-r hover:from-orange-400 hover:to-amber-400 hover:border-orange-300 hover:shadow-md');
+          linkClasses.push('border-black'); // Changed border to black
+          linkClasses.push('text-gray-800 hover:text-white hover:bg-gradient-to-r hover:from-orange-400 hover:to-amber-400 hover:border-black hover:shadow-md'); // Changed border to black
         }
       } else { // Desktop Sub-menu items (level > 0)
         linkClasses.push('px-5 py-3 text-base transition-all duration-300');
         // Add bottom border for "boxes", but not for the very last item in the dropdown
         if (!isLastItem) {
-          linkClasses.push('border-b border-orange-100'); // Light border for desktop sub-menu items
+          linkClasses.push('border-b border-black'); // Changed border to black
         }
         if (isActiveRoute) {
-          linkClasses.push('bg-orange-50 text-orange-700 font-bold border-l-4 border-orange-500'); // More bold for active sub-menu items
+          linkClasses.push('bg-orange-50 text-orange-700 font-bold border-l-4 border-black'); // Changed border to black
         } else {
-          linkClasses.push('text-gray-700 font-semibold hover:bg-orange-50 hover:text-orange-600 hover:border-l-4 hover:border-orange-300'); // Semibold for non-active sub-menu items
+          linkClasses.push('text-gray-700 font-semibold hover:bg-orange-50 hover:text-orange-600 hover:border-l-4 hover:border-black'); // Changed border to black
         }
       }
     }
@@ -311,7 +311,7 @@ const MenuItem = ({ item, level = 0, activeDropdownPath, updateActiveDropdownPat
           className={`
             ${isMobile
               ? `bg-white pl-8 overflow-hidden transition-all duration-500 ease-in-out ${isCurrentlyClickedOnMobile ? 'max-h-[500px] opacity-100 overflow-y-auto' : 'max-h-0 opacity-0'}`
-              : `absolute mt-1 min-w-[16rem] bg-white shadow-2xl rounded-xl py-2 border border-orange-200 z-[51] transition-all duration-300 origin-top-left
+              : `absolute mt-1 min-w-[16rem] bg-white shadow-2xl rounded-xl py-2 border border-black z-[51] transition-all duration-300 origin-top-left
                 ${isOpenOnDesktop ? 'opacity-100 visible translate-y-0 scale-100' : 'opacity-0 invisible translate-y-2 scale-95 pointer-events-none'}
                 ${level === 0 ? 'left-0' : 'left-full -top-2'}`
             }
@@ -347,10 +347,10 @@ const AdditionalTab = ({ item, isMobile }) => {
     'px-2 lg:px-2 xl:px-3 2xl:px-4',
     'text-sm lg:text-sm xl:text-sm 2xl:text-sm font-semibold rounded-md',
     // Always apply a border
-    'border transition-all duration-300', 
+    'border transition-all duration-300',
     isActiveRoute
-      ? 'text-white bg-gradient-to-r from-orange-500 to-amber-500 border-orange-400 shadow-lg'
-      : 'border-orange-200 text-gray-800 hover:text-white hover:bg-gradient-to-r hover:from-orange-400 hover:to-amber-400 hover:border-orange-300 hover:shadow-md'
+      ? 'text-white bg-gradient-to-r from-orange-500 to-amber-500 border-black shadow-lg' // Changed border to black
+      : 'border-black text-gray-800 hover:text-white hover:bg-gradient-to-r hover:from-orange-400 hover:to-amber-400 hover:border-black hover:shadow-md' // Changed border to black
   ].join(' ');
 
   const LinkComponent = item.target === '_blank' ? 'a' : Link;
@@ -424,7 +424,7 @@ const Header = () => {
 
   return (
     <header ref={headerRef} className={`relative top-0 left-0 w-full text-white transition-all duration-300 z-50 bg-gradient-to-r from-indigo-900 via-purple-900 to-blue-900 shadow-xl`}>
-      
+
       {/* Top Section with Logo and College Name/Description */}
       <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 py-4 md:py-5 lg:py-6">
         <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4 lg:gap-6">
@@ -444,7 +444,7 @@ const Header = () => {
                 <span className="block text-xs sm:text-sm md:text-base text-purple-100 mt-0.5 leading-snug drop-shadow-sm">
                   ( An Autonomous Institute ) <br />
                   Affiliated to Dr. Babasaheb Ambedkar Technological University ,Lonere. <br />
-                  Accredited by NAAC (2024-2029), <span className="whitespace-nowrap">Accredited by NBA – CSE, Mechanical, E&TC, Civil (2024–2027)</span>, <br/> Approved by AICTE, New Delhi
+                  Accredited by NAAC (2024-2029), <span className="whitespace-nowrap">Accredited by NBA – CSE, Mechanical, E&TC, Civil (2024–2027)</span>, <br /> Approved by AICTE, New Delhi
                 </span>
               </div>
             </Link>
@@ -479,7 +479,7 @@ const Header = () => {
         </div>
       </div>
       <NewsTicker />
-      
+
       {/* Main Navigation Bar - Now with beautiful orange theme */}
       <div className="bg-gradient-to-r from-orange-400 to-amber-400 shadow-2xl border-t border-orange-300 text-gray-800">
         <div className="max-w-screen-2xl mx-auto px-2 lg:px-4 py-2">
@@ -500,7 +500,7 @@ const Header = () => {
             <nav ref={navRef} className="hidden lg:flex flex-col w-full gap-y-1">
               {/* First Row - Main Menu Items */}
               <ul
-                className="flex items-center justify-between flex-nowrap w-full h-full gap-x-1 border-b border-orange-300 pb-1"
+                className="flex items-center justify-between flex-nowrap w-full h-full gap-x-1 border-b border-black pb-1" // Changed border-orange-300 to border-black
                 onMouseEnter={handleNavMouseEnter}
                 onMouseLeave={handleNavMouseLeave}
               >
@@ -554,7 +554,7 @@ const Header = () => {
                 />
               ))}
               {/* Additional Tabs in Mobile */}
-              <li className="border-t border-orange-400 mt-2 pt-2">
+              <li className="border-t border-black mt-2 pt-2"> {/* Changed border to black */}
                 <div className="px-4 py-2 text-sm font-semibold text-gray-700 uppercase tracking-wider">
                   Additional Links
                 </div>
@@ -566,7 +566,7 @@ const Header = () => {
                     href={item.target === '_blank' ? item.link : undefined}
                     target={item.target}
                     rel={item.target === '_blank' ? 'noopener noreferrer' : undefined}
-                    className="flex items-center px-6 py-3.5 border-b border-orange-200 text-base text-gray-800 hover:bg-orange-400 hover:text-white transition-colors duration-300" // Adjusted border to orange-200 for consistency
+                    className="flex items-center px-6 py-3.5 border-b border-black text-base text-gray-800 hover:bg-orange-400 hover:text-white transition-colors duration-300" // Changed border to black
                     onClick={() => setIsMenuOpen(false)}
                   >
                     {item.icon && <i className={`fas ${item.icon} mr-3 text-base w-4 text-center`}></i>}

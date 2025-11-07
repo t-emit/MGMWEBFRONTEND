@@ -190,6 +190,7 @@ import MajorRecruitersPage from './pages/Tnp/MajorRecruitersPage';
 import TNPFacultyPage from './pages/Tnp/TNPFacultyPage';
 import CseProgrammesPage from './pages/Academic/CSE/CseProgrammesPage';
 import CseDepartmentCommitteesPage from './pages/Academic/CSE/CseDepartmentCommitteesPage';
+import IEDC from './pages/IEDC/IEDCPage';
 
 // ==========================================================
 // Helper Placeholder Pages
@@ -403,6 +404,7 @@ const App = () => {
           <Route path="/mandatory-disclosure" element={<MandatoryDisclosurePage />} />
           <Route path="/auditory-statement" element={<AuditedStatementsPage />} />
           <Route path="/photo-gallery" element={<PhotoGallery />} />
+          <Route path="/innovation-entrepreneurship-development-cell" element={<IEDC />} />
 
           {/* TNP Roting  */}
           <Route path="/academics/training-placement/profile" element={<TrainingPlacementProfilePage />} />
