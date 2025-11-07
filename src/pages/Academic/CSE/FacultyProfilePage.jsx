@@ -1,4 +1,3 @@
-// src/pages/academics/computer-science-engineering/FacultyProfilePage.jsx
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
@@ -110,7 +109,7 @@ const teachingStaff = [
                 'Mahesh R. Sanghavi, Archana M. Rajurkar, Rajeev Mathur and Kainjan S. Kotecha, “Mathematical Model for Digital Video Watermarking based on 3D Wavelet Transform”, Proceedings published in IJCA, 2012.',
                 'Mahesh R. Sanghavi, Archana M. Rajurkar, Rajeev Mathur and Kainjan S. Kotecha, “State of the art review on Digital Video Watermarking”, Special Issue of International Journal of Electronics, Communication & Soft Computing Science & Engineering, March 2012, pp. 123- 133, ISSN: 2277-9477.',
                 'Rupali Komatwar, Archana M. Rajurkar, “Use of Particle Filter in Visual Surveillance for Tracking Multiple People”, International Journal of Engineering Research and Technology, Volume 1, Number 2, 2012, ISSN 2278-0181.',
-                'Kalpana S Thakre, Archana M. Rajurkar, R.R. Manthalkar, “A Comprehensive CBVR System Based on Spatio Temporal Features Such as Motion, Quantized Colour and Edge Density Features”, International Journal of Wireless and Microwave Technologies, (IJWMT), Volume 1, Number 3, June 2011, MECS Press, Hong Kong, ISSN: 2076-1449(Print), ISSN: 2076-9539 (Online).',
+                'Kalpana S Thakre, Archana M. Rajurkar, R.R. Manthalkar, “A Comprehensive CBVR System Based On Spatio Temporal Features Such as Motion, Quantized Colour and Edge Density Features”, International Journal of Wireless and Microwave Technologies, (IJWMT), Volume 1, Number 3, June 2011, MECS Press, Hong Kong, ISSN: 2076-1449(Print), ISSN: 2076-9539 (Online).',
                 'Kalpana S. Thakre, Archana M. Rajurkar, R. R. Manthalkar, “An Effective CBVR System Based On Motion, Quantized Colour and Edge density features”, International Journal of Computer Science & Information Technology (IJCSIT), Volume 3, Number 2, April 2011, DOI: 10.5121/ijcsit.2011.3206 78.',
                 'Mahesh R. Sanghavi, Archana M. Rajurkar, Rajeev Mathur, Kainjan S. Kotecha, “Scene Based Digital Video Watermarking”, International Journal of Scientific Computing, Volume 5, Number 2, pp. 43-47, July-December 2011.',
                 'Mahesh R. Sanghavi, Archana M. Rajurkar, Rajeev Mathur, Kainjan S. Kotecha, “A Robust Scheme for Digital Video Watermarking based on Scrambling of Watermark”, International Journal of Computer Application (IJCA), Volume 35, Number 2, pp. 31-38, December 2011.',
@@ -198,6 +197,441 @@ const teachingStaff = [
             }
           ]
         },
+        patentPublished: {
+          title: 'Design an IoT with Image Processing Based Solution of Detecting the Downy Mildew Disease of Grapes',
+          details: 'Kainjan M. Sanghavi, Dr. Mrs. Archana M. Rajurkar, Dr. Mahesh R. Sanghavi, “Design an IoT with Image Processing Based Solution of Detecting the Downy Mildew Disease of Grapes”, The Patent Office Journal No. 13/2018 Dated 30/03/2018 11264, Application No. 201821009017 A, Publication Date: 30/03/2018.'
+        }
+      },
+      outreachActivities: {
+        summary: [
+          'Visit to Hawaii, USA to attend the International Conference and present a research paper in Jan 2008. Also visited Stanford University and Northwestern University, Chicago.',
+          'Referee with Journal: Reviewer for International Journal on ‘Pattern Recognition’, Elsevier publications.',
+          'Worked as reviewer for National and International conferences.',
+          'Selected as examiner for evaluation of Ph.D. thesis of University of Mysore.',
+          'Two of the research papers have been accepted for World Comp 2009 International Conference on Image Processing, Computer Vision, and Pattern Recognition (IPCV\'09), Monte Carlo Resort, Las Vegas, Nevada, USA.',
+          'Three of my PG students received Best Paper Awards in International Conferences'
+        ],
+        seminarsConferences: {
+          attended: [
+            { srNo: 1, title: '9th Annual Women\'s Meet – AWM 2024 (Scientific Conference ISBN: 978–81–969897–4–3 | Theme: To Cultivate Research Spirit and Create a Vibrant Community of Women in Science and Technology)', organizerPlace: 'Centre for Women Development of Venus International Foundation at Green Park Chennai, India.', period: '2nd March 2024' },
+            { srNo: 2, title: '5th International Conference on Computing in Engineering and Technology ICCET2020', organizerPlace: 'MGM’s College of Engineering, Nanded', period: '09-11th January 2020' },
+            { srNo: 3, title: '4th International Conference on Computing in Engineering and Technology', organizerPlace: 'Deogiri Institute of Engg & Management Studies, Aurangabad', period: '09-11th January 2019' },
+            { srNo: 4, title: 'TechNExt India 2018, Annual Industry and Academis Conference and Awards 2018, CSI India', organizerPlace: 'Victor Menezes Convention Centre, IIT Bombay', period: '10-11’th February 2018' },
+            { srNo: 5, title: 'IEEE and CSI sponsored 1’st International Conference on Intelligent Systems and Information Management ICISIM- 2017', organizerPlace: 'MGM’s JNEC, Aurangabad, MS, India', period: '05’-06’th October 2017' },
+            { srNo: 6, title: 'International Conference on Signal and Information Processing IConSIP-2016', organizerPlace: 'SGGS Institute of Engg& Technology, Nanded in association with IIT, Bombay, COE Pune, SVUCE Tirupati and Technically co-sponsored by IEEE Bombay,', period: '6-8’th October 2016.' },
+            { srNo: 7, title: 'National Conference on TEQIP II : Best Policies and Practices', organizerPlace: 'State Project Facilitation Unit, TEQIP II, Maharashtra State and SGGS Institute of Engineering and Technology, Nanded', period: '10-11’th Jan 2014' },
+            { srNo: 8, title: 'National Conference on Communication, Computing and Networking Technologies (NCCCNT-13)', organizerPlace: 'SGGS Institute of Engineering and Technology, Nanded', period: '15-16th March 2013' },
+            { srNo: 9, title: '1st World Summit on Accreditation WOSA 2012', organizerPlace: 'National Board of Accreditation, New Delhi', period: '25-28th March 2012' },
+            { srNo: 10, title: 'First International Conference on Advances in Computing, ICAC 2008', organizerPlace: 'Anuradha Engineering College, Chikhali, Maharashtra, India.', period: 'Feb 21-22, 2008' },
+            { srNo: 11, title: 'Forty-First Annual Hawaii International Conference on System Sciences', organizerPlace: 'Waikoloa, Big Island, Hawaii, USA.', period: 'Jan 7-10, 2008' },
+            { srNo: 12, title: 'IEEE First International Conference on Signal and Image Processing', organizerPlace: 'B.V.B. College of Engineering and Technology, Hubli, Karnataka, India.', period: 'Dec 7-9, 2006' },
+            { srNo: 13, title: 'Annual Convention of ISTE (Maharashtra and Goa Section) on Technical Education-Technology Transfer to Rural India and Sustainable Development', organizerPlace: 'M.G.M.’s College of Engineering, Nanded.', period: 'March  4-5, 2006' },
+            { srNo: 14, title: 'International Conference on Cognition and Recognition', organizerPlace: 'P.E.S. College of Engineering, Mandya, Karnataka, India.', period: 'Dec 22-23, 2005' },
+            { srNo: 15, title: 'Computer Applications in Electrical Engineering - Recent Advances” (CERA-01)', organizerPlace: 'Department of Electrical Engineering, IIT Roorkee, Roorkee.', period: 'Feb. 21-23, 2002' },
+            { srNo: 16, title: 'ICMPS 2000 on Multimedia Processing and Systems', organizerPlace: 'Office of Naval Research, University of Maryland and IIT Madras, Chennai.', period: 'August 13-15, 2000' },
+            { srNo: 17, title: 'Information Technology and Applications: Emerging Trends', organizerPlace: 'IIT Roorkee, Roorkee.', period: 'Dec.23-24, 1998' },
+            { srNo: 18, title: 'Computer Society of India, Western Region Convention', organizerPlace: 'JNE College of Engineering, Aurangabad.', period: 'March 1-3, 1996' }
+          ],
+          shortTermCourses: [
+            { srNo: 1, title: 'Future of Education Workshop by Employability. Life', place: 'MGM’s College of Engineering and Technology Mumbai', period: '25th Nov 2023' },
+            { srNo: 2, title: 'Program on Institutional Transformation Strategy by Digital Commonwealth, London, UK', place: 'MGM’s College of Engineering and Technology Mumbai', period: '2022' },
+            { srNo: 3, title: 'National Intellectual Property Awareness Mission', place: 'Intellectual Property Office, India', period: '16th Dec 2022' },
+            { srNo: 4, title: 'Principals’ Meet followed by Two Day Workshop on "Introduction to Robotics" by e-Yantra Lab Setup Initiative (eLSI), e- Yantra Project of IIT Bombay at', place: 'M.G.M.’s College of Engineering, Nanded.', period: '2nd & 3rd August 2019' },
+            { srNo: 5, title: 'Python Workshop organized by Teaching Learning Centre (ICT) at IIT Bombay funded by PMMMNMIT', place: 'M.G.M.’s College of Engineering, Nanded.', period: '22nd June 2019' },
+            { srNo: 6, title: 'TEQIP-III Sponsored one day workshop on Curriculum Development for Computer Science and Engineering', place: 'Dr. Babasaheb Ambedkar Tech. University, Lonere', period: '01st May 2019' },
+            { srNo: 7, title: 'International Workshop on Pattern Analysis and Machine Intelligence Document Engineering to Healthcare', place: 'Solapur University, Solapur.', period: '20th Dec 2018' },
+            { srNo: 8, title: 'Faculty Development Program (FDP) Foundation Program in ICT for Education conducted by IIT Bombay', place: 'M.G.M.’s College of Engineering, Nanded.', period: '13-18th September 2018' },
+            { srNo: 9, title: 'One Day NBA Orientation Workshop on Outcome Based Accreditation Process and Parameters', place: 'MSPM’s Deogiri Institute of Engineering and Management Studies, Aurangabad', period: '9’th June 2017' },
+            { srNo: 10, title: 'Two-Week ISTE STTP Workshop on Introduction to Design of Algorithms Conducted by IIT Kharagpur', place: 'MGM’s College of Engineering, Nanded Remote Center Under NMEICT(MHRD)', period: '27’th to 30’th May, 2015' },
+            { srNo: 11, title: 'Two-Week ISTE STTP Workshop on Computer Programming Conducted by IIT Bombay', place: 'MGM’s College of Engineering, Nanded Remote Center Under NMEICT(MHRD)', period: 'May 20’th to June 21’st 2014' },
+            { srNo: 12, title: 'One Week STTP on Signal, Speech and Image Processing Using MATLAB', place: 'MGM’s College of Engineering, Nanded', period: '1-6th July 2013' },
+            { srNo: 13, title: 'Two Days Advance Mission 10X Faculty Empowerment Workshop by Wipro Technologies', place: 'MGM’s College of Engineering, Nanded', period: '30-31st March 2012' },
+            { srNo: 14, title: 'Five Days Mission 10X Faculty Empowerment Workshop by Wipro Technologies', place: 'MGM’s College of Engineering, Nanded', period: '28 Nov-2nd Dec 2011' },
+            { srNo: 15, title: 'One day workshop on “Demystifying GCC thorough Gray Box Probing”', place: 'Department of Computer Sci.&Engg. Shri Guru Gobind Singhji Institute of Engineering & Technology, Nanded', period: '6th March 2010' },
+            { srNo: 16, title: 'One day workshop on ECG Analysis and Interpretation', place: 'Department of Instrumentation Engineering. Shri Guru Gobind Singhji Institute of Engg., & Technology, Nanded', period: '17th Feb 2010' },
+            { srNo: 17, title: 'Two Week ISTE Workshop on Effective teaching/learning of Computer Programming', place: 'Indian Institute of Technology, Bombay', period: '14-24th Dec 2009' },
+            { srNo: 18, title: 'Workshop on Compiler Construction: From Practice to Theory', place: 'Department of Computer Engg. and IT, COEP, Pune.', period: '7-13thSept 2007' },
+            { srNo: 19, title: 'Training program on Object Oriented Analysis and Design Using the UML with Fundamentals of Rational Rose', place: 'IBM Rational SEED, Pune, INDIA, at MGMCE Nanded.', period: '17-18thFeb 2007' },
+            { srNo: 20, title: 'Training program on AIX5L Basics', place: 'IBM INDIA Banglore.', period: '10-13th July 2006' },
+            { srNo: 21, title: 'Recent Trends in Signal and Image Processing', place: 'Department of E&TC, SGGSIET, Nanded.', period: '16-18th Jan 2006.' },
+            { srNo: 22, title: 'PG Level course in audit mode, titled Multimedia Systems', place: 'DEP, KReSIT, IIT Bombay.', period: 'Jan-May 2003' },
+            { srNo: 23, title: 'Course on JAVA organized by Mechanical and Industrial Engineering Students Society', place: 'IIT Roorkee, Roorkee.', period: '16- 6th Feb 2000' },
+            { srNo: 24, title: 'Microsoft NT 4.0 and Workstation', place: 'Microsoft at Microland, Pune', period: 'Mar-97' },
+            { srNo: 25, title: 'Microprocessors in Instrumentation', place: 'SGGS College of Engineering, Nanded.', period: '17-28th June 1996' }
+          ],
+          organized: [
+            { srNo: 1, title: 'Organised 5th International Conference on Computing in Engineering and Technology ICCET2020 in association with Dept. of Electronics and Telecommunication Engg., Dr. BA Technological University, Lonere, Maharashtra and AICTE', place: 'Department of CSE, MGM’s College of Engineering, Nanded', period: '09-11th January 2020' },
+            { srNo: 2, title: 'Organised Principals’ Meet followed by Two Day Workshop on "Introduction to Robotics" by e- Yantra Lab Setup Initiative (eLSI), e-Yantra Project of IIT Bombay', place: 'Department of CSE, M.G.M.’s College of Engineering, Nanded.', period: '2nd & 3rd August 2019' },
+            { srNo: 3, title: 'Organised Faculty Development Program on “Data Science using R-Programming” Sponsored by TEQUIP-III, Dr. BA Technological University, Lonere, Maharashtra', place: 'Department of CSE, M.G.M.’s College of Engineering, Nanded.', period: '7 – 11th Jan 2019' }
+          ]
+        }
+      },
+      academicEnvironment: {
+        laboratoryDevelopment: [
+          'Development of ten Computer Labs of the Department in the capacity of Head of the Department.',
+          'Development of Image Analysis and Computer Vision Lab for PG students.'
+        ],
+        proposalsProjects: [
+          'Establishment of PG course in Computer Science and Engineering ME(CSE) in 2003.',
+          'Establishment of another PG course in CSE Department named Computer Network and Internet security ME(CNIS) in 2012.',
+          'A MOU with Distance Education Program of IIT Bombay.',
+          'A MOU with Oracle Corporation for implementing the program Workforce Development.',
+          'A MOU with IBM for Power Academy Program (PAP).',
+          'A MOU with Machine Intelligence Research Labs (MRI Labs), Washington, USA'
+        ],
+        researchScholarsPhD: {
+          summary: '9 Ph.D. scholars have completed their PhD and 3 candidates currently pursuing their doctoral research.',
+          list: [
+            { srNo: 1, name: 'Kapre Bhagyashri Sudhakakrao', registeredWith: 'SRT Marathwada University, Nanded', titleArea: 'Design of Robust Content Based Image and Video Watermarking Schemes and Architecture in Compressed Domain', year: 'Completed 27/1/2024' },
+            { srNo: 2, name: 'Rahulsingh Gopalsingh Bisen', registeredWith: 'SRT Marathwada University, Nanded', titleArea: 'Automatic detection of lung infections in chest X-ray images', year: 'Pursuing in 22-23' },
+            { srNo: 3, name: 'Nikita Sanjay Pande', registeredWith: 'Dr. Babasaheb Ambedkar Technological University, Lonere', titleArea: 'Detection and Classification of Liver Tumor', year: 'Pursuing in 22-23' },
+            { srNo: 4, name: 'Banwaskar Mangal Ramrao', registeredWith: 'SRT Marathwada University, Nanded', titleArea: 'Designing of an Efficient Method for Content-Based Video Indexing and Retrieval', year: 'Completed 27/12/23' },
+            { srNo: 5, name: 'Sanghavi Kainjan Mahesh', registeredWith: 'SRT Marathwada University, Nanded', titleArea: 'Design of Effective Techniques for Prevention and Detection of Grape Diseases at Real Time Using IOT and Image Processing', year: 'Completed 30/1/2023' },
+            { srNo: 6, name: 'Kottawar Vinayak Gajanan', registeredWith: 'SRT Marathwada University, Nanded', titleArea: 'Content-Based Image Retrieval in P2P and Cloud Environment', year: 'Completed 5/1/2017' },
+            { srNo: 7, name: 'Thakre Kalpana Sunil', registeredWith: 'SRT Marathwada University, Nanded', titleArea: 'Video Retrieval in Compressed Domain', year: 'Completed 1/2/16' },
+            { srNo: 8, name: 'Thengade Anita Mahesh', registeredWith: 'SRT Marathwada University, Nanded', titleArea: 'Design of Automated System for Musculoskeletal Image Analysis and Interpretation of Knee for Quicker Diagnosis', year: 'Submitted 28/04/2016' },
+            { srNo: 9, name: 'Dhawase Dhammjyoti Vitthalrao', registeredWith: 'SRT Marathwada University, Nanded', titleArea: 'Design of Efficient Video Affective Content Analysis System', year: 'Pursuing 28/04/2016' },
+            { srNo: 10, name: 'Sanghavi Mahesh Ranglal', registeredWith: 'Jodhpur National University, Jodhpur', titleArea: 'Design and Analysis of robust Algorithm for Digital Image and Video Watermarking to Protect and Authenticate Multimedia Content', year: 'Completed 2015' },
+            { srNo: 11, name: 'Deshpande Deepa Sachin', registeredWith: 'SRT Marathwada University, Nanded', titleArea: 'Discovering Association Rules based on Image Content', year: 'Completed 6/11/15' },
+            { srNo: 12, name: 'Deshpande Neeta Amogh', registeredWith: 'SRT Marathwada University, Nanded', titleArea: 'Designing Robust Algorithms for Embedding Watermark in Digital Video.', year: 'Completed 3/12/14' },
+          ]
+        },
+        meMtechDissertations: [
+          { srNo: 1, name: 'Mohd Juned UZ Zama Khan', topic: 'Automatic Segmentation of Articular Cartilages of Pathological and Non- Pathological Knees from MRI', year: 2019 },
+          { srNo: 2, name: 'Supriya Pande Anilrao', topic: 'Automatic Human Knee Cartilage Segmentation from Magnetic Resonance Images', year: 2017 },
+          { srNo: 3, name: 'Priti Sattapure Shrikant', topic: 'Automatic Articular Cartilage Segmentation with Multiple Models', year: 2017 },
+          { srNo: 4, name: 'Prajakta Kulkarni', topic: 'Content Based Image Retrieval System Based on Interactive Genetic Algorithm', year: 2016 },
+          { srNo: 5, name: 'Radhika P. Dudhmande', topic: 'Extraction of Menisci & Detection & Characterization of Meniscal Tears in MRI Images', year: 2015 },
+          { srNo: 6, name: 'Amit Ashok Kamthane', topic: 'Exudate Detection in Diabetic Retinopathy Color Images Using Morphological Operations', year: 2015 },
+          { srNo: 7, name: 'Shilabai P. Ghadge', topic: 'Multi-Tier Content Based Microscopic Image Retrieval System', year: 2015 },
+          { srNo: 8, name: 'Dhananjay L. Joshi', topic: 'Data Replication in Data Intensive Scientific Applications with Performance Guarantee', year: 2015 },
+          { srNo: 9, name: 'Kulkarni Sanjeewani Balbhimrao', topic: 'A Unified Framework for Object Retrieval and Mining', year: 2014 },
+          { srNo: 10, name: 'Bhat Sneha V.', topic: 'Image Registration & Content Based Image Retrieval using Adaptive Polar Transform', year: 2014 },
+          { srNo: 11, name: 'Nikita S. Pande', topic: 'Detection and Classification of Suspicious Lesions in Mammograms', year: 2014 },
+          { srNo: 12, name: 'Kulkarni Parag Shisheer', topic: 'Content Based Image Retrieval System using User Navigation Patterns Relevance Feedback', year: 2013 },
+          { srNo: 24, name: 'Dang Chetana Kishor', topic: 'CLUE: Cluster based retrieval', year: 2013 }, // Note: Sr. No 24 in HTML for this item
+          { srNo: 13, name: 'Komatwar Rupali Manoj', topic: 'Use of Particle Filter in Visual Surveillance for Tracking Multiple People', year: 2013 },
+          { srNo: 14, name: 'Budhewar Anupama S.', topic: 'A Comparative Approach for Overlay Text Detection and Extraction from Complex Video Scene', year: 2012 },
+          { srNo: 15, name: 'Nagthane Deepika Kishor', topic: 'Design of Content Based Image Retrieval System using Fast Query Point Movement', year: 2011 },
+          { srNo: 16, name: 'Kottawar Vinayak G', topic: 'Content Based Image Retrieval using Active Learning', year: 2011 },
+          { srNo: 17, name: 'Chatur Madhuri Dhananjay', topic: 'Fast Video Retrieval using Two Step Coarse Search to Fine Search Method', year: 2011 },
+          { srNo: 18, name: 'Nandedkar Vaishali Shivraj', topic: 'Content Based Audio Retrieval using Multiple Feature Vectors', year: 2011 },
+          { srNo: 19, name: 'Deore Sandhya Subhash', topic: 'Dynamic Object Detection in Multimedia Mining', year: 2011 },
+          { srNo: 26, name: 'Nemanwar Dipika Sudhakarrao', topic: 'Arbitrary Ratio Image Resizing using Fast DCT of Composite Length DCT Based Transcoder', year: 2011 }, // Note: Sr. No 26 in HTML
+          { srNo: 28, name: 'Julme Bhavana Chandramani', topic: 'Motion Flow Based Video Retrieval', year: 2011 }, // Note: Sr. No 28 in HTML
+          { srNo: 29, name: 'Tandale Shrikant Ramrao', topic: 'Content Based Image Retrieval using Wavelet Based Salient Points for Texture, Color & Shape', year: 2011 }, // Note: Sr. No 29 in HTML
+          { srNo: 42, name: 'Hashmi S. A.', topic: 'Content Based Image Retrieval using Spatial features', year: 2011 }, // Note: Sr. No 42 in HTML
+          { srNo: 21, name: 'Pardeshi Nilesh Ghanshyam', topic: 'Watermarking Relational Databases', year: 2011 }, // Note: Sr. No 21 in HTML
+          { srNo: 35, name: 'Amol Kharat K.', topic: 'Region Based Image Retrieval using Color Shape & Location', year: 2010 }, // Note: Sr. No 35 in HTML
+          { srNo: 22, name: 'Kulkarni Nilima Vijayrao', topic: 'Image Segmentation using Color and Texture Feature', year: 2010 }, // Note: Sr. No 22 in HTML
+          { srNo: 20, name: 'Sanghavi Mahesh Ranglaji', topic: 'Digital Video Watermarking Based on Scene Change Detection', year: 2009 }, // Note: Sr. No 20 in HTML
+          { srNo: 23, name: 'Kotecha Kainjan Swarup', topic: 'Content Based Video Retrieval using Ordinal Measures, Average Intensity Motion and Color Feature', year: 2009 }, // Note: Sr. No 23 in HTML
+          { srNo: 25, name: 'Patil Shubhangi Dayaram', topic: 'Image Retrieval using Shape Context', year: 2009 }, // Note: Sr. No 25 in HTML
+          { srNo: 27, name: 'Kirange Dhyaneshwar Khemachandra', topic: 'MOSAIC Based Representation of Video Sequence', year: 2009 }, // Note: Sr. No 27 in HTML
+          { srNo: 33, name: 'Asole Suresh Shamrao', topic: 'Content Based Image Retrieval using Color Texture Moments', year: 2009 }, // Note: Sr. No 33 in HTML
+          { srNo: 34, name: 'Rathod Dharmesh I.', topic: 'Detection of Masses in Mamograms using Texture Features', year: 2009 }, // Note: Sr. No 34 in HTML
+          { srNo: 36, name: 'Giri Manish B.', topic: 'Multiprotocol Label System [MPLS] using Load Sharing', year: 2009 }, // Note: Sr. No 36 in HTML
+          { srNo: 39, name: 'Apare Ravindra', topic: 'Trademark Image Retrieval using Reduced Regulated Morphological Skeleton Transform', year: 2009 }, // Note: Sr. No 39 in HTML
+          { srNo: 30, name: 'Satav Pravin Ramdas', topic: 'Image Retrieval by Color Features in Image Database', year: 2009 }, // Note: Sr. No 30 in HTML
+          { srNo: 31, name: 'Narwade Jyoti Madhavrao', topic: 'Content based image retrieval using color histogram', year: 2008 }, // Note: Sr. No 31 in HTML
+          { srNo: 32, name: 'Deshpande Prachi Subhash', topic: 'Performance Evaluation of Fractional PEL Motion Estimation Algorithm', year: 2008 }, // Note: Sr. No 32 in HTML
+          { srNo: 37, name: 'Jamkhandikar Dayanand S.', topic: 'Retrieval of Trademark Images Based on Shape', year: 2007 }, // Note: Sr. No 37 in HTML
+          { srNo: 38, name: 'Jaiswal Durgeshnandini R.', topic: 'Detection of fixed and moving object in still images and in video', year: 2007 }, // Note: Sr. No 38 in HTML
+          { srNo: 40, name: 'ArtiiD. K.', topic: 'Tool Design System', year: 2007 }, // Note: Sr. No 40 in HTML
+          { srNo: 41, name: 'Bhosikar S. V.', topic: 'Packet Monitoring System [PMS]', year: 2006 }, // Note: Sr. No 41 in HTML
+          { srNo: 43, name: 'Gatphne Suwarna', topic: 'Emergic Clean Mail', year: 2005 }, // Note: Sr. No 43 in HTML
+          { srNo: 44, name: 'P. A. Agrawal', topic: 'Optimal Filter for Texture Segmentation', year: 2005 }
+        ],
+        patentPublished: {
+          title: 'Design an IoT with Image Processing Based Solution of Detecting the Downy Mildew Disease of Grapes',
+          details: 'Kainjan M. Sanghavi, Dr. Mrs. Archana M. Rajurkar, Dr. Mahesh R. Sanghavi, “Design an IoT with Image Processing Based Solution of Detecting the Downy Mildew Disease of Grapes”, The Patent Office Journal No. 13/2018 Dated 30/03/2018 11264, Application No. 201821009017 A, Publication Date: 30/03/2018.'
+        }
+      },
+      outreachActivities: {
+        summary: [
+          'Visit to Hawaii, USA to attend the International Conference and present a research paper in Jan 2008. Also visited Stanford University and Northwestern University, Chicago.',
+          'Referee with Journal: Reviewer for International Journal on ‘Pattern Recognition’, Elsevier publications.',
+          'Worked as reviewer for National and International conferences.',
+          'Selected as examiner for evaluation of Ph.D. thesis of University of Mysore.',
+          'Two of the research papers have been accepted for World Comp 2009 International Conference on Image Processing, Computer Vision, and Pattern Recognition (IPCV\'09), Monte Carlo Resort, Las Vegas, Nevada, USA.',
+          'Three of my PG students received Best Paper Awards in International Conferences'
+        ],
+        seminarsConferences: {
+          attended: [
+            { srNo: 1, title: '9th Annual Women\'s Meet – AWM 2024 (Scientific Conference ISBN: 978–81–969897–4–3 | Theme: To Cultivate Research Spirit and Create a Vibrant Community of Women in Science and Technology)', organizerPlace: 'Centre for Women Development of Venus International Foundation at Green Park Chennai, India.', period: '2nd March 2024' },
+            { srNo: 2, title: '5th International Conference on Computing in Engineering and Technology ICCET2020', organizerPlace: 'MGM’s College of Engineering, Nanded', period: '09-11th January 2020' },
+            { srNo: 3, title: '4th International Conference on Computing in Engineering and Technology', organizerPlace: 'Deogiri Institute of Engg & Management Studies, Aurangabad', period: '09-11th January 2019' },
+            { srNo: 4, title: 'TechNExt India 2018, Annual Industry and Academis Conference and Awards 2018, CSI India', organizerPlace: 'Victor Menezes Convention Centre, IIT Bombay', period: '10-11’th February 2018' },
+            { srNo: 5, title: 'IEEE and CSI sponsored 1’st International Conference on Intelligent Systems and Information Management ICISIM- 2017', organizerPlace: 'MGM’s JNEC, Aurangabad, MS, India', period: '05’-06’th October 2017' },
+            { srNo: 6, title: 'International Conference on Signal and Information Processing IConSIP-2016', organizerPlace: 'SGGS Institute of Engg& Technology, Nanded in association with IIT, Bombay, COE Pune, SVUCE Tirupati and Technically co-sponsored by IEEE Bombay,', period: '6-8’th October 2016.' },
+            { srNo: 7, title: 'National Conference on TEQIP II : Best Policies and Practices', organizerPlace: 'State Project Facilitation Unit, TEQIP II, Maharashtra State and SGGS Institute of Engineering and Technology, Nanded', period: '10-11’th Jan 2014' },
+            { srNo: 8, title: 'National Conference on Communication, Computing and Networking Technologies (NCCCNT-13)', organizerPlace: 'SGGS Institute of Engineering and Technology, Nanded', period: '15-16th March 2013' },
+            { srNo: 9, title: '1st World Summit on Accreditation WOSA 2012', organizerPlace: 'National Board of Accreditation, New Delhi', period: '25-28th March 2012' },
+            { srNo: 10, title: 'First International Conference on Advances in Computing, ICAC 2008', organizerPlace: 'Anuradha Engineering College, Chikhali, Maharashtra, India.', period: 'Feb 21-22, 2008' },
+            { srNo: 11, title: 'Forty-First Annual Hawaii International Conference on System Sciences', organizerPlace: 'Waikoloa, Big Island, Hawaii, USA.', period: 'Jan 7-10, 2008' },
+            { srNo: 12, title: 'IEEE First International Conference on Signal and Image Processing', organizerPlace: 'B.V.B. College of Engineering and Technology, Hubli, Karnataka, India.', period: 'Dec 7-9, 2006' },
+            { srNo: 13, title: 'Annual Convention of ISTE (Maharashtra and Goa Section) on Technical Education-Technology Transfer to Rural India and Sustainable Development', organizerPlace: 'M.G.M.’s College of Engineering, Nanded.', period: 'March  4-5, 2006' },
+            { srNo: 14, title: 'International Conference on Cognition and Recognition', organizerPlace: 'P.E.S. College of Engineering, Mandya, Karnataka, India.', period: 'Dec 22-23, 2005' },
+            { srNo: 15, title: 'Computer Applications in Electrical Engineering - Recent Advances” (CERA-01)', organizerPlace: 'Department of Electrical Engineering, IIT Roorkee, Roorkee.', period: 'Feb. 21-23, 2002' },
+            { srNo: 16, title: 'ICMPS 2000 on Multimedia Processing and Systems', organizerPlace: 'Office of Naval Research, University of Maryland and IIT Madras, Chennai.', period: 'August 13-15, 2000' },
+            { srNo: 17, title: 'Information Technology and Applications: Emerging Trends', organizerPlace: 'IIT Roorkee, Roorkee.', period: 'Dec.23-24, 1998' },
+            { srNo: 18, title: 'Computer Society of India, Western Region Convention', organizerPlace: 'JNE College of Engineering, Aurangabad.', period: 'March 1-3, 1996' }
+          ],
+          shortTermCourses: [
+            { srNo: 1, title: 'Future of Education Workshop by Employability. Life', place: 'MGM’s College of Engineering and Technology Mumbai', period: '25th Nov 2023' },
+            { srNo: 2, title: 'Program on Institutional Transformation Strategy by Digital Commonwealth, London, UK', place: 'MGM’s College of Engineering and Technology Mumbai', period: '2022' },
+            { srNo: 3, title: 'National Intellectual Property Awareness Mission', place: 'Intellectual Property Office, India', period: '16th Dec 2022' },
+            { srNo: 4, title: 'Principals’ Meet followed by Two Day Workshop on "Introduction to Robotics" by e-Yantra Lab Setup Initiative (eLSI), e- Yantra Project of IIT Bombay at', place: 'M.G.M.’s College of Engineering, Nanded.', period: '2nd & 3rd August 2019' },
+            { srNo: 5, title: 'Python Workshop organized by Teaching Learning Centre (ICT) at IIT Bombay funded by PMMMNMIT', place: 'M.G.M.’s College of Engineering, Nanded.', period: '22nd June 2019' },
+            { srNo: 6, title: 'TEQIP-III Sponsored one day workshop on Curriculum Development for Computer Science and Engineering', place: 'Dr. Babasaheb Ambedkar Tech. University, Lonere', period: '01st May 2019' },
+            { srNo: 7, title: 'International Workshop on Pattern Analysis and Machine Intelligence Document Engineering to Healthcare', place: 'Solapur University, Solapur.', period: '20th Dec 2018' },
+            { srNo: 8, title: 'Faculty Development Program (FDP) Foundation Program in ICT for Education conducted by IIT Bombay', place: 'M.G.M.’s College of Engineering, Nanded.', period: '13-18th September 2018' },
+            { srNo: 9, title: 'One Day NBA Orientation Workshop on Outcome Based Accreditation Process and Parameters', place: 'MSPM’s Deogiri Institute of Engineering and Management Studies, Aurangabad', period: '9’th June 2017' },
+            { srNo: 10, title: 'Two-Week ISTE STTP Workshop on Introduction to Design of Algorithms Conducted by IIT Kharagpur', place: 'MGM’s College of Engineering, Nanded Remote Center Under NMEICT(MHRD)', period: '27’th to 30’th May, 2015' },
+            { srNo: 11, title: 'Two-Week ISTE STTP Workshop on Computer Programming Conducted by IIT Bombay', place: 'MGM’s College of Engineering, Nanded Remote Center Under NMEICT(MHRD)', period: 'May 20’th to June 21’st 2014' },
+            { srNo: 12, title: 'One Week STTP on Signal, Speech and Image Processing Using MATLAB', place: 'MGM’s College of Engineering, Nanded', period: '1-6th July 2013' },
+            { srNo: 13, title: 'Two Days Advance Mission 10X Faculty Empowerment Workshop by Wipro Technologies', place: 'MGM’s College of Engineering, Nanded', period: '30-31st March 2012' },
+            { srNo: 14, title: 'Five Days Mission 10X Faculty Empowerment Workshop by Wipro Technologies', place: 'MGM’s College of Engineering, Nanded', period: '28 Nov-2nd Dec 2011' },
+            { srNo: 15, title: 'One day workshop on “Demystifying GCC thorough Gray Box Probing”', place: 'Department of Computer Sci.&Engg. Shri Guru Gobind Singhji Institute of Engineering & Technology, Nanded', period: '6th March 2010' },
+            { srNo: 16, title: 'One day workshop on ECG Analysis and Interpretation', place: 'Department of Instrumentation Engineering. Shri Guru Gobind Singhji Institute of Engg., & Technology, Nanded', period: '17th Feb 2010' },
+            { srNo: 17, title: 'Two Week ISTE Workshop on Effective teaching/learning of Computer Programming', place: 'Indian Institute of Technology, Bombay', period: '14-24th Dec 2009' },
+            { srNo: 18, title: 'Workshop on Compiler Construction: From Practice to Theory', place: 'Department of Computer Engg. and IT, COEP, Pune.', period: '7-13thSept 2007' },
+            { srNo: 19, title: 'Training program on Object Oriented Analysis and Design Using the UML with Fundamentals of Rational Rose', place: 'IBM Rational SEED, Pune, INDIA, at MGMCE Nanded.', period: '17-18thFeb 2007' },
+            { srNo: 20, title: 'Training program on AIX5L Basics', place: 'IBM INDIA Banglore.', period: '10-13th July 2006' },
+            { srNo: 21, title: 'Recent Trends in Signal and Image Processing', place: 'Department of E&TC, SGGSIET, Nanded.', period: '16-18th Jan 2006.' },
+            { srNo: 22, title: 'PG Level course in audit mode, titled Multimedia Systems', place: 'DEP, KReSIT, IIT Bombay.', period: 'Jan-May 2003' },
+            { srNo: 23, title: 'Course on JAVA organized by Mechanical and Industrial Engineering Students Society', place: 'IIT Roorkee, Roorkee.', period: '16- 6th Feb 2000' },
+            { srNo: 24, title: 'Microsoft NT 4.0 and Workstation', place: 'Microsoft at Microland, Pune', period: 'Mar-97' },
+            { srNo: 25, title: 'Microprocessors in Instrumentation', place: 'SGGS College of Engineering, Nanded.', period: '17-28th June 1996' }
+          ],
+          organized: [
+            { srNo: 1, title: 'Organised 5th International Conference on Computing in Engineering and Technology ICCET2020 in association with Dept. of Electronics and Telecommunication Engg., Dr. BA Technological University, Lonere, Maharashtra and AICTE', place: 'Department of CSE, MGM’s College of Engineering, Nanded', period: '09-11th January 2020' },
+            { srNo: 2, title: 'Organised Principals’ Meet followed by Two Day Workshop on "Introduction to Robotics" by e- Yantra Lab Setup Initiative (eLSI), e-Yantra Project of IIT Bombay', place: 'Department of CSE, M.G.M.’s College of Engineering, Nanded.', period: '2nd & 3rd August 2019' },
+            { srNo: 3, title: 'Organised Faculty Development Program on “Data Science using R-Programming” Sponsored by TEQUIP-III, Dr. BA Technological University, Lonere, Maharashtra', place: 'Department of CSE, M.G.M.’s College of Engineering, Nanded.', period: '7 – 11th Jan 2019' }
+          ]
+        }
+      },
+      academicEnvironment: {
+        laboratoryDevelopment: [
+          'Development of ten Computer Labs of the Department in the capacity of Head of the Department.',
+          'Development of Image Analysis and Computer Vision Lab for PG students.'
+        ],
+        proposalsProjects: [
+          'Establishment of PG course in Computer Science and Engineering ME(CSE) in 2003.',
+          'Establishment of another PG course in CSE Department named Computer Network and Internet security ME(CNIS) in 2012.',
+          'A MOU with Distance Education Program of IIT Bombay.',
+          'A MOU with Oracle Corporation for implementing the program Workforce Development.',
+          'A MOU with IBM for Power Academy Program (PAP).',
+          'A MOU with Machine Intelligence Research Labs (MRI Labs), Washington, USA'
+        ],
+        researchScholarsPhD: {
+          summary: '9 Ph.D. scholars have completed their PhD and 3 candidates currently pursuing their doctoral research.',
+          list: [
+            { srNo: 1, name: 'Kapre Bhagyashri Sudhakakrao', registeredWith: 'SRT Marathwada University, Nanded', titleArea: 'Design of Robust Content Based Image and Video Watermarking Schemes and Architecture in Compressed Domain', year: 'Completed 27/1/2024' },
+            { srNo: 2, name: 'Rahulsingh Gopalsingh Bisen', registeredWith: 'SRT Marathwada University, Nanded', titleArea: 'Automatic detection of lung infections in chest X-ray images', year: 'Pursuing in 22-23' },
+            { srNo: 3, name: 'Nikita Sanjay Pande', registeredWith: 'Dr. Babasaheb Ambedkar Technological University, Lonere', titleArea: 'Detection and Classification of Liver Tumor', year: 'Pursuing in 22-23' },
+            { srNo: 4, name: 'Banwaskar Mangal Ramrao', registeredWith: 'SRT Marathwada University, Nanded', titleArea: 'Designing of an Efficient Method for Content-Based Video Indexing and Retrieval', year: 'Completed 27/12/23' },
+            { srNo: 5, name: 'Sanghavi Kainjan Mahesh', registeredWith: 'SRT Marathwada University, Nanded', titleArea: 'Design of Effective Techniques for Prevention and Detection of Grape Diseases at Real Time Using IOT and Image Processing', year: 'Completed 30/1/2023' },
+            { srNo: 6, name: 'Kottawar Vinayak Gajanan', registeredWith: 'SRT Marathwada University, Nanded', titleArea: 'Content-Based Image Retrieval in P2P and Cloud Environment', year: 'Completed 5/1/2017' },
+            { srNo: 7, name: 'Thakre Kalpana Sunil', registeredWith: 'SRT Marathwada University, Nanded', titleArea: 'Video Retrieval in Compressed Domain', year: 'Completed 1/2/16' },
+            { srNo: 8, name: 'Thengade Anita Mahesh', registeredWith: 'SRT Marathwada University, Nanded', titleArea: 'Design of Automated System for Musculoskeletal Image Analysis and Interpretation of Knee for Quicker Diagnosis', year: 'Submitted 28/04/2016' },
+            { srNo: 9, name: 'Dhawase Dhammjyoti Vitthalrao', registeredWith: 'SRT Marathwada University, Nanded', titleArea: 'Design of Efficient Video Affective Content Analysis System', year: 'Pursuing 28/04/2016' },
+            { srNo: 10, name: 'Sanghavi Mahesh Ranglal', registeredWith: 'Jodhpur National University, Jodhpur', titleArea: 'Design and Analysis of robust Algorithm for Digital Image and Video Watermarking to Protect and Authenticate Multimedia Content', year: 'Completed 2015' },
+            { srNo: 11, name: 'Deshpande Deepa Sachin', registeredWith: 'SRT Marathwada University, Nanded', titleArea: 'Discovering Association Rules based on Image Content', year: 'Completed 6/11/15' },
+            { srNo: 12, name: 'Deshpande Neeta Amogh', registeredWith: 'SRT Marathwada University, Nanded', titleArea: 'Designing Robust Algorithms for Embedding Watermark in Digital Video.', year: 'Completed 3/12/14' },
+          ]
+        },
+        meMtechDissertations: [
+          { srNo: 1, name: 'Mohd Juned UZ Zama Khan', topic: 'Automatic Segmentation of Articular Cartilages of Pathological and Non- Pathological Knees from MRI', year: 2019 },
+          { srNo: 2, name: 'Supriya Pande Anilrao', topic: 'Automatic Human Knee Cartilage Segmentation from Magnetic Resonance Images', year: 2017 },
+          { srNo: 3, name: 'Priti Sattapure Shrikant', topic: 'Automatic Articular Cartilage Segmentation with Multiple Models', year: 2017 },
+          { srNo: 4, name: 'Prajakta Kulkarni', topic: 'Content Based Image Retrieval System Based on Interactive Genetic Algorithm', year: 2016 },
+          { srNo: 5, name: 'Radhika P. Dudhmande', topic: 'Extraction of Menisci & Detection & Characterization of Meniscal Tears in MRI Images', year: 2015 },
+          { srNo: 6, name: 'Amit Ashok Kamthane', topic: 'Exudate Detection in Diabetic Retinopathy Color Images Using Morphological Operations', year: 2015 },
+          { srNo: 7, name: 'Shilabai P. Ghadge', topic: 'Multi-Tier Content Based Microscopic Image Retrieval System', year: 2015 },
+          { srNo: 8, name: 'Dhananjay L. Joshi', topic: 'Data Replication in Data Intensive Scientific Applications with Performance Guarantee', year: 2015 },
+          { srNo: 9, name: 'Kulkarni Sanjeewani Balbhimrao', topic: 'A Unified Framework for Object Retrieval and Mining', year: 2014 },
+          { srNo: 10, name: 'Bhat Sneha V.', topic: 'Image Registration & Content Based Image Retrieval using Adaptive Polar Transform', year: 2014 },
+          { srNo: 11, name: 'Nikita S. Pande', topic: 'Detection and Classification of Suspicious Lesions in Mammograms', year: 2014 },
+          { srNo: 12, name: 'Kulkarni Parag Shisheer', topic: 'Content Based Image Retrieval System using User Navigation Patterns Relevance Feedback', year: 2013 },
+          { srNo: 24, name: 'Dang Chetana Kishor', topic: 'CLUE: Cluster based retrieval', year: 2013 }, // Note: Sr. No 24 in HTML for this item
+          { srNo: 13, name: 'Komatwar Rupali Manoj', topic: 'Use of Particle Filter in Visual Surveillance for Tracking Multiple People', year: 2013 },
+          { srNo: 14, name: 'Budhewar Anupama S.', topic: 'A Comparative Approach for Overlay Text Detection and Extraction from Complex Video Scene', year: 2012 },
+          { srNo: 15, name: 'Nagthane Deepika Kishor', topic: 'Design of Content Based Image Retrieval System using Fast Query Point Movement', year: 2011 },
+          { srNo: 16, name: 'Kottawar Vinayak G', topic: 'Content Based Image Retrieval using Active Learning', year: 2011 },
+          { srNo: 17, name: 'Chatur Madhuri Dhananjay', topic: 'Fast Video Retrieval using Two Step Coarse Search to Fine Search Method', year: 2011 },
+          { srNo: 18, name: 'Nandedkar Vaishali Shivraj', topic: 'Content Based Audio Retrieval using Multiple Feature Vectors', year: 2011 },
+          { srNo: 19, name: 'Deore Sandhya Subhash', topic: 'Dynamic Object Detection in Multimedia Mining', year: 2011 },
+          { srNo: 26, name: 'Nemanwar Dipika Sudhakarrao', topic: 'Arbitrary Ratio Image Resizing using Fast DCT of Composite Length DCT Based Transcoder', year: 2011 }, // Note: Sr. No 26 in HTML
+          { srNo: 28, name: 'Julme Bhavana Chandramani', topic: 'Motion Flow Based Video Retrieval', year: 2011 }, // Note: Sr. No 28 in HTML
+          { srNo: 29, name: 'Tandale Shrikant Ramrao', topic: 'Content Based Image Retrieval using Wavelet Based Salient Points for Texture, Color & Shape', year: 2011 }, // Note: Sr. No 29 in HTML
+          { srNo: 42, name: 'Hashmi S. A.', topic: 'Content Based Image Retrieval using Spatial features', year: 2011 }, // Note: Sr. No 42 in HTML
+          { srNo: 21, name: 'Pardeshi Nilesh Ghanshyam', topic: 'Watermarking Relational Databases', year: 2011 }, // Note: Sr. No 21 in HTML
+          { srNo: 35, name: 'Amol Kharat K.', topic: 'Region Based Image Retrieval using Color Shape & Location', year: 2010 }, // Note: Sr. No 35 in HTML
+          { srNo: 22, name: 'Kulkarni Nilima Vijayrao', topic: 'Image Segmentation using Color and Texture Feature', year: 2010 }, // Note: Sr. No 22 in HTML
+          { srNo: 20, name: 'Sanghavi Mahesh Ranglaji', topic: 'Digital Video Watermarking Based on Scene Change Detection', year: 2009 }, // Note: Sr. No 20 in HTML
+          { srNo: 23, name: 'Kotecha Kainjan Swarup', topic: 'Content Based Video Retrieval using Ordinal Measures, Average Intensity Motion and Color Feature', year: 2009 }, // Note: Sr. No 23 in HTML
+          { srNo: 25, name: 'Patil Shubhangi Dayaram', topic: 'Image Retrieval using Shape Context', year: 2009 }, // Note: Sr. No 25 in HTML
+          { srNo: 27, name: 'Kirange Dhyaneshwar Khemachandra', topic: 'MOSAIC Based Representation of Video Sequence', year: 2009 }, // Note: Sr. No 27 in HTML
+          { srNo: 33, name: 'Asole Suresh Shamrao', topic: 'Content Based Image Retrieval using Color Texture Moments', year: 2009 }, // Note: Sr. No 33 in HTML
+          { srNo: 34, name: 'Rathod Dharmesh I.', topic: 'Detection of Masses in Mamograms using Texture Features', year: 2009 }, // Note: Sr. No 34 in HTML
+          { srNo: 36, name: 'Giri Manish B.', topic: 'Multiprotocol Label System [MPLS] using Load Sharing', year: 2009 }, // Note: Sr. No 36 in HTML
+          { srNo: 39, name: 'Apare Ravindra', topic: 'Trademark Image Retrieval using Reduced Regulated Morphological Skeleton Transform', year: 2009 }, // Note: Sr. No 39 in HTML
+          { srNo: 30, name: 'Satav Pravin Ramdas', topic: 'Image Retrieval by Color Features in Image Database', year: 2009 }, // Note: Sr. No 30 in HTML
+          { srNo: 31, name: 'Narwade Jyoti Madhavrao', topic: 'Content based image retrieval using color histogram', year: 2008 }, // Note: Sr. No 31 in HTML
+          { srNo: 32, name: 'Deshpande Prachi Subhash', topic: 'Performance Evaluation of Fractional PEL Motion Estimation Algorithm', year: 2008 }, // Note: Sr. No 32 in HTML
+          { srNo: 37, name: 'Jamkhandikar Dayanand S.', topic: 'Retrieval of Trademark Images Based on Shape', year: 2007 }, // Note: Sr. No 37 in HTML
+          { srNo: 38, name: 'Jaiswal Durgeshnandini R.', topic: 'Detection of fixed and moving object in still images and in video', year: 2007 }, // Note: Sr. No 38 in HTML
+          { srNo: 40, name: 'ArtiiD. K.', topic: 'Tool Design System', year: 2007 }, // Note: Sr. No 40 in HTML
+          { srNo: 41, name: 'Bhosikar S. V.', topic: 'Packet Monitoring System [PMS]', year: 2006 }, // Note: Sr. No 41 in HTML
+          { srNo: 43, name: 'Gatphne Suwarna', topic: 'Emergic Clean Mail', year: 2005 }, // Note: Sr. No 43 in HTML
+          { srNo: 44, name: 'P. A. Agrawal', topic: 'Optimal Filter for Texture Segmentation', year: 2005 }
+        ],
+        patentPublished: {
+          title: 'Design an IoT with Image Processing Based Solution of Detecting the Downy Mildew Disease of Grapes',
+          details: 'Kainjan M. Sanghavi, Dr. Mrs. Archana M. Rajurkar, Dr. Mahesh R. Sanghavi, “Design an IoT with Image Processing Based Solution of Detecting the Downy Mildew Disease of Grapes”, The Patent Office Journal No. 13/2018 Dated 30/03/2018 11264, Application No. 201821009017 A, Publication Date: 30/03/2018.'
+        }
+      },
+      outreachActivities: {
+        summary: [
+          'Visit to Hawaii, USA to attend the International Conference and present a research paper in Jan 2008. Also visited Stanford University and Northwestern University, Chicago.',
+          'Referee with Journal: Reviewer for International Journal on ‘Pattern Recognition’, Elsevier publications.',
+          'Worked as reviewer for National and International conferences.',
+          'Selected as examiner for evaluation of Ph.D. thesis of University of Mysore.',
+          'Two of the research papers have been accepted for World Comp 2009 International Conference on Image Processing, Computer Vision, and Pattern Recognition (IPCV\'09), Monte Carlo Resort, Las Vegas, Nevada, USA.',
+          'Three of my PG students received Best Paper Awards in International Conferences'
+        ],
+        seminarsConferences: {
+          attended: [
+            { srNo: 1, title: '9th Annual Women\'s Meet – AWM 2024 (Scientific Conference ISBN: 978–81–969897–4–3 | Theme: To Cultivate Research Spirit and Create a Vibrant Community of Women in Science and Technology)', organizerPlace: 'Centre for Women Development of Venus International Foundation at Green Park Chennai, India.', period: '2nd March 2024' },
+            { srNo: 2, title: '5th International Conference on Computing in Engineering and Technology ICCET2020', organizerPlace: 'MGM’s College of Engineering, Nanded', period: '09-11th January 2020' },
+            { srNo: 3, title: '4th International Conference on Computing in Engineering and Technology', organizerPlace: 'Deogiri Institute of Engg & Management Studies, Aurangabad', period: '09-11th January 2019' },
+            { srNo: 4, title: 'TechNExt India 2018, Annual Industry and Academis Conference and Awards 2018, CSI India', organizerPlace: 'Victor Menezes Convention Centre, IIT Bombay', period: '10-11’th February 2018' },
+            { srNo: 5, title: 'IEEE and CSI sponsored 1’st International Conference on Intelligent Systems and Information Management ICISIM- 2017', organizerPlace: 'MGM’s JNEC, Aurangabad, MS, India', period: '05’-06’th October 2017' },
+            { srNo: 6, title: 'International Conference on Signal and Information Processing IConSIP-2016', organizerPlace: 'SGGS Institute of Engg& Technology, Nanded in association with IIT, Bombay, COE Pune, SVUCE Tirupati and Technically co-sponsored by IEEE Bombay,', period: '6-8’th October 2016.' },
+            { srNo: 7, title: 'National Conference on TEQIP II : Best Policies and Practices', organizerPlace: 'State Project Facilitation Unit, TEQIP II, Maharashtra State and SGGS Institute of Engineering and Technology, Nanded', period: '10-11’th Jan 2014' },
+            { srNo: 8, title: 'National Conference on Communication, Computing and Networking Technologies (NCCCNT-13)', organizerPlace: 'SGGS Institute of Engineering and Technology, Nanded', period: '15-16th March 2013' },
+            { srNo: 9, title: '1st World Summit on Accreditation WOSA 2012', organizerPlace: 'National Board of Accreditation, New Delhi', period: '25-28th March 2012' },
+            { srNo: 10, title: 'First International Conference on Advances in Computing, ICAC 2008', organizerPlace: 'Anuradha Engineering College, Chikhali, Maharashtra, India.', period: 'Feb 21-22, 2008' },
+            { srNo: 11, title: 'Forty-First Annual Hawaii International Conference on System Sciences', organizerPlace: 'Waikoloa, Big Island, Hawaii, USA.', period: 'Jan 7-10, 2008' },
+            { srNo: 12, title: 'IEEE First International Conference on Signal and Image Processing', organizerPlace: 'B.V.B. College of Engineering and Technology, Hubli, Karnataka, India.', period: 'Dec 7-9, 2006' },
+            { srNo: 13, title: 'Annual Convention of ISTE (Maharashtra and Goa Section) on Technical Education-Technology Transfer to Rural India and Sustainable Development', organizerPlace: 'M.G.M.’s College of Engineering, Nanded.', period: 'March  4-5, 2006' },
+            { srNo: 14, title: 'International Conference on Cognition and Recognition', organizerPlace: 'P.E.S. College of Engineering, Mandya, Karnataka, India.', period: 'Dec 22-23, 2005' },
+            { srNo: 15, title: 'Computer Applications in Electrical Engineering - Recent Advances” (CERA-01)', organizerPlace: 'Department of Electrical Engineering, IIT Roorkee, Roorkee.', period: 'Feb. 21-23, 2002' },
+            { srNo: 16, title: 'ICMPS 2000 on Multimedia Processing and Systems', organizerPlace: 'Office of Naval Research, University of Maryland and IIT Madras, Chennai.', period: 'August 13-15, 2000' },
+            { srNo: 17, title: 'Information Technology and Applications: Emerging Trends', organizerPlace: 'IIT Roorkee, Roorkee.', period: 'Dec.23-24, 1998' },
+            { srNo: 18, title: 'Computer Society of India, Western Region Convention', organizerPlace: 'JNE College of Engineering, Aurangabad.', period: 'March 1-3, 1996' }
+          ],
+          shortTermCourses: [
+            { srNo: 1, title: 'Future of Education Workshop by Employability. Life', place: 'MGM’s College of Engineering and Technology Mumbai', period: '25th Nov 2023' },
+            { srNo: 2, title: 'Program on Institutional Transformation Strategy by Digital Commonwealth, London, UK', place: 'MGM’s College of Engineering and Technology Mumbai', period: '2022' },
+            { srNo: 3, title: 'National Intellectual Property Awareness Mission', place: 'Intellectual Property Office, India', period: '16th Dec 2022' },
+            { srNo: 4, title: 'Principals’ Meet followed by Two Day Workshop on "Introduction to Robotics" by e-Yantra Lab Setup Initiative (eLSI), e- Yantra Project of IIT Bombay at', place: 'M.G.M.’s College of Engineering, Nanded.', period: '2nd & 3rd August 2019' },
+            { srNo: 5, title: 'Python Workshop organized by Teaching Learning Centre (ICT) at IIT Bombay funded by PMMMNMIT', place: 'M.G.M.’s College of Engineering, Nanded.', period: '22nd June 2019' },
+            { srNo: 6, title: 'TEQIP-III Sponsored one day workshop on Curriculum Development for Computer Science and Engineering', place: 'Dr. Babasaheb Ambedkar Tech. University, Lonere', period: '01st May 2019' },
+            { srNo: 7, title: 'International Workshop on Pattern Analysis and Machine Intelligence Document Engineering to Healthcare', place: 'Solapur University, Solapur.', period: '20th Dec 2018' },
+            { srNo: 8, title: 'Faculty Development Program (FDP) Foundation Program in ICT for Education conducted by IIT Bombay', place: 'M.G.M.’s College of Engineering, Nanded.', period: '13-18th September 2018' },
+            { srNo: 9, title: 'One Day NBA Orientation Workshop on Outcome Based Accreditation Process and Parameters', place: 'MSPM’s Deogiri Institute of Engineering and Management Studies, Aurangabad', period: '9’th June 2017' },
+            { srNo: 10, title: 'Two-Week ISTE STTP Workshop on Introduction to Design of Algorithms Conducted by IIT Kharagpur', place: 'MGM’s College of Engineering, Nanded Remote Center Under NMEICT(MHRD)', period: '27’th to 30’th May, 2015' },
+            { srNo: 11, title: 'Two-Week ISTE STTP Workshop on Computer Programming Conducted by IIT Bombay', place: 'MGM’s College of Engineering, Nanded Remote Center Under NMEICT(MHRD)', period: 'May 20’th to June 21’st 2014' },
+            { srNo: 12, title: 'One Week STTP on Signal, Speech and Image Processing Using MATLAB', place: 'MGM’s College of Engineering, Nanded', period: '1-6th July 2013' },
+            { srNo: 13, title: 'Two Days Advance Mission 10X Faculty Empowerment Workshop by Wipro Technologies', place: 'MGM’s College of Engineering, Nanded', period: '30-31st March 2012' },
+            { srNo: 14, title: 'Five Days Mission 10X Faculty Empowerment Workshop by Wipro Technologies', place: 'MGM’s College of Engineering, Nanded', period: '28 Nov-2nd Dec 2011' },
+            { srNo: 15, title: 'One day workshop on “Demystifying GCC thorough Gray Box Probing”', place: 'Department of Computer Sci.&Engg. Shri Guru Gobind Singhji Institute of Engineering & Technology, Nanded', period: '6th March 2010' },
+            { srNo: 16, title: 'One day workshop on ECG Analysis and Interpretation', place: 'Department of Instrumentation Engineering. Shri Guru Gobind Singhji Institute of Engg., & Technology, Nanded', period: '17th Feb 2010' },
+            { srNo: 17, title: 'Two Week ISTE Workshop on Effective teaching/learning of Computer Programming', place: 'Indian Institute of Technology, Bombay', period: '14-24th Dec 2009' },
+            { srNo: 18, title: 'Workshop on Compiler Construction: From Practice to Theory', place: 'Department of Computer Engg. and IT, COEP, Pune.', period: '7-13thSept 2007' },
+            { srNo: 19, title: 'Training program on Object Oriented Analysis and Design Using the UML with Fundamentals of Rational Rose', place: 'IBM Rational SEED, Pune, INDIA, at MGMCE Nanded.', period: '17-18thFeb 2007' },
+            { srNo: 20, title: 'Training program on AIX5L Basics', place: 'IBM INDIA Banglore.', period: '10-13th July 2006' },
+            { srNo: 21, title: 'Recent Trends in Signal and Image Processing', place: 'Department of E&TC, SGGSIET, Nanded.', period: '16-18th Jan 2006.' },
+            { srNo: 22, title: 'PG Level course in audit mode, titled Multimedia Systems', place: 'DEP, KReSIT, IIT Bombay.', period: 'Jan-May 2003' },
+            { srNo: 23, title: 'Course on JAVA organized by Mechanical and Industrial Engineering Students Society', place: 'IIT Roorkee, Roorkee.', period: '16- 6th Feb 2000' },
+            { srNo: 24, title: 'Microsoft NT 4.0 and Workstation', place: 'Microsoft at Microland, Pune', period: 'Mar-97' },
+            { srNo: 25, title: 'Microprocessors in Instrumentation', place: 'SGGS College of Engineering, Nanded.', period: '17-28th June 1996' }
+          ],
+          organized: [
+            { srNo: 1, title: 'Organised 5th International Conference on Computing in Engineering and Technology ICCET2020 in association with Dept. of Electronics and Telecommunication Engg., Dr. BA Technological University, Lonere, Maharashtra and AICTE', place: 'Department of CSE, MGM’s College of Engineering, Nanded', period: '09-11th January 2020' },
+            { srNo: 2, title: 'Organised Principals’ Meet followed by Two Day Workshop on "Introduction to Robotics" by e- Yantra Lab Setup Initiative (eLSI), e-Yantra Project of IIT Bombay', place: 'Department of CSE, M.G.M.’s College of Engineering, Nanded.', period: '2nd & 3rd August 2019' },
+            { srNo: 3, title: 'Organised Faculty Development Program on “Data Science using R-Programming” Sponsored by TEQUIP-III, Dr. BA Technological University, Lonere, Maharashtra', place: 'Department of CSE, M.G.M.’s College of Engineering, Nanded.', period: '7 – 11th Jan 2019' }
+          ]
+        }
+      },
+      academicEnvironment: {
+        laboratoryDevelopment: [
+          'Development of ten Computer Labs of the Department in the capacity of Head of the Department.',
+          'Development of Image Analysis and Computer Vision Lab for PG students.'
+        ],
+        proposalsProjects: [
+          'Establishment of PG course in Computer Science and Engineering ME(CSE) in 2003.',
+          'Establishment of another PG course in CSE Department named Computer Network and Internet security ME(CNIS) in 2012.',
+          'A MOU with Distance Education Program of IIT Bombay.',
+          'A MOU with Oracle Corporation for implementing the program Workforce Development.',
+          'A MOU with IBM for Power Academy Program (PAP).',
+          'A MOU with Machine Intelligence Research Labs (MRI Labs), Washington, USA'
+        ],
+        researchScholarsPhD: {
+          summary: '9 Ph.D. scholars have completed their PhD and 3 candidates currently pursuing their doctoral research.',
+          list: [
+            { srNo: 1, name: 'Kapre Bhagyashri Sudhakakrao', registeredWith: 'SRT Marathwada University, Nanded', titleArea: 'Design of Robust Content Based Image and Video Watermarking Schemes and Architecture in Compressed Domain', year: 'Completed 27/1/2024' },
+            { srNo: 2, name: 'Rahulsingh Gopalsingh Bisen', registeredWith: 'SRT Marathwada University, Nanded', titleArea: 'Automatic detection of lung infections in chest X-ray images', year: 'Pursuing in 22-23' },
+            { srNo: 3, name: 'Nikita Sanjay Pande', registeredWith: 'Dr. Babasaheb Ambedkar Technological University, Lonere', titleArea: 'Detection and Classification of Liver Tumor', year: 'Pursuing in 22-23' },
+            { srNo: 4, name: 'Banwaskar Mangal Ramrao', registeredWith: 'SRT Marathwada University, Nanded', titleArea: 'Designing of an Efficient Method for Content-Based Video Indexing and Retrieval', year: 'Completed 27/12/23' },
+            { srNo: 5, name: 'Sanghavi Kainjan Mahesh', registeredWith: 'SRT Marathwada University, Nanded', titleArea: 'Design of Effective Techniques for Prevention and Detection of Grape Diseases at Real Time Using IOT and Image Processing', year: 'Completed 30/1/2023' },
+            { srNo: 6, name: 'Kottawar Vinayak Gajanan', registeredWith: 'SRT Marathwada University, Nanded', titleArea: 'Content-Based Image Retrieval in P2P and Cloud Environment', year: 'Completed 5/1/2017' },
+            { srNo: 7, name: 'Thakre Kalpana Sunil', registeredWith: 'SRT Marathwada University, Nanded', titleArea: 'Video Retrieval in Compressed Domain', year: 'Completed 1/2/16' },
+            { srNo: 8, name: 'Thengade Anita Mahesh', registeredWith: 'SRT Marathwada University, Nanded', titleArea: 'Design of Automated System for Musculoskeletal Image Analysis and Interpretation of Knee for Quicker Diagnosis', year: 'Submitted 28/04/2016' },
+            { srNo: 9, name: 'Dhawase Dhammjyoti Vitthalrao', registeredWith: 'SRT Marathwada University, Nanded', titleArea: 'Design of Efficient Video Affective Content Analysis System', year: 'Pursuing 28/04/2016' },
+            { srNo: 10, name: 'Sanghavi Mahesh Ranglal', registeredWith: 'Jodhpur National University, Jodhpur', titleArea: 'Design and Analysis of robust Algorithm for Digital Image and Video Watermarking to Protect and Authenticate Multimedia Content', year: 'Completed 2015' },
+            { srNo: 11, name: 'Deshpande Deepa Sachin', registeredWith: 'SRT Marathwada University, Nanded', titleArea: 'Discovering Association Rules based on Image Content', year: 'Completed 6/11/15' },
+            { srNo: 12, name: 'Deshpande Neeta Amogh', registeredWith: 'SRT Marathwada University, Nanded', titleArea: 'Designing Robust Algorithms for Embedding Watermark in Digital Video.', year: 'Completed 3/12/14' },
+          ]
+        },
+        meMtechDissertations: [
+          { srNo: 1, name: 'Mohd Juned UZ Zama Khan', topic: 'Automatic Segmentation of Articular Cartilages of Pathological and Non- Pathological Knees from MRI', year: 2019 },
+          { srNo: 2, name: 'Supriya Pande Anilrao', topic: 'Automatic Human Knee Cartilage Segmentation from Magnetic Resonance Images', year: 2017 },
+          { srNo: 3, name: 'Priti Sattapure Shrikant', topic: 'Automatic Articular Cartilage Segmentation with Multiple Models', year: 2017 },
+          { srNo: 4, name: 'Prajakta Kulkarni', topic: 'Content Based Image Retrieval System Based on Interactive Genetic Algorithm', year: 2016 },
+          { srNo: 5, name: 'Radhika P. Dudhmande', topic: 'Extraction of Menisci & Detection & Characterization of Meniscal Tears in MRI Images', year: 2015 },
+          { srNo: 6, name: 'Amit Ashok Kamthane', topic: 'Exudate Detection in Diabetic Retinopathy Color Images Using Morphological Operations', year: 2015 },
+          { srNo: 7, name: 'Shilabai P. Ghadge', topic: 'Multi-Tier Content Based Microscopic Image Retrieval System', year: 2015 },
+          { srNo: 8, name: 'Dhananjay L. Joshi', topic: 'Data Replication in Data Intensive Scientific Applications with Performance Guarantee', year: 2015 },
+          { srNo: 9, name: 'Kulkarni Sanjeewani Balbhimrao', topic: 'A Unified Framework for Object Retrieval and Mining', year: 2014 },
+          { srNo: 10, name: 'Bhat Sneha V.', topic: 'Image Registration & Content Based Image Retrieval using Adaptive Polar Transform', year: 2014 },
+          { srNo: 11, name: 'Nikita S. Pande', topic: 'Detection and Classification of Suspicious Lesions in Mammograms', year: 2014 },
+          { srNo: 12, name: 'Kulkarni Parag Shisheer', topic: 'Content Based Image Retrieval System using User Navigation Patterns Relevance Feedback', year: 2013 },
+          { srNo: 24, name: 'Dang Chetana Kishor', topic: 'CLUE: Cluster based retrieval', year: 2013 }, // Note: Sr. No 24 in HTML for this item
+          { srNo: 13, name: 'Komatwar Rupali Manoj', topic: 'Use of Particle Filter in Visual Surveillance for Tracking Multiple People', year: 2013 },
+          { srNo: 14, name: 'Budhewar Anupama S.', topic: 'A Comparative Approach for Overlay Text Detection and Extraction from Complex Video Scene', year: 2012 },
+          { srNo: 15, name: 'Nagthane Deepika Kishor', topic: 'Design of Content Based Image Retrieval System using Fast Query Point Movement', year: 2011 },
+          { srNo: 16, name: 'Kottawar Vinayak G', topic: 'Content Based Image Retrieval using Active Learning', year: 2011 },
+          { srNo: 17, name: 'Chatur Madhuri Dhananjay', topic: 'Fast Video Retrieval using Two Step Coarse Search to Fine Search Method', year: 2011 },
+          { srNo: 18, name: 'Nandedkar Vaishali Shivraj', topic: 'Content Based Audio Retrieval using Multiple Feature Vectors', year: 2011 },
+          { srNo: 19, name: 'Deore Sandhya Subhash', topic: 'Dynamic Object Detection in Multimedia Mining', year: 2011 },
+          { srNo: 26, name: 'Nemanwar Dipika Sudhakarrao', topic: 'Arbitrary Ratio Image Resizing using Fast DCT of Composite Length DCT Based Transcoder', year: 2011 }, // Note: Sr. No 26 in HTML
+          { srNo: 28, name: 'Julme Bhavana Chandramani', topic: 'Motion Flow Based Video Retrieval', year: 2011 }, // Note: Sr. No 28 in HTML
+          { srNo: 29, name: 'Tandale Shrikant Ramrao', topic: 'Content Based Image Retrieval using Wavelet Based Salient Points for Texture, Color & Shape', year: 2011 }, // Note: Sr. No 29 in HTML
+          { srNo: 42, name: 'Hashmi S. A.', topic: 'Content Based Image Retrieval using Spatial features', year: 2011 }, // Note: Sr. No 42 in HTML
+          { srNo: 21, name: 'Pardeshi Nilesh Ghanshyam', topic: 'Watermarking Relational Databases', year: 2011 }, // Note: Sr. No 21 in HTML
+          { srNo: 35, name: 'Amol Kharat K.', topic: 'Region Based Image Retrieval using Color Shape & Location', year: 2010 }, // Note: Sr. No 35 in HTML
+          { srNo: 22, name: 'Kulkarni Nilima Vijayrao', topic: 'Image Segmentation using Color and Texture Feature', year: 2010 }, // Note: Sr. No 22 in HTML
+          { srNo: 20, name: 'Sanghavi Mahesh Ranglaji', topic: 'Digital Video Watermarking Based on Scene Change Detection', year: 2009 }, // Note: Sr. No 20 in HTML
+          { srNo: 23, name: 'Kotecha Kainjan Swarup', topic: 'Content Based Video Retrieval using Ordinal Measures, Average Intensity Motion and Color Feature', year: 2009 }, // Note: Sr. No 23 in HTML
+          { srNo: 25, name: 'Patil Shubhangi Dayaram', topic: 'Image Retrieval using Shape Context', year: 2009 }, // Note: Sr. No 25 in HTML
+          { srNo: 27, name: 'Kirange Dhyaneshwar Khemachandra', topic: 'MOSAIC Based Representation of Video Sequence', year: 2009 }, // Note: Sr. No 27 in HTML
+          { srNo: 33, name: 'Asole Suresh Shamrao', topic: 'Content Based Image Retrieval using Color Texture Moments', year: 2009 }, // Note: Sr. No 33 in HTML
+          { srNo: 34, name: 'Rathod Dharmesh I.', topic: 'Detection of Masses in Mamograms using Texture Features', year: 2009 }, // Note: Sr. No 34 in HTML
+          { srNo: 36, name: 'Giri Manish B.', topic: 'Multiprotocol Label System [MPLS] using Load Sharing', year: 2009 }, // Note: Sr. No 36 in HTML
+          { srNo: 39, name: 'Apare Ravindra', topic: 'Trademark Image Retrieval using Reduced Regulated Morphological Skeleton Transform', year: 2009 }, // Note: Sr. No 39 in HTML
+          { srNo: 30, name: 'Satav Pravin Ramdas', topic: 'Image Retrieval by Color Features in Image Database', year: 2009 }, // Note: Sr. No 30 in HTML
+          { srNo: 31, name: 'Narwade Jyoti Madhavrao', topic: 'Content based image retrieval using color histogram', year: 2008 }, // Note: Sr. No 31 in HTML
+          { srNo: 32, name: 'Deshpande Prachi Subhash', topic: 'Performance Evaluation of Fractional PEL Motion Estimation Algorithm', year: 2008 }, // Note: Sr. No 32 in HTML
+          { srNo: 37, name: 'Jamkhandikar Dayanand S.', topic: 'Retrieval of Trademark Images Based on Shape', year: 2007 }, // Note: Sr. No 37 in HTML
+          { srNo: 38, name: 'Jaiswal Durgeshnandini R.', topic: 'Detection of fixed and moving object in still images and in video', year: 2007 }, // Note: Sr. No 38 in HTML
+          { srNo: 40, name: 'ArtiiD. K.', topic: 'Tool Design System', year: 2007 }, // Note: Sr. No 40 in HTML
+          { srNo: 41, name: 'Bhosikar S. V.', topic: 'Packet Monitoring System [PMS]', year: 2006 }, // Note: Sr. No 41 in HTML
+          { srNo: 43, name: 'Gatphne Suwarna', topic: 'Emergic Clean Mail', year: 2005 }, // Note: Sr. No 43 in HTML
+          { srNo: 44, name: 'P. A. Agrawal', topic: 'Optimal Filter for Texture Segmentation', year: 2005 }
+        ],
         patentPublished: {
           title: 'Design an IoT with Image Processing Based Solution of Detecting the Downy Mildew Disease of Grapes',
           details: 'Kainjan M. Sanghavi, Dr. Mrs. Archana M. Rajurkar, Dr. Mahesh R. Sanghavi, “Design an IoT with Image Processing Based Solution of Detecting the Downy Mildew Disease of Grapes”, The Patent Office Journal No. 13/2018 Dated 30/03/2018 11264, Application No. 201821009017 A, Publication Date: 30/03/2018.'

@@ -11,7 +11,8 @@ const FacultyDetailPage = () => {
     const [facultyDetails, setFacultyDetails] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
-    const [activeAccordion, setActiveAccordion] = useState('academic-qualification');
+    // CHANGE 1: Initialize activeAccordion to null so no tab is open by default
+    const [activeAccordion, setActiveAccordion] = useState(null);
 
     const currentDeptPath = "/academics/computer-science-engineering";
 
@@ -244,11 +245,12 @@ const FacultyDetailPage = () => {
                                             <AccordionItem 
                                                 title="Academic Qualification" 
                                                 id="academic-qualification"
-                                                defaultOpen={true}
+                                                // Removed defaultOpen={true}
                                                 isOpen={activeAccordion === 'academic-qualification'}
                                                 onToggle={() => toggleAccordion('academic-qualification')}
                                             >
-                                                <div className="overflow-hidden">
+                                                {/* CHANGE 2: Added max-h and overflow-y-auto for scrolling */}
+                                                <div className="max-h-[500px] overflow-y-auto p-4">
                                                     <div className="overflow-x-auto">
                                                         <table className="min-w-full divide-y divide-gray-200">
                                                             <thead className="bg-gray-50">
@@ -303,7 +305,8 @@ const FacultyDetailPage = () => {
                                                 isOpen={activeAccordion === 'experience'}
                                                 onToggle={() => toggleAccordion('experience')}
                                             >
-                                                <div className="overflow-hidden">
+                                                {/* CHANGE 3: Added max-h and overflow-y-auto for scrolling */}
+                                                <div className="max-h-[500px] overflow-y-auto p-4">
                                                     <div className="overflow-x-auto">
                                                         <table className="min-w-full divide-y divide-gray-200">
                                                             <thead className="bg-gray-50">
@@ -351,178 +354,181 @@ const FacultyDetailPage = () => {
                                                 isOpen={activeAccordion === 'research-publications'}
                                                 onToggle={() => toggleAccordion('research-publications')}
                                             >
-                                                <div className="space-y-8">
-                                                    {/* Summary Section - Only if exists */}
-                                                    {hasSectionData(detailedProfile.researchPublications.summary) && (
-                                                        <div className="bg-blue-50 rounded-lg p-6 border border-blue-200">
-                                                            <h4 className="text-lg font-semibold text-blue-900 mb-4">Research Summary</h4>
-                                                            <ul className="space-y-3">
-                                                                {detailedProfile.researchPublications.summary.map((item, index) => (
-                                                                    <li key={index} className="text-blue-800 flex items-start">
-                                                                        <div className="flex-shrink-0 w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3"></div>
-                                                                        <span className="flex-1">{item}</span>
-                                                                    </li>
-                                                                ))}
-                                                            </ul>
-                                                        </div>
-                                                    )}
-
-                                                    {/* International Journals - Only if exists */}
-                                                    {hasSectionData(detailedProfile.researchPublications.internationalJournals) && (
-                                                        <div>
-                                                            <h4 className="text-xl font-semibold text-gray-900 mb-6 pb-2 border-b border-gray-200">
-                                                                International Journal Publications
-                                                            </h4>
-                                                            <div className="space-y-6">
-                                                                {detailedProfile.researchPublications.internationalJournals.map((item, index) => (
-                                                                    <div key={index} className="bg-gray-50 rounded-lg p-6 border border-gray-200 hover:border-gray-300 transition-colors duration-200">
-                                                                        <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2 mb-4">
-                                                                            <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-indigo-100 text-indigo-800">
-                                                                                Publication #{item.srNo}
-                                                                            </span>
-                                                                            <span className="text-sm text-gray-500 bg-white px-3 py-1 rounded border border-gray-200">
-                                                                                {item.year}
-                                                                            </span>
-                                                                        </div>
-                                                                        <h5 className="text-lg font-medium text-gray-900 mb-3 leading-relaxed" 
-                                                                            dangerouslySetInnerHTML={{ __html: item.title }}>
-                                                                        </h5>
-                                                                        <div className="space-y-2 text-sm">
-                                                                            <p className="text-gray-700">
-                                                                                <strong className="font-semibold text-gray-900">Authors:</strong> {item.authors}
-                                                                            </p>
-                                                                            <p className="text-gray-700">
-                                                                                <strong className="font-semibold text-gray-900">Journal:</strong> {item.journalName}
-                                                                                {item.volumeNo && `, Volume ${item.volumeNo}`}
-                                                                                {item.issueNo && `, Issue ${item.issueNo}`}
-                                                                                {item.pageNumbers && `, Pages ${item.pageNumbers}`}
-                                                                            </p>
-                                                                        </div>
-                                                                    </div>
-                                                                ))}
-                                                            </div>
-                                                        </div>
-                                                    )}
-
-                                                    {/* International Conferences - Only if exists */}
-                                                    {hasSectionData(detailedProfile.researchPublications.internationalConferences) && (
-                                                        <div>
-                                                            <h4 className="text-xl font-semibold text-gray-900 mb-6 pb-2 border-b border-gray-200">
-                                                                International Conference Publications
-                                                            </h4>
-                                                            <div className="space-y-6">
-                                                                {detailedProfile.researchPublications.internationalConferences.map((item, index) => (
-                                                                    <div key={index} className="bg-gray-50 rounded-lg p-6 border border-gray-200 hover:border-gray-300 transition-colors duration-200">
-                                                                        <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2 mb-4">
-                                                                            <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-green-100 text-green-800">
-                                                                                Conference #{item.srNo}
-                                                                            </span>
-                                                                            <span className="text-sm text-gray-500 bg-white px-3 py-1 rounded border border-gray-200">
-                                                                                {item.duration}
-                                                                            </span>
-                                                                        </div>
-                                                                        <h5 className="text-lg font-medium text-gray-900 mb-3 leading-relaxed"
-                                                                            dangerouslySetInnerHTML={{ __html: item.title }}>
-                                                                        </h5>
-                                                                        <div className="space-y-2 text-sm">
-                                                                            <p className="text-gray-700">
-                                                                                <strong className="font-semibold text-gray-900">Authors:</strong> {item.authors}
-                                                                            </p>
-                                                                            <p className="text-gray-700">
-                                                                                <strong className="font-semibold text-gray-900">Conference:</strong> {item.conferenceName}
-                                                                            </p>
-                                                                            <p className="text-gray-700">
-                                                                                <strong className="font-semibold text-gray-900">Location:</strong> {item.heldAt}
-                                                                            </p>
-                                                                        </div>
-                                                                    </div>
-                                                                ))}
-                                                            </div>
-                                                        </div>
-                                                    )}
-
-                                                    {/* National Conferences - Only if exists */}
-                                                    {hasSectionData(detailedProfile.researchPublications.nationalConferences) && (
-                                                        <div>
-                                                            <h4 className="text-xl font-semibold text-gray-900 mb-6 pb-2 border-b border-gray-200">
-                                                                National Conference Publications
-                                                            </h4>
-                                                            <div className="space-y-6">
-                                                                {detailedProfile.researchPublications.nationalConferences.map((item, index) => (
-                                                                    <div key={index} className="bg-gray-50 rounded-lg p-6 border border-gray-200 hover:border-gray-300 transition-colors duration-200">
-                                                                        <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2 mb-4">
-                                                                            <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-blue-100 text-blue-800">
-                                                                                Conference #{item.srNo}
-                                                                            </span>
-                                                                            <span className="text-sm text-gray-500 bg-white px-3 py-1 rounded border border-gray-200">
-                                                                                {item.duration}
-                                                                            </span>
-                                                                        </div>
-                                                                        <h5 className="text-lg font-medium text-gray-900 mb-3 leading-relaxed"
-                                                                            dangerouslySetInnerHTML={{ __html: item.title }}>
-                                                                        </h5>
-                                                                        <div className="space-y-2 text-sm">
-                                                                            <p className="text-gray-700">
-                                                                                <strong className="font-semibold text-gray-900">Authors:</strong> {item.authors}
-                                                                            </p>
-                                                                            <p className="text-gray-700">
-                                                                                <strong className="font-semibold text-gray-900">Conference:</strong> {item.conferenceName}
-                                                                            </p>
-                                                                            <p className="text-gray-700">
-                                                                                <strong className="font-semibold text-gray-900">Location:</strong> {item.heldAt}
-                                                                            </p>
-                                                                        </div>
-                                                                    </div>
-                                                                ))}
-                                                            </div>
-                                                        </div>
-                                                    )}
-
-                                                    {/* Awards & Honors - Only if exists */}
-                                                    {hasSectionData(detailedProfile.researchPublications.awardsHonors) && (
-                                                        <div>
-                                                            <h4 className="text-xl font-semibold text-gray-900 mb-6 pb-2 border-b border-gray-200">
-                                                                Awards & Honors
-                                                            </h4>
-                                                            <div className="bg-yellow-50 rounded-lg p-6 border border-yellow-200">
-                                                                <ul className="space-y-4">
-                                                                    {detailedProfile.researchPublications.awardsHonors.map((item, index) => (
-                                                                        <li key={index} className="text-yellow-800 flex items-start">
-                                                                            <div className="flex-shrink-0 w-5 h-5 text-yellow-600 mr-3 mt-0.5">
-                                                                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                                                                </svg>
-                                                                            </div>
-                                                                            <span className="flex-1 text-lg">{item}</span>
+                                                {/* CHANGE 4: Added max-h and overflow-y-auto for scrolling */}
+                                                <div className="max-h-[500px] overflow-y-auto p-4">
+                                                    <div className="space-y-8">
+                                                        {/* Summary Section - Only if exists */}
+                                                        {hasSectionData(detailedProfile.researchPublications.summary) && (
+                                                            <div className="bg-blue-50 rounded-lg p-6 border border-blue-200">
+                                                                <h4 className="text-lg font-semibold text-blue-900 mb-4">Research Summary</h4>
+                                                                <ul className="space-y-3">
+                                                                    {detailedProfile.researchPublications.summary.map((item, index) => (
+                                                                        <li key={index} className="text-blue-800 flex items-start">
+                                                                            <div className="flex-shrink-0 w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3"></div>
+                                                                            <span className="flex-1">{item}</span>
                                                                         </li>
                                                                     ))}
                                                                 </ul>
                                                             </div>
-                                                        </div>
-                                                    )}
+                                                        )}
 
-                                                    {/* Funded Research Projects - Only if exists */}
-                                                    {hasSectionData(detailedProfile.researchPublications.fundedResearchProjects) && (
-                                                        <div>
-                                                            <h4 className="text-xl font-semibold text-gray-900 mb-6 pb-2 border-b border-gray-200">
-                                                                Funded Research Projects
-                                                            </h4>
-                                                            <div className="bg-green-50 rounded-lg p-6 border border-green-200">
-                                                                <ul className="space-y-4">
-                                                                    {detailedProfile.researchPublications.fundedResearchProjects.map((item, index) => (
-                                                                        <li key={index} className="text-green-800 flex items-start">
-                                                                            <div className="flex-shrink-0 w-5 h-5 text-green-600 mr-3 mt-0.5">
-                                                                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
-                                                                                </svg>
+                                                        {/* International Journals - Only if exists */}
+                                                        {hasSectionData(detailedProfile.researchPublications.internationalJournals) && (
+                                                            <div>
+                                                                <h4 className="text-xl font-semibold text-gray-900 mb-6 pb-2 border-b border-gray-200">
+                                                                    International Journal Publications
+                                                                </h4>
+                                                                <div className="space-y-6">
+                                                                    {detailedProfile.researchPublications.internationalJournals.map((item, index) => (
+                                                                        <div key={index} className="bg-gray-50 rounded-lg p-6 border border-gray-200 hover:border-gray-300 transition-colors duration-200">
+                                                                            <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2 mb-4">
+                                                                                <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-indigo-100 text-indigo-800">
+                                                                                    Publication #{item.srNo}
+                                                                                </span>
+                                                                                <span className="text-sm text-gray-500 bg-white px-3 py-1 rounded border border-gray-200">
+                                                                                    {item.year}
+                                                                                </span>
                                                                             </div>
-                                                                            <span className="flex-1 text-lg">{item}</span>
-                                                                        </li>
+                                                                            <h5 className="text-lg font-medium text-gray-900 mb-3 leading-relaxed" 
+                                                                                dangerouslySetInnerHTML={{ __html: item.title }}>
+                                                                            </h5>
+                                                                            <div className="space-y-2 text-sm">
+                                                                                <p className="text-gray-700">
+                                                                                    <strong className="font-semibold text-gray-900">Authors:</strong> {item.authors}
+                                                                                </p>
+                                                                                <p className="text-gray-700">
+                                                                                    <strong className="font-semibold text-gray-900">Journal:</strong> {item.journalName}
+                                                                                    {item.volumeNo && `, Volume ${item.volumeNo}`}
+                                                                                    {item.issueNo && `, Issue ${item.issueNo}`}
+                                                                                    {item.pageNumbers && `, Pages ${item.pageNumbers}`}
+                                                                                </p>
+                                                                            </div>
+                                                                        </div>
                                                                     ))}
-                                                                </ul>
+                                                                </div>
                                                             </div>
-                                                        </div>
-                                                    )}
+                                                        )}
+
+                                                        {/* International Conferences - Only if exists */}
+                                                        {hasSectionData(detailedProfile.researchPublications.internationalConferences) && (
+                                                            <div>
+                                                                <h4 className="text-xl font-semibold text-gray-900 mb-6 pb-2 border-b border-gray-200">
+                                                                    International Conference Publications
+                                                                </h4>
+                                                                <div className="space-y-6">
+                                                                    {detailedProfile.researchPublications.internationalConferences.map((item, index) => (
+                                                                        <div key={index} className="bg-gray-50 rounded-lg p-6 border border-gray-200 hover:border-gray-300 transition-colors duration-200">
+                                                                            <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2 mb-4">
+                                                                                <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-green-100 text-green-800">
+                                                                                    Conference #{item.srNo}
+                                                                                </span>
+                                                                                <span className="text-sm text-gray-500 bg-white px-3 py-1 rounded border border-gray-200">
+                                                                                    {item.duration}
+                                                                                </span>
+                                                                            </div>
+                                                                            <h5 className="text-lg font-medium text-gray-900 mb-3 leading-relaxed"
+                                                                                dangerouslySetInnerHTML={{ __html: item.title }}>
+                                                                            </h5>
+                                                                            <div className="space-y-2 text-sm">
+                                                                                <p className="text-gray-700">
+                                                                                    <strong className="font-semibold text-gray-900">Authors:</strong> {item.authors}
+                                                                                </p>
+                                                                                <p className="text-gray-700">
+                                                                                    <strong className="font-semibold text-gray-900">Conference:</strong> {item.conferenceName}
+                                                                                </p>
+                                                                                <p className="text-gray-700">
+                                                                                    <strong className="font-semibold text-gray-900">Location:</strong> {item.heldAt}
+                                                                                </p>
+                                                                            </div>
+                                                                        </div>
+                                                                    ))}
+                                                                </div>
+                                                            </div>
+                                                        )}
+
+                                                        {/* National Conferences - Only if exists */}
+                                                        {hasSectionData(detailedProfile.researchPublications.nationalConferences) && (
+                                                            <div>
+                                                                <h4 className="text-xl font-semibold text-gray-900 mb-6 pb-2 border-b border-gray-200">
+                                                                    National Conference Publications
+                                                                </h4>
+                                                                <div className="space-y-6">
+                                                                    {detailedProfile.researchPublications.nationalConferences.map((item, index) => (
+                                                                        <div key={index} className="bg-gray-50 rounded-lg p-6 border border-gray-200 hover:border-gray-300 transition-colors duration-200">
+                                                                            <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2 mb-4">
+                                                                                <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-blue-100 text-blue-800">
+                                                                                    Conference #{item.srNo}
+                                                                                </span>
+                                                                                <span className="text-sm text-gray-500 bg-white px-3 py-1 rounded border border-gray-200">
+                                                                                    {item.duration}
+                                                                                </span>
+                                                                            </div>
+                                                                            <h5 className="text-lg font-medium text-gray-900 mb-3 leading-relaxed"
+                                                                                dangerouslySetInnerHTML={{ __html: item.title }}>
+                                                                            </h5>
+                                                                            <div className="space-y-2 text-sm">
+                                                                                <p className="text-gray-700">
+                                                                                    <strong className="font-semibold text-gray-900">Authors:</strong> {item.authors}
+                                                                                </p>
+                                                                                <p className="text-gray-700">
+                                                                                    <strong className="font-semibold text-gray-900">Conference:</strong> {item.conferenceName}
+                                                                                </p>
+                                                                                <p className="text-gray-700">
+                                                                                    <strong className="font-semibold text-gray-900">Location:</strong> {item.heldAt}
+                                                                                </p>
+                                                                            </div>
+                                                                        </div>
+                                                                    ))}
+                                                                </div>
+                                                            </div>
+                                                        )}
+
+                                                        {/* Awards & Honors - Only if exists */}
+                                                        {hasSectionData(detailedProfile.researchPublications.awardsHonors) && (
+                                                            <div>
+                                                                <h4 className="text-xl font-semibold text-gray-900 mb-6 pb-2 border-b border-gray-200">
+                                                                    Awards & Honors
+                                                                </h4>
+                                                                <div className="bg-yellow-50 rounded-lg p-6 border border-yellow-200">
+                                                                    <ul className="space-y-4">
+                                                                        {detailedProfile.researchPublications.awardsHonors.map((item, index) => (
+                                                                            <li key={index} className="text-yellow-800 flex items-start">
+                                                                                <div className="flex-shrink-0 w-5 h-5 text-yellow-600 mr-3 mt-0.5">
+                                                                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                                                                    </svg>
+                                                                                </div>
+                                                                                <span className="flex-1 text-lg">{item}</span>
+                                                                            </li>
+                                                                        ))}
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                        )}
+
+                                                        {/* Funded Research Projects - Only if exists */}
+                                                        {hasSectionData(detailedProfile.researchPublications.fundedResearchProjects) && (
+                                                            <div>
+                                                                <h4 className="text-xl font-semibold text-gray-900 mb-6 pb-2 border-b border-gray-200">
+                                                                    Funded Research Projects
+                                                                </h4>
+                                                                <div className="bg-green-50 rounded-lg p-6 border border-green-200">
+                                                                    <ul className="space-y-4">
+                                                                        {detailedProfile.researchPublications.fundedResearchProjects.map((item, index) => (
+                                                                            <li key={index} className="text-green-800 flex items-start">
+                                                                                <div className="flex-shrink-0 w-5 h-5 text-green-600 mr-3 mt-0.5">
+                                                                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                                                                                    </svg>
+                                                                                </div>
+                                                                                <span className="flex-1 text-lg">{item}</span>
+                                                                            </li>
+                                                                        ))}
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                        )}
+                                                    </div>
                                                 </div>
                                             </AccordionItem>
                                         )}
@@ -535,36 +541,39 @@ const FacultyDetailPage = () => {
                                                 isOpen={activeAccordion === 'outreach-activities'}
                                                 onToggle={() => toggleAccordion('outreach-activities')}
                                             >
-                                                <div className="space-y-8">
-                                                    {hasSectionData(detailedProfile.outreachActivities.seminarsConferences?.attended) && (
-                                                        <div>
-                                                            <h4 className="text-xl font-semibold text-gray-900 mb-6">Seminars & Conferences Attended</h4>
-                                                            <div className="space-y-4">
-                                                                {detailedProfile.outreachActivities.seminarsConferences.attended.map((item, index) => (
-                                                                    <div key={index} className="border-l-4 border-green-500 pl-6 py-4 bg-green-50 rounded-r-lg hover:bg-green-100 transition-colors duration-200">
-                                                                        <h5 className="text-lg font-semibold text-gray-900 mb-2">{item.title}</h5>
-                                                                        <p className="text-gray-700 mb-2">{item.organizerPlace}</p>
-                                                                        <p className="text-sm text-gray-500">{item.period}</p>
-                                                                    </div>
-                                                                ))}
+                                                {/* CHANGE 5: Added max-h and overflow-y-auto for scrolling */}
+                                                <div className="max-h-[500px] overflow-y-auto p-4">
+                                                    <div className="space-y-8">
+                                                        {hasSectionData(detailedProfile.outreachActivities.seminarsConferences?.attended) && (
+                                                            <div>
+                                                                <h4 className="text-xl font-semibold text-gray-900 mb-6">Seminars & Conferences Attended</h4>
+                                                                <div className="space-y-4">
+                                                                    {detailedProfile.outreachActivities.seminarsConferences.attended.map((item, index) => (
+                                                                        <div key={index} className="border-l-4 border-green-500 pl-6 py-4 bg-green-50 rounded-r-lg hover:bg-green-100 transition-colors duration-200">
+                                                                            <h5 className="text-lg font-semibold text-gray-900 mb-2">{item.title}</h5>
+                                                                            <p className="text-gray-700 mb-2">{item.organizerPlace}</p>
+                                                                            <p className="text-sm text-gray-500">{item.period}</p>
+                                                                        </div>
+                                                                    ))}
+                                                                </div>
                                                             </div>
-                                                        </div>
-                                                    )}
+                                                        )}
 
-                                                    {hasSectionData(detailedProfile.outreachActivities.seminarsConferences?.organized) && (
-                                                        <div>
-                                                            <h4 className="text-xl font-semibold text-gray-900 mb-6">Workshops & Conferences Organized</h4>
-                                                            <div className="space-y-4">
-                                                                {detailedProfile.outreachActivities.seminarsConferences.organized.map((item, index) => (
-                                                                    <div key={index} className="border-l-4 border-blue-500 pl-6 py-4 bg-blue-50 rounded-r-lg hover:bg-blue-100 transition-colors duration-200">
-                                                                        <h5 className="text-lg font-semibold text-gray-900 mb-2">{item.title}</h5>
-                                                                        <p className="text-gray-700 mb-2">{item.place}</p>
-                                                                        <p className="text-sm text-gray-500">{item.period}</p>
-                                                                    </div>
-                                                                ))}
+                                                        {hasSectionData(detailedProfile.outreachActivities.seminarsConferences?.organized) && (
+                                                            <div>
+                                                                <h4 className="text-xl font-semibold text-gray-900 mb-6">Workshops & Conferences Organized</h4>
+                                                                <div className="space-y-4">
+                                                                    {detailedProfile.outreachActivities.seminarsConferences.organized.map((item, index) => (
+                                                                        <div key={index} className="border-l-4 border-blue-500 pl-6 py-4 bg-blue-50 rounded-r-lg hover:bg-blue-100 transition-colors duration-200">
+                                                                            <h5 className="text-lg font-semibold text-gray-900 mb-2">{item.title}</h5>
+                                                                            <p className="text-gray-700 mb-2">{item.place}</p>
+                                                                            <p className="text-sm text-gray-500">{item.period}</p>
+                                                                        </div>
+                                                                    ))}
+                                                                </div>
                                                             </div>
-                                                        </div>
-                                                    )}
+                                                        )}
+                                                    </div>
                                                 </div>
                                             </AccordionItem>
                                         )}
@@ -577,55 +586,58 @@ const FacultyDetailPage = () => {
                                                 isOpen={activeAccordion === 'academic-environment'}
                                                 onToggle={() => toggleAccordion('academic-environment')}
                                             >
-                                                <div className="space-y-8">
-                                                    {/* Research Scholars - Only if exists */}
-                                                    {hasSectionData(detailedProfile.academicEnvironment.researchScholarsPhD?.list) && (
-                                                        <div>
-                                                            <h4 className="text-xl font-semibold text-gray-900 mb-6">Research Scholars Supervised</h4>
-                                                            <div className="grid gap-4 md:grid-cols-2">
-                                                                {detailedProfile.academicEnvironment.researchScholarsPhD.list.map((item, index) => (
-                                                                    <div key={index} className="bg-purple-50 rounded-lg p-6 border border-purple-200 hover:border-purple-300 transition-colors duration-200">
-                                                                        <h5 className="text-lg font-semibold text-purple-900 mb-2">{item.name}</h5>
-                                                                        <p className="text-purple-700 mb-3">{item.titleArea}</p>
-                                                                        <div className="flex flex-col sm:flex-row sm:justify-between text-sm text-purple-600">
-                                                                            <span className="font-medium">{item.registeredWith}</span>
-                                                                            <span>{item.year}</span>
+                                                {/* CHANGE 6: Added max-h and overflow-y-auto for scrolling */}
+                                                <div className="max-h-[500px] overflow-y-auto p-4">
+                                                    <div className="space-y-8">
+                                                        {/* Research Scholars - Only if exists */}
+                                                        {hasSectionData(detailedProfile.academicEnvironment.researchScholarsPhD?.list) && (
+                                                            <div>
+                                                                <h4 className="text-xl font-semibold text-gray-900 mb-6">Research Scholars Supervised</h4>
+                                                                <div className="grid gap-4 md:grid-cols-2">
+                                                                    {detailedProfile.academicEnvironment.researchScholarsPhD.list.map((item, index) => (
+                                                                        <div key={index} className="bg-purple-50 rounded-lg p-6 border border-purple-200 hover:border-purple-300 transition-colors duration-200">
+                                                                            <h5 className="text-lg font-semibold text-purple-900 mb-2">{item.name}</h5>
+                                                                            <p className="text-purple-700 mb-3">{item.titleArea}</p>
+                                                                            <div className="flex flex-col sm:flex-row sm:justify-between text-sm text-purple-600">
+                                                                                <span className="font-medium">{item.registeredWith}</span>
+                                                                                <span>{item.year}</span>
+                                                                            </div>
                                                                         </div>
-                                                                    </div>
-                                                                ))}
+                                                                    ))}
+                                                                </div>
                                                             </div>
-                                                        </div>
-                                                    )}
+                                                        )}
 
-                                                    {/* Laboratory Development - Only if exists */}
-                                                    {hasSectionData(detailedProfile.academicEnvironment.laboratoryDevelopment) && (
-                                                        <div>
-                                                            <h4 className="text-xl font-semibold text-gray-900 mb-6">Laboratory Development</h4>
-                                                            <ul className="grid gap-3">
-                                                                {detailedProfile.academicEnvironment.laboratoryDevelopment.map((item, index) => (
-                                                                    <li key={index} className="text-gray-700 bg-gray-50 rounded-lg px-4 py-3 border border-gray-200 hover:bg-gray-100 transition-colors duration-200">
-                                                                        {item}
-                                                                    </li>
-                                                                ))}
-                                                            </ul>
-                                                        </div>
-                                                    )}
-
-                                                    {/* ME/MTech Dissertations - Only if exists */}
-                                                    {hasSectionData(detailedProfile.academicEnvironment.meMtechDissertations) && (
-                                                        <div>
-                                                            <h4 className="text-xl font-semibold text-gray-900 mb-6">ME/MTech Dissertations Supervised</h4>
-                                                            <div className="space-y-4">
-                                                                {detailedProfile.academicEnvironment.meMtechDissertations.map((item, index) => (
-                                                                    <div key={index} className="bg-orange-50 rounded-lg p-6 border border-orange-200 hover:border-orange-300 transition-colors duration-200">
-                                                                        <h5 className="text-lg font-semibold text-orange-900 mb-2">{item.name}</h5>
-                                                                        <p className="text-orange-800 mb-3" dangerouslySetInnerHTML={{ __html: item.topic }}></p>
-                                                                        <p className="text-sm text-orange-600 font-medium">Year: {item.year}</p>
-                                                                    </div>
-                                                                ))}
+                                                        {/* Laboratory Development - Only if exists */}
+                                                        {hasSectionData(detailedProfile.academicEnvironment.laboratoryDevelopment) && (
+                                                            <div>
+                                                                <h4 className="text-xl font-semibold text-gray-900 mb-6">Laboratory Development</h4>
+                                                                <ul className="grid gap-3">
+                                                                    {detailedProfile.academicEnvironment.laboratoryDevelopment.map((item, index) => (
+                                                                        <li key={index} className="text-gray-700 bg-gray-50 rounded-lg px-4 py-3 border border-gray-200 hover:bg-gray-100 transition-colors duration-200">
+                                                                            {item}
+                                                                        </li>
+                                                                    ))}
+                                                                </ul>
                                                             </div>
-                                                        </div>
-                                                    )}
+                                                        )}
+
+                                                        {/* ME/MTech Dissertations - Only if exists */}
+                                                        {hasSectionData(detailedProfile.academicEnvironment.meMtechDissertations) && (
+                                                            <div>
+                                                                <h4 className="text-xl font-semibold text-gray-900 mb-6">ME/MTech Dissertations Supervised</h4>
+                                                                <div className="space-y-4">
+                                                                    {detailedProfile.academicEnvironment.meMtechDissertations.map((item, index) => (
+                                                                        <div key={index} className="bg-orange-50 rounded-lg p-6 border border-orange-200 hover:border-orange-300 transition-colors duration-200">
+                                                                            <h5 className="text-lg font-semibold text-orange-900 mb-2">{item.name}</h5>
+                                                                            <p className="text-orange-800 mb-3" dangerouslySetInnerHTML={{ __html: item.topic }}></p>
+                                                                            <p className="text-sm text-orange-600 font-medium">Year: {item.year}</p>
+                                                                        </div>
+                                                                    ))}
+                                                                </div>
+                                                            </div>
+                                                        )}
+                                                    </div>
                                                 </div>
                                             </AccordionItem>
                                         )}
