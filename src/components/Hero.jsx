@@ -293,7 +293,7 @@ const Hero = () => {
       </div>
 
       {/* Enhanced Custom Animations */}
-      <style jsx>{`
+      <style >{`
         @keyframes float-1 {
           0%, 100% {
             transform: translate(0px, 0px) scale(1);
