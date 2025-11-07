@@ -29,7 +29,7 @@ export const tnpProfileData = {
     name: 'Mr. Shivprasad Titare',
     designation: 'Asst. Professor and TPO',
     email: 'tpo@mgmcen.ac.in',
-    image: '/images/tpo/tpo-profile.png' 
+    image: '/images/tpo/tpo-profile.png'
   },
   introduction: [
     "Training & Placement Cell has an important role to play in a student’s future. This cell continuously strives to help students in pursuing their career goals by acquiring employment-seeking skills and ultimately to attain desired employment. This is accomplished through building a strong partnership amongst students, alumni, faculty-members and industries.",
@@ -79,12 +79,20 @@ export const majorRecruitersData = {
   introduction: [
     "The placement record of our students is a reflection of the academic excellence, technical proficiency, and industry-relevant skills acquired throughout their education. Over the years, our students have consistently demonstrated their ability to meet the demands of the fast-paced technology sector, securing positions in leading companies across diverse industries.",
   ],
-  recruitersPdf: 'https://mgmcen.ac.in/trainingandplacement/Upadted%20Recruiters%20File.pdf',
+  // The original PDF link was broken (404 Not Found).
+  // Please find the correct, updated link from mgmcen.ac.in or host the PDF yourself.
+  // For local hosting, place the PDF in your public folder, e.g., public/downloads/
+  // recruitersPdf: 'https://mgmcen.ac.in/trainingandplacement/Upadted%20Recruiters%20File.pdf', // Original (broken)
+  recruitersPdf: '/downloads/Updated Recruiters File.pdf', // Placeholder for local hosting.
+                                                           // YOU NEED TO PUT THE FILE HERE: public/downloads/Updated Recruiters File.pdf
+
   prominentRecruitersImage: { src: '/images/tnp/recruiters/tandp-abc4.jpg', alt: 'Prominent Recruiter Logos' },
   glanceImages: [
     { src: '/images/tnp/recruiters/tandp-abc5.jpg', alt: 'Placements at a Glance 1' },
     { src: '/images/tnp/recruiters/tandp-abc6.jpg', alt: 'Placements at a Glance 2' },
   ],
+  // Properties 'images' and 'opportunityImages' were referenced in MajorRecruitersPage.jsx
+  // but were not defined here. They have been removed from the component's usage.
 };
 
 // =================================================================
@@ -137,6 +145,8 @@ export const tnpAchievementsData = [
   { year: "2022-23", image: "/images/tnp/achievements/high-package-2022-23.jpeg", alt: "High Package Placements for 2022-23" },
   { year: "2021-22", image: "/images/tnp/achievements/high-package-2021-22.jpg", alt: "High Package Placements for 2021-22" },
 ];
+// NOTE: For the above images to work, ensure these files exist in your project's
+// `public/images/tnp/achievements/` folder with the exact filenames.
 
 // =================================================================
 // 8. T&P GALLERY PAGE DATA

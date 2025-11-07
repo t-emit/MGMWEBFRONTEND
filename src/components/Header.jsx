@@ -444,7 +444,7 @@ const Header = () => {
                 <span className="block text-xs sm:text-sm md:text-base text-purple-100 mt-0.5 leading-snug drop-shadow-sm">
                   ( An Autonomous Institute ) <br />
                   Affiliated to Dr. Babasaheb Ambedkar Technological University ,Lonere. <br />
-                  Accredited by NAAC (2024-2029), <span className="whitespace-nowrap">Accredited by NBA CSE, MEC, ENTC and CIVIL (2024-2027)</span>, Approved by AICTE, New Delhi
+                  Accredited by NAAC (2024-2029), <span className="whitespace-nowrap">Accredited by NBA – CSE, Mechanical, E&TC, Civil (2024–2027)</span>, <br/> Approved by AICTE, New Delhi
                 </span>
               </div>
             </Link>

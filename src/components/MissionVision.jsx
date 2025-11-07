@@ -3,7 +3,7 @@ const MissionVision = () => {
   return (
     <section className="py-16 bg-white overflow-hidden"> {/* Increased padding, added overflow-hidden for good measure */}
       <div className="container mx-auto px-4 max-w-5xl"> {/* Slightly increased max-width for more content space */}
-        <h2 className="text-4xl md:text-5xl font-extrabold text-center text-blue-900 mb-12 relative tracking-tight"> {/* Larger, bolder title */}
+        <h2 className="text-4xl md:text-4xl font-extrabold text-center text-blue-900 mb-8 relative tracking-tight"> {/* Larger, bolder title */}
           Our Vision & Mission
           <span className="absolute bottom-[-0.75rem] left-1/2 transform -translate-x-1/2 w-24 h-1.5 bg-yellow-500 rounded-full"></span> {/* Slightly thicker, wider underline */}
         </h2>

@@ -5,7 +5,8 @@ import { tnpTabs, majorRecruitersData } from './tnpConstants';
 
 const MajorRecruitersPage = () => {
   const location = useLocation();
-  const { introduction, recruitersPdf, images, prominentRecruitersImage, glanceImages, opportunityImages } = majorRecruitersData;
+  // Removed 'images' and 'opportunityImages' from destructuring
+  const { introduction, recruitersPdf, prominentRecruitersImage, glanceImages } = majorRecruitersData;
 
   return (
     <div className="container mx-auto px-4 py-8 mt-28 max-w-6xl">
@@ -42,43 +43,43 @@ const MajorRecruitersPage = () => {
         <div className="mb-10">
             <h3 className="text-2xl font-bold text-indigo-800 mb-4">Recruiters List</h3>
             <div className="w-full h-96 border rounded-lg overflow-hidden shadow-md">
-                <iframe 
-                    src={recruitersPdf} 
+                {/* <iframe
+                    src={recruitersPdf}
                     title="Major Recruiters PDF"
                     className="w-full h-full"
                 >
                     <p>Your browser does not support PDFs. <a href={recruitersPdf}>Download the PDF</a> instead.</p>
-                </iframe>
+                </iframe> */}
             </div>
+            <p className="text-sm text-gray-500 mt-2">
+              <strong className="text-red-600">Note:</strong> If the PDF does not load, ensure the file is correctly placed in your `public/downloads/` folder,
+              or update the `recruitersPdf` URL in `tnpConstants.js` with a working external link.
+            </p>
         </div>
 
         {/* Image Sections */}
         <div className="space-y-12">
-            {images.map((img, index) => (
-                <img key={index} src={img.src} alt={img.alt} className="w-full rounded-lg shadow-md border" />
-            ))}
-            
+            {/* Removed the rendering for 'images' array as it was not defined in tnpConstants.js */}
+
             <div>
                 <h3 className="text-2xl font-bold text-indigo-800 my-6">Our Prominent Recruiters:</h3>
-                <img src={prominentRecruitersImage.src} alt={prominentRecruitersImage.alt} className="w-full rounded-lg shadow-md border" />
+                {prominentRecruitersImage && ( // Check if prominentRecruitersImage exists
+                  <img src={prominentRecruitersImage.src} alt={prominentRecruitersImage.alt} className="w-full rounded-lg shadow-md border" />
+                )}
             </div>
-            
+
             <hr className="my-8" />
 
             <div>
                 <h3 className="text-2xl font-bold text-indigo-800 my-6">Placements at a Glance:</h3>
-                {glanceImages.map((img, index) => (
+                {glanceImages && glanceImages.map((img, index) => ( // Check if glanceImages exists and is an array
                     <img key={index} src={img.src} alt={img.alt} className="w-full rounded-lg shadow-md border mb-4" />
                 ))}
             </div>
 
             <hr className="my-8" />
-            
-            <div>
-                {opportunityImages.map((img, index) => (
-                    <img key={index} src={img.src} alt={img.alt} className="w-full rounded-lg shadow-md border mb-4" />
-                ))}
-            </div>
+
+            {/* Removed the rendering for 'opportunityImages' array as it was not defined in tnpConstants.js */}
         </div>
       </div>
     </div>

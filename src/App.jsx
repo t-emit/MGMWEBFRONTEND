@@ -397,7 +397,6 @@ const App = () => {
           <Route path="/admission/undertaking" element={<UndertakingPage />} />
 
           {/* Other Top-level Routes */}
-          <Route path="/research" element={<PlaceholderPage title="Central Research" />} />
           <Route path="/iqac" element={<IQACPage />} />
           <Route path="/nba" element={<NBACertificatePage />} />
           <Route path="/swayam-nptel" element={<SwayamNPTELPage />} />
