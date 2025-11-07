@@ -18,7 +18,7 @@ export const mechanicalDepartmentTabs = [
 
 // Detailed information for the Mechanical Engineering department profile page
 export const mechanicalDepartmentDetails = [
-  { label: 'Head of Department', value: 'Dr. M.G. Harkare', image: '/images/Dr.MG.Harkare_HOD.jpg' },
+  { label: 'Head of Department', value: 'Dr. M.G. Harkare', image: '/images/mech/faculty/Dr.MG.Harkare_HOD.jpg' },
   { label: 'E –mail ID', value: 'harkare_mg@mgmcen.ac.in', type: 'email' },
   { label: 'Department Location', value: 'West Wing, Ground & First Floor' },
   { label: 'Year of Establishment', value: '1987-88' },

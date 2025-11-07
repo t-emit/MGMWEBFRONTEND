@@ -1,5 +1,8 @@
 // src/pages/Academics/ComputerScience/cseConstants.js
 
+// src/pages/Academic/ComputerScienceEngineering/cseConstants.js
+
+// Define the sub-navigation tabs for the CSE department
 export const cseDepartmentTabs = [
   { name: "DEPT Profile", path: "/academics/computer-science-engineering" },
   { name: "Vision-Mission", path: "/academics/computer-science-engineering/vision-mission" },
@@ -10,13 +13,76 @@ export const cseDepartmentTabs = [
   { name: "Research & Publication", path: "/academics/computer-science-engineering/research-publication" },
   { name: "Achievements", path: "/academics/computer-science-engineering/achievements" },
   { name: "Departmental Activity", path: "/academics/computer-science-engineering/activities" },
+  { name: "Departmental Committees", path: "/academics/computer-science-engineering/committees" },
   { name: "CUC", path: "/academics/computer-science-engineering/cuc" },
   { name: "IEI", path: "/academics/computer-science-engineering/csi-iei" },
   { name: "Curriculum ", path: "/academics/computer-science-engineering/curriculum " },
-  { name: "consultancy", path: "/academics/computer-science-engineering/consultancy" },
-  { name: "Innovation in teaching", path: "/academics/computer-science-engineering/consultancy" },
-  
+  { name: "Consultancy", path: "/academics/computer-science-engineering/consultancy" },
+  { name: "Innovation in teaching", path: "/academics/computer-science-engineering/innovation-teaching" }, // Changed path from original if it's meant to be unique
 ];
+
+// Data for the UG/PG Course table (from provided HTML)
+export const cseProgrammes = [
+  { srNo: '1', name: 'B. Tech. Computer Science & Engineering', startYear: '1984', duration: '04', type: 'Full Time', intake: '180' },
+  { srNo: '2', name: 'M.Tech. (Computer Science & Engineering)', startYear: '2003', duration: '02', type: 'Full Time', intake: '09' },
+];
+
+// Data for Course Outcomes links (from provided HTML)
+export const cseCourseOutcomes = [
+  { label: 'SY CSE Course Outcomes', url: 'https://mgmcen.ac.in/pdf/SY%20CSE%20Course%20Outcomes.xlsx' },
+  { label: 'TY CSE Course Outcomes.xlsx', url: 'https://mgmcen.ac.in/pdf/TY%20CSE%20Course%20Outcomes.xlsx' },
+  { label: 'Btech (Final year)Course Outcomes.xlsx', url: 'https://mgmcen.ac.in/pdf/Btech%20(Final%20year)Course%20Outcomes.xlsx' },
+];
+
+// Data for Program Assessment Committee (PAC) (from provided HTML)
+export const cseProgramAssessmentCommittee = {
+  description: `The Program Assessment Committee (PAC) has been formed to monitor different departmental activities. The PAC consists of the HOD and faculty members of the department, who periodically monitor the departmental activities and evaluate different parameters.`,
+  roles: [
+    "Formulating and updating department’s vision and mission statements.",
+    "Monitoring the attainments of Course Outcomes (COs), Program Outcomes (POs), Program Specific Outcomes (PSOs) and Program Educational Objectives (PEOs).",
+    "Suggesting ways and means to reduce the curriculum gaps in achieving POs and PSOs.",
+    "Evaluating program effectiveness and proposing necessary changes.",
+    "Measuring the extent of adherence to planned activities and calendar of events.",
+    "Preparation of periodic reports, records on program activities, progress, and status reports."
+  ],
+  members: [
+    { srNo: '1', name: 'Dr. A. M. Rajurkar', designation: 'Professor and Head (CSE Dept.)', status: 'Chairman' },
+    { srNo: '2', name: 'Dr. M. G. Harkare', designation: 'Professor and Head (Mech. Dept.)', status: 'IQAC Co-ordinator' },
+    { srNo: '3', name: 'B. S. Kapre', designation: 'Assistant Professor', status: 'Department IQAC Co-ordinator' },
+    { srNo: '4', name: 'Mr. S. A. Hashmi', designation: 'Associate Professor and Head (IT Dept.)', status: 'Domain Expert' },
+    { srNo: '5', name: 'Prof. J. H. Patil', designation: 'Professor', status: 'Member' },
+    { srNo: '6', name: 'Dr. M.Y. Joshi', designation: 'Professor', status: 'Member' },
+    { srNo: '7', name: 'Invited Expert', designation: '', status: '' }
+  ]
+};
+
+// Data for Department Advisory Board (DAB) (from provided HTML)
+export const cseDepartmentAdvisoryBoard = {
+  description: `The Departmental Advisory Board (DAB) has been formed with the objectives of remaining up to date with the latest requirements of the industry and incorporating necessary components in the curriculum as much as possible.`,
+  roles: [
+    "Suggest improvement in academic plans and recommend standard practices for attainment of POs, PEOs & PSOs.",
+    "Encourage industry-institute interactions to bridge up curriculum gap and suggest quality improvement initiatives to enhance employability.",
+    "Redefine existing PEOs, aligning PEOs to the mission statements and defining program-specific outcomes.",
+    "To propose necessary action plans for skill development of students, required for entrepreneurship development and quality improvement.",
+    "To identify and suggest thrust areas to conduct various activities such as final year projects, training courses and additional experiments to meet PEOs."
+  ],
+  members: [
+    { srNo: '1', name: 'Dr. A. M. Rajurkar', designation: 'Professor and Head', status: 'Chairman' },
+    { srNo: '2', name: 'Dr. B. S. Kapre', designation: 'Assistant Professor', status: 'Department NBA Co-ordinator' },
+    { srNo: '3', name: 'Mohd. Aijaz Ahmed', designation: 'Assistant Professor', status: 'Department NBA Co-ordinator' },
+    { srNo: '4', name: 'Prof. J. H. Patil', designation: 'Professor', status: 'Academic Expert' },
+    { srNo: '5', name: 'Dr. M. Y. Joshi', designation: 'Professor', status: 'Academic Expert' },
+    { srNo: '6', name: 'Dr. R. R. Manthalkar', designation: 'Professor, Dept. of ECT, SGGSIET, Nanded', status: 'Senior Academician (Other Institution)' },
+    { srNo: '7', name: 'Dr. P. J. Kulkarni', designation: 'Professor, Dept. of CSE, RIT, Islampur. Former Dy. Director, WCE, Sangali', status: 'Senior Academician (Other Institution)' },
+    { srNo: '8', name: 'Mr. Deepak Sar', designation: 'Partner at ITY Consulting', status: 'Industrial Expert' },
+    { srNo: '9', name: 'Mr. Shrinivas Gosala', designation: 'General Manager, Wipro Technologies, Bangalore', status: 'Industrial Expert' },
+    { srNo: '10', name: 'Mr. Manish Kathuria', designation: 'Technical Project Manager at Persistant Pvt. Ltd., Pune', status: 'Alumni' },
+    { srNo: '11', name: 'Mr. Atul Joshi', designation: 'Principal SW Engineer at Infinera, Bangalore', status: 'Alumni' },
+    { srNo: '12', name: 'Dr. Sulabha Kahalekar', designation: 'Doctor', status: 'Parent Representative' },
+    { srNo: '13', name: 'Aniket Bais', designation: 'Student (B.Tech. CSE)', status: 'Student Representative' },
+    { srNo: '14', name: 'Aditya Kulkarni', designation: 'Student (TYCSE)', status: 'Student Representative' }
+  ]
+};
 // New data structure specifically for the Curriculum page
 export const cseCurriculumData = {
     syllabus: [
@@ -222,7 +288,7 @@ export const cseResearchData = {
             issn_doi: `2005-4238`
         },
         {
-            srNo: " ", // This was a blank row in HTML
+            srNo: 13, // Corrected from " "
             title: `Analysis of Tree structure for Secure Group Communication Using LKH Approach`,
             authors: `Aparna S. Pande, Y. V. Joshi & Manisha Y. Joshi`,
             journalName: `International Journal of Computer Sciences and Engineering`,
@@ -230,7 +296,7 @@ export const cseResearchData = {
             issn_doi: `2347-2693`
         },
         {
-            srNo: 13,
+            srNo: 14, // Corrected from 13
             title: `An improved diagnosis technique for breast cancer using LCFS and TreeHiCARe classifier model`,
             authors: `D. K. Nagthane and Dr. A. M. Rajurkar`,
             journalName: `Sensor Review`,
@@ -238,7 +304,7 @@ export const cseResearchData = {
             issn_doi: `0260-2288`
         },
         {
-            srNo: 14,
+            srNo: 15, // Corrected from 14
             title: `Shot Boundary Detection of MPEG Video using Biorthogonal Wavelet Transform`,
             authors: `Anita Thengade & Archana M. Rajurkar`,
             journalName: `International Journal of Pure and Applied Mathematics`,
@@ -246,7 +312,7 @@ export const cseResearchData = {
             issn_doi: `1311-8080`
         },
         {
-            srNo: 15,
+            srNo: 16, // Corrected from 15
             title: `Secure Forensic Report Retrieval Application using Cipher Text-Policy Attribute-Based Encryption`,
             authors: `Vinod I. Jondhale & Manisha Y. Joshi`,
             journalName: `International Journal of Science and Research`,
@@ -254,7 +320,7 @@ export const cseResearchData = {
             issn_doi: `2319-7064`
         },
         {
-            srNo: 16,
+            srNo: 17, // Corrected from 16
             title: `Cloud Data Security Using Third Party Auditor`,
             authors: `Aman Bhimrao Kamble & M. Y. Joshi`,
             journalName: `International Journal of Scientific Research in Science, Engineering and Technology`,
@@ -262,7 +328,7 @@ export const cseResearchData = {
             issn_doi: `2394-4099`
         },
         {
-            srNo: 17,
+            srNo: 18, // Corrected from 17
             title: `A Secure End-To-End Protocol for Secure Transmission of SMS`,
             authors: `Vaidehi V. Mantri & M. Y. Joshi`,
             journalName: `International Journal of Science and Research`,
@@ -273,13 +339,13 @@ export const cseResearchData = {
     
     conferencePublications: [
         {
-            srNo: 1,
-            facultyName: `Dr. A. M. Rajurkar`,
-            title: `Early Detection of Stem Borer in Grape Diseases`,
-            conferenceName: `Artificial Intelligence in Agriculture, Volume 5`,
-            year: "2022",
-            isbn: `ISBN 978-981-15-4851-2`,
-            publisher: `Springer`
+            srNo: 1, // 1st column
+            facultyName: `Dr. A. M. Rajurkar`, // 2nd column
+            title: `Early Detection of Stem Borer in Grape Diseases`, // 3rd column
+            conferenceName: `Artificial Intelligence in Agriculture, Volume 5`, // 4th column
+            year: "2022", // 5th column
+            isbn: `ISBN 978-981-15-4851-2`, // 6th column
+            publisher: `Springer` // 7th column
         },
         {
             srNo: 2,

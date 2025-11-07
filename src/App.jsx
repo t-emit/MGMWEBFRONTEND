@@ -188,6 +188,8 @@ import TNPCareerCounsellingPage from './pages/Tnp/TNPCareerCounsellingPage';
 import TNPTrainingPage from './pages/Tnp/TNPTrainingPage';
 import MajorRecruitersPage from './pages/Tnp/MajorRecruitersPage';
 import TNPFacultyPage from './pages/Tnp/TNPFacultyPage';
+import CseProgrammesPage from './pages/Academic/CSE/CseProgrammesPage';
+import CseDepartmentCommitteesPage from './pages/Academic/CSE/CseDepartmentCommitteesPage';
 
 // ==========================================================
 // Helper Placeholder Pages
@@ -286,7 +288,6 @@ const App = () => {
           {/* Academics Routes */}
           <Route path="/academics/computer-science-engineering" element={<ComputerScienceEngineeringPage />} />
           <Route path="/academics/computer-science-engineering/vision-mission" element={<CSEVisionMissionPage />} />
-          <Route path="/academics/computer-science-engineering/programmes" element={<ProgrammesPage />} />
           <Route path="/academics/computer-science-engineering/training-placement" element={<TrainingPlacementPage />} />
           <Route path="/academics/computer-science-engineering/faculty" element={<CSEFacultyProfilePage />} />
           <Route path="/academics/computer-science-engineering/faculty/:facultyId" element={<CSEFacultyDetailPage />} />
@@ -298,6 +299,8 @@ const App = () => {
           <Route path="/academics/computer-science-engineering/cuc" element={<CUC />} />
           <Route path="/academics/computer-science-engineering/csi-iei" element={<CSIIEIPage />} />
           <Route path="/academics/computer-science-engineering/research-publication" element={<CSEResearchPublicationPage />} />
+          <Route path="/academics/computer-science-engineering/programmes" element={<CseProgrammesPage />} />
+          <Route path="/academics/computer-science-engineering/committees" element={<CseDepartmentCommitteesPage />} />
 
           <Route path="/academics/civil-engineering" element={<CivilEngineeringPage />} />
           <Route path="/academics/civil-engineering/vision-mission" element={<CivilVisionMissionPage />} />
@@ -394,7 +397,6 @@ const App = () => {
           <Route path="/admission/undertaking" element={<UndertakingPage />} />
 
           {/* Other Top-level Routes */}
-          <Route path="/research" element={<PlaceholderPage title="Central Research" />} />
           <Route path="/iqac" element={<IQACPage />} />
           <Route path="/nba" element={<NBACertificatePage />} />
           <Route path="/swayam-nptel" element={<SwayamNPTELPage />} />
