@@ -103,7 +103,16 @@ const ManageEvents = () => {
                     <div><label className="block text-sm font-medium text-gray-700">Date</label><input type="date" value={date} onChange={(e) => setDate(e.target.value)} required className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2" /></div>
                     <div><label className="block text-sm font-medium text-gray-700">Description</label><textarea value={description} onChange={(e) => setDescription(e.target.value)} required rows="3" className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"></textarea></div>
                     <div><label className="block text-sm font-medium text-gray-700">Link (Optional)</label><input type="url" value={link} onChange={(e) => setLink(e.target.value)} className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2" /></div>
-                    <div><label className="block text-sm font-medium text-gray-700">Type</label><select value={type} onChange={(e) => setType(e.target.value)} className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"><option value="news">News</option><option value="event">Event</option></select></div>
+                    
+
+<div>
+    <label className="block text-sm font-medium text-gray-700">Type</label>
+    <select value={type} onChange={(e) => setType(e.target.value)} className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2">
+        <option value="notice">Notice</option>
+        <option value="event">Event</option>
+        <option value="news">News</option>
+    </select>
+</div>
                     
                     <div>
                         <label className="block text-sm font-medium text-gray-700">Image (Optional, jpg/png)</label>
