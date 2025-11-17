@@ -244,7 +244,7 @@ const MenuItem = ({ item, level = 0, activeDropdownPath, updateActiveDropdownPat
   const linkClasses = ['flex items-center w-full transition-all duration-300 relative'];
 
   if (item.isButton) {
-    linkClasses.push('bg-orange-500 text-white font-bold rounded-md hover:bg-orange-600 justify-center py-2.5');
+    linkClasses.push('bg-blue-600 text-white font-bold rounded-md hover:bg-blue-700 justify-center py-2.5');
     if (isMobile) {
       linkClasses.push('mx-4 my-2 px-4 w-auto');
     } else {
@@ -253,14 +253,14 @@ const MenuItem = ({ item, level = 0, activeDropdownPath, updateActiveDropdownPat
   } else {
     if (isMobile) {
       // Mobile menu items (level 0 and >0)
-      linkClasses.push('px-6 py-3.5 border-b border-black text-base'); // Changed border to black
-      linkClasses.push('hover:bg-orange-50 hover:text-orange-700');
+      linkClasses.push('px-6 py-3.5 border-b border-black text-base');
+      linkClasses.push('hover:bg-blue-50 hover:text-blue-700');
       if (isCurrentlyClickedOnMobile || isParentOrSelfActive) {
-        linkClasses.push('bg-orange-50 text-orange-700 font-bold'); // More bold for active/open mobile items
+        linkClasses.push('bg-blue-50 text-blue-600 font-semibold');
       } else if (level === 0) {
         linkClasses.push('text-gray-800 font-medium');
       } else { // Mobile sub-menu items (level > 0)
-        linkClasses.push('text-gray-700 font-semibold'); // Semibold for non-active mobile sub-menu items
+        linkClasses.push('text-gray-700 !text-left'); // ADDED !text-left
       }
     } else { // Desktop
       if (level === 0) { // Desktop Main menu items
@@ -269,22 +269,22 @@ const MenuItem = ({ item, level = 0, activeDropdownPath, updateActiveDropdownPat
         linkClasses.push('text-sm lg:text-sm xl:text-sm 2xl:text-sm font-semibold rounded-md');
         linkClasses.push('border transition-all duration-300'); // Ensure border is always present
         if (isDropdownActive || isParentOrSelfActive) {
-          linkClasses.push('text-white bg-gradient-to-r from-orange-500 to-amber-500 border-black shadow-lg'); // Changed border to black
+          linkClasses.push('text-blue-700 bg-blue-50 border-black shadow-lg');
         } else {
           // Default border for non-active, non-hovered items
-          linkClasses.push('border-black'); // Changed border to black
-          linkClasses.push('text-gray-800 hover:text-white hover:bg-gradient-to-r hover:from-orange-400 hover:to-amber-400 hover:border-black hover:shadow-md'); // Changed border to black
+          linkClasses.push('border-black');
+          linkClasses.push('text-gray-800 hover:text-blue-700 hover:bg-blue-50 hover:border-black hover:shadow-md');
         }
       } else { // Desktop Sub-menu items (level > 0)
-        linkClasses.push('px-5 py-3 text-base transition-all duration-300');
+        linkClasses.push('px-5 py-3 text-base transition-all duration-300 !text-left'); // ADDED !text-left
         // Add bottom border for "boxes", but not for the very last item in the dropdown
         if (!isLastItem) {
-          linkClasses.push('border-b border-black'); // Changed border to black
+          linkClasses.push('border-b border-black');
         }
         if (isActiveRoute) {
-          linkClasses.push('bg-orange-50 text-orange-700 font-bold border-l-4 border-black'); // Changed border to black
+          linkClasses.push('bg-blue-50 text-blue-600 font-medium border-l-4 border-black');
         } else {
-          linkClasses.push('text-gray-700 font-semibold hover:bg-orange-50 hover:text-orange-600 hover:border-l-4 hover:border-black'); // Changed border to black
+          linkClasses.push('text-gray-700 hover:bg-gray-100 hover:text-blue-600 hover:border-l-4 hover:border-black');
         }
       }
     }
@@ -337,7 +337,7 @@ const MenuItem = ({ item, level = 0, activeDropdownPath, updateActiveDropdownPat
 };
 
 // Simple tab component for additional tabs (no dropdowns)
-const AdditionalTab = ({ item, isMobile }) => {
+const AdditionalTab = ({ item }) => {
   const location = useLocation();
   const isActiveRoute = location.pathname === item.link;
 
@@ -349,8 +349,8 @@ const AdditionalTab = ({ item, isMobile }) => {
     // Always apply a border
     'border transition-all duration-300',
     isActiveRoute
-      ? 'text-white bg-gradient-to-r from-orange-500 to-amber-500 border-black shadow-lg' // Changed border to black
-      : 'border-black text-gray-800 hover:text-white hover:bg-gradient-to-r hover:from-orange-400 hover:to-amber-400 hover:border-black hover:shadow-md' // Changed border to black
+      ? 'text-blue-700 bg-blue-50 border-black shadow-lg'
+      : 'border-black text-gray-800 hover:text-blue-700 hover:bg-blue-50 hover:border-black hover:shadow-md'
   ].join(' ');
 
   const LinkComponent = item.target === '_blank' ? 'a' : Link;
@@ -423,7 +423,7 @@ const Header = () => {
   };
 
   return (
-    <header ref={headerRef} className={`relative top-0 left-0 w-full text-white transition-all duration-300 z-50 bg-gradient-to-r from-indigo-900 via-purple-900 to-blue-900 shadow-xl`}>
+    <header ref={headerRef} className={`relative top-0 left-0 w-full text-white transition-all duration-300 z-50 bg-gradient-to-r from-indigo-900 via-[#6A4994] to-blue-900 shadow-xl`}>
 
       {/* Top Section with Logo and College Name/Description */}
       <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 py-4 md:py-5 lg:py-6">
@@ -438,7 +438,7 @@ const Header = () => {
               />
               <div className="flex flex-col flex-grow min-w-0">
                 <span className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-extrabold text-white leading-tight py-1 tracking-wide drop-shadow-lg font-serif">
-                  M.G.M's College of Engineering, Nanded.
+                  MGM's College of Engineering, Nanded.
                 </span>
                 {/* Modified the description for NBA accreditation to stay on one line */}
                 <span className="block text-xs sm:text-sm md:text-base text-purple-100 mt-0.5 leading-snug drop-shadow-sm">
@@ -480,12 +480,12 @@ const Header = () => {
       </div>
       <NewsTicker />
 
-      {/* Main Navigation Bar - Now with beautiful orange theme */}
-      <div className="bg-gradient-to-r from-orange-400 to-amber-400 shadow-2xl border-t border-orange-300 text-gray-800">
+      {/* Main Navigation Bar - Now with updated theme */}
+      <div className="bg-white shadow-2xl border-t border-black text-gray-800">
         <div className="max-w-screen-2xl mx-auto px-2 lg:px-4 py-2">
           <div className="flex justify-between items-stretch flex-col lg:flex-row">
             <button
-              className="lg:hidden text-gray-800 px-3 py-3 rounded-lg hover:bg-orange-300 transition-colors duration-300"
+              className="lg:hidden text-gray-800 px-3 py-3 rounded-lg hover:bg-gray-100 transition-colors duration-300"
               onClick={(e) => {
                 e.stopPropagation();
                 setIsMenuOpen(!isMenuOpen);
@@ -500,7 +500,7 @@ const Header = () => {
             <nav ref={navRef} className="hidden lg:flex flex-col w-full gap-y-1">
               {/* First Row - Main Menu Items */}
               <ul
-                className="flex items-center justify-between flex-nowrap w-full h-full gap-x-1 border-b border-black pb-1" // Changed border-orange-300 to border-black
+                className="flex items-center justify-between flex-nowrap w-full h-full gap-x-1 border-b border-black pb-1"
                 onMouseEnter={handleNavMouseEnter}
                 onMouseLeave={handleNavMouseLeave}
               >
@@ -532,7 +532,7 @@ const Header = () => {
             {/* Mobile Search Info / Placeholder */}
             {isMenuOpen && (
               <div className="lg:hidden flex-1 flex items-center justify-end pr-3 py-3">
-                <div className="text-sm text-gray-700 bg-orange-200 px-3 py-1.5 rounded-lg">
+                <div className="text-sm text-gray-600 bg-blue-50 px-3 py-1.5 rounded-lg">
                   Use search above to find content
                 </div>
               </div>
@@ -540,7 +540,7 @@ const Header = () => {
           </div>
 
           {/* Mobile Menu (Full Overlay) */}
-          <div className={`lg:hidden bg-gradient-to-b from-orange-300 to-amber-300 absolute top-full left-0 w-full shadow-2xl z-40 transition-all duration-500 ease-in-out overflow-hidden border-t border-orange-400 ${isMenuOpen ? 'max-h-screen opacity-100 overflow-y-auto' : 'max-h-0 opacity-0'}`}>
+          <div className={`lg:hidden bg-white absolute top-full left-0 w-full shadow-2xl z-40 transition-all duration-500 ease-in-out overflow-hidden border-t border-black ${isMenuOpen ? 'max-h-screen opacity-100 overflow-y-auto' : 'max-h-0 opacity-0'}`}>
             <ul className="py-2">
               {menuItemsWithIds.map((item) => (
                 <MenuItem
@@ -554,8 +554,8 @@ const Header = () => {
                 />
               ))}
               {/* Additional Tabs in Mobile */}
-              <li className="border-t border-black mt-2 pt-2"> {/* Changed border to black */}
-                <div className="px-4 py-2 text-sm font-semibold text-gray-700 uppercase tracking-wider">
+              <li className="border-t border-black mt-2 pt-2">
+                <div className="px-4 py-2 text-sm font-semibold text-gray-500 uppercase tracking-wider">
                   Additional Links
                 </div>
               </li>
@@ -566,7 +566,7 @@ const Header = () => {
                     href={item.target === '_blank' ? item.link : undefined}
                     target={item.target}
                     rel={item.target === '_blank' ? 'noopener noreferrer' : undefined}
-                    className="flex items-center px-6 py-3.5 border-b border-black text-base text-gray-800 hover:bg-orange-400 hover:text-white transition-colors duration-300" // Changed border to black
+                    className="flex items-center px-6 py-3.5 border-b border-black text-base text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors duration-300 !text-left" // ADDED !text-left
                     onClick={() => setIsMenuOpen(false)}
                   >
                     {item.icon && <i className={`fas ${item.icon} mr-3 text-base w-4 text-center`}></i>}

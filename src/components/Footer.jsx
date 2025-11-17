@@ -7,7 +7,7 @@ const Footer = () => {
   // For a pure front-end React app, the most reliable way to display
   // the "last updated" date is to manually update this string when
   // you make significant changes and re-deploy your website.
-  const websiteLastUpdatedDate = "15/08/2024"; // <<<--- !!! YOU MUST UPDATE THIS DATE MANUALLY !!!
+  const websiteLastUpdatedDate = "17/11/2025"; // <<<--- !!! YOU MUST UPDATE THIS DATE MANUALLY !!!
 
   // --- UNIQUE BROWSER VISITS (Client-Side Persistent Count) ---
   // This counts how many times *this specific browser* has visited your site,
