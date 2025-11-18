@@ -10,14 +10,14 @@ const About = () => {
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div className="order-2 md:order-1">
-            <p className="mb-4 text-lg">
+            <p className="mb-4 text-lg text-justify">
               Mahatma Gandhi Mission, that started its journey in a modest way
               with a rural health care center at Nila and a hospital in
               Nanded: has emerged as a 5000-member family with more than 50
               educational organizations, health care centers and social
               welfare units functioning under its umbrella.
             </p>
-            <p className="mb-6 text-lg">
+            <p className="mb-6 text-lg text-justify">
               The MGM's College of Engineering at Nanded was established in
               1983, with the objective of imparting quality education in the
               field of Engineering and Technology. The college is approved by

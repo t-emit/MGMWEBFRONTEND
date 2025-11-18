@@ -20,7 +20,7 @@ const MissionVision = () => {
               </div>
               <h3 className="text-2xl font-extrabold text-blue-900 group-hover:text-blue-800 transition-colors duration-300">Vision</h3> {/* Larger, bolder title */}
             </div>
-            <p className="text-lg text-gray-800 leading-relaxed"> {/* Increased font size, better contrast */}
+            <p className="text-lg text-gray-800 text-justify leading-relaxed"> {/* Increased font size, better contrast */}
               To be one of the leading Institutions for Engineering education
               developing proficient Engineers with global acceptance in the
               service of mankind.

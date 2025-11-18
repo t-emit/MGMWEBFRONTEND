@@ -134,7 +134,7 @@ const ServiceRulesPage = () => {
 
               <div className="mb-8">
                 <h4 className="text-xl font-semibold text-blue-800 mb-3">3. Introduction</h4>
-                <p className="mb-6 bg-gray-50 p-4 rounded-lg">
+                <p className="mb-6 bg-gray-50 p-4 rounded-lg text-justify">
                   The Service Rules document is prepared to make aware all the staff members working at MGM&rsquo;s College of Engineering, Nanded about the rules and regulations that govern their work/duties in the Institute. The following rules shall apply to all regular employees i.e. teaching and non-teaching, provided that nothing in these rules and regulations shall apply to persons employed temporarily or on daily wages. The Rules shall come into force with effect from 01‐07‐2017.<br/><br/>
                   The Governing Council of MGM&rsquo;s College of Engineering Nanded is the final authority relating to the appointments, service conditions, fixing or adoption of pay scales of all employees of the College. The Governing Council of the College may add, amend, alter or change these service conditions whenever it deemed it necessary.
                 </p>
@@ -160,14 +160,14 @@ const ServiceRulesPage = () => {
 
               <div className="mb-8">
                 <h4 className="text-xl font-semibold text-blue-800 mb-3">5. Power to interpret, implement and to amend the rules</h4>
-                <p className="mb-6 bg-gray-50 p-4 rounded-lg">
+                <p className="mb-6 bg-gray-50 p-4 rounded-lg text-justify">
                   The power to interpret, implement and to amend the rules and regulations vests with the Governing Council who is empowered to issue such administrative instructions or orders as may be necessary to give effect and to carry out the provisions of these rules and regulations. The Governing Council shall have absolute right, liberty and powers to withdraw, modify, amend, alter, add to, repeal or to supercede at its sole discretion for any or all the rules contained herein or any rules and regulations framed and enforced by it from time to time, provided that the new rules or regulations or alterations or amendments so made shall not be detrimental or adversely affect the interest of the existing employees who are in regular service on the day new rules or regulations or alterations come into force.
                 </p>
               </div>
 
               <div className="mb-8">
                 <h4 className="text-xl font-semibold text-blue-800 mb-3">6. Governing Councils powers to delegate</h4>
-                <p className="mb-6 bg-gray-50 p-4 rounded-lg">
+                <p className="mb-6 bg-gray-50 p-4 rounded-lg text-justify">
                   The Governing Council may delegate powers to the Secretary or to any officer or officers of the Institution under their control, any or all the functions wholly or partly, permanently or temporarily and such officers or officer shall be the Governing Council for the purpose of interpretation of these rules to the extent and for the duration of the period as may be authorized by the Governing Council.
                 </p>
               </div>
@@ -209,7 +209,7 @@ const ServiceRulesPage = () => {
 
               <div className="mb-8">
                 <h4 className="text-xl font-semibold text-blue-800 mb-3">CERTIFICATES</h4>
-                <p className="mb-4">
+                <p className="mb-4 text-justify">
                   Every employee shall be required to produce the following certificates on being appointed in the Institute on regular/temporary/adhoc/contract basis:-
                 </p>
                 <ul className="list-disc pl-5 space-y-2 mb-6 bg-blue-50 p-4 rounded-lg">
@@ -220,21 +220,21 @@ const ServiceRulesPage = () => {
 
               <div className="mb-8">
                 <h4 className="text-xl font-semibold text-blue-800 mb-3">PROMOTION POLICY</h4>
-                <p className="mb-6 bg-gray-50 p-4 rounded-lg">
+                <p className="mb-6 bg-gray-50 p-4 rounded-lg text-justify">
                   Career Advancement Scheme is applicable in the College as per AICTE/UGC/Affiliating University guidelines. Promotion to higher level of service shall be made subject to the availability of the posts, eligibility of the staff; seniority and performance will be the deciding criterion. The Promotions under Career Advancement Scheme of Teaching Staff will follow the guidelines subject to the condition that the candidate possesses the prescribed minimum qualification and experience.
                 </p>
               </div>
 
               <div className="mb-8">
                 <h4 className="text-xl font-semibold text-blue-800 mb-3">AGE</h4>
-                <p className="mb-6 bg-gray-50 p-4 rounded-lg">
+                <p className="mb-6 bg-gray-50 p-4 rounded-lg text-justify">
                   The age of a person at the time of his/her appointment in the Institute shall be at the discretion of the Governing Council. Minimum age of the employee should not be less than 18 years.
                 </p>
               </div>
 
               <div className="mb-8">
                 <h4 className="text-xl font-semibold text-blue-800 mb-3">COMMENCEMENT OF SERVICE</h4>
-                <p className="mb-6 bg-gray-50 p-4 rounded-lg">
+                <p className="mb-6 bg-gray-50 p-4 rounded-lg text-justify">
                   Except as otherwise provided by or under these regulations, service of an employee shall be deemed to commence from the working day on which an employee reports for duty in an appointment covered by these regulations at the place and time intimated to him by the Governing Council provided that if he or she reports before forenoon, otherwise his/her service shall commence from the following day.
                 </p>
               </div>
@@ -252,7 +252,7 @@ const ServiceRulesPage = () => {
 
               <div className="mb-8">
                 <h4 className="text-xl font-semibold text-blue-800 mb-3">TERMINATION OF SERVICE</h4>
-                <ul className="list-disc pl-5 space-y-3 mb-6 bg-blue-50 p-4 rounded-lg">
+                <ul className="list-disc pl-5 space-y-3 mb-6 bg-blue-50 p-4 rounded-lg text-justify">
                   <li>If an employee at any time after completion of the probation intends to resign, he or she shall give one months' notice in writing or pay one months' salary in lieu thereof. Similarly, the Governing Council shall be competent at its discretion to terminate the service of any employee by giving one months' notice or by paying one months' salary in lieu thereof.</li>
                   <li>The Governing Council shall also be competent to terminate the services of an employee in case of abolition of post or posts, due to closure of an Institution/department or reduction in the number of cadre strength or sections of a class or reduction in the sanctioned intake.</li>
                   <li>The Governing Council shall also be competent to terminate the services of an employee who is incapacitated to discharge his official duties or for misconduct in discharging his/her official duties.</li>
@@ -261,8 +261,8 @@ const ServiceRulesPage = () => {
 
               <div id="retirement" className="mb-8 scroll-mt-28"> {/* Added scroll-mt-28 */}
                 <h4 className="text-xl font-semibold text-blue-800 mb-3">RETIREMENT</h4>
-                <ul className="list-disc pl-5 space-y-3 mb-6 bg-blue-50 p-4 rounded-lg">
-                  <li>The age of superannuation of a Teaching Staff and Class IV employees is 60 years and Non-teaching staff is 58 years, the retirement benefits such as gratuity, etc. shall be paid at the time of retirement.</li>
+                <ul className="list-disc pl-5 space-y-3 mb-6 bg-blue-50 p-4 rounded-lg text-justify">
+                  <li >The age of superannuation of a Teaching Staff and Class IV employees is 60 years and Non-teaching staff is 58 years, the retirement benefits such as gratuity, etc. shall be paid at the time of retirement.</li>
                   <li>The Governing Council in the interest of the Institute may extend the period of service of the employee concerned by such period as determined depending on the mental and physical condition of such an employee.</li>
                   <li>Age of superannuation in the categories of Librarian and Director of Physical Education will be 60 years only.</li>
                   <li>Any appointment after 58 years in the case of non-teaching staff and 60 years for Teaching Staff shall be on contract.</li>
@@ -307,14 +307,14 @@ const ServiceRulesPage = () => {
 
               <div className="mb-8">
                 <h4 className="text-xl font-semibold text-blue-800 mb-3">RESEARCH &amp; CONSULTANCY</h4>
-                <p className="mb-6 bg-gray-50 p-4 rounded-lg">
+                <p className="mb-6 bg-gray-50 p-4 rounded-lg text-justify">
                   The Institute encourages its teachers to take consultancy and in-house R&amp;D assignments. The teacher shall undertake such assignments. The teacher shall take up the assignment by obtaining the approval of the Director/Chairman in writing. The teacher shall avail the administrative and infrastructure facilities available in the college for carrying out his/her assignment. The teacher shall also associate other members of the faculty in working on the assignments. The teacher shall levy such professional charges on the benefiting agency; however, the charges shall be shared with the college as per norms.
                 </p>
               </div>
 
               <div className="mb-8">
                 <h4 className="text-xl font-semibold text-blue-800 mb-3">FINANCIAL SUPPORT FOR CONFERENCES, SEMINAR, WORKSHOP, FDP</h4>
-                <p className="mb-6 bg-gray-50 p-4 rounded-lg">
+                <p className="mb-6 bg-gray-50 p-4 rounded-lg text-justify">
                   As a part of the continual quality improvement policy of the college, financial support will be given to the staff members publishing papers in HCI/Scopus indexed journals. Prior permission shall be obtained from competent authority for sending papers. In the case of attending conferences, Seminar, Workshop, FDP, registration fees will be provided to staff member with prior permission.
                 </p>
               </div>
@@ -365,7 +365,7 @@ const ServiceRulesPage = () => {
 
               <div className="mb-8">
                 <h4 className="text-xl font-semibold text-blue-800 mb-3">LEAVE RULES</h4>
-                <p className="mb-4">
+                <p className="mb-4 text-justify">
                   These rules shall be called &quot;MGM&rsquo;s College of Engineering Leave Rules&quot;. The Institute follows all the guidelines/rules framed by AICTE/Government of Maharastra /Affiliating University.
                 </p>
                 <ul className="list-disc pl-5 space-y-3 mb-6 bg-blue-50 p-4 rounded-lg">
@@ -411,7 +411,7 @@ const ServiceRulesPage = () => {
 
               <div className="mb-8">
                 <h4 className="text-xl font-semibold text-blue-800 mb-3">3.2 Vacation</h4>
-                <p className="mb-6 bg-gray-50 p-4 rounded-lg">
+                <p className="mb-6 bg-gray-50 p-4 rounded-lg text-justify">
                   The Teaching staff is entitled to avail vacation of 60 days during the period of 12 months commencing from the beginning of the academic year. The Teacher shall be expected to work in the college during the vacation relevant to his/her duties as a Teacher and as may be assigned to him/her by the Competent Authority. However he is expected to perform the duties if any assigned by the Competent Authority.
                 </p>
               </div>

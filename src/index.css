@@ -41,27 +41,6 @@ body {
   }
 }
 
-/* Global paragraph text alignment */
-p {
-  text-align: justify;
-  text-justify: inter-word;
-}
-
-/* Optional: keep headings left aligned */
-h1, h2, h3, h4, h5, h6 {
-  text-align: left;
-}
-
-/* Optional: for page content wrappers */
-.page-content, main, section {
-  text-align: justify;
-}
-
-/* Prevent breaking button or small UI text */
-button, .btn, .nav-link, a {
-  text-align: center !important;
-}
-
 
 .animate-slideShow {
   animation: slideShow 24s infinite;

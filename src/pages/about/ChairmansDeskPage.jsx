@@ -72,26 +72,26 @@ const ChairmansDeskPage = () => {
               </div>
 
               <div className="space-y-6 text-gray-700 leading-relaxed">
-                <p className="relative pl-6 border-l-2 border-indigo-100">
-                  <span className="absolute top-0 left-0 text-indigo-400 text-2xl font-serif">"</span>
+                <p className="relative pl-6 border-l-2 text-justify border-indigo-100">
+                  <span className="absolute top-0 left-0 text-indigo-400 text-justify text-2xl font-serif">"</span>
                   We recognize that choosing your institution is one of the most important decision you make in your life. Mahatma Gandhi Mission aims for providing you with a distinctive combination of academic excellence with professional relevance laying foundation for total personality development. Today, MGM is one of the leading educational institution in Maharashtra. In Dec. 2015, MGM completed her 32 years of existence offering her contribution in the field of education and health services to the society. Providing health care services is MGM'S prime activity widely spread over with medical, dental, nursing colleges & multispeciality hospitals. MGM'S University of Health Sciences is the new milestone of achievement.
                 </p>
 
-                <p>
+                <p className='text-justify'>
                   In all MGM Institutions students are our top priority and their educational and social needs are at the heart of the MGM plannings. A dynamic academic environment promises you exciting & fulfilling student life.
                 </p>
 
-                <p>
+                <p className='text-justify'>
                   We believe in continuous upgradation of infrastructural facilities along with quality improvement program for faculty and enhancement of work environment in all respects. Our teaching standards are consistently rated amongst the best. qualified & dedicated faculty is our strength. Our high educational standards are reflected in the excellent response we receive from the achievements of our alumni having well received in organizations of repute worldwide.
                 </p>
 
                 <div className="bg-blue-50 p-6 rounded-lg border-l-4 border-indigo-500">
-                  <p className="text-blue-800 italic font-medium">
+                  <p className="text-blue-800 italic text-justify font-medium">
                     We are aware that success is no destination, it is a continuous journey.
                   </p>
                 </div>
 
-                <p>
+                <p className='text-justify'>
                   I am thankfull to all those parents who put in their valuable trust with us giving opportunity to contribute for the career development of their children. With all my best wishes to all of you for the endeavor you have taken.
                 </p>
               </div>

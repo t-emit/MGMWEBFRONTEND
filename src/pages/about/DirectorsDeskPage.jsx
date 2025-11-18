@@ -72,29 +72,29 @@ const DirectorsDeskPage = () => {
               </div>
 
               <div className="space-y-6 text-gray-700 leading-relaxed">
-                <p className="relative pl-6 border-l-2 border-indigo-100">
+                <p className="relative pl-6 border-l-2 text-justify border-indigo-100">
                   <span className="absolute top-0 left-0 text-indigo-400 text-2xl font-serif">"</span>
                   Being associated with this Institute since last 35 years and being the Principal, this institute carries a very special place in my heart.
                   Recognized as one of the best options to go for engineering education, Mahatma Gandhi Missions College of Engineering, Nanded has its own status in the institutions of Engineering in this region.
                 </p>
 
-                <p>
+                <p className='text-justify'>
                   We not only cater for engineering education but the purpose is to bring out the best in the students in the interest of their total personality development to contribute to their profession and society at large.
                 </p>
 
-                <p>
+                <p className='text-justify'>
                   The Institute caters for Under Graduate education for Civil, Computer, Mechanical, Electronics & Telecommunication & Information Technology with six post graduate courses. The Research Centre in Mechanical & Computer Engineering provides the reinforcement for building the career of the engineers.
                 </p>
 
-                <p>
+                <p className='text-justify'>
                   Our alumni having placed in the top organizations world over speaks itself about the quality of education here. Various alumni meets organized in India and USA gave us immense satisfaction to be the part of the career development of these top performers. Our management with the team of teaching faculty supporting & non-teaching staff are all happy to be the launching pad for these shining stars in global scenario.
                 </p>
 
-                <p>
+                <p className='text-justify'>
                   The process of education is ever improving phenomenon. Increasing technological advancement and changing market forces put forward the challenges for the competence expected of an engineer and hence the engineering education. Declared non employability of engineering graduates speaks loads about the improvements to be brought in the education process.
                 </p>
 
-                <p>
+                <p className='text-justify'>
                   Journey is unending. Everywhere an 'edge over' element is to be introduced giving competitive advantage to the students and we always keep exploring new ideas improving teaching-learning process offered in our Institute. Being aware of the fact that improvements have no end and perfection is no destination. It's the continues journey. I have tried to put this in one of my poems.... Exploring new dimensions of progress.
                 </p>
 
@@ -113,7 +113,7 @@ const DirectorsDeskPage = () => {
                   - And the journey goes on.... and.... on
                 </p>
 
-                <p>
+                <p className='text-justify'>
                   I am always happy to welcome the new expecting faces joining the Institute, taking care of the budding engineers and still more happier for sending the trained engineers from the Institute to the outside world over with flying colours at a new potential capable for positive contribution to their profession and society at large. It is aptly said....
                 </p>
 
@@ -123,7 +123,7 @@ const DirectorsDeskPage = () => {
                   </p>
                 </div>
 
-                <p>
+                <p className='text-justify'>
                   And the students going out as engineers prove this attaining new horizons of success... with their achievements making us feel proud to be part of their development.
                   With the existence for more than 30 years & experience of the team, we always see to it that, for our students studying here becomes a unique experience. Dear students we promise for the best possible efforts... After all the very purpose of our existence is...
                 </p>

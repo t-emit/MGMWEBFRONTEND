@@ -18,7 +18,7 @@ const CoreValuesEthicsPage = () => {
               Core Values
             </h2>
             
-            <p className="text-gray-700 leading-relaxed mb-6">
+            <p className="text-gray-700 leading-relaxed mb-6 text-justify">
               Students seeking admission and trust of their parents are the primary reasons we exist as an Institution.
             </p>
             
@@ -29,7 +29,7 @@ const CoreValuesEthicsPage = () => {
             <div className="space-y-6">
               <div className="bg-blue-50 p-6 rounded-lg border-l-4 border-blue-500">
                 <h3 className="text-xl font-semibold mb-3 text-blue-800">Integrity</h3>
-                <p className="text-gray-700">
+                <p className="text-gray-700 text-justify">
                   All activities should be conducted in an ethical manner. Research and teaching shall be carried out 
                   in an environment of academic freedom and honesty.
                 </p>
@@ -37,7 +37,7 @@ const CoreValuesEthicsPage = () => {
 
               <div className="bg-green-50 p-6 rounded-lg border-l-4 border-green-500">
                 <h3 className="text-xl font-semibold mb-3 text-green-800">Accountability</h3>
-                <p className="text-gray-700">
+                <p className="text-gray-700 text-justify">
                   Roles and responsibilities are assigned and people are held accountable for their deeds. We feel 
                   our liability towards society and ensure our actions add value to the Institute.
                 </p>
@@ -45,28 +45,28 @@ const CoreValuesEthicsPage = () => {
 
               <div className="bg-purple-50 p-6 rounded-lg border-l-4 border-purple-500">
                 <h3 className="text-xl font-semibold mb-3 text-purple-800">Responsibility</h3>
-                <p className="text-gray-700">
+                <p className="text-gray-700 text-justify">
                   Everybody in the Institute is expected to discharge his/her duties with due responsibility.
                 </p>
               </div>
 
               <div className="bg-teal-50 p-6 rounded-lg border-l-4 border-teal-500">
                 <h3 className="text-xl font-semibold mb-3 text-teal-800">Transparency</h3>
-                <p className="text-gray-700">
+                <p className="text-gray-700 text-justify">
                   General records of maximum aspects of the functioning are maintained online to encourage transparency.
                 </p>
               </div>
 
               <div className="bg-orange-50 p-6 rounded-lg border-l-4 border-orange-500">
                 <h3 className="text-xl font-semibold mb-3 text-orange-800">Respect of Individual</h3>
-                <p className="text-gray-700">
+                <p className="text-gray-700 text-justify">
                   While carrying out interactions at all levels, the dignity and respect of an individual is observed.
                 </p>
               </div>
 
               <div className="bg-pink-50 p-6 rounded-lg border-l-4 border-pink-500">
                 <h3 className="text-xl font-semibold mb-3 text-pink-800">Faculty Empowerment</h3>
-                <p className="text-gray-700">
+                <p className="text-gray-700 text-justify">
                   Institute promotes and encourages faculty in their individual academic development and provides 
                   scope for enhancement in their participation in general governance.
                 </p>
@@ -74,14 +74,14 @@ const CoreValuesEthicsPage = () => {
 
               <div className="bg-indigo-50 p-6 rounded-lg border-l-4 border-indigo-500">
                 <h3 className="text-xl font-semibold mb-3 text-indigo-800">Service to Nation</h3>
-                <p className="text-gray-700">
+                <p className="text-gray-700 text-justify">
                   Institute is committed to developing skilled manpower to serve the Nation.
                 </p>
               </div>
 
               <div className="bg-emerald-50 p-6 rounded-lg border-l-4 border-emerald-500">
                 <h3 className="text-xl font-semibold mb-3 text-emerald-800">Environmental Stewardship</h3>
-                <p className="text-gray-700">
+                <p className="text-gray-700 text-justify">
                   Committed to practicing green technologies for sustainable development of the Nation.
                 </p>
               </div>
@@ -95,18 +95,18 @@ const CoreValuesEthicsPage = () => {
             </h2>
             
             <div className="text-gray-700 leading-relaxed mb-6">
-              <p className="mb-4">
+              <p className="mb-4 text-justify">
                 The Institute is a community of cultured intellectuals. It is expected that freedom should be exercised 
                 with a sense of responsibility. Being aware of rights should go together with consciousness towards duties.
               </p>
               
-              <p className="mb-4">
+              <p className="mb-4 text-justify">
                 All pleasures are to be enjoyed with a sense of morality. All arguments should take place maintaining dignity. 
                 Mahatma Gandhiji's seven principles are strived to be followed: Wealth with work, Pleasure with conscience, 
                 Knowledge with character, Commerce with morality, Science with humanity, Religion with sacrifice, and Politics with principle.
               </p>
               
-              <p className="mb-6">
+              <p className="mb-6 text-justify">
                 The character of the Institution is built with discipline and harmony in functioning. Certain policies are formed 
                 and communicated to all elements to strike the balance between freedom and responsibilities, rights and duties, 
                 in pursuit of knowledge, respecting all individuals.
@@ -118,28 +118,28 @@ const CoreValuesEthicsPage = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
               <div className="bg-gray-50 p-5 rounded-lg">
                 <h4 className="text-lg font-semibold mb-3 text-blue-700">Dress Code</h4>
-                <p className="text-gray-700">
+                <p className="text-gray-700 text-justify">
                   Students are required to follow the prescribed dress code: blue jeans and white shirt every day except Saturday.
                 </p>
               </div>
               
               <div className="bg-gray-50 p-5 rounded-lg">
                 <h4 className="text-lg font-semibold mb-3 text-blue-700">Honesty</h4>
-                <p className="text-gray-700">
+                <p className="text-gray-700 text-justify">
                   Malpractices/cheating during tests/examinations or knowingly furnishing false information are strictly prohibited.
                 </p>
               </div>
               
               <div className="bg-gray-50 p-5 rounded-lg">
                 <h4 className="text-lg font-semibold mb-3 text-blue-700">Transparent Administration</h4>
-                <p className="text-gray-700">
+                <p className="text-gray-700 text-justify">
                   Online information is maintained regarding student attendance and class conduction by teachers.
                 </p>
               </div>
               
               <div className="bg-gray-50 p-5 rounded-lg">
                 <h4 className="text-lg font-semibold mb-3 text-blue-700">Disciplined Conduct</h4>
-                <p className="text-gray-700">
+                <p className="text-gray-700 text-justify">
                   Any behavior obstructing teaching, research, administration or other proceedings is subject to disciplinary action.
                 </p>
               </div>
@@ -212,17 +212,17 @@ const CoreValuesEthicsPage = () => {
             </h2>
             
             <div className="text-gray-700 leading-relaxed">
-              <p className="mb-4">
+              <p className="mb-4 text-justify">
                 The institution has a well-established system to handle UG Projects, PG Dissertations, and PhD Theses. 
                 Issues of copyright infringement and plagiarism are taken very seriously.
               </p>
               
-              <p className="mb-4">
+              <p className="mb-4 text-justify">
                 Our library is equipped with plagiarism detection software. Each department has a team appointed by the 
                 Director to follow up on procedures, led by respective departmental heads.
               </p>
               
-              <p className="mb-6">
+              <p className="mb-6 text-justify">
                 This team investigates claims of plagiarism or misuse of documents or articles. When a project report, 
                 dissertation, or thesis is found to have plagiarized other work or included third-party copyright material 
                 without permission, the institute requires students to resubmit their work with proper citations.
@@ -230,7 +230,7 @@ const CoreValuesEthicsPage = () => {
               
               <div className="bg-yellow-50 border-l-4 border-yellow-400 p-6 rounded-lg">
                 <h3 className="text-xl font-semibold mb-3 text-yellow-800">Our Commitment</h3>
-                <p className="text-gray-700">
+                <p className="text-gray-700 text-justify">
                   We are committed to maintaining the highest standards of academic integrity and ethical conduct 
                   throughout our institution, ensuring a fair and respectful environment for all members of our community.
                 </p>
