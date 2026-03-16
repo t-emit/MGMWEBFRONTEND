@@ -19,6 +19,7 @@ import ManageDepartments from './pages/Admin/ManageDepartments';
 import HomePage from './pages/Home';
 import ContactPage from './pages/contact';
 import SearchResultsPage from './pages/search';
+import NewsEventsPage from './pages/NewsEventsPage';
 
 // Import About Us sub-pages
 import AboutUsPage from './pages/about/AboutUsPage';
@@ -221,6 +222,7 @@ const App = () => {
         <Routes>
           {/* --- PUBLIC ROUTES --- */}
           <Route path="/" element={<HomePage />} />
+          <Route path="/news-events" element={<NewsEventsPage />} />
 
           {/* About Us Routes */}
           <Route path="/about-us" element={<AboutUsPage />} />

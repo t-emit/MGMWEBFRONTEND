@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import axios from 'axios';
 
 const cseDepartmentTabs = [
   { name: "DEPT Profile", path: "/academics/computer-science-engineering" },
@@ -1063,6 +1064,23 @@ const FacultyProfilePage = () => {
 
   const currentDeptPath = "/academics/computer-science-engineering"; // Base path for CSE department
 
+  const [dbFaculty, setDbFaculty] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchFaculty = async () => {
+      try {
+        const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/faculty`);
+        setDbFaculty(res.data);
+      } catch (err) {
+        console.error('Error fetching faculty', err);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+    fetchFaculty();
+  }, []);
+
   return (
     <div className="container mx-auto px-4 py-8 mt-32 max-w-6xl">
       {/* Hero Section - Consistent with other redesigned pages */}
@@ -1116,31 +1134,43 @@ const FacultyProfilePage = () => {
 
         {/* Teaching Staff Section */}
         <h3 className="text-2xl font-bold text-indigo-700 mb-6 mt-10 border-b border-indigo-100 pb-2">Teaching Staff</h3>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-          {teachingStaff.map((faculty) => (
-            <div key={faculty.id} className="bg-gray-50 rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 transform hover:-translate-y-1">
-              <Link to={`${currentDeptPath}/faculty/${faculty.id}`} className="block">
-                <img
-                  src={faculty.img}
-                  alt={faculty.name}
-                  className="w-full h-48 object-cover object-top" // Use object-top to focus on head/shoulders
-                  onError={(e) => { e.target.onerror = null; e.target.src = '/images/placeholder-faculty.jpg'; }} // Fallback image
-                />
-                <div className="p-4 text-center">
-                  <h4 className="text-lg font-semibold text-blue-800 hover:underline">{faculty.name}</h4>
-                  <p className="text-sm text-gray-600">{faculty.designation}</p>
-                  <p className="text-xs text-gray-500 mt-1">{faculty.specialization}</p>
-                  {faculty.email && faculty.email !== 'NA' && (
-                    <a href={`mailto:${faculty.email}`} className="text-indigo-600 hover:text-indigo-800 text-xs mt-2 inline-flex items-center">
-                      <svg className="w-3 h-3 mr-1" fill="currentColor" viewBox="0 0 20 20"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path></svg>
-                      {faculty.email}
-                    </a>
-                  )}
-                </div>
-              </Link>
+        {isLoading ? (
+            <div className="flex justify-center p-8">
+                <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-indigo-600"></div>
             </div>
-          ))}
-        </div>
+        ) : (
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+              {dbFaculty.map((faculty) => (
+                <div key={faculty._id} className="bg-gray-50 rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 transform hover:-translate-y-1">
+                  <Link to={`${currentDeptPath}/faculty/${faculty._id}`} className="block">
+                    {faculty.profileImageUrl ? (
+                        <img
+                          src={faculty.profileImageUrl}
+                          alt={faculty.name}
+                          className="w-full h-48 object-cover object-top"
+                          onError={(e) => { e.target.onerror = null; e.target.src = '/images/placeholder-faculty.jpg'; }}
+                        />
+                    ) : (
+                        <div className="w-full h-48 bg-gray-200 flex items-center justify-center text-4xl font-bold text-gray-400">
+                            {faculty.name.charAt(0)}
+                        </div>
+                    )}
+                    <div className="p-4 text-center">
+                      <h4 className="text-lg font-semibold text-blue-800 hover:underline">{faculty.name}</h4>
+                      <p className="text-sm text-gray-600">{faculty.designation || faculty.title}</p>
+                      <p className="text-xs text-gray-500 mt-1">{faculty.specialization}</p>
+                      {faculty.email && faculty.email !== 'NA' && (
+                        <a href={`mailto:${faculty.email}`} className="text-indigo-600 hover:text-indigo-800 text-xs mt-2 inline-flex items-center" onClick={(e) => e.stopPropagation()}>
+                          <svg className="w-3 h-3 mr-1" fill="currentColor" viewBox="0 0 20 20"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path></svg>
+                          {faculty.email}
+                        </a>
+                      )}
+                    </div>
+                  </Link>
+                </div>
+              ))}
+            </div>
+        )}
 
         {/* Supporting Staff Section */}
         <h3 className="text-2xl font-bold text-indigo-700 mb-6 mt-12 border-b border-indigo-100 pb-2">Supporting Staff</h3>

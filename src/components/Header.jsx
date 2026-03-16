@@ -1,7 +1,7 @@
 'use client';
 import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import NewsTicker from './NewsTicker';
+import ScrollingNotice from './ScrollingNotice';
 
 // Utility function to assign unique IDs to menu items for easier state management
 const assignIds = (items, parentId = '') => {
@@ -478,7 +478,7 @@ const Header = () => {
           </div>
         </div>
       </div>
-      <NewsTicker />
+      <ScrollingNotice />
 
       {/* Main Navigation Bar - Now with updated theme */}
       <div className="bg-white shadow-2xl border-t border-black text-gray-800">

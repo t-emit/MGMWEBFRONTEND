@@ -2,31 +2,32 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import AccordionItem from '../../../components/AccordionItem';
-
-// Import all faculty data
-import { allCseFacultyData } from './FacultyProfilePage';
+import axios from 'axios';
 
 const FacultyDetailPage = () => {
     const { facultyId } = useParams();
     const [facultyDetails, setFacultyDetails] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
-    // CHANGE 1: Initialize activeAccordion to null so no tab is open by default
     const [activeAccordion, setActiveAccordion] = useState(null);
 
     const currentDeptPath = "/academics/computer-science-engineering";
 
     useEffect(() => {
-        setLoading(true);
-        setError(null);
-        const foundFaculty = allCseFacultyData.find(f => f.id === facultyId);
-
-        if (foundFaculty) {
-            setFacultyDetails(foundFaculty);
-        } else {
-            setError('Faculty member not found.');
-        }
-        setLoading(false);
+        const fetchFacultyDetails = async () => {
+            setLoading(true);
+            setError(null);
+            try {
+                const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/faculty/${facultyId}`);
+                setFacultyDetails(res.data);
+            } catch (err) {
+                console.error("Error fetching faculty details:", err);
+                setError('Faculty member not found or server error.');
+            } finally {
+                setLoading(false);
+            }
+        };
+        fetchFacultyDetails();
     }, [facultyId]);
 
     const toggleAccordion = (id) => {
@@ -152,15 +153,21 @@ const FacultyDetailPage = () => {
                         <div className="bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden sticky top-32">
                             {/* Faculty Image - Improved sizing */}
                             <div className="relative w-full aspect-[4/5] bg-gray-100">
-                                <img
-                                    src={facultyDetails.img}
-                                    alt={facultyDetails.name}
-                                    className="absolute inset-0 w-full h-full object-cover object-top"
-                                    onError={(e) => { 
-                                        e.target.onerror = null; 
-                                        e.target.src = '/images/placeholder-faculty.jpg'; 
-                                    }}
-                                />
+                                {facultyDetails.profileImageUrl ? (
+                                    <img
+                                        src={facultyDetails.profileImageUrl}
+                                        alt={facultyDetails.name}
+                                        className="absolute inset-0 w-full h-full object-cover object-top"
+                                        onError={(e) => { 
+                                            e.target.onerror = null; 
+                                            e.target.src = '/images/placeholder-faculty.jpg'; 
+                                        }}
+                                    />
+                                ) : (
+                                    <div className="absolute inset-0 flex items-center justify-center bg-gray-200">
+                                        <span className="text-6xl text-gray-400 font-bold">{facultyDetails.name?.charAt(0)}</span>
+                                    </div>
+                                )}
                             </div>
                             
                             {/* Contact Information */}

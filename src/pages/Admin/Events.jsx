@@ -15,6 +15,8 @@ const ManageEvents = () => {
     const [type, setType] = useState('news');
     const [imageFile, setImageFile] = useState(null);
     const [pdfFile, setPdfFile] = useState(null);
+    
+    const [editingId, setEditingId] = useState(null);
 
     const { token } = useAuth();
 
@@ -36,6 +38,32 @@ const ManageEvents = () => {
         fetchEvents();
     }, []);
 
+    const handleEditClick = (event) => {
+        setEditingId(event._id);
+        setTitle(event.title);
+        
+        // Attempt to parse Date to YYYY-MM-DD for the input field
+        let formattedDate = event.date;
+        try {
+            const dateObj = new Date(event.date);
+            if (!isNaN(dateObj.getTime())) {
+                formattedDate = dateObj.toISOString().split('T')[0];
+            }
+        } catch(e) {}
+        
+        setDate(formattedDate);
+        setDescription(event.description);
+        setLink(event.link || '');
+        setType(event.type);
+        setImageFile(null);
+        setPdfFile(null);
+        
+        if (document.getElementById('image-input')) document.getElementById('image-input').value = null;
+        if (document.getElementById('pdf-input')) document.getElementById('pdf-input').value = null;
+        
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         setError('');
@@ -54,21 +82,32 @@ const ManageEvents = () => {
         }
         
         try {
-            const res = await axios.post(`${import.meta.env.VITE_API_URL}/api/events`, formData, {
-                headers: {
-                    'Authorization': `Bearer ${token}`,
-                    'Content-Type': 'multipart/form-data'
-                }
-            });
+            if (editingId) {
+                const res = await axios.put(`${import.meta.env.VITE_API_URL}/api/events/${editingId}`, formData, {
+                    headers: {
+                        'Authorization': `Bearer ${token}`,
+                        'Content-Type': 'multipart/form-data'
+                    }
+                });
+                setEvents(events.map(ev => ev._id === editingId ? res.data : ev));
+                setEditingId(null);
+            } else {
+                const res = await axios.post(`${import.meta.env.VITE_API_URL}/api/events`, formData, {
+                    headers: {
+                        'Authorization': `Bearer ${token}`,
+                        'Content-Type': 'multipart/form-data'
+                    }
+                });
+                setEvents([res.data, ...events]);
+            }
 
-            setEvents([res.data, ...events]);
             setTitle(''); setDate(''); setDescription(''); setLink(''); setType('news');
             setImageFile(null); setPdfFile(null);
             document.getElementById('image-input').value = null;
             document.getElementById('pdf-input').value = null;
 
         } catch (err) {
-            setError('Failed to add event. Please try again.');
+            setError(editingId ? 'Failed to update event. Please try again.' : 'Failed to add event. Please try again.');
             console.error("Submit Event Error:", err);
         }
     };
@@ -95,9 +134,9 @@ const ManageEvents = () => {
         <div className="container mx-auto p-4">
             <h1 className="text-2xl font-bold mb-4">Manage News & Events</h1>
 
-            {/* Add New Event Form */}
+            {/* Add/Edit Event Form */}
             <div className="bg-white p-6 rounded-lg shadow-md mb-8">
-                <h2 className="text-xl font-semibold mb-4">Add New Item</h2>
+                <h2 className="text-xl font-semibold mb-4">{editingId ? 'Edit Item' : 'Add New Item'}</h2>
                 <form onSubmit={handleSubmit} className="space-y-4">
                     <div><label className="block text-sm font-medium text-gray-700">Title</label><input type="text" value={title} onChange={(e) => setTitle(e.target.value)} required className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2" /></div>
                     <div><label className="block text-sm font-medium text-gray-700">Date</label><input type="date" value={date} onChange={(e) => setDate(e.target.value)} required className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2" /></div>
@@ -124,7 +163,22 @@ const ManageEvents = () => {
                     </div>
 
                     {error && <p className="text-red-500">{error}</p>}
-                    <button type="submit" className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700">Add Item</button>
+                    
+                    <div className="flex gap-4">
+                        <button type="submit" className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700">
+                            {editingId ? 'Update Item' : 'Add Item'}
+                        </button>
+                        {editingId && (
+                            <button type="button" onClick={() => {
+                                setEditingId(null); setTitle(''); setDate(''); setDescription(''); setLink(''); setType('news');
+                                setImageFile(null); setPdfFile(null);
+                                document.getElementById('image-input').value = null;
+                                document.getElementById('pdf-input').value = null;
+                            }} className="px-4 py-2 bg-gray-500 text-white rounded-md hover:bg-gray-600">
+                                Cancel
+                            </button>
+                        )}
+                    </div>
                 </form>
             </div>
 
@@ -143,7 +197,10 @@ const ManageEvents = () => {
                                         {event.pdfUrl && <a href={event.pdfUrl} target="_blank" rel="noopener noreferrer" className="text-xs text-red-500 hover:underline">View PDF</a>}
                                     </div>
                                 </div>
-                                <button onClick={() => handleDelete(event._id)} className="px-3 py-1 bg-red-500 text-white rounded-md text-sm hover:bg-red-600">Delete</button>
+                                <div className="flex gap-2">
+                                    <button onClick={() => handleEditClick(event)} className="px-3 py-1 bg-green-500 text-white rounded-md text-sm hover:bg-green-600">Edit</button>
+                                    <button onClick={() => handleDelete(event._id)} className="px-3 py-1 bg-red-500 text-white rounded-md text-sm hover:bg-red-600">Delete</button>
+                                </div>
                             </div>
                         ))}
                     </div>
